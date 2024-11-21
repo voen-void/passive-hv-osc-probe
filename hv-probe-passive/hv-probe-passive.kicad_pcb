@@ -7239,9 +7239,9 @@
 		(pts
 			(xy 22 33.5) (xy 22 19.9)
 		)
-		(height 240.75)
+		(height 231.5)
 		(gr_text "13.6000 mm"
-			(at 261.6 26.7 90)
+			(at 252.35 26.7 90)
 			(layer "Dwgs.User")
 			(uuid "4195d7a4-2331-4189-99ef-bff02b1c3e12")
 			(effects
@@ -7338,9 +7338,9 @@
 		(pts
 			(xy 22 33.5) (xy 22 43.5)
 		)
-		(height -238)
+		(height -227.25)
 		(gr_text "10.0000 mm"
-			(at 258.85 38.5 90)
+			(at 248.1 38.5 90)
 			(layer "Dwgs.User")
 			(uuid "5dcab93f-4328-460a-8060-3babf5fa6118")
 			(effects
@@ -7371,9 +7371,9 @@
 		(pts
 			(xy 22 33.5) (xy 22 47.1)
 		)
-		(height -240.75)
+		(height -231.5)
 		(gr_text "13.6000 mm"
-			(at 261.6 40.3 90)
+			(at 252.35 40.3 90)
 			(layer "Dwgs.User")
 			(uuid "7df7b728-82ba-45e6-b8f8-accbd87cd24a")
 			(effects
@@ -7442,39 +7442,6 @@
 			(at 83.965 48.85 0)
 			(layer "Dwgs.User")
 			(uuid "9fcfbe90-46c0-4c91-b51d-f90bc6f46791")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(format
-			(prefix "")
-			(suffix "")
-			(units 3)
-			(units_format 1)
-			(precision 4)
-		)
-		(style
-			(thickness 0.1)
-			(arrow_length 1.27)
-			(text_position_mode 0)
-			(extension_height 0.58642)
-			(extension_offset 0.5) keep_text_aligned)
-	)
-	(dimension
-		(type aligned)
-		(layer "Dwgs.User")
-		(uuid "a338ca01-fe3f-437d-a198-861d4d53bd04")
-		(pts
-			(xy 52.25 30.5) (xy 52.25 29)
-		)
-		(height 201.75)
-		(gr_text "1.5000 mm"
-			(at 252.85 29.75 90)
-			(layer "Dwgs.User")
-			(uuid "a338ca01-fe3f-437d-a198-861d4d53bd04")
 			(effects
 				(font
 					(size 1 1)
@@ -7697,46 +7664,13 @@
 	(dimension
 		(type aligned)
 		(layer "Dwgs.User")
-		(uuid "e3ab7584-eab2-46ce-aeb4-9a8010eab850")
-		(pts
-			(xy 51.75 30.5) (xy 51.75 27.75)
-		)
-		(height 205.25)
-		(gr_text "2.7500 mm"
-			(at 255.85 29.125 90)
-			(layer "Dwgs.User")
-			(uuid "e3ab7584-eab2-46ce-aeb4-9a8010eab850")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(format
-			(prefix "")
-			(suffix "")
-			(units 3)
-			(units_format 1)
-			(precision 4)
-		)
-		(style
-			(thickness 0.1)
-			(arrow_length 1.27)
-			(text_position_mode 0)
-			(extension_height 0.58642)
-			(extension_offset 0.5) keep_text_aligned)
-	)
-	(dimension
-		(type aligned)
-		(layer "Dwgs.User")
 		(uuid "ece4607a-5046-49c0-af1d-30fb4c09db0b")
 		(pts
 			(xy 22 33.5) (xy 22 23.5)
 		)
-		(height 238)
+		(height 227.25)
 		(gr_text "10.0000 mm"
-			(at 258.85 28.5 90)
+			(at 248.1 28.5 90)
 			(layer "Dwgs.User")
 			(uuid "ece4607a-5046-49c0-af1d-30fb4c09db0b")
 			(effects
