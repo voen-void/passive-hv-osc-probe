@@ -1639,7 +1639,7 @@
 		)
 		(uuid "e889dc64-035c-4091-8069-276393caade0")
 	)
-	(text_box "Input range: theoretically up to 50 kV peak MAXIMUM. 25 kV Maximum recommended."
+	(text_box "Input range: theoretically up to 50 kV peak MAXIMUM. 20 kV Maximum recommended."
 		(exclude_from_sim no)
 		(at 91.44 104.775 0)
 		(size 105.41 5.715)
