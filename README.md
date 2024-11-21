@@ -2,6 +2,10 @@
 KiCad design files for a classic passive high voltage oscilloscope probe 1000:1
 Design based on an old [EEVBlog Video](https://www.youtube.com/watch?v=jUvSP3BQpvs)
 
+![A drawing of the schematic of the probe](/images/schematic-basic.jpeg)
+
+![A drawing of the PCB of the probe](/images/pcb-basic.jpeg)
+
 ## What is it?
 This project tackles the design of a simple high voltage oscilloscope probe based on the principles of a voltage divider. Its a bit more complex than that, as the parasitic capacitances need to be compensated to achieve better bandwidth. For this reason the resistors forming the voltage divider are bypassed by capacitors which increase the AC transmittance of the circuit. At the low voltage end two footprints for capacitors are provided which allow simple compensation, as you will need to adjust that capacitance to achieve a flat frequency response. Capacitor values are also proposed, but might need to be changed.
 For adjusting the low frequency transmittance a 10 turn potentiometer is provided. It should be set to 1 M (full range) by default. While calibrating adjust it to reach desired 1000:1 division ratio. then the capacitor should be adjusted to achieve flat frequency response.
