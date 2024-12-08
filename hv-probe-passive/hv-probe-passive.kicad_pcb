@@ -7088,7 +7088,7 @@
 			(justify left bottom)
 		)
 	)
-	(gr_text "Poliurethane Resin HUNTSMAN CW5620 BLUE \n\\eps = 6\ndielectric breakdown 25 kV / 1 mm\nviscosity 1300 mPas"
+	(gr_text "Poliurethane Resin HUNTSMAN CW5620 BLUE \neps = 6\ndielectric breakdown 25 kV / 1 mm\nviscosity 1300 mPas"
 		(at 160.75 69.75 0)
 		(layer "Cmts.User")
 		(uuid "bc9ff4ab-76a8-4486-8920-b208d67d95d1")

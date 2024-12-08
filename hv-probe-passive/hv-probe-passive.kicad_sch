@@ -1601,7 +1601,7 @@
 		)
 		(uuid c4231545-7668-439a-ade9-84e725922dd0)
 	)
-	(text_box "in the original build a resin with \\eps of ~4-5 was used, i have resin with \\eps = 6 i magnified the capacitances."
+	(text_box "in the original build a resin with eps of ~4-5 was used, so since i have resin with eps = 6 i magnified the capacitances."
 		(exclude_from_sim no)
 		(at 91.44 110.49 0)
 		(size 66.04 5.715)
@@ -2121,7 +2121,7 @@
 				)
 			)
 		)
-		(property "Value" "47p"
+		(property "Value" "24p"
 			(at 91.4463 42.545 90)
 			(effects
 				(font
@@ -2207,7 +2207,7 @@
 				)
 			)
 		)
-		(property "Value" "47p"
+		(property "Value" "24p"
 			(at 157.4863 42.545 90)
 			(effects
 				(font
@@ -2293,7 +2293,7 @@
 				)
 			)
 		)
-		(property "Value" "47p"
+		(property "Value" "24p"
 			(at 151.1363 42.545 90)
 			(effects
 				(font
@@ -2467,7 +2467,7 @@
 				)
 			)
 		)
-		(property "Value" "47p"
+		(property "Value" "24p"
 			(at 124.4663 42.545 90)
 			(effects
 				(font
@@ -2553,7 +2553,7 @@
 				)
 			)
 		)
-		(property "Value" "47p"
+		(property "Value" "24p"
 			(at 107.9563 42.545 90)
 			(effects
 				(font
@@ -2639,7 +2639,7 @@
 				)
 			)
 		)
-		(property "Value" "47p"
+		(property "Value" "24p"
 			(at 85.0963 42.545 90)
 			(effects
 				(font
@@ -2725,7 +2725,7 @@
 				)
 			)
 		)
-		(property "Value" "47p"
+		(property "Value" "24p"
 			(at 134.6263 42.545 90)
 			(effects
 				(font
@@ -3148,7 +3148,7 @@
 				)
 			)
 		)
-		(property "Value" "47p"
+		(property "Value" "24p"
 			(at 118.1163 42.545 90)
 			(effects
 				(font
@@ -3234,7 +3234,7 @@
 				)
 			)
 		)
-		(property "Value" "47p"
+		(property "Value" "24p"
 			(at 140.9763 42.545 90)
 			(effects
 				(font
@@ -3473,7 +3473,7 @@
 				)
 			)
 		)
-		(property "Value" "47p"
+		(property "Value" "24p"
 			(at 101.6063 42.545 90)
 			(effects
 				(font
