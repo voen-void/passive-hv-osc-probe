@@ -11,6 +11,7 @@ As in that video, the probe has been designed to fit in a shielding tube. The pr
 
 > [!NOTE]
 > **This project is still under construction! It is not recommended to build it yet, as it has not yet been tested.**
+> *The PCBs for this project have been provided by PCBWay.*
 
 ## What is it?
 This project tackles the design of a simple high voltage oscilloscope probe based on the principles of a voltage divider. Its a bit more complex than that, as the parasitic capacitances need to be compensated to achieve better bandwidth. For this reason the resistors forming the voltage divider are bypassed by capacitors which increase the AC transmittance of the circuit. It should be noted that for desired probe behavior the tranmittance of just the resistors should match that of just the capacitors. 
@@ -27,7 +28,7 @@ For adjusting the DC and low frequency transmittance a 10 turn potentiometer is 
 5. Use a resin with a relative dielectric constant no higher than 6.
 
 > [!CAUTION]
-> High voltages can easily be lethal. Only deal with them if you are qualified.
+> High voltages can easily be lethal. Only deal with them if you are qualified. You are building and using this project at your own risk!
 
 ## Physical construction
 
