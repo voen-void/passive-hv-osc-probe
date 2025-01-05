@@ -1620,6 +1620,25 @@
 		)
 		(uuid "3a2485e2-83f9-43e7-9807-99b1a981b357")
 	)
+	(text_box "If you want to reduce capacitive loading introduced by this probe perhaps consider replacing the proposed 24 pF caps with 12 pF capacitors, although care should be taken as this could be coming very close to loosing compensation. Recommended capacitor: 564R60GAQ10"
+		(exclude_from_sim no)
+		(at 34.29 17.145 0)
+		(size 51.435 15.875)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(fill
+			(type none)
+		)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left top)
+		)
+		(uuid "ddbbb32b-c549-4da0-b795-06baf42917fb")
+	)
 	(text_box "Warning! Mind the grounding. Improper grounding might lead to high voltage shock. Be aware that the oscilloscope ground is referenced to the mains PE terminal and it should stay this way during measurments. Remote oscilloscope control recommended."
 		(exclude_from_sim no)
 		(at 128.27 75.565 0)
