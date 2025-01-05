@@ -7,7 +7,8 @@ As in that video, the probe has been designed to fit in a shielding tube. The pr
 
 ![A drawing of the schematic of the probe](/images/schematic-basic.jpeg)
 
-![A drawing of the PCB of the probe](/images/pcb-basic.jpeg)
+![A rendering of the front of the PCB of the probe](/images/pcb-render-front.jpeg)
+![A rendering of the back of the PCB of the probe](/images/pcb-render-back.jpeg)
 
 > [!NOTE]
 > **This project is still under construction! It is not recommended to build it yet, as it has not yet been tested.**
@@ -31,6 +32,8 @@ For adjusting the DC and low frequency transmittance a 10 turn potentiometer is 
 > High voltages can easily be lethal. Only deal with them if you are qualified. You are building and using this project at your own risk!
 
 ## Physical construction
+
+![A drawing with the dimensions of the PCB of the probe](/images/pcb-basic.jpeg)
 
 The probe requires some special attention when it comes to construction. Since the divider consists of such high value resistors (50 MOhm to 50 kOhm divier), its sensitive to interference. For this reason the probe is designed to fit in a shield in the form of a brass or copper tube of the inner diameter of 37,6 mm (1.48 in). This shield shall be grounded to protect the sensitive signal inside. To increase dielectric breakdown a special resin must be used, and the PCB inside the shield should be cast in it. Since the voltages measured are significant, leaving the PCB in the free air wont cut it. Try to pick a resing with as low dielectric constant as possible. HUNTSMAN CW5620 BLUE was used, which has a relative dielectric constant of 6. It is recommended to not use resins of higher relative dielectric constant as it increase the parasitic capacitances, which will degrade the bandwidth of the probe cutting down high frequency transmittance.
 
