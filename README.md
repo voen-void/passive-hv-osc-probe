@@ -50,3 +50,11 @@ The resistors used for the high voltage part of the voltage divider are special 
 ### Notes on internal arc-overs
 
 For increased safety a microwave fuse may be added in series with the input of the probe. Microwave fuses are the highest voltage rated fuses I could cheaply find, and should do the job. A lower current fuse would be ideal, but those only come with voltage ratings up to 250 VAC. The reason for that fuse is to protect the probe in the case of an internal arc - over. If an arc over was to happen inside the probe, excessive current would be drawn from DUT (if DUT can provide it). Sustained internal arcing might lead to pressure buildup inside the probe body, which due to its construction could become very dangerous. In an extreme scenario the probe could violently explode causing much harm to everything around it. For this reason it is recommended to use some sort of fuse in series with the probe input, and it it blows, the probe should no longer be used and should be marked as faulty and discarded. High voltage apparatus potted in hard resin is known to pose this kind of danger and should be handled accordingly.
+
+### Casting in resin
+
+To cast the probe in resin a CAD model for a 3D-printable mold has been made in [onshape](https://cad.onshape.com/documents/634b2c7804eb6959816cbee4/w/1f30c7d8f223e5e8fad3fc6d/e/e251d38d61b503254921d7bb). 
+
+![A rendering of one half of the 3D-printable mold](/images/mold-side-view.png)
+
+Recommended material for the mold is PETG, as its slightly flexible and should allow for easier separation after casting. The two mold halves are to be screwed together by 18 70 mm long M4 bolts. Wax was used as mold release. The resing should be poured down into the metal tube, with the tip of the probe facing downwards. Resin should be added until it fills up the mold up to the top 3 mm venting holes.
