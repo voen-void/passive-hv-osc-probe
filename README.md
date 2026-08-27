@@ -45,6 +45,14 @@ The PCB has been designed to be a simple two-layer board. Soldermask has been re
 
 The PCB has been designed with a specific kind of HV terminal construction. A large portion of copper is exposed at the HV end of the probe with a long distance separating it from the shield, to increase creepage distance. This part of the probe (tapored end) should be exposed from the shield and should be cast in resin, preferably in a ribbed shape for further increase of creepage distance. Before casting the PCB a brass piece shall be machined such that it fits over the straight tip of the tapored end of the PCB and presents a female thread at the end, into which a screw may be threaded into to make electrical contact. This piece should be soldered to the tapored tip of the PCB before casting. It should be noted that **no excessive force** should be used on this part of the probe in relation to the probe body. To make fastening easier the exposed part of the brass piece may be shaped in a way which enables holding it with an appropirately sized wrench. In such case a wrench may be used to hold the HV terminal of the probe down while fastening an attachment to it. The end piece should only be tightened finger-tight.
 
+#### The manufactured PCB
+
+I had the PCB manufactured by [PCBWay](https://www.pcbway.com/). The process was very simple: I uploaded the gerbers, placed a Quick Order and the PCBs (five of them!) arrived at my doorstep in a couple of days. I was pleasantly surprised by the packing quality and the PCB manufacture quality was excellent, picture below!
+
+![A photo of the manufactured PCB](/images/pcb-made.jpeg)
+
+After recieving the PCB i shortly proceeded to populating it with components.
+
 ### Notes on elements used
 
 The resistors used for the high voltage part of the voltage divider are special high voltage resistors, wchich may operate up to 10 kV across them. The capacitors used in the divider are all C0G / NP0 dielectric capacitors, for increased  temperature stability. other dielectrics may be used, but its strongly recommended to use Class I dielectric materials, preferably C0G / NP0 as it will cause the smallest drift in alignment over a wide range of temperatures.
