@@ -49,7 +49,7 @@ The PCB has been designed with a specific kind of HV terminal construction. A la
 
 I had the PCB manufactured by [PCBWay](https://www.pcbway.com/). The process was very simple: I uploaded the gerbers, placed a Quick Order and the PCBs (five of them!) arrived at my doorstep in a couple of days. I was pleasantly surprised by the packing quality and the PCB manufacture quality was excellent, picture below!
 
-![A photo of the manufactured PCB](/images/pcb-made.jpeg)
+![A photo of the manufactured PCB](/images/pcb-made.jpg)
 
 After recieving the PCB i shortly proceeded to populating it with components.
 
