@@ -7,6 +7,8 @@ As in that video, the probe has been designed to fit in a shielding tube. The pr
 
 ![A drawing of the schematic of the probe](/images/schematic-basic.jpeg)
 
+[Schematic pdf](/images/hv-probe-passive-schematic.pdf) included in the repo.
+
 ![A rendering of the front of the PCB of the probe](/images/pcb-render-front.jpeg)
 ![A rendering of the back of the PCB of the probe](/images/pcb-render-back.jpeg)
 
@@ -37,6 +39,8 @@ For adjusting the DC and low frequency transmittance a 10 turn potentiometer is 
 
 ![A drawing with the dimensions of the PCB of the probe](/images/pcb-basic.jpeg)
 
+[A drawing with the dimensions](/images/hv-probe-passive-dimensions.pdf) of the PCB included in the repo.
+
 The probe requires some special attention when it comes to construction. Since the divider consists of such high value resistors (50 MOhm to 50 kOhm divier), its sensitive to interference. For this reason the probe is designed to fit in a shield in the form of a brass or copper tube of the inner diameter of 37,6 mm (1.48 in). This shield shall be grounded to protect the sensitive signal inside. To increase dielectric breakdown a special resin must be used, and the PCB inside the shield should be cast in it. Since the voltages measured are significant, leaving the PCB in the free air wont cut it. Try to pick a resing with as low dielectric constant as possible. [HUNTSMAN CW5620 BLUE](https://products.huntsman.com/products/arathane-cw-5620-hy-5610) was used, which has a relative dielectric constant of 6. It is recommended to not use resins of higher relative dielectric constant as it increase the parasitic capacitances, which will degrade the bandwidth of the probe cutting down high frequency transmittance.
 
 ### PCB
@@ -51,9 +55,11 @@ I had the PCB manufactured by [PCBWay](https://www.pcbway.com/). The process was
 
 ![A photo of the manufactured PCB](/images/pcb-made.jpg)
 
-After recieving the PCB i shortly proceeded to populating it with components.
+After recieving the PCB i shortly proceeded to populating it with components. [Assembly drawings](/images/hv-probe-passive-assembly.pdf) included in the repo.
 
 ### Notes on elements used
+
+![An assembly drawing of the PCB of the probe](/images/pcb-assembly-front.jpeg)
 
 The resistors used for the high voltage part of the voltage divider are special high voltage resistors, wchich may operate up to 10 kV across them. The capacitors used in the divider are all C0G / NP0 dielectric capacitors, for increased  temperature stability. other dielectrics may be used, but its strongly recommended to use Class I dielectric materials, preferably C0G / NP0 as it will cause the smallest drift in alignment over a wide range of temperatures.
 
