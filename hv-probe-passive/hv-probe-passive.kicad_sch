@@ -1992,7 +1992,7 @@
 				)
 			)
 		)
-		(property "MPN" "Nr prod.: VJ1206A222FFBAT"
+		(property "MPN" "VJ1206A222FFBAT"
 			(at 38.1 55.88 0)
 			(hide yes)
 			(show_name no)
@@ -3850,7 +3850,7 @@
 				)
 			)
 		)
-		(property "MPN" "Nr prod.: VJ1206A222FFBAT"
+		(property "MPN" "VJ1206A222FFBAT"
 			(at 45.72 55.88 0)
 			(hide yes)
 			(show_name no)
