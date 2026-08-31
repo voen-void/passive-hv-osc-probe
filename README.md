@@ -36,7 +36,13 @@ The design is based on a [EEVBlog Video](https://www.youtube.com/watch?v=jUvSP3B
 ## What is it?
 This project tackles the design of a simple high voltage oscilloscope probe based on the principles of a voltage divider. The simplest schematic would look like this:
 
+
+<!--
 ![A drawing of a simple resistive divider](/images/divider.jpg)
+-->
+
+<img src="/images/divider.jpg" width="200" />
+
 
 It's a bit more complex than that if we want to probe AC signals of considerable frequency, as the parasitic capacitances need to be compensated to achieve better bandwidth. For this reason the resistors forming the voltage divider are bypassed by capacitors which increase the AC transmittance of the circuit. It should be noted that for desired probe behavior the transmittance of just the resistors should match that of just the capacitors. If we cared only to measure DC, then the capacitors could be ommited entirely.
 
