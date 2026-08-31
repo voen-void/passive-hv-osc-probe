@@ -8,8 +8,8 @@
 
 [Schematic pdf](/images/hv-probe-passive-schematic.pdf) included in the repo.
 
-*Summary*
-A 1000:1 passive high-voltage oscilloscope probe designed for measurements up to 20 kV peak. The probe uses a compensated resistive/capacitive divider, a shielded and resin-potted PCB construction, and is designed to fit inside a 37.6 mm ID metal tube (1-1/2" tubing will do fine here).
+*Summary:*
+This is a 1000:1 passive high-voltage oscilloscope probe designed for measurements up to 20 kV peak. The probe uses a compensated resistive/capacitive divider, a shielded and resin-potted PCB construction, and is designed to fit inside a 37.6 mm ID metal tube. (1-1/2" tubing will do fine here)
 
 ## TLDR
 | Parameter                    | Value             |
@@ -27,11 +27,11 @@ A 1000:1 passive high-voltage oscilloscope probe designed for measurements up to
 
 The design is based on a [EEVBlog Video](https://www.youtube.com/watch?v=jUvSP3BQpvs). The electrical design is done in [KiCad](https://www.kicad.org/) 10.0.5, and the mechanical design is done in [onshape](https://www.onshape.com/en/). The total cost of a single probe adds up to around **100 USD**, though it will be larger because not all parts can be bought in small enough quantities (eg. the resin, the PCBs \[usually 5 minimum\] and the shielding tube).
 
-![A rendering of the front of the PCB of the probe](/images/pcb-render-front.jpeg)
-![A rendering of the back of the PCB of the probe](/images/pcb-render-back.jpeg)
-
 > [!NOTE]
 > The PCBs for this project have been provided by [PCBWay](https://www.pcbway.com/).
+
+![A rendering of the front of the PCB of the probe](/images/pcb-render-front.jpeg)
+![A rendering of the back of the PCB of the probe](/images/pcb-render-back.jpeg)
 
 ## What is it?
 This project tackles the design of a simple high voltage oscilloscope probe based on the principles of a voltage divider. The simplest schematic would look like this:
@@ -44,7 +44,11 @@ This project tackles the design of a simple high voltage oscilloscope probe base
 <img src="/images/divider.jpg" width="30%" />
 
 
-It's a bit more complex than that if we want to probe AC signals of considerable frequency, as the parasitic capacitances need to be compensated to achieve better bandwidth. For this reason the resistors forming the voltage divider are bypassed by capacitors which increase the AC transmittance of the circuit. It should be noted that for desired probe behavior the transmittance of just the resistors should match that of just the capacitors. If we cared only to measure DC, then the capacitors could be ommited entirely.
+But it's a bit more complex than that if we want to probe AC signals of considerable frequency. The parasitic capacitances need to be compensated to achieve better bandwidth. For this reason the resistors forming the voltage divider are bypassed by capacitors which increase the AC transmittance of the circuit.
+
+<img src="/images/divider-comp.jpg" width="30%" />
+
+It should be noted that for desired probe behavior the transmittance of just the resistors should match that of just the capacitors. If we cared only to measure DC, then the capacitors could be ommited entirely.
 
 At the low voltage end two footprints for capacitors are provided which allow simple compensation as you will need to adjust that capacitance to achieve a flat frequency response. Capacitor values are also proposed, but the final capacitor value may differ from the proposed value because the parasitic capacitance depends on the PCB, components, potting compound and mechanical construction.
 For adjusting the DC and low frequency transmittance a 10 turn potentiometer is provided. It should be set to 1 M (full range) by default. While calibrating adjust it to reach desired 1000:1 division ratio. Then the capacitor should be adjusted to achieve flat frequency response. A proposed calibration procedure follows;
