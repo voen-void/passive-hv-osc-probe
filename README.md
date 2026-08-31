@@ -41,7 +41,7 @@ This project tackles the design of a simple high voltage oscilloscope probe base
 ![A drawing of a simple resistive divider](/images/divider.jpg)
 -->
 
-<img src="/images/divider.jpg" width="200" />
+<img src="/images/divider.jpg" width="30%" />
 
 
 It's a bit more complex than that if we want to probe AC signals of considerable frequency, as the parasitic capacitances need to be compensated to achieve better bandwidth. For this reason the resistors forming the voltage divider are bypassed by capacitors which increase the AC transmittance of the circuit. It should be noted that for desired probe behavior the transmittance of just the resistors should match that of just the capacitors. If we cared only to measure DC, then the capacitors could be ommited entirely.
@@ -130,6 +130,10 @@ The resistors used for the high voltage part of the voltage divider are special 
 
 To cast the probe in resin a CAD model for a 3D-printable mold has been made in [onshape](https://cad.onshape.com/documents/634b2c7804eb6959816cbee4/w/1f30c7d8f223e5e8fad3fc6d/e/e251d38d61b503254921d7bb). 
 
+<!--
 ![A rendering of one half of the 3D-printable mold](/images/mold-side-view.png)
+-->
+
+<img src="/images/mold-side-view.png" width="50%" />
 
 Recommended material for the mold is PETG, as it's recommended for molding and should allow for easier separation after casting. The two mold halves are to be screwed together by 18 70 mm long M4 bolts. Wax was used as mold release. The resin should be poured down into the metal tube, with the tip of the probe facing downwards. Resin should be added until it fills up the mold up to the top 3 mm venting holes.
