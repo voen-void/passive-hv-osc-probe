@@ -790,7 +790,7 @@
 		)
 	)
 	(circle
-		(center 63.5 71.755)
+		(center 53.34 71.755)
 		(radius 0.635)
 		(stroke
 			(width 0)
@@ -803,7 +803,7 @@
 		(uuid "2d09b003-5d43-47a4-80bf-be66ef4f5af9")
 	)
 	(circle
-		(center 68.58 71.755)
+		(center 58.42 71.755)
 		(radius 0.635)
 		(stroke
 			(width 0)
@@ -816,8 +816,8 @@
 		(uuid "9d674e22-dde5-4649-bd80-bfd95b2f7ece")
 	)
 	(rectangle
-		(start 71.12 40.64)
-		(end 170.18 71.12)
+		(start 58.42 40.64)
+		(end 160.02 71.12)
 		(stroke
 			(width -0.0001)
 			(type default)
@@ -830,7 +830,7 @@
 	)
 	(text "High Voltage GND"
 		(exclude_from_sim no)
-		(at 172.72 73.66 0)
+		(at 162.56 73.66 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -841,7 +841,7 @@
 	)
 	(text "about 4n7 needed here for compensation"
 		(exclude_from_sim no)
-		(at 22.86 78.74 0)
+		(at 15.24 78.74 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -852,7 +852,7 @@
 	)
 	(text "shield"
 		(exclude_from_sim no)
-		(at 116.84 71.12 0)
+		(at 106.68 71.12 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -861,9 +861,19 @@
 		)
 		(uuid "47fa6edc-9924-4b4c-9f89-91d966f93529")
 	)
+	(text "NOTE TO SELF: use HV121WF2004T4E and FV42N470J302ECG instead! what a silly design decision it was to use THT parts for the divider!"
+		(exclude_from_sim no)
+		(at 86.36 35.56 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "4eded06d-a9c3-4793-99bf-0e0a59a79751")
+	)
 	(text "cast in resin"
 		(exclude_from_sim no)
-		(at 93.98 66.04 0)
+		(at 78.74 66.04 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -873,7 +883,7 @@
 	)
 	(text "High Voltage input"
 		(exclude_from_sim no)
-		(at 172.72 58.42 0)
+		(at 162.56 58.42 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -905,7 +915,7 @@
 	)
 	(text_box "If you want to reduce capacitive loading introduced by this probe perhaps consider replacing the proposed 24 pF caps with 12 pF capacitors, although care should be taken as this could be coming very close to loosing compensation. Recommended capacitor: 564R60GAQ10"
 		(exclude_from_sim no)
-		(at 27.94 22.86 0)
+		(at 17.78 17.78 0)
 		(size 63.5 12.7)
 		(margins 0.9525 0.9525 0.9525 0.9525)
 		(stroke
@@ -925,7 +935,7 @@
 	)
 	(text_box "Warning! Mind the grounding. Improper grounding might lead to high voltage shock. Be aware that the oscilloscope ground is referenced to the mains PE terminal and it should stay this way during measurments. Remote oscilloscope control recommended."
 		(exclude_from_sim no)
-		(at 106.68 81.28 0)
+		(at 88.9 83.82 0)
 		(size 63.5 12.7)
 		(margins 0.9525 0.9525 0.9525 0.9525)
 		(stroke
@@ -964,98 +974,98 @@
 		(uuid "f804d629-514b-42ff-9a6c-146751e83ca7")
 	)
 	(junction
-		(at 93.98 63.5)
+		(at 78.74 63.5)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "01b53b73-c8d7-4439-8957-063e25ba24a2")
 	)
 	(junction
-		(at 38.1 50.8)
+		(at 25.4 50.8)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "0eb49128-9244-49a8-8c7e-1c8b6feb39c3")
 	)
 	(junction
-		(at 111.76 63.5)
+		(at 96.52 63.5)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "139cc7d3-525a-46c1-995b-31ca0e841343")
 	)
 	(junction
-		(at 147.32 63.5)
+		(at 132.08 63.5)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "29b6dbd8-0016-4a5e-84cf-138e503b0281")
 	)
 	(junction
-		(at 55.88 50.8)
+		(at 43.18 50.8)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "2d2962a1-603b-4d28-a317-fa64e028d361")
 	)
 	(junction
-		(at 111.76 50.8)
+		(at 96.52 50.8)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "3b9b9f24-3d16-41bb-bbd0-6e6e72460df8")
 	)
 	(junction
-		(at 55.88 60.96)
+		(at 43.18 60.96)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "46b51a75-88da-432c-9a92-f58433e5152e")
 	)
 	(junction
-		(at 93.98 50.8)
+		(at 78.74 50.8)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "84fb036f-5197-4438-bc97-9267bf3a1b36")
 	)
 	(junction
-		(at 45.72 50.8)
+		(at 30.48 50.8)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "853bf9b3-beaf-4397-82c3-bc728644e981")
 	)
 	(junction
-		(at 76.2 50.8)
+		(at 60.96 50.8)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "9940b8d9-3b8e-4c3f-9fdf-2f6ca48721d5")
 	)
 	(junction
-		(at 147.32 50.8)
+		(at 132.08 50.8)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "a5a2ff56-5a0e-4c33-a1ea-a7b3644d77da")
 	)
 	(junction
-		(at 129.54 50.8)
+		(at 114.3 50.8)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "acc87ce6-8794-4afe-b308-4236b39a3547")
 	)
 	(junction
-		(at 165.1 55.88)
+		(at 149.86 55.88)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "af998008-13c1-4682-9305-d7ae5328586e")
 	)
 	(junction
-		(at 63.5 50.8)
+		(at 50.8 50.8)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "bcc81605-1406-4be5-89c5-d07d0ff85e67")
 	)
 	(junction
-		(at 129.54 63.5)
+		(at 114.3 63.5)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "db6656eb-30e3-4663-9f6e-40b3e4cf7f7f")
 	)
 	(polyline
 		(pts
-			(xy 27.94 71.12) (xy 111.76 71.12)
+			(xy 17.78 71.12) (xy 101.6 71.12)
 		)
 		(stroke
 			(width 0)
@@ -1065,7 +1075,7 @@
 	)
 	(wire
 		(pts
-			(xy 38.1 58.42) (xy 38.1 63.5)
+			(xy 25.4 58.42) (xy 25.4 63.5)
 		)
 		(stroke
 			(width 0)
@@ -1075,7 +1085,7 @@
 	)
 	(polyline
 		(pts
-			(xy 182.88 76.2) (xy 180.34 76.2)
+			(xy 172.72 76.2) (xy 170.18 76.2)
 		)
 		(stroke
 			(width 0)
@@ -1085,7 +1095,7 @@
 	)
 	(wire
 		(pts
-			(xy 55.88 60.96) (xy 59.69 60.96)
+			(xy 43.18 60.96) (xy 46.99 60.96)
 		)
 		(stroke
 			(width 0)
@@ -1095,7 +1105,7 @@
 	)
 	(wire
 		(pts
-			(xy 111.76 63.5) (xy 116.84 63.5)
+			(xy 96.52 63.5) (xy 101.6 63.5)
 		)
 		(stroke
 			(width 0)
@@ -1103,29 +1113,9 @@
 		)
 		(uuid "119c4067-15ab-4453-a5f5-231e662c537a")
 	)
-	(wire
-		(pts
-			(xy 45.72 50.8) (xy 55.88 50.8)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "1264b3c2-06fb-458c-a961-79b96cc28716")
-	)
-	(wire
-		(pts
-			(xy 165.1 55.88) (xy 177.8 55.88)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "18eac025-f317-4713-997b-01036bc263e4")
-	)
 	(polyline
 		(pts
-			(xy 27.94 68.58) (xy 27.94 71.12)
+			(xy 17.78 68.58) (xy 17.78 71.12)
 		)
 		(stroke
 			(width 0)
@@ -1135,7 +1125,7 @@
 	)
 	(wire
 		(pts
-			(xy 149.86 50.8) (xy 147.32 50.8)
+			(xy 134.62 50.8) (xy 132.08 50.8)
 		)
 		(stroke
 			(width 0)
@@ -1145,7 +1135,7 @@
 	)
 	(polyline
 		(pts
-			(xy 34.29 69.85) (xy 49.53 69.85)
+			(xy 21.59 69.85) (xy 36.83 69.85)
 		)
 		(stroke
 			(width 0)
@@ -1155,7 +1145,7 @@
 	)
 	(wire
 		(pts
-			(xy 55.88 53.34) (xy 55.88 50.8)
+			(xy 43.18 53.34) (xy 43.18 50.8)
 		)
 		(stroke
 			(width 0)
@@ -1165,7 +1155,7 @@
 	)
 	(wire
 		(pts
-			(xy 147.32 63.5) (xy 142.24 63.5)
+			(xy 132.08 63.5) (xy 127 63.5)
 		)
 		(stroke
 			(width 0)
@@ -1175,7 +1165,7 @@
 	)
 	(wire
 		(pts
-			(xy 27.94 55.88) (xy 27.94 63.5)
+			(xy 17.78 55.88) (xy 17.78 63.5)
 		)
 		(stroke
 			(width 0)
@@ -1185,7 +1175,7 @@
 	)
 	(wire
 		(pts
-			(xy 76.2 50.8) (xy 76.2 63.5)
+			(xy 60.96 50.8) (xy 60.96 63.5)
 		)
 		(stroke
 			(width 0)
@@ -1195,7 +1185,7 @@
 	)
 	(wire
 		(pts
-			(xy 127 50.8) (xy 129.54 50.8)
+			(xy 111.76 50.8) (xy 114.3 50.8)
 		)
 		(stroke
 			(width 0)
@@ -1205,7 +1195,7 @@
 	)
 	(wire
 		(pts
-			(xy 45.72 50.8) (xy 45.72 53.34)
+			(xy 30.48 50.8) (xy 30.48 53.34)
 		)
 		(stroke
 			(width 0)
@@ -1215,7 +1205,7 @@
 	)
 	(wire
 		(pts
-			(xy 101.6 50.8) (xy 104.14 50.8)
+			(xy 86.36 50.8) (xy 88.9 50.8)
 		)
 		(stroke
 			(width 0)
@@ -1225,7 +1215,7 @@
 	)
 	(wire
 		(pts
-			(xy 165.1 55.88) (xy 165.1 63.5)
+			(xy 149.86 55.88) (xy 149.86 63.5)
 		)
 		(stroke
 			(width 0)
@@ -1235,7 +1225,7 @@
 	)
 	(polyline
 		(pts
-			(xy 34.29 69.85) (xy 34.29 68.58)
+			(xy 21.59 69.85) (xy 21.59 68.58)
 		)
 		(stroke
 			(width 0)
@@ -1245,7 +1235,7 @@
 	)
 	(polyline
 		(pts
-			(xy 177.8 54.61) (xy 180.34 54.61)
+			(xy 167.64 54.61) (xy 170.18 54.61)
 		)
 		(stroke
 			(width 0)
@@ -1255,7 +1245,7 @@
 	)
 	(wire
 		(pts
-			(xy 76.2 50.8) (xy 78.74 50.8)
+			(xy 60.96 50.8) (xy 63.5 50.8)
 		)
 		(stroke
 			(width 0)
@@ -1265,7 +1255,7 @@
 	)
 	(polyline
 		(pts
-			(xy 41.91 69.85) (xy 41.91 77.47)
+			(xy 29.21 69.85) (xy 29.21 77.47)
 		)
 		(stroke
 			(width 0)
@@ -1275,7 +1265,7 @@
 	)
 	(wire
 		(pts
-			(xy 165.1 50.8) (xy 165.1 55.88)
+			(xy 149.86 50.8) (xy 149.86 55.88)
 		)
 		(stroke
 			(width 0)
@@ -1285,7 +1275,7 @@
 	)
 	(polyline
 		(pts
-			(xy 182.88 55.88) (xy 180.34 57.15)
+			(xy 172.72 55.88) (xy 170.18 57.15)
 		)
 		(stroke
 			(width 0)
@@ -1295,7 +1285,7 @@
 	)
 	(wire
 		(pts
-			(xy 45.72 58.42) (xy 45.72 63.5)
+			(xy 30.48 58.42) (xy 30.48 63.5)
 		)
 		(stroke
 			(width 0)
@@ -1305,7 +1295,7 @@
 	)
 	(polyline
 		(pts
-			(xy 49.53 69.85) (xy 49.53 68.58)
+			(xy 36.83 69.85) (xy 36.83 68.58)
 		)
 		(stroke
 			(width 0)
@@ -1315,7 +1305,7 @@
 	)
 	(wire
 		(pts
-			(xy 111.76 63.5) (xy 106.68 63.5)
+			(xy 96.52 63.5) (xy 91.44 63.5)
 		)
 		(stroke
 			(width 0)
@@ -1325,7 +1315,7 @@
 	)
 	(wire
 		(pts
-			(xy 147.32 50.8) (xy 147.32 63.5)
+			(xy 132.08 50.8) (xy 132.08 63.5)
 		)
 		(stroke
 			(width 0)
@@ -1335,7 +1325,7 @@
 	)
 	(polyline
 		(pts
-			(xy 121.92 71.12) (xy 170.18 71.12)
+			(xy 111.76 71.12) (xy 160.02 71.12)
 		)
 		(stroke
 			(width 0)
@@ -1345,7 +1335,7 @@
 	)
 	(polyline
 		(pts
-			(xy 63.5 73.66) (xy 66.04 73.66)
+			(xy 53.34 73.66) (xy 55.88 73.66)
 		)
 		(stroke
 			(width 0)
@@ -1355,7 +1345,7 @@
 	)
 	(polyline
 		(pts
-			(xy 180.34 76.2) (xy 180.34 76.2)
+			(xy 170.18 76.2) (xy 170.18 76.2)
 		)
 		(stroke
 			(width 0)
@@ -1365,7 +1355,7 @@
 	)
 	(wire
 		(pts
-			(xy 129.54 63.5) (xy 124.46 63.5)
+			(xy 114.3 63.5) (xy 109.22 63.5)
 		)
 		(stroke
 			(width 0)
@@ -1375,7 +1365,7 @@
 	)
 	(polyline
 		(pts
-			(xy 68.58 76.2) (xy 68.58 71.12)
+			(xy 58.42 76.2) (xy 58.42 71.12)
 		)
 		(stroke
 			(width 0)
@@ -1385,7 +1375,7 @@
 	)
 	(polyline
 		(pts
-			(xy 177.8 76.2) (xy 180.34 76.2)
+			(xy 167.64 76.2) (xy 170.18 76.2)
 		)
 		(stroke
 			(width 0)
@@ -1395,7 +1385,7 @@
 	)
 	(polyline
 		(pts
-			(xy 180.34 76.2) (xy 182.88 76.2)
+			(xy 170.18 76.2) (xy 172.72 76.2)
 		)
 		(stroke
 			(width 0)
@@ -1405,7 +1395,7 @@
 	)
 	(polyline
 		(pts
-			(xy 27.94 40.64) (xy 170.18 40.64)
+			(xy 17.78 40.64) (xy 160.02 40.64)
 		)
 		(stroke
 			(width 0)
@@ -1415,7 +1405,7 @@
 	)
 	(wire
 		(pts
-			(xy 132.08 50.8) (xy 129.54 50.8)
+			(xy 116.84 50.8) (xy 114.3 50.8)
 		)
 		(stroke
 			(width 0)
@@ -1425,7 +1415,7 @@
 	)
 	(wire
 		(pts
-			(xy 119.38 50.8) (xy 121.92 50.8)
+			(xy 104.14 50.8) (xy 106.68 50.8)
 		)
 		(stroke
 			(width 0)
@@ -1435,7 +1425,7 @@
 	)
 	(wire
 		(pts
-			(xy 76.2 63.5) (xy 81.28 63.5)
+			(xy 60.96 63.5) (xy 66.04 63.5)
 		)
 		(stroke
 			(width 0)
@@ -1445,17 +1435,7 @@
 	)
 	(wire
 		(pts
-			(xy 55.88 50.8) (xy 63.5 50.8)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "75a64233-e985-435e-a6d8-63fdb56affd8")
-	)
-	(wire
-		(pts
-			(xy 63.5 53.34) (xy 63.5 50.8)
+			(xy 50.8 53.34) (xy 50.8 50.8)
 		)
 		(stroke
 			(width 0)
@@ -1465,7 +1445,7 @@
 	)
 	(wire
 		(pts
-			(xy 91.44 50.8) (xy 93.98 50.8)
+			(xy 76.2 50.8) (xy 78.74 50.8)
 		)
 		(stroke
 			(width 0)
@@ -1475,7 +1455,7 @@
 	)
 	(wire
 		(pts
-			(xy 144.78 50.8) (xy 147.32 50.8)
+			(xy 129.54 50.8) (xy 132.08 50.8)
 		)
 		(stroke
 			(width 0)
@@ -1485,7 +1465,7 @@
 	)
 	(wire
 		(pts
-			(xy 33.02 50.8) (xy 38.1 50.8)
+			(xy 22.86 50.8) (xy 60.96 50.8)
 		)
 		(stroke
 			(width 0)
@@ -1495,7 +1475,7 @@
 	)
 	(wire
 		(pts
-			(xy 93.98 63.5) (xy 88.9 63.5)
+			(xy 78.74 63.5) (xy 73.66 63.5)
 		)
 		(stroke
 			(width 0)
@@ -1505,7 +1485,7 @@
 	)
 	(wire
 		(pts
-			(xy 93.98 63.5) (xy 99.06 63.5)
+			(xy 78.74 63.5) (xy 83.82 63.5)
 		)
 		(stroke
 			(width 0)
@@ -1515,7 +1495,7 @@
 	)
 	(wire
 		(pts
-			(xy 109.22 50.8) (xy 111.76 50.8)
+			(xy 93.98 50.8) (xy 96.52 50.8)
 		)
 		(stroke
 			(width 0)
@@ -1525,7 +1505,7 @@
 	)
 	(wire
 		(pts
-			(xy 129.54 50.8) (xy 129.54 63.5)
+			(xy 114.3 50.8) (xy 114.3 63.5)
 		)
 		(stroke
 			(width 0)
@@ -1535,7 +1515,7 @@
 	)
 	(polyline
 		(pts
-			(xy 60.96 73.66) (xy 66.04 73.66)
+			(xy 50.8 73.66) (xy 55.88 73.66)
 		)
 		(stroke
 			(width 0)
@@ -1545,7 +1525,7 @@
 	)
 	(polyline
 		(pts
-			(xy 177.8 76.2) (xy 68.58 76.2)
+			(xy 167.64 76.2) (xy 58.42 76.2)
 		)
 		(stroke
 			(width 0)
@@ -1555,7 +1535,7 @@
 	)
 	(wire
 		(pts
-			(xy 157.48 50.8) (xy 154.94 50.8)
+			(xy 142.24 50.8) (xy 139.7 50.8)
 		)
 		(stroke
 			(width 0)
@@ -1565,7 +1545,7 @@
 	)
 	(wire
 		(pts
-			(xy 111.76 50.8) (xy 111.76 63.5)
+			(xy 96.52 50.8) (xy 96.52 63.5)
 		)
 		(stroke
 			(width 0)
@@ -1575,7 +1555,7 @@
 	)
 	(polyline
 		(pts
-			(xy 177.8 54.61) (xy 177.8 57.15)
+			(xy 167.64 54.61) (xy 167.64 57.15)
 		)
 		(stroke
 			(width 0)
@@ -1585,7 +1565,7 @@
 	)
 	(polyline
 		(pts
-			(xy 63.5 71.12) (xy 63.5 73.66)
+			(xy 53.34 71.12) (xy 53.34 73.66)
 		)
 		(stroke
 			(width 0)
@@ -1593,19 +1573,9 @@
 		)
 		(uuid "a85b276b-7df1-4a29-bbe2-7c9ec4051c58")
 	)
-	(wire
-		(pts
-			(xy 38.1 50.8) (xy 45.72 50.8)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "aa56e2e7-0b68-43ec-8b1c-b129a68e14e7")
-	)
 	(polyline
 		(pts
-			(xy 177.8 57.15) (xy 180.34 57.15)
+			(xy 167.64 57.15) (xy 170.18 57.15)
 		)
 		(stroke
 			(width 0)
@@ -1613,9 +1583,19 @@
 		)
 		(uuid "ae71058c-4529-4e9c-8ed6-e81b5d1e7595")
 	)
+	(wire
+		(pts
+			(xy 149.86 55.88) (xy 167.64 55.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ae8a751a-8b54-4b09-9184-9e3ca125f446")
+	)
 	(polyline
 		(pts
-			(xy 27.94 40.64) (xy 27.94 48.26)
+			(xy 17.78 40.64) (xy 17.78 48.26)
 		)
 		(stroke
 			(width 0)
@@ -1625,7 +1605,7 @@
 	)
 	(wire
 		(pts
-			(xy 63.5 60.96) (xy 63.5 63.5)
+			(xy 50.8 60.96) (xy 50.8 63.5)
 		)
 		(stroke
 			(width 0)
@@ -1635,7 +1615,7 @@
 	)
 	(polyline
 		(pts
-			(xy 60.96 73.66) (xy 63.5 73.66)
+			(xy 50.8 73.66) (xy 53.34 73.66)
 		)
 		(stroke
 			(width 0)
@@ -1645,17 +1625,7 @@
 	)
 	(wire
 		(pts
-			(xy 63.5 50.8) (xy 76.2 50.8)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b81f620f-a2c1-46b7-8991-bbc3ec8d3416")
-	)
-	(wire
-		(pts
-			(xy 114.3 50.8) (xy 111.76 50.8)
+			(xy 99.06 50.8) (xy 96.52 50.8)
 		)
 		(stroke
 			(width 0)
@@ -1665,7 +1635,7 @@
 	)
 	(wire
 		(pts
-			(xy 96.52 50.8) (xy 93.98 50.8)
+			(xy 81.28 50.8) (xy 78.74 50.8)
 		)
 		(stroke
 			(width 0)
@@ -1675,7 +1645,7 @@
 	)
 	(wire
 		(pts
-			(xy 55.88 60.96) (xy 55.88 63.5)
+			(xy 43.18 60.96) (xy 43.18 63.5)
 		)
 		(stroke
 			(width 0)
@@ -1685,7 +1655,7 @@
 	)
 	(polyline
 		(pts
-			(xy 170.18 40.64) (xy 170.18 71.12)
+			(xy 160.02 40.64) (xy 160.02 71.12)
 		)
 		(stroke
 			(width 0)
@@ -1695,7 +1665,7 @@
 	)
 	(polyline
 		(pts
-			(xy 177.8 76.2) (xy 180.34 76.2)
+			(xy 167.64 76.2) (xy 170.18 76.2)
 		)
 		(stroke
 			(width 0)
@@ -1705,7 +1675,7 @@
 	)
 	(polyline
 		(pts
-			(xy 71.12 40.64) (xy 71.12 71.12)
+			(xy 58.42 40.64) (xy 58.42 71.12)
 		)
 		(stroke
 			(width 0)
@@ -1715,7 +1685,7 @@
 	)
 	(polyline
 		(pts
-			(xy 182.88 55.88) (xy 180.34 54.61)
+			(xy 172.72 55.88) (xy 170.18 54.61)
 		)
 		(stroke
 			(width 0)
@@ -1725,7 +1695,7 @@
 	)
 	(wire
 		(pts
-			(xy 83.82 50.8) (xy 86.36 50.8)
+			(xy 68.58 50.8) (xy 71.12 50.8)
 		)
 		(stroke
 			(width 0)
@@ -1735,7 +1705,7 @@
 	)
 	(wire
 		(pts
-			(xy 162.56 50.8) (xy 165.1 50.8)
+			(xy 147.32 50.8) (xy 149.86 50.8)
 		)
 		(stroke
 			(width 0)
@@ -1745,7 +1715,7 @@
 	)
 	(wire
 		(pts
-			(xy 165.1 63.5) (xy 160.02 63.5)
+			(xy 149.86 63.5) (xy 144.78 63.5)
 		)
 		(stroke
 			(width 0)
@@ -1755,7 +1725,7 @@
 	)
 	(wire
 		(pts
-			(xy 147.32 63.5) (xy 152.4 63.5)
+			(xy 132.08 63.5) (xy 137.16 63.5)
 		)
 		(stroke
 			(width 0)
@@ -1765,7 +1735,7 @@
 	)
 	(wire
 		(pts
-			(xy 129.54 63.5) (xy 134.62 63.5)
+			(xy 114.3 63.5) (xy 119.38 63.5)
 		)
 		(stroke
 			(width 0)
@@ -1775,7 +1745,7 @@
 	)
 	(polyline
 		(pts
-			(xy 177.8 76.2) (xy 177.8 76.2)
+			(xy 167.64 76.2) (xy 167.64 76.2)
 		)
 		(stroke
 			(width 0)
@@ -1785,7 +1755,7 @@
 	)
 	(wire
 		(pts
-			(xy 137.16 50.8) (xy 139.7 50.8)
+			(xy 121.92 50.8) (xy 124.46 50.8)
 		)
 		(stroke
 			(width 0)
@@ -1795,7 +1765,7 @@
 	)
 	(wire
 		(pts
-			(xy 59.69 57.15) (xy 59.69 60.96)
+			(xy 46.99 57.15) (xy 46.99 60.96)
 		)
 		(stroke
 			(width 0)
@@ -1805,7 +1775,7 @@
 	)
 	(wire
 		(pts
-			(xy 38.1 50.8) (xy 38.1 53.34)
+			(xy 25.4 50.8) (xy 25.4 53.34)
 		)
 		(stroke
 			(width 0)
@@ -1815,7 +1785,7 @@
 	)
 	(wire
 		(pts
-			(xy 93.98 50.8) (xy 93.98 63.5)
+			(xy 78.74 50.8) (xy 78.74 63.5)
 		)
 		(stroke
 			(width 0)
@@ -1825,7 +1795,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 138.43 63.5 90)
+		(at 123.19 63.5 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -1836,7 +1806,7 @@
 		(fields_autoplaced yes)
 		(uuid "0b237b42-505e-499c-a693-bc868a84f1ed")
 		(property "Reference" "R4"
-			(at 138.43 57.15 90)
+			(at 123.19 57.15 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1846,7 +1816,7 @@
 			)
 		)
 		(property "Value" "10M"
-			(at 138.43 59.69 90)
+			(at 123.19 59.69 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1856,7 +1826,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_THT:R_Axial_DIN0918_L18.0mm_D9.0mm_P22.86mm_Horizontal"
-			(at 138.43 65.278 90)
+			(at 123.19 65.278 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1867,7 +1837,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.vishay.com/docs/28907/vr25vr37vr68.pdf"
-			(at 138.43 63.5 0)
+			(at 123.19 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1878,7 +1848,7 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 138.43 63.5 0)
+			(at 123.19 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1889,7 +1859,7 @@
 			)
 		)
 		(property "MPN" "VR68000001005JAC00"
-			(at 138.43 63.5 0)
+			(at 123.19 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1900,7 +1870,7 @@
 			)
 		)
 		(property "SPN" "594-5073DM10M00J"
-			(at 138.43 63.5 0)
+			(at 123.19 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1927,7 +1897,7 @@
 	)
 	(symbol
 		(lib_id "Device:C_Small")
-		(at 38.1 55.88 0)
+		(at 25.4 55.88 0)
 		(mirror x)
 		(unit 1)
 		(body_style 1)
@@ -1938,7 +1908,7 @@
 		(dnp no)
 		(uuid "23fd2819-d3d4-449d-8a42-e11ae6fe9b2f")
 		(property "Reference" "C6"
-			(at 36.195 54.61 0)
+			(at 23.495 54.61 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1949,7 +1919,7 @@
 			)
 		)
 		(property "Value" "2n2"
-			(at 36.195 57.1565 0)
+			(at 23.495 57.1565 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1960,7 +1930,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder"
-			(at 38.1 55.88 0)
+			(at 25.4 55.88 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1971,7 +1941,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.vishay.com/docs/45199/vjcommercialseries.pdf"
-			(at 38.1 55.88 0)
+			(at 25.4 55.88 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1982,7 +1952,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
-			(at 38.1 55.88 0)
+			(at 25.4 55.88 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1993,7 +1963,7 @@
 			)
 		)
 		(property "MPN" "VJ1206A222FFBAT"
-			(at 38.1 55.88 0)
+			(at 25.4 55.88 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2004,7 +1974,7 @@
 			)
 		)
 		(property "SPN" "77-VJ1206A222FFBAT"
-			(at 38.1 55.88 0)
+			(at 25.4 55.88 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2031,7 +2001,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 45.72 63.5 0)
+		(at 30.48 63.5 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -2041,7 +2011,7 @@
 		(dnp no)
 		(uuid "254daaf5-6632-4f4b-b967-eba22905b47e")
 		(property "Reference" "#PWR03"
-			(at 45.72 69.85 0)
+			(at 30.48 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2052,7 +2022,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 45.72 67.945 0)
+			(at 30.48 67.945 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2062,7 +2032,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 45.72 63.5 0)
+			(at 30.48 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2073,7 +2043,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 45.72 63.5 0)
+			(at 30.48 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2084,7 +2054,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 45.72 63.5 0)
+			(at 30.48 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2108,7 +2078,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 120.65 63.5 90)
+		(at 105.41 63.5 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -2119,7 +2089,7 @@
 		(fields_autoplaced yes)
 		(uuid "25dd7ce0-10b3-42db-8f7e-df45a3adb38a")
 		(property "Reference" "R3"
-			(at 120.65 57.15 90)
+			(at 105.41 57.15 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2129,7 +2099,7 @@
 			)
 		)
 		(property "Value" "10M"
-			(at 120.65 59.69 90)
+			(at 105.41 59.69 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2139,7 +2109,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_THT:R_Axial_DIN0918_L18.0mm_D9.0mm_P22.86mm_Horizontal"
-			(at 120.65 65.278 90)
+			(at 105.41 65.278 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2150,7 +2120,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.vishay.com/docs/28907/vr25vr37vr68.pdf"
-			(at 120.65 63.5 0)
+			(at 105.41 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2161,7 +2131,7 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 120.65 63.5 0)
+			(at 105.41 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2172,7 +2142,7 @@
 			)
 		)
 		(property "MPN" "VR68000001005JAC00"
-			(at 120.65 63.5 0)
+			(at 105.41 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2183,7 +2153,7 @@
 			)
 		)
 		(property "SPN" "594-5073DM10M00J"
-			(at 120.65 63.5 0)
+			(at 105.41 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2210,7 +2180,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 38.1 63.5 0)
+		(at 25.4 63.5 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -2220,7 +2190,7 @@
 		(dnp no)
 		(uuid "2a85a1d3-42fd-44f3-8a37-c66739e6f05e")
 		(property "Reference" "#PWR05"
-			(at 38.1 69.85 0)
+			(at 25.4 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2231,7 +2201,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 38.1 67.945 0)
+			(at 25.4 67.945 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2241,7 +2211,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 38.1 63.5 0)
+			(at 25.4 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2252,7 +2222,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 38.1 63.5 0)
+			(at 25.4 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2263,7 +2233,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 38.1 63.5 0)
+			(at 25.4 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2287,7 +2257,7 @@
 	)
 	(symbol
 		(lib_id "Device:C_Small")
-		(at 88.9 50.8 90)
+		(at 73.66 50.8 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -2298,7 +2268,7 @@
 		(fields_autoplaced yes)
 		(uuid "2ba1bcff-86a5-48d4-92d4-2a43a2ef342c")
 		(property "Reference" "C8"
-			(at 88.9063 44.45 90)
+			(at 73.6663 44.45 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2308,7 +2278,7 @@
 			)
 		)
 		(property "Value" "24p"
-			(at 88.9063 46.99 90)
+			(at 73.6663 46.99 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2318,7 +2288,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_THT:C_Disc_D11.0mm_W5.0mm_P10.00mm"
-			(at 88.9 50.8 0)
+			(at 73.66 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2329,7 +2299,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.vishay.com/docs/23118/564r565r.pdf"
-			(at 88.9 50.8 0)
+			(at 73.66 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2340,7 +2310,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
-			(at 88.9 50.8 0)
+			(at 73.66 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2351,7 +2321,7 @@
 			)
 		)
 		(property "MPN" "564RC0GAJ602EJ240J"
-			(at 88.9 50.8 0)
+			(at 73.66 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2362,7 +2332,7 @@
 			)
 		)
 		(property "SPN" "75-564RC0GAJ602EJ240"
-			(at 88.9 50.8 0)
+			(at 73.66 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2389,7 +2359,7 @@
 	)
 	(symbol
 		(lib_id "Device:C_Small")
-		(at 160.02 50.8 90)
+		(at 144.78 50.8 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -2400,7 +2370,7 @@
 		(fields_autoplaced yes)
 		(uuid "322a161a-05b1-427e-b13c-5a02cd04082d")
 		(property "Reference" "C12"
-			(at 160.0263 44.45 90)
+			(at 144.7863 44.45 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2410,7 +2380,7 @@
 			)
 		)
 		(property "Value" "24p"
-			(at 160.0263 46.99 90)
+			(at 144.7863 46.99 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2420,7 +2390,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_THT:C_Disc_D11.0mm_W5.0mm_P10.00mm"
-			(at 160.02 50.8 0)
+			(at 144.78 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2431,7 +2401,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.vishay.com/docs/23118/564r565r.pdf"
-			(at 160.02 50.8 0)
+			(at 144.78 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2442,7 +2412,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
-			(at 160.02 50.8 0)
+			(at 144.78 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2453,7 +2423,7 @@
 			)
 		)
 		(property "MPN" "564RC0GAJ602EJ240J"
-			(at 160.02 50.8 0)
+			(at 144.78 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2464,7 +2434,7 @@
 			)
 		)
 		(property "SPN" "75-564RC0GAJ602EJ240"
-			(at 160.02 50.8 0)
+			(at 144.78 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2491,7 +2461,7 @@
 	)
 	(symbol
 		(lib_id "Device:C_Small")
-		(at 152.4 50.8 90)
+		(at 137.16 50.8 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -2502,7 +2472,7 @@
 		(fields_autoplaced yes)
 		(uuid "404f7678-fc59-49d2-a61d-4c14f1e753bd")
 		(property "Reference" "C5"
-			(at 152.4063 44.45 90)
+			(at 137.1663 44.45 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2512,7 +2482,7 @@
 			)
 		)
 		(property "Value" "24p"
-			(at 152.4063 46.99 90)
+			(at 137.1663 46.99 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2522,7 +2492,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_THT:C_Disc_D11.0mm_W5.0mm_P10.00mm"
-			(at 152.4 50.8 0)
+			(at 137.16 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2533,7 +2503,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.vishay.com/docs/23118/564r565r.pdf"
-			(at 152.4 50.8 0)
+			(at 137.16 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2544,7 +2514,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
-			(at 152.4 50.8 0)
+			(at 137.16 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2555,7 +2525,7 @@
 			)
 		)
 		(property "MPN" "564RC0GAJ602EJ240J"
-			(at 152.4 50.8 0)
+			(at 137.16 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2566,7 +2536,7 @@
 			)
 		)
 		(property "SPN" "75-564RC0GAJ602EJ240"
-			(at 152.4 50.8 0)
+			(at 137.16 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2593,7 +2563,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 63.5 57.15 180)
+		(at 50.8 57.15 180)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -2604,7 +2574,7 @@
 		(fields_autoplaced yes)
 		(uuid "47016b88-a619-4afd-9fa4-8b4f7659e0a3")
 		(property "Reference" "R6"
-			(at 66.04 55.8799 0)
+			(at 53.34 55.8799 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2615,7 +2585,7 @@
 			)
 		)
 		(property "Value" "56k"
-			(at 66.04 58.4199 0)
+			(at 53.34 58.4199 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2626,7 +2596,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder"
-			(at 65.278 57.15 90)
+			(at 52.578 57.15 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2637,7 +2607,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.mouser.pl/datasheet/2/54/cr-1858361.pdf"
-			(at 63.5 57.15 0)
+			(at 50.8 57.15 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2648,7 +2618,7 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 63.5 57.15 0)
+			(at 50.8 57.15 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2659,7 +2629,7 @@
 			)
 		)
 		(property "MPN" "CR1206-FX-5602ELF"
-			(at 63.5 57.15 0)
+			(at 50.8 57.15 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2670,7 +2640,7 @@
 			)
 		)
 		(property "SPN" "652-CR1206FX-5602ELF"
-			(at 63.5 57.15 0)
+			(at 50.8 57.15 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2697,7 +2667,7 @@
 	)
 	(symbol
 		(lib_id "Device:C_Small")
-		(at 124.46 50.8 90)
+		(at 109.22 50.8 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -2708,7 +2678,7 @@
 		(fields_autoplaced yes)
 		(uuid "480483b5-329f-4f18-9c7a-94078c61da11")
 		(property "Reference" "C10"
-			(at 124.4663 44.45 90)
+			(at 109.2263 44.45 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2718,7 +2688,7 @@
 			)
 		)
 		(property "Value" "24p"
-			(at 124.4663 46.99 90)
+			(at 109.2263 46.99 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2728,7 +2698,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_THT:C_Disc_D11.0mm_W5.0mm_P10.00mm"
-			(at 124.46 50.8 0)
+			(at 109.22 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2739,7 +2709,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.vishay.com/docs/23118/564r565r.pdf"
-			(at 124.46 50.8 0)
+			(at 109.22 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2750,7 +2720,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
-			(at 124.46 50.8 0)
+			(at 109.22 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2761,7 +2731,7 @@
 			)
 		)
 		(property "MPN" "564RC0GAJ602EJ240J"
-			(at 124.46 50.8 0)
+			(at 109.22 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2772,7 +2742,7 @@
 			)
 		)
 		(property "SPN" "75-564RC0GAJ602EJ240"
-			(at 124.46 50.8 0)
+			(at 109.22 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2799,7 +2769,7 @@
 	)
 	(symbol
 		(lib_id "Device:C_Small")
-		(at 106.68 50.8 90)
+		(at 91.44 50.8 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -2810,7 +2780,7 @@
 		(fields_autoplaced yes)
 		(uuid "535571ea-9192-44ef-9b5a-688b0a15581c")
 		(property "Reference" "C9"
-			(at 106.6863 44.45 90)
+			(at 91.4463 44.45 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2820,7 +2790,7 @@
 			)
 		)
 		(property "Value" "24p"
-			(at 106.6863 46.99 90)
+			(at 91.4463 46.99 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2830,7 +2800,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_THT:C_Disc_D11.0mm_W5.0mm_P10.00mm"
-			(at 106.68 50.8 0)
+			(at 91.44 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2841,7 +2811,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.vishay.com/docs/23118/564r565r.pdf"
-			(at 106.68 50.8 0)
+			(at 91.44 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2852,7 +2822,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
-			(at 106.68 50.8 0)
+			(at 91.44 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2863,7 +2833,7 @@
 			)
 		)
 		(property "MPN" "564RC0GAJ602EJ240J"
-			(at 106.68 50.8 0)
+			(at 91.44 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2874,7 +2844,7 @@
 			)
 		)
 		(property "SPN" "75-564RC0GAJ602EJ240"
-			(at 106.68 50.8 0)
+			(at 91.44 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2901,7 +2871,7 @@
 	)
 	(symbol
 		(lib_id "Device:C_Small")
-		(at 81.28 50.8 90)
+		(at 66.04 50.8 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -2912,7 +2882,7 @@
 		(fields_autoplaced yes)
 		(uuid "72779db2-a494-4641-bd55-e2879f5bf8c1")
 		(property "Reference" "C1"
-			(at 81.2863 44.45 90)
+			(at 66.0463 44.45 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2922,7 +2892,7 @@
 			)
 		)
 		(property "Value" "24p"
-			(at 81.2863 46.99 90)
+			(at 66.0463 46.99 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2932,7 +2902,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_THT:C_Disc_D11.0mm_W5.0mm_P10.00mm"
-			(at 81.28 50.8 0)
+			(at 66.04 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2943,7 +2913,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.vishay.com/docs/23118/564r565r.pdf"
-			(at 81.28 50.8 0)
+			(at 66.04 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2954,7 +2924,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
-			(at 81.28 50.8 0)
+			(at 66.04 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2965,7 +2935,7 @@
 			)
 		)
 		(property "MPN" "564RC0GAJ602EJ240J"
-			(at 81.28 50.8 0)
+			(at 66.04 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2976,7 +2946,7 @@
 			)
 		)
 		(property "SPN" "75-564RC0GAJ602EJ240"
-			(at 81.28 50.8 0)
+			(at 66.04 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3003,7 +2973,7 @@
 	)
 	(symbol
 		(lib_id "Device:C_Small")
-		(at 134.62 50.8 90)
+		(at 119.38 50.8 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -3014,7 +2984,7 @@
 		(fields_autoplaced yes)
 		(uuid "72b122cd-e95c-4283-bab0-0ce390b34b6e")
 		(property "Reference" "C4"
-			(at 134.6263 44.45 90)
+			(at 119.3863 44.45 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3024,7 +2994,7 @@
 			)
 		)
 		(property "Value" "24p"
-			(at 134.6263 46.99 90)
+			(at 119.3863 46.99 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3034,7 +3004,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_THT:C_Disc_D11.0mm_W5.0mm_P10.00mm"
-			(at 134.62 50.8 0)
+			(at 119.38 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3045,7 +3015,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.vishay.com/docs/23118/564r565r.pdf"
-			(at 134.62 50.8 0)
+			(at 119.38 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3056,7 +3026,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
-			(at 134.62 50.8 0)
+			(at 119.38 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3067,7 +3037,7 @@
 			)
 		)
 		(property "MPN" "564RC0GAJ602EJ240J"
-			(at 134.62 50.8 0)
+			(at 119.38 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3078,7 +3048,7 @@
 			)
 		)
 		(property "SPN" "75-564RC0GAJ602EJ240"
-			(at 134.62 50.8 0)
+			(at 119.38 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3105,7 +3075,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 156.21 63.5 90)
+		(at 140.97 63.5 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -3116,7 +3086,7 @@
 		(fields_autoplaced yes)
 		(uuid "72f4e555-7234-4fdb-8cd1-7828d4dbf6eb")
 		(property "Reference" "R5"
-			(at 156.21 57.15 90)
+			(at 140.97 57.15 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3126,7 +3096,7 @@
 			)
 		)
 		(property "Value" "10M"
-			(at 156.21 59.69 90)
+			(at 140.97 59.69 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3136,7 +3106,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_THT:R_Axial_DIN0918_L18.0mm_D9.0mm_P22.86mm_Horizontal"
-			(at 156.21 65.278 90)
+			(at 140.97 65.278 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3147,7 +3117,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.vishay.com/docs/28907/vr25vr37vr68.pdf"
-			(at 156.21 63.5 0)
+			(at 140.97 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3158,7 +3128,7 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 156.21 63.5 0)
+			(at 140.97 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3169,7 +3139,7 @@
 			)
 		)
 		(property "MPN" "VR68000001005JAC00"
-			(at 156.21 63.5 0)
+			(at 140.97 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3180,7 +3150,7 @@
 			)
 		)
 		(property "SPN" "594-5073DM10M00J"
-			(at 156.21 63.5 0)
+			(at 140.97 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3207,7 +3177,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 102.87 63.5 90)
+		(at 87.63 63.5 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -3218,7 +3188,7 @@
 		(fields_autoplaced yes)
 		(uuid "7e0994fd-48cb-4860-a908-e686f12ee6c3")
 		(property "Reference" "R2"
-			(at 102.87 57.15 90)
+			(at 87.63 57.15 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3228,7 +3198,7 @@
 			)
 		)
 		(property "Value" "10M"
-			(at 102.87 59.69 90)
+			(at 87.63 59.69 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3238,7 +3208,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_THT:R_Axial_DIN0918_L18.0mm_D9.0mm_P22.86mm_Horizontal"
-			(at 102.87 65.278 90)
+			(at 87.63 65.278 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3249,7 +3219,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.vishay.com/docs/28907/vr25vr37vr68.pdf"
-			(at 102.87 63.5 0)
+			(at 87.63 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3260,7 +3230,7 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 102.87 63.5 0)
+			(at 87.63 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3271,7 +3241,7 @@
 			)
 		)
 		(property "MPN" "VR68000001005JAC00"
-			(at 102.87 63.5 0)
+			(at 87.63 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3282,7 +3252,7 @@
 			)
 		)
 		(property "SPN" "594-5073DM10M00J"
-			(at 102.87 63.5 0)
+			(at 87.63 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3309,7 +3279,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 27.94 63.5 0)
+		(at 17.78 63.5 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -3319,7 +3289,7 @@
 		(dnp no)
 		(uuid "7e0fdbc5-71ef-484c-b069-a57fc598ca06")
 		(property "Reference" "#PWR04"
-			(at 27.94 69.85 0)
+			(at 17.78 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3330,7 +3300,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 27.94 67.945 0)
+			(at 17.78 67.945 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3340,7 +3310,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 27.94 63.5 0)
+			(at 17.78 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3351,7 +3321,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 27.94 63.5 0)
+			(at 17.78 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3362,7 +3332,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 27.94 63.5 0)
+			(at 17.78 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3386,7 +3356,7 @@
 	)
 	(symbol
 		(lib_id "Device:R_Potentiometer")
-		(at 55.88 57.15 0)
+		(at 43.18 57.15 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -3397,7 +3367,7 @@
 		(fields_autoplaced yes)
 		(uuid "7fd1eddf-dc7d-432f-999c-da43fcab0ca3")
 		(property "Reference" "RV1"
-			(at 53.34 54.6099 0)
+			(at 40.64 54.6099 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3408,7 +3378,7 @@
 			)
 		)
 		(property "Value" "1M"
-			(at 53.34 57.1499 0)
+			(at 40.64 57.1499 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3419,7 +3389,7 @@
 			)
 		)
 		(property "Footprint" "Potentiometer_THT:Potentiometer_Bourns_3296X_Horizontal"
-			(at 55.88 57.15 0)
+			(at 43.18 57.15 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3430,7 +3400,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.mouser.pl/datasheet/2/54/3296-776415.pdf"
-			(at 55.88 57.15 0)
+			(at 43.18 57.15 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3441,7 +3411,7 @@
 			)
 		)
 		(property "Description" "Trim the attenuation to be perfetly 10000:1"
-			(at 55.88 57.15 0)
+			(at 43.18 57.15 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3452,7 +3422,7 @@
 			)
 		)
 		(property "MPN" "3296Z-1-105LF"
-			(at 55.88 57.15 0)
+			(at 43.18 57.15 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3463,7 +3433,7 @@
 			)
 		)
 		(property "SPN" "652-3296Z-1-105LF"
-			(at 55.88 57.15 0)
+			(at 43.18 57.15 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3474,7 +3444,7 @@
 			)
 		)
 		(property "Label" "TRIM"
-			(at 53.34 59.6899 0)
+			(at 40.64 59.6899 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3504,7 +3474,7 @@
 	)
 	(symbol
 		(lib_id "Device:C_Small")
-		(at 116.84 50.8 90)
+		(at 101.6 50.8 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -3515,7 +3485,7 @@
 		(fields_autoplaced yes)
 		(uuid "8772e6a2-1961-420f-b2e8-ce8c7c6af2e7")
 		(property "Reference" "C3"
-			(at 116.8463 44.45 90)
+			(at 101.6063 44.45 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3525,7 +3495,7 @@
 			)
 		)
 		(property "Value" "24p"
-			(at 116.8463 46.99 90)
+			(at 101.6063 46.99 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3535,7 +3505,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_THT:C_Disc_D11.0mm_W5.0mm_P10.00mm"
-			(at 116.84 50.8 0)
+			(at 101.6 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3546,7 +3516,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.vishay.com/docs/23118/564r565r.pdf"
-			(at 116.84 50.8 0)
+			(at 101.6 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3557,7 +3527,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
-			(at 116.84 50.8 0)
+			(at 101.6 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3568,7 +3538,7 @@
 			)
 		)
 		(property "MPN" "564RC0GAJ602EJ240J"
-			(at 116.84 50.8 0)
+			(at 101.6 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3579,7 +3549,7 @@
 			)
 		)
 		(property "SPN" "75-564RC0GAJ602EJ240"
-			(at 116.84 50.8 0)
+			(at 101.6 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3606,7 +3576,7 @@
 	)
 	(symbol
 		(lib_id "Device:C_Small")
-		(at 142.24 50.8 90)
+		(at 127 50.8 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -3617,7 +3587,7 @@
 		(fields_autoplaced yes)
 		(uuid "9e026dbf-13f5-44b9-af57-f66e8730b633")
 		(property "Reference" "C11"
-			(at 142.2463 44.45 90)
+			(at 127.0063 44.45 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3627,7 +3597,7 @@
 			)
 		)
 		(property "Value" "24p"
-			(at 142.2463 46.99 90)
+			(at 127.0063 46.99 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3637,7 +3607,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_THT:C_Disc_D11.0mm_W5.0mm_P10.00mm"
-			(at 142.24 50.8 0)
+			(at 127 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3648,7 +3618,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.vishay.com/docs/23118/564r565r.pdf"
-			(at 142.24 50.8 0)
+			(at 127 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3659,7 +3629,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
-			(at 142.24 50.8 0)
+			(at 127 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3670,7 +3640,7 @@
 			)
 		)
 		(property "MPN" "564RC0GAJ602EJ240J"
-			(at 142.24 50.8 0)
+			(at 127 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3681,7 +3651,7 @@
 			)
 		)
 		(property "SPN" "75-564RC0GAJ602EJ240"
-			(at 142.24 50.8 0)
+			(at 127 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3708,7 +3678,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 63.5 63.5 0)
+		(at 50.8 63.5 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -3718,7 +3688,7 @@
 		(dnp no)
 		(uuid "a2ee4e3c-8a5b-4d9f-8bb7-75dc56851e12")
 		(property "Reference" "#PWR01"
-			(at 63.5 69.85 0)
+			(at 50.8 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3729,7 +3699,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 63.5 67.945 0)
+			(at 50.8 67.945 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3739,7 +3709,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 63.5 63.5 0)
+			(at 50.8 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3750,7 +3720,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 63.5 63.5 0)
+			(at 50.8 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3761,7 +3731,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 63.5 63.5 0)
+			(at 50.8 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3785,8 +3755,7 @@
 	)
 	(symbol
 		(lib_id "Device:C_Small")
-		(at 45.72 55.88 0)
-		(mirror x)
+		(at 30.48 55.88 180)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -3796,7 +3765,7 @@
 		(dnp no)
 		(uuid "ad55ad02-ba0b-4891-b13f-3e49a372b15f")
 		(property "Reference" "C7"
-			(at 43.815 54.61 0)
+			(at 32.385 54.61 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3807,7 +3776,7 @@
 			)
 		)
 		(property "Value" "2n2"
-			(at 43.815 57.1565 0)
+			(at 32.385 57.1565 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3818,7 +3787,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder"
-			(at 45.72 55.88 0)
+			(at 30.48 55.88 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3829,7 +3798,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.vishay.com/docs/45199/vjcommercialseries.pdf"
-			(at 45.72 55.88 0)
+			(at 30.48 55.88 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3840,7 +3809,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
-			(at 45.72 55.88 0)
+			(at 30.48 55.88 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3851,7 +3820,7 @@
 			)
 		)
 		(property "MPN" "VJ1206A222FFBAT"
-			(at 45.72 55.88 0)
+			(at 30.48 55.88 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3862,7 +3831,7 @@
 			)
 		)
 		(property "SPN" "77-VJ1206A222FFBAT"
-			(at 45.72 55.88 0)
+			(at 30.48 55.88 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3889,7 +3858,7 @@
 	)
 	(symbol
 		(lib_id "Device:C_Small")
-		(at 99.06 50.8 90)
+		(at 83.82 50.8 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -3900,7 +3869,7 @@
 		(fields_autoplaced yes)
 		(uuid "cc3e9b52-4ed2-4f43-9617-78a14027ddad")
 		(property "Reference" "C2"
-			(at 99.0663 44.45 90)
+			(at 83.8263 44.45 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3910,7 +3879,7 @@
 			)
 		)
 		(property "Value" "24p"
-			(at 99.0663 46.99 90)
+			(at 83.8263 46.99 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3920,7 +3889,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_THT:C_Disc_D11.0mm_W5.0mm_P10.00mm"
-			(at 99.06 50.8 0)
+			(at 83.82 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3931,7 +3900,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.vishay.com/docs/23118/564r565r.pdf"
-			(at 99.06 50.8 0)
+			(at 83.82 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3942,7 +3911,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
-			(at 99.06 50.8 0)
+			(at 83.82 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3953,7 +3922,7 @@
 			)
 		)
 		(property "MPN" "564RC0GAJ602EJ240J"
-			(at 99.06 50.8 0)
+			(at 83.82 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3964,7 +3933,7 @@
 			)
 		)
 		(property "SPN" "75-564RC0GAJ602EJ240"
-			(at 99.06 50.8 0)
+			(at 83.82 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3991,7 +3960,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 55.88 63.5 0)
+		(at 43.18 63.5 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -4001,7 +3970,7 @@
 		(dnp no)
 		(uuid "e95af9e1-cf21-4e8a-b15b-7ec4ae4fdc32")
 		(property "Reference" "#PWR02"
-			(at 55.88 69.85 0)
+			(at 43.18 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4012,7 +3981,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 55.88 67.945 0)
+			(at 43.18 67.945 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4022,7 +3991,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 55.88 63.5 0)
+			(at 43.18 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4033,7 +4002,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 55.88 63.5 0)
+			(at 43.18 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4044,7 +4013,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 55.88 63.5 0)
+			(at 43.18 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4068,7 +4037,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 85.09 63.5 90)
+		(at 69.85 63.5 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -4079,7 +4048,7 @@
 		(fields_autoplaced yes)
 		(uuid "ec11f545-e9dd-4fb5-86c4-21f5c889878e")
 		(property "Reference" "R1"
-			(at 85.09 57.15 90)
+			(at 69.85 57.15 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4089,7 +4058,7 @@
 			)
 		)
 		(property "Value" "10M"
-			(at 85.09 59.69 90)
+			(at 69.85 59.69 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4099,7 +4068,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_THT:R_Axial_DIN0918_L18.0mm_D9.0mm_P22.86mm_Horizontal"
-			(at 85.09 65.278 90)
+			(at 69.85 65.278 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4110,7 +4079,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.vishay.com/docs/28907/vr25vr37vr68.pdf"
-			(at 85.09 63.5 0)
+			(at 69.85 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4121,7 +4090,7 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 85.09 63.5 0)
+			(at 69.85 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4132,7 +4101,7 @@
 			)
 		)
 		(property "MPN" "VR68000001005JAC00"
-			(at 85.09 63.5 0)
+			(at 69.85 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4143,7 +4112,7 @@
 			)
 		)
 		(property "SPN" "594-5073DM10M00J"
-			(at 85.09 63.5 0)
+			(at 69.85 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4170,7 +4139,7 @@
 	)
 	(symbol
 		(lib_id "Connector:Conn_Coaxial")
-		(at 27.94 50.8 0)
+		(at 17.78 50.8 0)
 		(mirror y)
 		(unit 1)
 		(body_style 1)
@@ -4181,7 +4150,7 @@
 		(dnp no)
 		(uuid "f3e7a47f-8177-41ae-b303-28b62dc18c0a")
 		(property "Reference" "J2"
-			(at 22.86 49.53 0)
+			(at 21.59 44.45 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4191,7 +4160,7 @@
 			)
 		)
 		(property "Value" "OUT"
-			(at 22.86 52.07 0)
+			(at 21.59 46.99 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4201,7 +4170,7 @@
 			)
 		)
 		(property "Footprint" "Connector_Coaxial:BNC_Amphenol_B6252HB-NPP3G-50_Horizontal"
-			(at 27.94 50.8 0)
+			(at 17.78 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4212,7 +4181,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.mouser.pl/datasheet/2/18/1/amphs06325_1-2259332.pdf"
-			(at 27.94 50.8 0)
+			(at 17.78 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4223,7 +4192,7 @@
 			)
 		)
 		(property "Description" "coaxial connector (BNC, SMA, SMB, SMC, Cinch/RCA, LEMO, ...)"
-			(at 27.94 50.8 0)
+			(at 17.78 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4234,7 +4203,7 @@
 			)
 		)
 		(property "MPN" "112413"
-			(at 27.94 50.8 0)
+			(at 17.78 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4245,7 +4214,7 @@
 			)
 		)
 		(property "SPN" "523-112413"
-			(at 27.94 50.8 0)
+			(at 17.78 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)

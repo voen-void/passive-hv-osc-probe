@@ -9,7 +9,7 @@
 [Schematic pdf](/images/hv-probe-passive-schematic.pdf) included in the repo.
 
 *Summary:*
-This is a 1000:1 passive high-voltage oscilloscope probe designed for measurements up to 20 kV peak. The probe uses a compensated resistive/capacitive divider, a shielded and resin-potted PCB construction, and is designed to fit inside a 37.6 mm ID metal tube. (1-1/2" tubing will do fine here)
+This is a 1000:1 passive high-voltage oscilloscope probe designed for measurements up to 20 kV peak. The probe uses a compensated resistive/capacitive divider, a shielded and resin-potted PCB construction, and is designed to fit inside a 37.6 mm ID metal tube. (1-1/2" tubing will do fine here) The achieveable bandwidth is around XX MHz.
 
 ## TLDR
 | Parameter                    | Value             |
@@ -19,13 +19,14 @@ This is a 1000:1 passive high-voltage oscilloscope probe designed for measuremen
 | Divider                      | 50 MΩ / 50 kΩ     |
 | Probe body                   | Resin-potted PCB  |
 | Shield                       | Brass/copper tube |
-| Shield inner diameter        | 37.6 mm           |
+| Shield inner diameter        | 37.6 mm (1.48 in) |
 | PCB                          | 2-layer           |
 | Recommended potting resin εr | ≤ 6               |
 | Compensation                 | Adjustable        |
+| bandwidth                    | XX MHz            |
 | Status                       | **Not yet tested**|
 
-The design is based on a [EEVBlog Video](https://www.youtube.com/watch?v=jUvSP3BQpvs). The electrical design is done in [KiCad](https://www.kicad.org/) 10.0.5, and the mechanical design is done in [onshape](https://www.onshape.com/en/). The total cost of a single probe adds up to around **100 USD**, though it will be larger because not all parts can be bought in small enough quantities (eg. the resin, the PCBs \[usually 5 minimum\] and the shielding tube).
+The design is based on a [EEVBlog Video](https://www.youtube.com/watch?v=jUvSP3BQpvs). The electrical design is done in [KiCad](https://www.kicad.org/) 10.0.6, and the mechanical design is done in [onshape](https://www.onshape.com/en/). The total cost of a single probe adds up to around **100 USD**, though it will be larger because not all parts can be bought in small enough quantities (eg. the resin, the PCBs \[usually 5 minimum\] and the shielding tube).
 
 > [!NOTE]
 > The PCBs for this project have been provided by [PCBWay](https://www.pcbway.com/).
@@ -46,9 +47,13 @@ This project tackles the design of a simple high voltage oscilloscope probe base
 
 But it's a bit more complex than that if we want to probe AC signals of considerable frequency. The parasitic capacitances need to be compensated to achieve better bandwidth. For this reason the resistors forming the voltage divider are bypassed by capacitors which increase the AC transmittance of the circuit.
 
-<img src="/images/divider-comp.jpg" width="30%" />
+<!--
+![A drawing of a compensated resistive divider](/images/divider-comp.jpg)
+-->
 
-It should be noted that for desired probe behavior the transmittance of just the resistors should match that of just the capacitors. If we cared only to measure DC, then the capacitors could be ommited entirely.
+<img src="/images/divider-comp.jpg" width="35%" />
+
+The capacitance values presented in the above schematic are just for reference, and will likely be different for the actual probe. For a compensated probe the transmittance of just the resistors should match that of just the capacitors. If we cared only to measure DC, then the capacitors could be ommited entirely.
 
 At the low voltage end two footprints for capacitors are provided which allow simple compensation as you will need to adjust that capacitance to achieve a flat frequency response. Capacitor values are also proposed, but the final capacitor value may differ from the proposed value because the parasitic capacitance depends on the PCB, components, potting compound and mechanical construction.
 For adjusting the DC and low frequency transmittance a 10 turn potentiometer is provided. It should be set to 1 M (full range) by default. While calibrating adjust it to reach desired 1000:1 division ratio. Then the capacitor should be adjusted to achieve flat frequency response. A proposed calibration procedure follows;
@@ -91,19 +96,19 @@ For increased safety a microwave fuse may be added in series with the input of t
 
 [A drawing with the dimensions](/images/hv-probe-passive-dimensions.pdf) of the PCB included in the repo.
 
-The probe requires some special attention when it comes to construction. Since the divider consists of such high value resistors (50 MOhm to 50 kOhm divider), it's sensitive to interference. For this reason the probe is designed to fit in a shield in the form of a brass or copper tube of the inner diameter of 37,6 mm (1.48 in). This shield shall be grounded to protect the sensitive signal inside. To increase dielectric breakdown a special resin must be used, and the PCB inside the shield should be cast in it. Since the voltages measured are significant, leaving the PCB in the free air wont cut it. Try to pick a resing with as low dielectric constant as possible. [HUNTSMAN CW5620 BLUE](https://products.huntsman.com/products/arathane-cw-5620-hy-5610) was used, which has a relative dielectric constant of 6. It is recommended to not use resins of higher relative dielectric constant as it increase the parasitic capacitances, which will degrade the bandwidth of the probe cutting down high frequency transmittance.
+The probe requires some special attention when it comes to construction. Since the divider consists of such high value resistors (50 MΩ to 50 kΩ divider), it's sensitive to interference. For this reason the probe is designed to fit in a shield in the form of a brass or copper tube of the inner diameter of 37,6 mm (1.48 in). This shield shall be grounded to protect the sensitive signal inside. To increase dielectric breakdown a special resin must be used, and the PCB inside the shield should be cast in it. Since the voltages measured are significant, leaving the PCB in the free air wont cut it. Try to pick a resing with as low dielectric constant as possible. [HUNTSMAN CW5620 BLUE](https://products.huntsman.com/products/arathane-cw-5620-hy-5610) was used, which has a relative dielectric constant of 6. It is recommended to not use resins of higher relative dielectric constant as it increase the parasitic capacitances, which will degrade the bandwidth of the probe cutting down high frequency transmittance.
 
 ### Cost of building a single probe
 
 | Element (MPN)                | Reference     | Qty.  | Price \[USD\] |
 | --------------------------   | ------------- | ----- | ----------- |
 | PCB                          | -             | 1     | 4.2         |
-| 564RC0GAJ602EJ240J           | C1-C5, C8-C12 | 10    | 30.27       |
-| VJ1206A222FFBAT              | C6, C7        | 2     | 2.55        |
-| 112413                       | J2            | 1     | 8.22        |
-| VR68000001005JAC00           | R1-R5         | 5     | 7.02        |
-| CR1206-FX-5602ELF            | R6            | 1     | 0.1         |
-| 3296Z-1-105LF                | RV1           | 1     | 2.45        |
+| [564RC0GAJ602EJ240J](https://mou.sr/46weVJR)           | C1-C5, C8-C12 | 10    | 30.27       |
+| [VJ1206A222FFBAT](https://mou.sr/3SJN9Gu)              | C6, C7        | 2     | 2.55        |
+| [112413](https://mou.sr/46wNFuQ)                       | J2            | 1     | 8.22        |
+| [VR68000001005JAC00](https://mou.sr/3V2SlWK)           | R1-R5         | 5     | 7.02        |
+| [CR1206-FX-5602ELF](https://mou.sr/3SBNyLk)            | R6            | 1     | 0.1         |
+| [3296Z-1-105LF](https://mou.sr/4zNrIVU)                | RV1           | 1     | 2.45        |
 | HUNTSMAN CW5620 BLUE Resin   | -             | 732 g | 25          |
 | Copper shielding tube        | -             | 15 cm | 17          |
 | 3DP filament cost            | -             | -     | 2           |
