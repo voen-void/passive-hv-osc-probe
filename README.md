@@ -56,7 +56,7 @@ But it's a bit more complex than that if we want to probe AC signals of consider
 The capacitance values presented in the above schematic are just for reference, and will likely be different for the actual probe. For a compensated probe the transmittance of just the resistors should match that of just the capacitors. If we cared only to measure DC, then the capacitors could be ommited entirely.
 
 At the low voltage end two footprints for capacitors are provided which allow simple compensation as you will need to adjust that capacitance to achieve a flat frequency response. Capacitor values are also proposed, but the final capacitor value may differ from the proposed value because the parasitic capacitance depends on the PCB, components, potting compound and mechanical construction.
-For adjusting the DC and low frequency transmittance a 10 turn potentiometer is provided. It should be set to 1 M (full range) by default. While calibrating adjust it to reach desired 1000:1 division ratio. Then the capacitor should be adjusted to achieve flat frequency response. A proposed calibration procedure follows;
+For adjusting the DC and low frequency transmittance a 10 turn potentiometer is provided. It should be set to 1 MΩ (full range) by default. While calibrating adjust it to reach desired 1000:1 division ratio. Then the capacitor should be adjusted to achieve flat frequency response. A proposed calibration procedure follows;
 
 ### Calibration
 

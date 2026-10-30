@@ -3,14 +3,170 @@
 	(generator "eeschema")
 	(generator_version "10.0")
 	(uuid "3b20e106-b140-40ed-b1d5-710ed0621292")
-	(paper "A5")
+	(paper "User" 300 100)
 	(title_block
 		(title "Passive HV probe board")
 		(date "2024-11-17")
-		(rev "1")
+		(rev "2")
 		(company "JSK")
 	)
 	(lib_symbols
+		(symbol "C_Small_1"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0.254)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "C"
+				(at 0.254 1.778 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Value" "C_Small"
+				(at 0.254 -2.032 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "Unpolarized capacitor, small symbol"
+				(at 0 -10.16 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "capacitor cap"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "C_*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "C_Small_1_0_1"
+				(polyline
+					(pts
+						(xy -1.524 0.508) (xy 1.524 0.508)
+					)
+					(stroke
+						(width 0.3048)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.524 -0.508) (xy 1.524 -0.508)
+					)
+					(stroke
+						(width 0.3048)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "C_Small_1_1_1"
+				(pin passive line
+					(at 0 2.54 270)
+					(length 2.032)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -2.54 90)
+					(length 2.032)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "Connector:Conn_Coaxial"
 			(pin_names
 				(offset 1.016)
@@ -353,40 +509,43 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Device:R"
+		(symbol "Device:C_Variable"
 			(pin_numbers
 				(hide yes)
 			)
 			(pin_names
-				(offset 0)
+				(offset 0.254)
+				(hide yes)
 			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
 			(in_pos_files yes)
 			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "R"
-				(at 2.032 0 90)
+			(property "Reference" "C"
+				(at 0.635 -1.905 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
+					(justify left)
 				)
 			)
-			(property "Value" "R"
-				(at 0 0 90)
+			(property "Value" "C_Variable"
+				(at 0.635 -3.81 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
+					(justify left)
 				)
 			)
 			(property "Footprint" ""
-				(at -1.778 0 90)
+				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(hide yes)
@@ -407,7 +566,7 @@
 					)
 				)
 			)
-			(property "Description" "Resistor"
+			(property "Description" "Variable capacitor"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -418,7 +577,7 @@
 					)
 				)
 			)
-			(property "ki_keywords" "R res resistor"
+			(property "ki_keywords" "trimmer capacitor"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -429,23 +588,61 @@
 					)
 				)
 			)
-			(property "ki_fp_filters" "R_*"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
+			(symbol "C_Variable_0_1"
+				(polyline
+					(pts
+						(xy -2.032 0.762) (xy 2.032 0.762)
 					)
-				)
-			)
-			(symbol "R_0_1"
-				(rectangle
-					(start -1.016 -2.54)
-					(end 1.016 2.54)
 					(stroke
-						(width 0.254)
+						(width 0.508)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -2.032 -0.762) (xy 2.032 -0.762)
+					)
+					(stroke
+						(width 0.508)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 2.54) (xy -1.27 -2.54)
+					)
+					(stroke
+						(width 0.3048)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 2.54) (xy 0.508 2.286)
+					)
+					(stroke
+						(width 0.3048)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 2.54) (xy 1.524 1.778)
+					)
+					(stroke
+						(width 0.3048)
 						(type default)
 					)
 					(fill
@@ -453,10 +650,10 @@
 					)
 				)
 			)
-			(symbol "R_1_1"
+			(symbol "C_Variable_1_1"
 				(pin passive line
 					(at 0 3.81 270)
-					(length 1.27)
+					(length 3.048)
 					(name ""
 						(effects
 							(font
@@ -474,7 +671,7 @@
 				)
 				(pin passive line
 					(at 0 -3.81 90)
-					(length 1.27)
+					(length 3.048)
 					(name ""
 						(effects
 							(font
@@ -493,7 +690,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Device:R_Potentiometer"
+		(symbol "Device:R_Potentiometer_Small"
 			(pin_names
 				(offset 1.016)
 				(hide yes)
@@ -513,7 +710,7 @@
 					)
 				)
 			)
-			(property "Value" "R_Potentiometer"
+			(property "Value" "R_Potentiometer_Small"
 				(at -2.54 0 90)
 				(show_name no)
 				(do_not_autoplace no)
@@ -556,6 +753,39 @@
 					)
 				)
 			)
+			(property "Sim.Device" "R"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Sim.Type" "POT"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Sim.Pins" "1=r0 2=wiper 3=r1"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
 			(property "ki_keywords" "resistor variable"
 				(at 0 0 0)
 				(show_name no)
@@ -578,10 +808,10 @@
 					)
 				)
 			)
-			(symbol "R_Potentiometer_0_1"
+			(symbol "R_Potentiometer_Small_0_1"
 				(rectangle
-					(start 1.016 2.54)
-					(end -1.016 -2.54)
+					(start 0.762 1.8034)
+					(end -0.762 -1.8034)
 					(stroke
 						(width 0.254)
 						(type default)
@@ -592,7 +822,7 @@
 				)
 				(polyline
 					(pts
-						(xy 1.143 0) (xy 2.286 0.508) (xy 2.286 -0.508) (xy 1.143 0)
+						(xy 0.889 0) (xy 0.635 0) (xy 1.651 0.381) (xy 1.651 -0.381) (xy 0.635 0) (xy 0.889 0)
 					)
 					(stroke
 						(width 0)
@@ -602,12 +832,159 @@
 						(type outline)
 					)
 				)
-				(polyline
-					(pts
-						(xy 2.54 0) (xy 1.524 0)
+			)
+			(symbol "R_Potentiometer_Small_1_1"
+				(pin passive line
+					(at 0 2.54 270)
+					(length 0.635)
+					(name "1"
+						(effects
+							(font
+								(size 0.635 0.635)
+							)
+						)
 					)
+					(number "1"
+						(effects
+							(font
+								(size 0.635 0.635)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 2.54 0 180)
+					(length 0.9906)
+					(name "2"
+						(effects
+							(font
+								(size 0.635 0.635)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 0.635 0.635)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -2.54 90)
+					(length 0.635)
+					(name "3"
+						(effects
+							(font
+								(size 0.635 0.635)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 0.635 0.635)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "Device:R_Small"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0.254)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "R"
+				(at 0 0 90)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.016 1.016)
+					)
+				)
+			)
+			(property "Value" "R_Small"
+				(at 1.778 0 90)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "Resistor, small symbol"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "R resistor"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "R_*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "R_Small_0_1"
+				(rectangle
+					(start -0.762 1.778)
+					(end 0.762 -1.778)
 					(stroke
-						(width 0)
+						(width 0.2032)
 						(type default)
 					)
 					(fill
@@ -615,11 +992,11 @@
 					)
 				)
 			)
-			(symbol "R_Potentiometer_1_1"
+			(symbol "R_Small_1_1"
 				(pin passive line
-					(at 0 3.81 270)
-					(length 1.27)
-					(name "1"
+					(at 0 2.54 270)
+					(length 0.762)
+					(name ""
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -635,9 +1012,9 @@
 					)
 				)
 				(pin passive line
-					(at 3.81 0 180)
-					(length 1.27)
-					(name "2"
+					(at 0 -2.54 90)
+					(length 0.762)
+					(name ""
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -645,24 +1022,6 @@
 						)
 					)
 					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -3.81 90)
-					(length 1.27)
-					(name "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -789,113 +1148,19 @@
 			(embedded_fonts no)
 		)
 	)
-	(circle
-		(center 53.34 71.755)
-		(radius 0.635)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(fill
-			(type color)
-			(color 0 0 0 0)
-		)
-		(uuid "2d09b003-5d43-47a4-80bf-be66ef4f5af9")
-	)
-	(circle
-		(center 58.42 71.755)
-		(radius 0.635)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(fill
-			(type color)
-			(color 0 0 0 0)
-		)
-		(uuid "9d674e22-dde5-4649-bd80-bfd95b2f7ece")
-	)
-	(rectangle
-		(start 58.42 40.64)
-		(end 160.02 71.12)
-		(stroke
-			(width -0.0001)
-			(type default)
-		)
-		(fill
-			(type color)
-			(color 0 194 194 0.3)
-		)
-		(uuid "c4231545-7668-439a-ade9-84e725922dd0")
-	)
-	(text "High Voltage GND"
+	(text "HV Input"
 		(exclude_from_sim no)
-		(at 162.56 73.66 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left top)
-		)
-		(uuid "00dad0e6-49f7-42f3-8503-cc51aeb4e9b8")
-	)
-	(text "about 4n7 needed here for compensation"
-		(exclude_from_sim no)
-		(at 15.24 78.74 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left top)
-		)
-		(uuid "14d19acb-f977-4573-bc8c-b8b63c1a01cb")
-	)
-	(text "shield"
-		(exclude_from_sim no)
-		(at 106.68 71.12 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-				(italic yes)
-			)
-		)
-		(uuid "47fa6edc-9924-4b4c-9f89-91d966f93529")
-	)
-	(text "NOTE TO SELF: use HV121WF2004T4E and FV42N470J302ECG instead! what a silly design decision it was to use THT parts for the divider!"
-		(exclude_from_sim no)
-		(at 86.36 35.56 0)
+		(at 281.94 43.18 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 		)
-		(uuid "4eded06d-a9c3-4793-99bf-0e0a59a79751")
-	)
-	(text "cast in resin"
-		(exclude_from_sim no)
-		(at 78.74 66.04 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "b46633b2-47f5-4422-82fc-ff2209ad0595")
-	)
-	(text "High Voltage input"
-		(exclude_from_sim no)
-		(at 162.56 58.42 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-				(italic yes)
-			)
-			(justify left top)
-		)
-		(uuid "ed0d3ca3-3f33-4865-8806-a5f6a6558d69")
+		(uuid "c1930b80-3338-4daf-b61e-ab9b0907fe05")
 	)
 	(text_box "in the original EEVBlog build a resin with eps of ~4-5 was used, so since i have resin with eps = 6 i magnified the capacitances."
 		(exclude_from_sim no)
-		(at 91.44 109.22 0)
+		(at 180.34 60.96 0)
 		(size 106.68 5.9927)
 		(margins 0.9524 0.9524 0.9524 0.9524)
 		(stroke
@@ -913,29 +1178,9 @@
 		)
 		(uuid "3a2485e2-83f9-43e7-9807-99b1a981b357")
 	)
-	(text_box "If you want to reduce capacitive loading introduced by this probe perhaps consider replacing the proposed 24 pF caps with 12 pF capacitors, although care should be taken as this could be coming very close to loosing compensation. Recommended capacitor: 564R60GAQ10"
-		(exclude_from_sim no)
-		(at 17.78 17.78 0)
-		(size 63.5 12.7)
-		(margins 0.9525 0.9525 0.9525 0.9525)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(fill
-			(type none)
-		)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left top)
-		)
-		(uuid "ddbbb32b-c549-4da0-b795-06baf42917fb")
-	)
 	(text_box "Warning! Mind the grounding. Improper grounding might lead to high voltage shock. Be aware that the oscilloscope ground is referenced to the mains PE terminal and it should stay this way during measurments. Remote oscilloscope control recommended."
 		(exclude_from_sim no)
-		(at 88.9 83.82 0)
+		(at 114.3 55.88 0)
 		(size 63.5 12.7)
 		(margins 0.9525 0.9525 0.9525 0.9525)
 		(stroke
@@ -953,14 +1198,14 @@
 		)
 		(uuid "e889dc64-035c-4091-8069-276393caade0")
 	)
-	(text_box "Input range: theoretically up to 50 kV peak MAXIMUM. 20 kV Maximum recommended."
+	(text_box "Input range: theoretically up to 50 kV peak absolute maximum. 20 kV maximum recommended."
 		(exclude_from_sim no)
-		(at 91.44 104.775 0)
+		(at 180.34 56.515 0)
 		(size 105.41 5.715)
 		(margins 0.9524 0.9524 0.9524 0.9524)
 		(stroke
 			(width -0.0001)
-			(type default)
+			(type solid)
 		)
 		(fill
 			(type none)
@@ -974,198 +1219,434 @@
 		(uuid "f804d629-514b-42ff-9a6c-146751e83ca7")
 	)
 	(junction
-		(at 78.74 63.5)
+		(at 60.96 30.48)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "01b53b73-c8d7-4439-8957-063e25ba24a2")
+		(uuid "00e6e211-daea-4ce4-8467-400bf50a6ac6")
 	)
 	(junction
-		(at 25.4 50.8)
+		(at 259.08 30.48)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "0eb49128-9244-49a8-8c7e-1c8b6feb39c3")
+		(uuid "035a93a4-e0be-42c4-b1ad-ecaea13cdca9")
 	)
 	(junction
-		(at 96.52 63.5)
+		(at 68.58 30.48)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "139cc7d3-525a-46c1-995b-31ca0e841343")
+		(uuid "039deb84-41ed-4990-bc46-df6d3cba9a6b")
 	)
 	(junction
-		(at 132.08 63.5)
+		(at 187.96 40.64)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "29b6dbd8-0016-4a5e-84cf-138e503b0281")
+		(uuid "05f9a2e9-38ff-4081-884d-1fd7560cadc6")
 	)
 	(junction
-		(at 43.18 50.8)
+		(at 86.36 40.64)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "2d2962a1-603b-4d28-a317-fa64e028d361")
+		(uuid "08a32735-a9aa-4cf7-aa74-bfd3411451e2")
 	)
 	(junction
-		(at 96.52 50.8)
+		(at 218.44 30.48)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "3b9b9f24-3d16-41bb-bbd0-6e6e72460df8")
+		(uuid "0957130d-879d-4a1c-81d6-21dd4d8051a6")
 	)
 	(junction
-		(at 43.18 60.96)
+		(at 116.84 30.48)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "46b51a75-88da-432c-9a92-f58433e5152e")
+		(uuid "0ccb7bc0-34ea-4f73-953c-7234cee59eb1")
 	)
 	(junction
-		(at 78.74 50.8)
+		(at 177.8 40.64)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "84fb036f-5197-4438-bc97-9267bf3a1b36")
+		(uuid "0e278d1d-5dbb-47e6-b016-caeae396a491")
 	)
 	(junction
-		(at 30.48 50.8)
+		(at 116.84 40.64)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "853bf9b3-beaf-4397-82c3-bc728644e981")
+		(uuid "0f4c833b-289e-466f-a3dd-f00a959a78c9")
 	)
 	(junction
-		(at 60.96 50.8)
+		(at 45.72 30.48)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "9940b8d9-3b8e-4c3f-9fdf-2f6ca48721d5")
+		(uuid "11439211-1813-4b28-aef5-7273b8db55b6")
 	)
 	(junction
-		(at 132.08 50.8)
+		(at 137.16 40.64)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "a5a2ff56-5a0e-4c33-a1ea-a7b3644d77da")
+		(uuid "1ebcecbe-7a83-45b2-be03-3eda1047f5c6")
 	)
 	(junction
-		(at 114.3 50.8)
+		(at 238.76 40.64)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "acc87ce6-8794-4afe-b308-4236b39a3547")
+		(uuid "1ecce899-0c08-4cdd-a8dc-f5829c319f20")
 	)
 	(junction
-		(at 149.86 55.88)
+		(at 157.48 30.48)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "af998008-13c1-4682-9305-d7ae5328586e")
+		(uuid "205d9f08-0e60-4678-9c66-65aad7bd5d24")
 	)
 	(junction
-		(at 50.8 50.8)
+		(at 218.44 40.64)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "bcc81605-1406-4be5-89c5-d07d0ff85e67")
+		(uuid "218316bf-b32d-48fd-b25e-99057c7c4aba")
 	)
 	(junction
-		(at 114.3 63.5)
+		(at 198.12 30.48)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "db6656eb-30e3-4663-9f6e-40b3e4cf7f7f")
+		(uuid "253af6df-3b46-4eba-8dc8-c90e0fa99cb1")
 	)
-	(polyline
-		(pts
-			(xy 17.78 71.12) (xy 101.6 71.12)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "04b58aec-f893-4b12-9e3f-59c8001eaad6")
+	(junction
+		(at 269.24 30.48)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "27d536d2-20d7-441c-a0d1-1e73196dc7be")
+	)
+	(junction
+		(at 106.68 30.48)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "34881924-bbf7-4d45-ae5f-09c43771b1dc")
+	)
+	(junction
+		(at 228.6 30.48)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "564525f5-7675-423c-ae61-e37f031effad")
+	)
+	(junction
+		(at 228.6 40.64)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "5c2006ee-707b-42fc-81f8-c61ec27dd6d9")
+	)
+	(junction
+		(at 167.64 30.48)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "5d7da8e2-a6e9-4b5e-81fb-589f8a625fba")
+	)
+	(junction
+		(at 127 40.64)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "5f707092-3339-4ad8-bbda-68f3b9047484")
+	)
+	(junction
+		(at 147.32 40.64)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "61e3c5c3-3912-4719-b9ab-4dba5bddf658")
+	)
+	(junction
+		(at 238.76 30.48)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "71945e3d-3800-4612-a403-2b565b14fe07")
+	)
+	(junction
+		(at 137.16 30.48)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "72efdeef-fdfb-4037-9b17-833e78de7982")
+	)
+	(junction
+		(at 208.28 40.64)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "78e76823-8eb2-4bed-8455-bb114baae2e9")
+	)
+	(junction
+		(at 60.96 40.64)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "790332af-643c-4733-b047-0c56d58c0b48")
+	)
+	(junction
+		(at 96.52 30.48)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "7b09903e-27d7-41de-bc57-fd4147be4f70")
+	)
+	(junction
+		(at 147.32 30.48)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "7de022da-b91a-48e7-a092-cfeaca5f3773")
+	)
+	(junction
+		(at 248.92 30.48)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "8fe1a599-0f95-4ac1-ad00-051553dfcda8")
+	)
+	(junction
+		(at 157.48 40.64)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "93ab2459-989b-4109-82c6-22bb4df35709")
+	)
+	(junction
+		(at 86.36 30.48)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "a0128858-9932-4509-bbfa-a1814f7575a6")
+	)
+	(junction
+		(at 198.12 40.64)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "a8798ef7-ceea-4bda-a2cb-21db434582e6")
+	)
+	(junction
+		(at 38.1 30.48)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "abc8c136-17c8-4bcc-afd4-d2c5db2b64b9")
+	)
+	(junction
+		(at 259.08 40.64)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "b20a3128-fee1-44d9-9221-d2ebd8292c4b")
+	)
+	(junction
+		(at 269.24 40.64)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "b92c5e92-81fc-4dc8-9131-6250478419f3")
+	)
+	(junction
+		(at 53.34 30.48)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "bf998219-2c51-4887-9896-5a3667620a87")
+	)
+	(junction
+		(at 248.92 40.64)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "c72e6c3a-cf8c-42fb-98bd-a01582e8a65e")
+	)
+	(junction
+		(at 279.4 40.64)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "c9efe49a-80c1-43b1-a4ca-82f4e82ea454")
+	)
+	(junction
+		(at 76.2 30.48)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "d20d8561-0313-45df-8d11-4c3eb61a4b2e")
+	)
+	(junction
+		(at 177.8 30.48)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "e5feec9c-db09-4792-991a-7521bb9b39a2")
+	)
+	(junction
+		(at 106.68 40.64)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "e945fd9b-7f2e-4a61-b914-63291d30693a")
+	)
+	(junction
+		(at 127 30.48)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "f08e1e7f-83fe-4c02-89e4-187e7de8ab97")
+	)
+	(junction
+		(at 208.28 30.48)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "f4623819-68a0-42ad-b68f-ec0c35d70dbd")
+	)
+	(junction
+		(at 187.96 30.48)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "f7c726a3-b1c9-408b-aefd-3ecdce291c2e")
+	)
+	(junction
+		(at 167.64 40.64)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "fcf35beb-cd52-4c2a-a214-218e40f6ae23")
+	)
+	(junction
+		(at 96.52 40.64)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "ff98c8ca-68d4-4df5-b3c9-26fe8a99ad6c")
 	)
 	(wire
 		(pts
-			(xy 25.4 58.42) (xy 25.4 63.5)
+			(xy 218.44 30.48) (xy 215.9 30.48)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "0a5b6125-fefe-4b8a-9ad5-9a056be14f8c")
-	)
-	(polyline
-		(pts
-			(xy 172.72 76.2) (xy 170.18 76.2)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "0b506d5d-d210-4b8b-8259-3c23cfa5b7a6")
+		(uuid "00b1ea7f-6f33-479d-8f78-b449380a943c")
 	)
 	(wire
 		(pts
-			(xy 43.18 60.96) (xy 46.99 60.96)
+			(xy 127 40.64) (xy 124.46 40.64)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "0f1ca20c-b664-4f54-afbc-7ee0fdd95465")
+		(uuid "01942d80-a68e-4aac-a2f5-4871888351ec")
 	)
 	(wire
 		(pts
-			(xy 96.52 63.5) (xy 101.6 63.5)
+			(xy 218.44 40.64) (xy 215.9 40.64)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "119c4067-15ab-4453-a5f5-231e662c537a")
-	)
-	(polyline
-		(pts
-			(xy 17.78 68.58) (xy 17.78 71.12)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "1b2ef5d3-1763-432d-92a9-477603757ac7")
+		(uuid "027d408f-d093-402f-acbe-4e358ba5fc72")
 	)
 	(wire
 		(pts
-			(xy 134.62 50.8) (xy 132.08 50.8)
+			(xy 53.34 48.26) (xy 53.34 50.8)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "1e46c312-f15b-489b-a562-ecd7f7644960")
-	)
-	(polyline
-		(pts
-			(xy 21.59 69.85) (xy 36.83 69.85)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "20ab4deb-5ec9-4ecc-86c4-276af79be10a")
+		(uuid "032fbc71-e9f8-47cf-9b6d-8c938e048a89")
 	)
 	(wire
 		(pts
-			(xy 43.18 53.34) (xy 43.18 50.8)
+			(xy 157.48 40.64) (xy 154.94 40.64)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "20d3a014-966c-4fb0-b7e9-769a3b2af43f")
+		(uuid "067a8607-62bb-4e41-8863-930a4365f659")
 	)
 	(wire
 		(pts
-			(xy 132.08 63.5) (xy 127 63.5)
+			(xy 259.08 30.48) (xy 259.08 40.64)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "23a07cc3-db4f-4384-9966-ae8d057bccf7")
+		(uuid "0d26e194-4630-4f70-a6b6-18de720426ca")
 	)
 	(wire
 		(pts
-			(xy 17.78 55.88) (xy 17.78 63.5)
+			(xy 137.16 30.48) (xy 137.16 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0d636647-5f3c-404f-a4dd-25e9c7e88a78")
+	)
+	(wire
+		(pts
+			(xy 60.96 30.48) (xy 53.34 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0f233db1-4a3a-415a-b35b-d3a12bd13d15")
+	)
+	(wire
+		(pts
+			(xy 228.6 30.48) (xy 226.06 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0fd57a7e-3ed8-4559-950f-23df9f505353")
+	)
+	(wire
+		(pts
+			(xy 45.72 30.48) (xy 53.34 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1052c14c-cf08-4143-a0dd-aeca96fe78b3")
+	)
+	(wire
+		(pts
+			(xy 187.96 30.48) (xy 185.42 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "111e6033-8412-4b23-aea3-25acf6db734a")
+	)
+	(wire
+		(pts
+			(xy 210.82 30.48) (xy 208.28 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1ce24d30-fb71-4c02-81a7-c591e1fef6db")
+	)
+	(wire
+		(pts
+			(xy 60.96 40.64) (xy 60.96 43.18)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1d0aec0e-a4f6-4b0b-8a5d-743796c35f75")
+	)
+	(wire
+		(pts
+			(xy 25.4 30.48) (xy 38.1 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1fed6e48-795c-4a9b-b8de-774269a12aa4")
+	)
+	(wire
+		(pts
+			(xy 129.54 40.64) (xy 127 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "231e77c5-4379-4e7a-8d3c-93c6a4d0de46")
+	)
+	(wire
+		(pts
+			(xy 20.32 35.56) (xy 20.32 50.8)
 		)
 		(stroke
 			(width 0)
@@ -1175,177 +1656,237 @@
 	)
 	(wire
 		(pts
-			(xy 60.96 50.8) (xy 60.96 63.5)
+			(xy 127 30.48) (xy 127 40.64)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "2d37162a-ba0e-4d4c-a666-6fff18cace48")
+		(uuid "2ec3ecac-255b-45ba-8fd2-4f7b38e4a31e")
 	)
 	(wire
 		(pts
-			(xy 111.76 50.8) (xy 114.3 50.8)
+			(xy 177.8 30.48) (xy 177.8 40.64)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "2d969d5b-3e60-4bad-b4b1-ca0bb769ff6e")
+		(uuid "2f585218-7709-4681-97e3-e42e6cb9765e")
 	)
 	(wire
 		(pts
-			(xy 30.48 50.8) (xy 30.48 53.34)
+			(xy 68.58 30.48) (xy 60.96 30.48)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "2dd46fd4-bf6d-4dbe-b721-a69a40f58938")
+		(uuid "2fe5fb43-cf67-4625-a8c1-1eeb46828416")
 	)
 	(wire
 		(pts
-			(xy 86.36 50.8) (xy 88.9 50.8)
+			(xy 96.52 40.64) (xy 93.98 40.64)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "3100e825-c89a-4253-be17-be1132218f23")
+		(uuid "3105550e-009d-4e02-be3d-dfb4d79150a2")
 	)
 	(wire
 		(pts
-			(xy 149.86 55.88) (xy 149.86 63.5)
+			(xy 208.28 30.48) (xy 205.74 30.48)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "31500ec3-3894-41bd-b6ce-3f5dfc0c48ff")
+		(uuid "32485046-a825-4408-8c43-4e95eba9e5d1")
+	)
+	(wire
+		(pts
+			(xy 116.84 30.48) (xy 114.3 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "32c62fae-676b-4b5e-996c-7a01e12a2643")
+	)
+	(wire
+		(pts
+			(xy 119.38 30.48) (xy 116.84 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "34a5b57f-9f59-4c97-a9d7-a2d14083ed4b")
+	)
+	(wire
+		(pts
+			(xy 139.7 40.64) (xy 137.16 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "38d09274-6573-4c43-9e8e-52212bb439bb")
+	)
+	(wire
+		(pts
+			(xy 170.18 30.48) (xy 167.64 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "392d085c-55ed-40c3-b279-6e50b6d774d3")
+	)
+	(wire
+		(pts
+			(xy 251.46 40.64) (xy 248.92 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3b535ffe-946e-498a-8f52-e79babd61369")
+	)
+	(wire
+		(pts
+			(xy 238.76 30.48) (xy 236.22 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3d458bf5-6607-4a7c-97dd-2859876a2b40")
+	)
+	(wire
+		(pts
+			(xy 38.1 48.26) (xy 38.1 50.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "404b1db3-9d1d-4f4e-8d90-be032d3d368f")
+	)
+	(wire
+		(pts
+			(xy 109.22 40.64) (xy 106.68 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4158c0d5-8fec-4d46-a43b-d56f7bcc1da7")
+	)
+	(wire
+		(pts
+			(xy 60.96 38.1) (xy 60.96 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "42da3733-8f48-470f-a962-66e7610cdfd1")
+	)
+	(wire
+		(pts
+			(xy 106.68 30.48) (xy 104.14 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "42f869e5-e1a8-4fed-ac26-c1b0e933d284")
+	)
+	(wire
+		(pts
+			(xy 228.6 30.48) (xy 228.6 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "43cf9bd8-ed58-461e-ac2a-489908e3961c")
+	)
+	(wire
+		(pts
+			(xy 241.3 40.64) (xy 238.76 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "45ee2493-3a90-4bde-b36d-0f04c3281ff8")
+	)
+	(wire
+		(pts
+			(xy 116.84 30.48) (xy 116.84 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4a251053-901b-4a68-91ef-951992813805")
+	)
+	(wire
+		(pts
+			(xy 180.34 40.64) (xy 177.8 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4d48cd92-6d73-4a77-b9cb-595ca8533ff5")
+	)
+	(wire
+		(pts
+			(xy 208.28 40.64) (xy 205.74 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4f340725-6ee4-4fd2-8e71-75e7fcc31ac8")
+	)
+	(wire
+		(pts
+			(xy 248.92 30.48) (xy 248.92 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4f72a556-967f-4ab2-bfe7-7f2aae274c4b")
+	)
+	(wire
+		(pts
+			(xy 109.22 30.48) (xy 106.68 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5175421a-cb80-441f-bacd-ab50328882df")
+	)
+	(wire
+		(pts
+			(xy 147.32 30.48) (xy 144.78 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "53bd1f65-03a6-4739-bc54-0b79e275a011")
 	)
 	(polyline
 		(pts
-			(xy 21.59 69.85) (xy 21.59 68.58)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "324f7257-253f-4c01-97cf-095da5a38612")
-	)
-	(polyline
-		(pts
-			(xy 167.64 54.61) (xy 170.18 54.61)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "33aa08cc-4eb9-43f5-9d05-372ef7547f06")
-	)
-	(wire
-		(pts
-			(xy 60.96 50.8) (xy 63.5 50.8)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "388407f7-97ad-4a37-a671-5cef5d4945a4")
-	)
-	(polyline
-		(pts
-			(xy 29.21 69.85) (xy 29.21 77.47)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "38ded40a-97ec-4d18-99a2-7a0b4c151371")
-	)
-	(wire
-		(pts
-			(xy 149.86 50.8) (xy 149.86 55.88)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "3a433ea7-e087-4a92-a77e-4f7f41a09376")
-	)
-	(polyline
-		(pts
-			(xy 172.72 55.88) (xy 170.18 57.15)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "3b4a0771-511d-426e-8926-786e1c5f8cd3")
-	)
-	(wire
-		(pts
-			(xy 30.48 58.42) (xy 30.48 63.5)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "3b9d3f43-da3a-400a-a936-f05f1b29250f")
-	)
-	(polyline
-		(pts
-			(xy 36.83 69.85) (xy 36.83 68.58)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "43da95a7-2dda-4711-a62a-907f17584ebe")
-	)
-	(wire
-		(pts
-			(xy 96.52 63.5) (xy 91.44 63.5)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "48c4ec8e-ebf5-4ea0-86cb-37fb5fa7820e")
-	)
-	(wire
-		(pts
-			(xy 132.08 50.8) (xy 132.08 63.5)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "4d760476-c1aa-4172-8f60-2746db2654b3")
-	)
-	(polyline
-		(pts
-			(xy 111.76 71.12) (xy 160.02 71.12)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "50225f35-c7f1-4a73-aa0e-154c57a36572")
-	)
-	(polyline
-		(pts
-			(xy 53.34 73.66) (xy 55.88 73.66)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5190393b-38e9-4008-ad4a-ddaa8b5a18a3")
-	)
-	(polyline
-		(pts
-			(xy 170.18 76.2) (xy 170.18 76.2)
+			(xy 195.58 48.26) (xy 195.58 48.26)
 		)
 		(stroke
 			(width 0)
@@ -1355,397 +1896,747 @@
 	)
 	(wire
 		(pts
-			(xy 114.3 63.5) (xy 109.22 63.5)
+			(xy 60.96 33.02) (xy 60.96 30.48)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "5850cd6c-59e4-42e0-a64c-f565d5b5ebb1")
+		(uuid "59cdd8c2-8a26-46a7-a4ce-1d708567fc58")
+	)
+	(wire
+		(pts
+			(xy 190.5 30.48) (xy 187.96 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5b081569-f9bd-4462-abca-53a72f654488")
+	)
+	(wire
+		(pts
+			(xy 160.02 30.48) (xy 157.48 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5c0d80cf-b1cd-4948-a037-37096af2ee7a")
+	)
+	(wire
+		(pts
+			(xy 177.8 40.64) (xy 175.26 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "62f54b73-d3f2-4bc9-a9d4-ca552704e6e8")
+	)
+	(wire
+		(pts
+			(xy 200.66 40.64) (xy 198.12 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "67b7902a-b8dc-48ad-bad2-dcfcddbca7c5")
+	)
+	(wire
+		(pts
+			(xy 200.66 30.48) (xy 198.12 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6848a7ae-aa8d-4097-8518-d578b8311f7d")
+	)
+	(wire
+		(pts
+			(xy 127 30.48) (xy 124.46 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6c2d610b-950d-426f-9a23-07e4887f771e")
+	)
+	(wire
+		(pts
+			(xy 271.78 30.48) (xy 269.24 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6eb35242-98ee-4d74-b761-831028864ebd")
+	)
+	(wire
+		(pts
+			(xy 38.1 30.48) (xy 45.72 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "70d82b0a-9e2c-41df-ac77-2f5d45a9fc7c")
+	)
+	(wire
+		(pts
+			(xy 66.04 40.64) (xy 66.04 35.56)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "71336e1e-42e2-496f-ba2a-8dfa58a067a3")
+	)
+	(wire
+		(pts
+			(xy 149.86 30.48) (xy 147.32 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "72f59cb1-ab7f-40ee-b607-f9dd8a21c906")
+	)
+	(wire
+		(pts
+			(xy 248.92 30.48) (xy 246.38 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "756acd00-87ed-4afc-a0ae-50b6ba7419f6")
+	)
+	(wire
+		(pts
+			(xy 208.28 30.48) (xy 208.28 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7584f2ee-4526-4fa4-9990-c9e4bead8083")
+	)
+	(wire
+		(pts
+			(xy 180.34 30.48) (xy 177.8 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "75cb91bd-90b3-474a-b1a6-37dd323c849d")
+	)
+	(wire
+		(pts
+			(xy 96.52 30.48) (xy 93.98 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "76034e86-97dc-4655-ba19-8f878d2ecace")
+	)
+	(wire
+		(pts
+			(xy 228.6 40.64) (xy 226.06 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "78d48b20-a7f8-4627-b0b4-4572a0df6c9f")
+	)
+	(wire
+		(pts
+			(xy 231.14 40.64) (xy 228.6 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7af6b32d-7b19-4d3f-b90e-e7ef6691aa52")
+	)
+	(wire
+		(pts
+			(xy 99.06 30.48) (xy 96.52 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7c331a75-afe6-4597-8bab-b0b481aca22a")
+	)
+	(wire
+		(pts
+			(xy 261.62 40.64) (xy 259.08 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7c5af6df-e9f2-45d2-a6f0-6d364454ce0f")
+	)
+	(wire
+		(pts
+			(xy 116.84 40.64) (xy 114.3 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7e30c9cd-3ac7-46d2-8412-69cda23f4026")
+	)
+	(wire
+		(pts
+			(xy 147.32 30.48) (xy 147.32 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7ffff206-70b2-4a44-8110-4c7eb4a7e5e1")
+	)
+	(wire
+		(pts
+			(xy 281.94 40.64) (xy 279.4 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "80664967-0221-48a6-9bda-50acf7af4f85")
+	)
+	(wire
+		(pts
+			(xy 177.8 30.48) (xy 175.26 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "83699a9d-170b-489b-a803-0abcfc3cd938")
+	)
+	(wire
+		(pts
+			(xy 167.64 30.48) (xy 167.64 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "850951cb-96a3-4082-b71a-159612d819ae")
+	)
+	(wire
+		(pts
+			(xy 218.44 30.48) (xy 218.44 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "853f3940-0bdf-45a8-acce-60a1a4ddf4ac")
+	)
+	(wire
+		(pts
+			(xy 279.4 30.48) (xy 279.4 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "85a0578a-ca7e-477e-a4d5-12361ad17152")
+	)
+	(wire
+		(pts
+			(xy 190.5 40.64) (xy 187.96 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "85b2cd7c-0428-4af0-a6e9-75b3c3b89df4")
+	)
+	(wire
+		(pts
+			(xy 269.24 40.64) (xy 266.7 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "85eea6f9-6621-4b03-80fd-920013865e18")
+	)
+	(wire
+		(pts
+			(xy 45.72 43.18) (xy 45.72 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8623b69a-8cbd-4a30-a97e-e2025eac1231")
+	)
+	(wire
+		(pts
+			(xy 86.36 40.64) (xy 83.82 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8a4e701d-a300-41df-b786-b5cca440ad2f")
+	)
+	(wire
+		(pts
+			(xy 137.16 30.48) (xy 134.62 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8db10d26-b1ab-42c8-9dee-671287fe2172")
+	)
+	(wire
+		(pts
+			(xy 167.64 30.48) (xy 165.1 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8e391cb3-6b90-464f-be31-b0c6acb659d5")
+	)
+	(wire
+		(pts
+			(xy 88.9 30.48) (xy 86.36 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "95af0f1b-595c-4ba1-9eef-ccba21892443")
+	)
+	(wire
+		(pts
+			(xy 259.08 30.48) (xy 256.54 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "96f50b1e-2508-4c30-942e-de5afa45598e")
+	)
+	(wire
+		(pts
+			(xy 86.36 30.48) (xy 83.82 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9b32ed3f-3cd1-40d3-9bc0-8af3f63d4c59")
+	)
+	(wire
+		(pts
+			(xy 88.9 40.64) (xy 86.36 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9c6ce3bb-97e9-4715-9600-e1424f434a4f")
+	)
+	(wire
+		(pts
+			(xy 160.02 40.64) (xy 157.48 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9d189143-18f7-49ad-bf83-38a6573059c4")
+	)
+	(wire
+		(pts
+			(xy 157.48 30.48) (xy 154.94 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9ff22ce8-167f-486e-8fcd-eb3a42336e89")
+	)
+	(wire
+		(pts
+			(xy 167.64 40.64) (xy 165.1 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a177355a-6915-4e94-8b43-a73abaa0a16b")
+	)
+	(wire
+		(pts
+			(xy 198.12 30.48) (xy 198.12 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a32ba281-9ff5-4c7e-aab4-59e0a399dafd")
+	)
+	(wire
+		(pts
+			(xy 261.62 30.48) (xy 259.08 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a51099ee-4934-4a7b-a781-2a84f60997f1")
+	)
+	(wire
+		(pts
+			(xy 68.58 48.26) (xy 68.58 50.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a6b50c46-94ed-4cd2-9de6-b6707bed4b37")
+	)
+	(wire
+		(pts
+			(xy 210.82 40.64) (xy 208.28 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a8e313ff-f9b0-463e-af2a-c3b18f779434")
+	)
+	(wire
+		(pts
+			(xy 63.5 35.56) (xy 66.04 35.56)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "aaeb1d65-8781-4db7-801c-e4610247f48c")
+	)
+	(wire
+		(pts
+			(xy 241.3 30.48) (xy 238.76 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ab0dafa6-15ae-41f0-bcc7-92343d0b086a")
+	)
+	(wire
+		(pts
+			(xy 129.54 30.48) (xy 127 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "acb31042-ec03-4340-adec-828fe6eb83c3")
+	)
+	(wire
+		(pts
+			(xy 45.72 48.26) (xy 45.72 50.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "adb046ca-6dd1-4864-9491-1b8af1d869a5")
+	)
+	(wire
+		(pts
+			(xy 60.96 40.64) (xy 66.04 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b3f77d32-9896-4286-9df3-2e169bd43d23")
+	)
+	(wire
+		(pts
+			(xy 96.52 30.48) (xy 96.52 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b5d35368-a115-4f10-b531-337564d3c58f")
+	)
+	(wire
+		(pts
+			(xy 271.78 40.64) (xy 269.24 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bb4d8b3f-66f9-4e38-92d1-26aee460e5f9")
+	)
+	(wire
+		(pts
+			(xy 53.34 30.48) (xy 53.34 43.18)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bd98cabd-12f2-4218-9311-3a01ba1ec4c1")
+	)
+	(wire
+		(pts
+			(xy 139.7 30.48) (xy 137.16 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "be4b65c0-667b-4942-85fe-133bf906fe84")
+	)
+	(wire
+		(pts
+			(xy 106.68 40.64) (xy 104.14 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c20f0cc8-47ba-4c8d-b002-0b674c95e59f")
+	)
+	(wire
+		(pts
+			(xy 137.16 40.64) (xy 134.62 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c25bf988-caa9-4203-a17f-e12e4f5a8b15")
+	)
+	(wire
+		(pts
+			(xy 86.36 30.48) (xy 86.36 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c343a3a8-9dab-4296-98fd-3f495dad2ccb")
+	)
+	(wire
+		(pts
+			(xy 99.06 40.64) (xy 96.52 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c4a782bc-4361-4c75-803b-cd5a0903f849")
+	)
+	(wire
+		(pts
+			(xy 119.38 40.64) (xy 116.84 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ca723043-8423-4452-9682-758ffeabab19")
+	)
+	(wire
+		(pts
+			(xy 198.12 30.48) (xy 195.58 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ca766f4e-9164-45ac-bbaf-3478880481f9")
+	)
+	(wire
+		(pts
+			(xy 38.1 40.64) (xy 38.1 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "cd1663c3-c417-45bd-a4d3-3f77811f3874")
+	)
+	(wire
+		(pts
+			(xy 251.46 30.48) (xy 248.92 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d3eb874e-6b31-4c97-867f-dc4f2bdc873f")
+	)
+	(wire
+		(pts
+			(xy 68.58 30.48) (xy 78.74 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d4784dc9-98fd-4ea3-8d30-b8658708fa10")
+	)
+	(wire
+		(pts
+			(xy 279.4 40.64) (xy 276.86 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d6982ac2-6f49-4f52-b4d2-ae838a91b850")
+	)
+	(wire
+		(pts
+			(xy 269.24 30.48) (xy 269.24 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d956ee5a-48aa-46e3-8990-b8ff8a5f1c4b")
+	)
+	(wire
+		(pts
+			(xy 269.24 30.48) (xy 266.7 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d97e8352-7a52-49ab-975c-56439bd78aa9")
+	)
+	(wire
+		(pts
+			(xy 60.96 48.26) (xy 60.96 50.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "dbed04dd-4885-4ab1-894e-557466fe91d1")
+	)
+	(wire
+		(pts
+			(xy 78.74 40.64) (xy 76.2 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "dc072c7c-3b38-4121-adfd-3a731d9ff381")
+	)
+	(wire
+		(pts
+			(xy 198.12 40.64) (xy 195.58 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e2b6d410-94a1-4f2e-b859-5289502b61da")
+	)
+	(wire
+		(pts
+			(xy 147.32 40.64) (xy 144.78 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e60c4706-8776-4e27-aab4-c91fc39812e0")
+	)
+	(wire
+		(pts
+			(xy 157.48 30.48) (xy 157.48 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e883e032-9cfc-467f-bb6a-aa18fcf3bc06")
+	)
+	(wire
+		(pts
+			(xy 106.68 30.48) (xy 106.68 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e90db610-9a4a-486f-aa8d-7bdc3628e025")
+	)
+	(wire
+		(pts
+			(xy 220.98 30.48) (xy 218.44 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e97611e2-67cb-42e0-8cf0-007fea56ce30")
+	)
+	(wire
+		(pts
+			(xy 187.96 40.64) (xy 185.42 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e9bf722c-dde3-4dbd-b900-e63be28ef5e7")
+	)
+	(wire
+		(pts
+			(xy 187.96 30.48) (xy 187.96 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e9d1763e-80ee-4563-9900-74f3d678c0c9")
+	)
+	(wire
+		(pts
+			(xy 279.4 30.48) (xy 276.86 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ea4f2793-fcb7-439f-b9d3-be4bcc8d3fa8")
 	)
 	(polyline
 		(pts
-			(xy 58.42 76.2) (xy 58.42 71.12)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5b440606-b0b5-4bd7-b313-d3ac1191cabb")
-	)
-	(polyline
-		(pts
-			(xy 167.64 76.2) (xy 170.18 76.2)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5d052e12-d234-433f-90db-6f358bff102d")
-	)
-	(polyline
-		(pts
-			(xy 170.18 76.2) (xy 172.72 76.2)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "62db67f9-9208-40ad-8089-dc30f88e1b69")
-	)
-	(polyline
-		(pts
-			(xy 17.78 40.64) (xy 160.02 40.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "685ae8ac-4a96-4407-aba6-95c43d7e1ced")
-	)
-	(wire
-		(pts
-			(xy 116.84 50.8) (xy 114.3 50.8)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6d297ea3-19de-413d-b7f5-877793faf0f5")
-	)
-	(wire
-		(pts
-			(xy 104.14 50.8) (xy 106.68 50.8)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7068c84d-3483-442c-9b40-4becfb968931")
-	)
-	(wire
-		(pts
-			(xy 60.96 63.5) (xy 66.04 63.5)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "71bf6c7b-60fe-4d35-95c4-eba7249b0cae")
-	)
-	(wire
-		(pts
-			(xy 50.8 53.34) (xy 50.8 50.8)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "798f016b-960a-4591-8851-5070656018bd")
-	)
-	(wire
-		(pts
-			(xy 76.2 50.8) (xy 78.74 50.8)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7997b034-ff80-41e7-8b38-e6254dd7acaf")
-	)
-	(wire
-		(pts
-			(xy 129.54 50.8) (xy 132.08 50.8)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7d3b8b68-58b5-416a-bde5-66ebda454501")
-	)
-	(wire
-		(pts
-			(xy 22.86 50.8) (xy 60.96 50.8)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7ede189a-c192-430d-9c7a-cff405df59ae")
-	)
-	(wire
-		(pts
-			(xy 78.74 63.5) (xy 73.66 63.5)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "887996fc-468e-4bc4-8504-54aa24b3c8ca")
-	)
-	(wire
-		(pts
-			(xy 78.74 63.5) (xy 83.82 63.5)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "93f2673f-740d-41a0-8fa0-80f028ed94d7")
-	)
-	(wire
-		(pts
-			(xy 93.98 50.8) (xy 96.52 50.8)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "946b94f1-2a0d-4a22-b7a5-b557e398319c")
-	)
-	(wire
-		(pts
-			(xy 114.3 50.8) (xy 114.3 63.5)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "96dd315b-e2a8-4acc-bd14-5e5c0da58447")
-	)
-	(polyline
-		(pts
-			(xy 50.8 73.66) (xy 55.88 73.66)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "9ea7c2d3-3979-4558-b1aa-33e22e7fd356")
-	)
-	(polyline
-		(pts
-			(xy 167.64 76.2) (xy 58.42 76.2)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a2a120df-2a81-4f12-8a05-d534f22123c5")
-	)
-	(wire
-		(pts
-			(xy 142.24 50.8) (xy 139.7 50.8)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a2c6f661-0c74-471f-831f-0df338e78d28")
-	)
-	(wire
-		(pts
-			(xy 96.52 50.8) (xy 96.52 63.5)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a3113134-c50f-4257-a539-e02235a65411")
-	)
-	(polyline
-		(pts
-			(xy 167.64 54.61) (xy 167.64 57.15)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a3751cb5-fa09-4eb7-a1df-2d63aa0fd2c6")
-	)
-	(polyline
-		(pts
-			(xy 53.34 71.12) (xy 53.34 73.66)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a85b276b-7df1-4a29-bbe2-7c9ec4051c58")
-	)
-	(polyline
-		(pts
-			(xy 167.64 57.15) (xy 170.18 57.15)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ae71058c-4529-4e9c-8ed6-e81b5d1e7595")
-	)
-	(wire
-		(pts
-			(xy 149.86 55.88) (xy 167.64 55.88)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ae8a751a-8b54-4b09-9184-9e3ca125f446")
-	)
-	(polyline
-		(pts
-			(xy 17.78 40.64) (xy 17.78 48.26)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "aef83f87-f41f-41cf-ab7f-3e36cc8ac34c")
-	)
-	(wire
-		(pts
-			(xy 50.8 60.96) (xy 50.8 63.5)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b0a634bf-35a5-4c94-a8f6-e8cc3b99869e")
-	)
-	(polyline
-		(pts
-			(xy 50.8 73.66) (xy 53.34 73.66)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b1aa49c9-cb1a-4f01-b856-bd15c29b860e")
-	)
-	(wire
-		(pts
-			(xy 99.06 50.8) (xy 96.52 50.8)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c23da6e8-7a8c-4632-94c5-c63740ae6a07")
-	)
-	(wire
-		(pts
-			(xy 81.28 50.8) (xy 78.74 50.8)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c4338727-470a-43f2-af45-35faff1447b3")
-	)
-	(wire
-		(pts
-			(xy 43.18 60.96) (xy 43.18 63.5)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ca845e8a-e92b-4ccd-8924-33eceec827f4")
-	)
-	(polyline
-		(pts
-			(xy 160.02 40.64) (xy 160.02 71.12)
-		)
-		(stroke
-			(width 0)
-			(type dash)
-		)
-		(uuid "d0f49efd-a533-4bc4-8a2a-266268becde9")
-	)
-	(polyline
-		(pts
-			(xy 167.64 76.2) (xy 170.18 76.2)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d36daedc-f9ac-4404-afb6-9f88fb42e300")
-	)
-	(polyline
-		(pts
-			(xy 58.42 40.64) (xy 58.42 71.12)
-		)
-		(stroke
-			(width 0)
-			(type dash)
-		)
-		(uuid "d5c245ff-507e-4689-9893-8862af4f81a2")
-	)
-	(polyline
-		(pts
-			(xy 172.72 55.88) (xy 170.18 54.61)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d942b292-1241-4df7-ba2a-8a7a5050d56f")
-	)
-	(wire
-		(pts
-			(xy 68.58 50.8) (xy 71.12 50.8)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d97c18d9-85d4-461b-8c1b-17b4a1b079b2")
-	)
-	(wire
-		(pts
-			(xy 147.32 50.8) (xy 149.86 50.8)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "dac715a2-c955-43b9-a039-712cb6fd9107")
-	)
-	(wire
-		(pts
-			(xy 149.86 63.5) (xy 144.78 63.5)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e879c2eb-5e52-49f5-87b4-8798fab33a84")
-	)
-	(wire
-		(pts
-			(xy 132.08 63.5) (xy 137.16 63.5)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ece739de-2b43-4bbb-ad2b-39eda37dd577")
-	)
-	(wire
-		(pts
-			(xy 114.3 63.5) (xy 119.38 63.5)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ed44b7fc-b83c-48c3-9dd3-1468c66fec7c")
-	)
-	(polyline
-		(pts
-			(xy 167.64 76.2) (xy 167.64 76.2)
+			(xy 193.04 48.26) (xy 193.04 48.26)
 		)
 		(stroke
 			(width 0)
@@ -1755,47 +2646,107 @@
 	)
 	(wire
 		(pts
-			(xy 121.92 50.8) (xy 124.46 50.8)
+			(xy 231.14 30.48) (xy 228.6 30.48)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "ee592fa6-578a-4f47-8e56-220a35e0e63c")
+		(uuid "eebbbc43-2816-4867-aac7-27f6e5e79a9e")
 	)
 	(wire
 		(pts
-			(xy 46.99 57.15) (xy 46.99 60.96)
+			(xy 220.98 40.64) (xy 218.44 40.64)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "f1313dd1-a09f-477e-a0e1-6c56d17c3c9d")
+		(uuid "f2c32c01-5026-47cb-929c-57cb26a7759b")
 	)
 	(wire
 		(pts
-			(xy 25.4 50.8) (xy 25.4 53.34)
+			(xy 149.86 40.64) (xy 147.32 40.64)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "f83ba395-88d8-421a-ad4b-8c50c6209699")
+		(uuid "f3600401-2cc5-4ef6-9e64-a17a08c888c2")
 	)
 	(wire
 		(pts
-			(xy 78.74 50.8) (xy 78.74 63.5)
+			(xy 76.2 40.64) (xy 76.2 30.48)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "fa4f404a-df9f-4739-8585-2652cd5c30e6")
+		(uuid "f543ec83-4b44-4410-a1e1-2f0317c4f5f9")
+	)
+	(wire
+		(pts
+			(xy 238.76 40.64) (xy 236.22 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f897b94b-42af-4444-b535-fcce55fc835b")
+	)
+	(wire
+		(pts
+			(xy 248.92 40.64) (xy 246.38 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fc122aae-47c2-4386-8e92-e33ab2919130")
+	)
+	(wire
+		(pts
+			(xy 238.76 30.48) (xy 238.76 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fc3e4f31-4d58-4baf-aa8f-e49ec007f636")
+	)
+	(wire
+		(pts
+			(xy 68.58 43.18) (xy 68.58 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fe2946cf-6e2c-4709-866f-deceaa5b11ed")
+	)
+	(wire
+		(pts
+			(xy 170.18 40.64) (xy 167.64 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fe659e73-5b9b-4e2d-951d-2adebb0285a4")
+	)
+	(wire
+		(pts
+			(xy 259.08 40.64) (xy 256.54 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ffd311d5-081b-45bc-84e6-2554815f5413")
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 123.19 63.5 90)
+		(lib_id "Device:R_Small")
+		(at 254 40.64 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -1804,9 +2755,19 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "0b237b42-505e-499c-a693-bc868a84f1ed")
-		(property "Reference" "R4"
-			(at 123.19 57.15 90)
+		(uuid "00ec83bb-7e23-4b88-8b7e-f585ee1c2728")
+		(property "Reference" "R9"
+			(at 254 35.56 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.016 1.016)
+				)
+			)
+		)
+		(property "Value" "2M"
+			(at 254 38.1 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1815,18 +2776,8 @@
 				)
 			)
 		)
-		(property "Value" "10M"
-			(at 123.19 59.69 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Resistor_THT:R_Axial_DIN0918_L18.0mm_D9.0mm_P22.86mm_Horizontal"
-			(at 123.19 65.278 90)
+		(property "Footprint" "Resistor_SMD:R_2512_6332Metric"
+			(at 254 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1836,8 +2787,8 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.vishay.com/docs/28907/vr25vr37vr68.pdf"
-			(at 123.19 63.5 0)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C2779442.pdf"
+			(at 254 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1847,8 +2798,8 @@
 				)
 			)
 		)
-		(property "Description" "Resistor"
-			(at 123.19 63.5 0)
+		(property "Description" "HV121WF2004T4E"
+			(at 254 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1858,8 +2809,8 @@
 				)
 			)
 		)
-		(property "MPN" "VR68000001005JAC00"
-			(at 123.19 63.5 0)
+		(property "LCSC" "C2779442"
+			(at 254 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1868,37 +2819,25 @@
 					(size 1.27 1.27)
 				)
 			)
-		)
-		(property "SPN" "594-5073DM10M00J"
-			(at 123.19 63.5 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "154b2411-9866-4af2-9a12-c2e7e757c569")
 		)
 		(pin "2"
-			(uuid "8007ef29-b437-464f-bf5c-d7d3b5bb8e2e")
+			(uuid "530bad02-83ad-4b0f-aa1c-9c21a605ca50")
+		)
+		(pin "1"
+			(uuid "c856d852-e2a5-4729-8869-12c7f2afdf93")
 		)
 		(instances
 			(project "hv-probe-passive"
 				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
-					(reference "R4")
+					(reference "R9")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_id "Device:C_Small")
-		(at 25.4 55.88 0)
-		(mirror x)
+		(lib_id "Device:R_Small")
+		(at 91.44 40.64 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -1906,31 +2845,30 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "23fd2819-d3d4-449d-8a42-e11ae6fe9b2f")
-		(property "Reference" "C6"
-			(at 23.495 54.61 0)
+		(fields_autoplaced yes)
+		(uuid "18653a82-bdcd-4585-9a12-751df8d5753b")
+		(property "Reference" "R25"
+			(at 91.44 35.56 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.016 1.016)
+				)
+			)
+		)
+		(property "Value" "2M"
+			(at 91.44 38.1 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
 			)
 		)
-		(property "Value" "2n2"
-			(at 23.495 57.1565 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder"
-			(at 25.4 55.88 0)
+		(property "Footprint" "Resistor_SMD:R_2512_6332Metric"
+			(at 91.44 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1940,8 +2878,8 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.vishay.com/docs/45199/vjcommercialseries.pdf"
-			(at 25.4 55.88 0)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C2779442.pdf"
+			(at 91.44 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1951,8 +2889,8 @@
 				)
 			)
 		)
-		(property "Description" "Unpolarized capacitor, small symbol"
-			(at 25.4 55.88 0)
+		(property "Description" "HV121WF2004T4E"
+			(at 91.44 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1962,19 +2900,8 @@
 				)
 			)
 		)
-		(property "MPN" "VJ1206A222FFBAT"
-			(at 25.4 55.88 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "SPN" "77-VJ1206A222FFBAT"
-			(at 25.4 55.88 0)
+		(property "LCSC" "C2779442"
+			(at 91.44 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1985,15 +2912,199 @@
 			)
 		)
 		(pin "2"
-			(uuid "6fc9bf2e-873d-41a4-a59c-327927497178")
+			(uuid "9a15b321-5023-47aa-ad21-74a5d42b58d6")
 		)
 		(pin "1"
-			(uuid "5f6c2224-5b03-41d8-b866-a318d1094f7b")
+			(uuid "b8146303-afa8-4bad-9ef4-7c065270a39f")
 		)
 		(instances
 			(project "hv-probe-passive"
 				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
-					(reference "C6")
+					(reference "R25")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_name "C_Small_1")
+		(lib_id "Device:C_Small")
+		(at 162.56 30.48 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "1bfe488e-ec11-49ee-ab1d-6183cfd08dad")
+		(property "Reference" "C25"
+			(at 162.56 24.13 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "47p"
+			(at 162.56 26.67 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_1808_4520Metric"
+			(at 162.56 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C2958815.pdf"
+			(at 162.56 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "FV42N470J302ECG"
+			(at 152.4 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C2958815"
+			(at 162.56 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "9877873b-4d64-4bb8-b4d7-b791e3533c4a")
+		)
+		(pin "1"
+			(uuid "121de77a-c7b1-40d2-ab5a-174797b1fcbb")
+		)
+		(instances
+			(project "hv-probe-passive"
+				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
+					(reference "C25")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_name "C_Small_1")
+		(lib_id "Device:C_Small")
+		(at 91.44 30.48 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "2b150080-8485-437b-bfb4-fb3cba769681")
+		(property "Reference" "C32"
+			(at 91.44 24.13 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "47p"
+			(at 91.44 26.67 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_1808_4520Metric"
+			(at 91.44 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C2958815.pdf"
+			(at 91.44 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "FV42N470J302ECG"
+			(at 81.28 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C2958815"
+			(at 91.44 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "a71f5287-dc84-467f-842f-ad9b8185ca2d")
+		)
+		(pin "1"
+			(uuid "4de3db2f-be3e-4dca-950e-6e0b6502809d")
+		)
+		(instances
+			(project "hv-probe-passive"
+				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
+					(reference "C32")
 					(unit 1)
 				)
 			)
@@ -2001,7 +3112,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 30.48 63.5 0)
+		(at 68.58 50.8 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -2009,9 +3120,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "254daaf5-6632-4f4b-b967-eba22905b47e")
-		(property "Reference" "#PWR03"
-			(at 30.48 69.85 0)
+		(uuid "2b3ace13-8af1-4b97-8950-1cb33dc9d8d8")
+		(property "Reference" "#PWR06"
+			(at 68.58 57.15 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2022,7 +3133,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 30.48 67.945 0)
+			(at 68.58 55.245 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2032,7 +3143,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 30.48 63.5 0)
+			(at 68.58 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2043,7 +3154,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 30.48 63.5 0)
+			(at 68.58 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2054,7 +3165,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 30.48 63.5 0)
+			(at 68.58 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2065,20 +3176,20 @@
 			)
 		)
 		(pin "1"
-			(uuid "1e80fc5a-67b6-489d-9346-861245a27aff")
+			(uuid "8f637be3-3112-42d5-9ae5-77012ea062c9")
 		)
 		(instances
 			(project "hv-probe-passive"
 				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
-					(reference "#PWR03")
+					(reference "#PWR06")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 105.41 63.5 90)
+		(lib_id "Device:R_Small")
+		(at 274.32 40.64 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -2087,9 +3198,19 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "25dd7ce0-10b3-42db-8f7e-df45a3adb38a")
-		(property "Reference" "R3"
-			(at 105.41 57.15 90)
+		(uuid "3be5066d-3aab-4cae-8a94-021ae94ee86b")
+		(property "Reference" "R7"
+			(at 274.32 35.56 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.016 1.016)
+				)
+			)
+		)
+		(property "Value" "2M"
+			(at 274.32 38.1 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2098,18 +3219,8 @@
 				)
 			)
 		)
-		(property "Value" "10M"
-			(at 105.41 59.69 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Resistor_THT:R_Axial_DIN0918_L18.0mm_D9.0mm_P22.86mm_Horizontal"
-			(at 105.41 65.278 90)
+		(property "Footprint" "Resistor_SMD:R_2512_6332Metric"
+			(at 274.32 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2119,8 +3230,8 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.vishay.com/docs/28907/vr25vr37vr68.pdf"
-			(at 105.41 63.5 0)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C2779442.pdf"
+			(at 274.32 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2130,8 +3241,8 @@
 				)
 			)
 		)
-		(property "Description" "Resistor"
-			(at 105.41 63.5 0)
+		(property "Description" "HV121WF2004T4E"
+			(at 274.32 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2141,8 +3252,8 @@
 				)
 			)
 		)
-		(property "MPN" "VR68000001005JAC00"
-			(at 105.41 63.5 0)
+		(property "LCSC" "C2779442"
+			(at 274.32 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2151,36 +3262,25 @@
 					(size 1.27 1.27)
 				)
 			)
-		)
-		(property "SPN" "594-5073DM10M00J"
-			(at 105.41 63.5 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "74f81ba5-eaaa-4472-ba72-ef631c390f8a")
 		)
 		(pin "2"
-			(uuid "8d67ae16-5725-4d49-987a-b99af75e4f1d")
+			(uuid "ff1befe9-1ead-41e1-a98a-5db387bb375a")
+		)
+		(pin "1"
+			(uuid "bb7e2fb2-3fef-4fee-8423-972307f00694")
 		)
 		(instances
 			(project "hv-probe-passive"
 				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
-					(reference "R3")
+					(reference "R7")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 25.4 63.5 0)
+		(lib_id "Device:R_Small")
+		(at 233.68 40.64 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -2188,9 +3288,192 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "2a85a1d3-42fd-44f3-8a37-c66739e6f05e")
-		(property "Reference" "#PWR05"
-			(at 25.4 69.85 0)
+		(fields_autoplaced yes)
+		(uuid "3e044e33-2acb-4e8f-85d5-4302e64275c5")
+		(property "Reference" "R11"
+			(at 233.68 35.56 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.016 1.016)
+				)
+			)
+		)
+		(property "Value" "2M"
+			(at 233.68 38.1 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_2512_6332Metric"
+			(at 233.68 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C2779442.pdf"
+			(at 233.68 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "HV121WF2004T4E"
+			(at 233.68 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C2779442"
+			(at 233.68 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "a3cd4df1-da41-495b-b9fa-ca349a248ca8")
+		)
+		(pin "1"
+			(uuid "c7e8ecf0-084d-4289-8e14-05c052b61895")
+		)
+		(instances
+			(project "hv-probe-passive"
+				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
+					(reference "R11")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_name "C_Small_1")
+		(lib_id "Device:C_Small")
+		(at 132.08 30.48 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "43cf3552-461f-473d-9f29-f7211c9c2fb8")
+		(property "Reference" "C28"
+			(at 132.08 24.13 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "47p"
+			(at 132.08 26.67 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_1808_4520Metric"
+			(at 132.08 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C2958815.pdf"
+			(at 132.08 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "FV42N470J302ECG"
+			(at 121.92 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C2958815"
+			(at 132.08 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "b5db726d-6781-4abc-8f67-58a98ba5b590")
+		)
+		(pin "1"
+			(uuid "6d2dde1c-43fe-4b78-9493-159e6aee5e2b")
+		)
+		(instances
+			(project "hv-probe-passive"
+				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
+					(reference "C28")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 45.72 50.8 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "4dc07d60-30ac-4a24-9972-873ad6a7e739")
+		(property "Reference" "#PWR010"
+			(at 45.72 57.15 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2201,7 +3484,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 25.4 67.945 0)
+			(at 45.72 55.245 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2211,7 +3494,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 25.4 63.5 0)
+			(at 45.72 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2222,7 +3505,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 25.4 63.5 0)
+			(at 45.72 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2233,7 +3516,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 25.4 63.5 0)
+			(at 45.72 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2244,20 +3527,21 @@
 			)
 		)
 		(pin "1"
-			(uuid "027234b1-697f-4a1b-8cde-fca6ffb2c1f9")
+			(uuid "3c776d01-43fb-4980-8d0c-fc30392bfb19")
 		)
 		(instances
 			(project "hv-probe-passive"
 				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
-					(reference "#PWR05")
+					(reference "#PWR010")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
+		(lib_name "C_Small_1")
 		(lib_id "Device:C_Small")
-		(at 73.66 50.8 90)
+		(at 152.4 30.48 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -2266,9 +3550,9 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "2ba1bcff-86a5-48d4-92d4-2a43a2ef342c")
-		(property "Reference" "C8"
-			(at 73.6663 44.45 90)
+		(uuid "4e7b938f-5e0f-41fc-9303-8941bff61ac9")
+		(property "Reference" "C26"
+			(at 152.4 24.13 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2277,8 +3561,8 @@
 				)
 			)
 		)
-		(property "Value" "24p"
-			(at 73.6663 46.99 90)
+		(property "Value" "47p"
+			(at 152.4 26.67 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2287,8 +3571,8 @@
 				)
 			)
 		)
-		(property "Footprint" "Capacitor_THT:C_Disc_D11.0mm_W5.0mm_P10.00mm"
-			(at 73.66 50.8 0)
+		(property "Footprint" "Capacitor_SMD:C_1808_4520Metric"
+			(at 152.4 30.48 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2298,8 +3582,8 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.vishay.com/docs/23118/564r565r.pdf"
-			(at 73.66 50.8 0)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C2958815.pdf"
+			(at 152.4 30.48 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2309,8 +3593,8 @@
 				)
 			)
 		)
-		(property "Description" "Unpolarized capacitor, small symbol"
-			(at 73.66 50.8 0)
+		(property "Description" "FV42N470J302ECG"
+			(at 142.24 30.48 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2320,19 +3604,8 @@
 				)
 			)
 		)
-		(property "MPN" "564RC0GAJ602EJ240J"
-			(at 73.66 50.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "SPN" "75-564RC0GAJ602EJ240"
-			(at 73.66 50.8 0)
+		(property "LCSC" "C2958815"
+			(at 152.4 30.48 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2343,23 +3616,24 @@
 			)
 		)
 		(pin "2"
-			(uuid "93c7c4eb-a94c-4827-b667-a550306c0fc9")
+			(uuid "f0065868-269d-43bc-b247-d6cb342a93fe")
 		)
 		(pin "1"
-			(uuid "9a6c6959-9a50-4040-a6a8-764466e02e9c")
+			(uuid "0042a21b-b5c7-4fa7-99a5-9e381c88a496")
 		)
 		(instances
 			(project "hv-probe-passive"
 				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
-					(reference "C8")
+					(reference "C26")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
+		(lib_name "C_Small_1")
 		(lib_id "Device:C_Small")
-		(at 144.78 50.8 90)
+		(at 193.04 30.48 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -2368,9 +3642,9 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "322a161a-05b1-427e-b13c-5a02cd04082d")
-		(property "Reference" "C12"
-			(at 144.7863 44.45 90)
+		(uuid "4fd86de8-9567-4a82-adf9-162962612631")
+		(property "Reference" "C22"
+			(at 193.04 24.13 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2379,8 +3653,8 @@
 				)
 			)
 		)
-		(property "Value" "24p"
-			(at 144.7863 46.99 90)
+		(property "Value" "47p"
+			(at 193.04 26.67 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2389,8 +3663,8 @@
 				)
 			)
 		)
-		(property "Footprint" "Capacitor_THT:C_Disc_D11.0mm_W5.0mm_P10.00mm"
-			(at 144.78 50.8 0)
+		(property "Footprint" "Capacitor_SMD:C_1808_4520Metric"
+			(at 193.04 30.48 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2400,8 +3674,8 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.vishay.com/docs/23118/564r565r.pdf"
-			(at 144.78 50.8 0)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C2958815.pdf"
+			(at 193.04 30.48 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2411,8 +3685,8 @@
 				)
 			)
 		)
-		(property "Description" "Unpolarized capacitor, small symbol"
-			(at 144.78 50.8 0)
+		(property "Description" "FV42N470J302ECG"
+			(at 182.88 30.48 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2422,19 +3696,8 @@
 				)
 			)
 		)
-		(property "MPN" "564RC0GAJ602EJ240J"
-			(at 144.78 50.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "SPN" "75-564RC0GAJ602EJ240"
-			(at 144.78 50.8 0)
+		(property "LCSC" "C2958815"
+			(at 193.04 30.48 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2445,23 +3708,24 @@
 			)
 		)
 		(pin "2"
-			(uuid "2c553545-8575-4e8c-b6ab-7cd065eead9b")
+			(uuid "02eaa92c-890c-41cd-9522-311bae5f4636")
 		)
 		(pin "1"
-			(uuid "3290e58c-3251-4232-8db8-405c8702902f")
+			(uuid "845398e1-d6b4-4c08-90c0-c1da0460ae38")
 		)
 		(instances
 			(project "hv-probe-passive"
 				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
-					(reference "C12")
+					(reference "C22")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
+		(lib_name "C_Small_1")
 		(lib_id "Device:C_Small")
-		(at 137.16 50.8 90)
+		(at 233.68 30.48 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -2470,9 +3734,9 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "404f7678-fc59-49d2-a61d-4c14f1e753bd")
-		(property "Reference" "C5"
-			(at 137.1663 44.45 90)
+		(uuid "5ab2267d-9b70-4cdc-b7a9-fd0af01c302e")
+		(property "Reference" "C18"
+			(at 233.68 24.13 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2481,8 +3745,8 @@
 				)
 			)
 		)
-		(property "Value" "24p"
-			(at 137.1663 46.99 90)
+		(property "Value" "47p"
+			(at 233.68 26.67 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2491,8 +3755,8 @@
 				)
 			)
 		)
-		(property "Footprint" "Capacitor_THT:C_Disc_D11.0mm_W5.0mm_P10.00mm"
-			(at 137.16 50.8 0)
+		(property "Footprint" "Capacitor_SMD:C_1808_4520Metric"
+			(at 233.68 30.48 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2502,8 +3766,8 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.vishay.com/docs/23118/564r565r.pdf"
-			(at 137.16 50.8 0)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C2958815.pdf"
+			(at 233.68 30.48 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2513,8 +3777,8 @@
 				)
 			)
 		)
-		(property "Description" "Unpolarized capacitor, small symbol"
-			(at 137.16 50.8 0)
+		(property "Description" "FV42N470J302ECG"
+			(at 223.52 30.48 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2524,19 +3788,8 @@
 				)
 			)
 		)
-		(property "MPN" "564RC0GAJ602EJ240J"
-			(at 137.16 50.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "SPN" "75-564RC0GAJ602EJ240"
-			(at 137.16 50.8 0)
+		(property "LCSC" "C2958815"
+			(at 233.68 30.48 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2547,23 +3800,24 @@
 			)
 		)
 		(pin "2"
-			(uuid "18152c34-2f12-47b0-aa1b-5ae014f2389c")
+			(uuid "821b0369-fd9d-4ab9-909e-81c2aea73a19")
 		)
 		(pin "1"
-			(uuid "6b3190a8-e35d-4b37-a414-a24fd7e6f15d")
+			(uuid "237d4d7d-2a91-4dd8-833b-7ed220a73460")
 		)
 		(instances
 			(project "hv-probe-passive"
 				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
-					(reference "C5")
+					(reference "C18")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 50.8 57.15 180)
+		(lib_name "C_Small_1")
+		(lib_id "Device:C_Small")
+		(at 182.88 30.48 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -2572,9 +3826,374 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "47016b88-a619-4afd-9fa4-8b4f7659e0a3")
-		(property "Reference" "R6"
-			(at 53.34 55.8799 0)
+		(uuid "5ed4d896-5423-4658-a9d2-08e48ec91ccf")
+		(property "Reference" "C23"
+			(at 182.88 24.13 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "47p"
+			(at 182.88 26.67 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_1808_4520Metric"
+			(at 182.88 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C2958815.pdf"
+			(at 182.88 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "FV42N470J302ECG"
+			(at 172.72 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C2958815"
+			(at 182.88 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "4471d156-fd69-4a30-8137-3afe7a981bc8")
+		)
+		(pin "1"
+			(uuid "1b255450-d010-4d47-b59f-4b0ee040339a")
+		)
+		(instances
+			(project "hv-probe-passive"
+				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
+					(reference "C23")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 193.04 40.64 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "63f5274c-dc2f-4932-8052-3acfdfdbbb20")
+		(property "Reference" "R15"
+			(at 193.04 35.56 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.016 1.016)
+				)
+			)
+		)
+		(property "Value" "2M"
+			(at 193.04 38.1 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_2512_6332Metric"
+			(at 193.04 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C2779442.pdf"
+			(at 193.04 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "HV121WF2004T4E"
+			(at 193.04 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C2779442"
+			(at 193.04 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "7d038121-23e2-4486-aa3e-a53a2ab0abdb")
+		)
+		(pin "1"
+			(uuid "22d4bf9b-8f8b-480c-a437-4e3bdd436910")
+		)
+		(instances
+			(project "hv-probe-passive"
+				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
+					(reference "R15")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 172.72 40.64 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "649aa7f3-f04b-4a82-80e0-5ed989b70f28")
+		(property "Reference" "R17"
+			(at 172.72 35.56 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.016 1.016)
+				)
+			)
+		)
+		(property "Value" "2M"
+			(at 172.72 38.1 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_2512_6332Metric"
+			(at 172.72 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C2779442.pdf"
+			(at 172.72 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "HV121WF2004T4E"
+			(at 172.72 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C2779442"
+			(at 172.72 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "40c57a88-eb0e-45e6-b5ea-b0b96f726420")
+		)
+		(pin "1"
+			(uuid "539370c4-3117-4a4d-95a3-c714600caabe")
+		)
+		(instances
+			(project "hv-probe-passive"
+				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
+					(reference "R17")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_name "C_Small_1")
+		(lib_id "Device:C_Small")
+		(at 274.32 30.48 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "6c1616b6-93b6-40c9-8a16-4d10131cd949")
+		(property "Reference" "C14"
+			(at 274.32 24.13 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "47p"
+			(at 274.32 26.67 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_1808_4520Metric"
+			(at 274.32 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C2958815.pdf"
+			(at 274.32 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "FV42N470J302ECG"
+			(at 264.16 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C2958815"
+			(at 274.32 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "a4794967-71a9-45a7-98a2-1ae580754c95")
+		)
+		(pin "1"
+			(uuid "26fe2295-60b1-4120-8d2f-b092042bfb76")
+		)
+		(instances
+			(project "hv-probe-passive"
+				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
+					(reference "C14")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 68.58 45.72 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "6c6f0c11-e9da-4efb-8897-8dc28d4a3179")
+		(property "Reference" "R28"
+			(at 71.12 44.4499 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2585,7 +4204,7 @@
 			)
 		)
 		(property "Value" "56k"
-			(at 53.34 58.4199 0)
+			(at 71.12 46.9899 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2595,8 +4214,8 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder"
-			(at 52.578 57.15 90)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+			(at 70.358 45.72 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2606,8 +4225,8 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.mouser.pl/datasheet/2/54/cr-1858361.pdf"
-			(at 50.8 57.15 0)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C17756.pdf"
+			(at 68.58 45.72 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2617,8 +4236,8 @@
 				)
 			)
 		)
-		(property "Description" "Resistor"
-			(at 50.8 57.15 0)
+		(property "Description" "0805W8F5602T5E"
+			(at 68.58 45.72 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2628,19 +4247,8 @@
 				)
 			)
 		)
-		(property "MPN" "CR1206-FX-5602ELF"
-			(at 50.8 57.15 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "SPN" "652-CR1206FX-5602ELF"
-			(at 50.8 57.15 0)
+		(property "LCSC" "C17756"
+			(at 68.58 45.72 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2651,23 +4259,24 @@
 			)
 		)
 		(pin "1"
-			(uuid "2e5b69c3-f3ca-4a5b-b079-913ba06932e9")
+			(uuid "67f716ce-8931-4547-8588-295927f684fa")
 		)
 		(pin "2"
-			(uuid "f16d3e22-89a3-4008-93bc-f58a5adf300b")
+			(uuid "ab076ff2-44d4-4e70-b907-aba3ac16d3c7")
 		)
 		(instances
 			(project "hv-probe-passive"
 				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
-					(reference "R6")
+					(reference "R28")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
+		(lib_name "C_Small_1")
 		(lib_id "Device:C_Small")
-		(at 109.22 50.8 90)
+		(at 101.6 30.48 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -2676,9 +4285,9 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "480483b5-329f-4f18-9c7a-94078c61da11")
-		(property "Reference" "C10"
-			(at 109.2263 44.45 90)
+		(uuid "6f7cd445-8acf-42f8-871e-6527790e7946")
+		(property "Reference" "C31"
+			(at 101.6 24.13 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2687,8 +4296,8 @@
 				)
 			)
 		)
-		(property "Value" "24p"
-			(at 109.2263 46.99 90)
+		(property "Value" "47p"
+			(at 101.6 26.67 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2697,8 +4306,8 @@
 				)
 			)
 		)
-		(property "Footprint" "Capacitor_THT:C_Disc_D11.0mm_W5.0mm_P10.00mm"
-			(at 109.22 50.8 0)
+		(property "Footprint" "Capacitor_SMD:C_1808_4520Metric"
+			(at 101.6 30.48 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2708,8 +4317,8 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.vishay.com/docs/23118/564r565r.pdf"
-			(at 109.22 50.8 0)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C2958815.pdf"
+			(at 101.6 30.48 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2719,8 +4328,8 @@
 				)
 			)
 		)
-		(property "Description" "Unpolarized capacitor, small symbol"
-			(at 109.22 50.8 0)
+		(property "Description" "FV42N470J302ECG"
+			(at 91.44 30.48 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2730,19 +4339,8 @@
 				)
 			)
 		)
-		(property "MPN" "564RC0GAJ602EJ240J"
-			(at 109.22 50.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "SPN" "75-564RC0GAJ602EJ240"
-			(at 109.22 50.8 0)
+		(property "LCSC" "C2958815"
+			(at 101.6 30.48 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2753,525 +4351,15 @@
 			)
 		)
 		(pin "2"
-			(uuid "3acc137a-9a2d-40cf-ba1e-2eb6aa26c330")
+			(uuid "5fc3c543-148f-423d-a143-049c14727b7c")
 		)
 		(pin "1"
-			(uuid "274030d6-c71d-42ff-93a2-56d8f86bd7e5")
+			(uuid "1bc0217f-f539-429e-ac94-b46ee0ad9ef5")
 		)
 		(instances
 			(project "hv-probe-passive"
 				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
-					(reference "C10")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C_Small")
-		(at 91.44 50.8 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "535571ea-9192-44ef-9b5a-688b0a15581c")
-		(property "Reference" "C9"
-			(at 91.4463 44.45 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "24p"
-			(at 91.4463 46.99 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Capacitor_THT:C_Disc_D11.0mm_W5.0mm_P10.00mm"
-			(at 91.44 50.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.vishay.com/docs/23118/564r565r.pdf"
-			(at 91.44 50.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Unpolarized capacitor, small symbol"
-			(at 91.44 50.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "MPN" "564RC0GAJ602EJ240J"
-			(at 91.44 50.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "SPN" "75-564RC0GAJ602EJ240"
-			(at 91.44 50.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "f9415f37-3061-4cbd-aba8-ca7a9a2a4c0d")
-		)
-		(pin "1"
-			(uuid "d72ab898-d8c2-42fa-aa4f-66e27a141a5f")
-		)
-		(instances
-			(project "hv-probe-passive"
-				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
-					(reference "C9")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C_Small")
-		(at 66.04 50.8 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "72779db2-a494-4641-bd55-e2879f5bf8c1")
-		(property "Reference" "C1"
-			(at 66.0463 44.45 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "24p"
-			(at 66.0463 46.99 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Capacitor_THT:C_Disc_D11.0mm_W5.0mm_P10.00mm"
-			(at 66.04 50.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.vishay.com/docs/23118/564r565r.pdf"
-			(at 66.04 50.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Unpolarized capacitor, small symbol"
-			(at 66.04 50.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "MPN" "564RC0GAJ602EJ240J"
-			(at 66.04 50.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "SPN" "75-564RC0GAJ602EJ240"
-			(at 66.04 50.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "821010da-9881-4631-a160-6dc29ad9e4be")
-		)
-		(pin "1"
-			(uuid "65f3977c-b204-4948-ab98-fdae08fff825")
-		)
-		(instances
-			(project "hv-probe-passive"
-				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
-					(reference "C1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C_Small")
-		(at 119.38 50.8 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "72b122cd-e95c-4283-bab0-0ce390b34b6e")
-		(property "Reference" "C4"
-			(at 119.3863 44.45 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "24p"
-			(at 119.3863 46.99 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Capacitor_THT:C_Disc_D11.0mm_W5.0mm_P10.00mm"
-			(at 119.38 50.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.vishay.com/docs/23118/564r565r.pdf"
-			(at 119.38 50.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Unpolarized capacitor, small symbol"
-			(at 119.38 50.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "MPN" "564RC0GAJ602EJ240J"
-			(at 119.38 50.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "SPN" "75-564RC0GAJ602EJ240"
-			(at 119.38 50.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "12c7801f-bb4e-41be-96c2-405021e25bf2")
-		)
-		(pin "1"
-			(uuid "1f3e0ac0-64f2-4895-8552-ab6325ddbe0c")
-		)
-		(instances
-			(project "hv-probe-passive"
-				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
-					(reference "C4")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R")
-		(at 140.97 63.5 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "72f4e555-7234-4fdb-8cd1-7828d4dbf6eb")
-		(property "Reference" "R5"
-			(at 140.97 57.15 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "10M"
-			(at 140.97 59.69 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Resistor_THT:R_Axial_DIN0918_L18.0mm_D9.0mm_P22.86mm_Horizontal"
-			(at 140.97 65.278 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.vishay.com/docs/28907/vr25vr37vr68.pdf"
-			(at 140.97 63.5 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Resistor"
-			(at 140.97 63.5 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "MPN" "VR68000001005JAC00"
-			(at 140.97 63.5 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "SPN" "594-5073DM10M00J"
-			(at 140.97 63.5 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "9ea62a1c-9471-4056-8ede-08b5614738cb")
-		)
-		(pin "2"
-			(uuid "20f07fdd-5aa6-4d6c-af9f-c9696a397d59")
-		)
-		(instances
-			(project "hv-probe-passive"
-				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
-					(reference "R5")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R")
-		(at 87.63 63.5 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "7e0994fd-48cb-4860-a908-e686f12ee6c3")
-		(property "Reference" "R2"
-			(at 87.63 57.15 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "10M"
-			(at 87.63 59.69 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Resistor_THT:R_Axial_DIN0918_L18.0mm_D9.0mm_P22.86mm_Horizontal"
-			(at 87.63 65.278 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.vishay.com/docs/28907/vr25vr37vr68.pdf"
-			(at 87.63 63.5 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Resistor"
-			(at 87.63 63.5 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "MPN" "VR68000001005JAC00"
-			(at 87.63 63.5 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "SPN" "594-5073DM10M00J"
-			(at 87.63 63.5 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "ca48b5e8-2ff3-442f-bc0e-3ad40313fdd7")
-		)
-		(pin "2"
-			(uuid "6cf9908b-7d3b-441b-9a03-c13f802bd350")
-		)
-		(instances
-			(project "hv-probe-passive"
-				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
-					(reference "R2")
+					(reference "C31")
 					(unit 1)
 				)
 			)
@@ -3279,7 +4367,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 17.78 63.5 0)
+		(at 53.34 50.8 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -3287,9 +4375,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "7e0fdbc5-71ef-484c-b069-a57fc598ca06")
-		(property "Reference" "#PWR04"
-			(at 17.78 69.85 0)
+		(uuid "70798a00-fc8b-41dd-bbb9-578040cdaf86")
+		(property "Reference" "#PWR09"
+			(at 53.34 57.15 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3300,7 +4388,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 17.78 67.945 0)
+			(at 53.34 55.245 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3310,7 +4398,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 17.78 63.5 0)
+			(at 53.34 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3321,7 +4409,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 17.78 63.5 0)
+			(at 53.34 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3332,7 +4420,175 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 17.78 63.5 0)
+			(at 53.34 50.8 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "e3be515a-8923-4ac8-9b49-1afe585a06e2")
+		)
+		(instances
+			(project "hv-probe-passive"
+				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
+					(reference "#PWR09")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 152.4 40.64 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "7c16755f-b720-4718-bae1-557058f26998")
+		(property "Reference" "R19"
+			(at 152.4 35.56 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.016 1.016)
+				)
+			)
+		)
+		(property "Value" "2M"
+			(at 152.4 38.1 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_2512_6332Metric"
+			(at 152.4 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C2779442.pdf"
+			(at 152.4 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "HV121WF2004T4E"
+			(at 152.4 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C2779442"
+			(at 152.4 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "5dcfdbc4-e666-4e3a-a96e-9f455cdf98b5")
+		)
+		(pin "1"
+			(uuid "15ed7985-180b-473f-b8de-fdb8d618f356")
+		)
+		(instances
+			(project "hv-probe-passive"
+				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
+					(reference "R19")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 20.32 50.8 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "7e0fdbc5-71ef-484c-b069-a57fc598ca06")
+		(property "Reference" "#PWR04"
+			(at 20.32 57.15 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 20.32 55.245 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 20.32 50.8 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 20.32 50.8 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 20.32 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3355,8 +4611,85 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R_Potentiometer")
-		(at 43.18 57.15 0)
+		(lib_id "power:GND")
+		(at 60.96 50.8 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "80144c16-091a-46fb-bf31-4dea8a7a8c68")
+		(property "Reference" "#PWR07"
+			(at 60.96 57.15 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 60.96 55.245 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 60.96 50.8 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 60.96 50.8 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 60.96 50.8 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "ab39222d-b035-4e17-b5df-df866be54091")
+		)
+		(instances
+			(project "hv-probe-passive"
+				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
+					(reference "#PWR07")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 243.84 40.64 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -3365,9 +4698,100 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "7fd1eddf-dc7d-432f-999c-da43fcab0ca3")
-		(property "Reference" "RV1"
-			(at 40.64 54.6099 0)
+		(uuid "8187463f-6313-47f4-8c57-b8c129ce32ec")
+		(property "Reference" "R10"
+			(at 243.84 35.56 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.016 1.016)
+				)
+			)
+		)
+		(property "Value" "2M"
+			(at 243.84 38.1 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_2512_6332Metric"
+			(at 243.84 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C2779442.pdf"
+			(at 243.84 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "HV121WF2004T4E"
+			(at 243.84 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C2779442"
+			(at 243.84 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "052974dd-9e9e-45bf-bac2-92cc0c25eb5c")
+		)
+		(pin "1"
+			(uuid "c71c8be9-3fe4-45ad-a89f-619032f17c2d")
+		)
+		(instances
+			(project "hv-probe-passive"
+				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
+					(reference "R10")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 60.96 45.72 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "8396eae2-01b7-45c7-aef6-cd0aebb92521")
+		(property "Reference" "R27"
+			(at 63.5 44.4499 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3377,8 +4801,1275 @@
 				(justify right)
 			)
 		)
-		(property "Value" "1M"
-			(at 40.64 57.1499 0)
+		(property "Value" "56k"
+			(at 63.5 46.9899 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+			(at 62.738 45.72 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C17756.pdf"
+			(at 60.96 45.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "0805W8F5602T5E"
+			(at 60.96 45.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C17756"
+			(at 60.96 45.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "35bfc8bc-ff93-4447-b9b0-e7c26b6fd3b8")
+		)
+		(pin "2"
+			(uuid "4c30a169-f2ea-4919-8058-5e79cd6cbe7a")
+		)
+		(instances
+			(project "hv-probe-passive"
+				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
+					(reference "R27")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 223.52 40.64 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "8742933a-9bc1-4418-8615-b1ea2b725bc4")
+		(property "Reference" "R12"
+			(at 223.52 35.56 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.016 1.016)
+				)
+			)
+		)
+		(property "Value" "2M"
+			(at 223.52 38.1 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_2512_6332Metric"
+			(at 223.52 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C2779442.pdf"
+			(at 223.52 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "HV121WF2004T4E"
+			(at 223.52 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C2779442"
+			(at 223.52 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "5e0e058d-a01a-4139-9feb-c51117ec8cec")
+		)
+		(pin "1"
+			(uuid "2a8bc2b8-45ee-4107-b267-364c08b4cfd6")
+		)
+		(instances
+			(project "hv-probe-passive"
+				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
+					(reference "R12")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 182.88 40.64 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "8da5cb64-4eb0-4e4a-a680-d856e141686a")
+		(property "Reference" "R16"
+			(at 182.88 35.56 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.016 1.016)
+				)
+			)
+		)
+		(property "Value" "2M"
+			(at 182.88 38.1 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_2512_6332Metric"
+			(at 182.88 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C2779442.pdf"
+			(at 182.88 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "HV121WF2004T4E"
+			(at 182.88 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C2779442"
+			(at 182.88 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "9e0f893f-356b-4917-a79b-3a5afa7e62f6")
+		)
+		(pin "1"
+			(uuid "2134d0e2-3406-4101-a696-86152f224144")
+		)
+		(instances
+			(project "hv-probe-passive"
+				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
+					(reference "R16")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 162.56 40.64 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "9e545084-7360-4bf6-84e9-471bce8385ce")
+		(property "Reference" "R18"
+			(at 162.56 35.56 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.016 1.016)
+				)
+			)
+		)
+		(property "Value" "2M"
+			(at 162.56 38.1 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_2512_6332Metric"
+			(at 162.56 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C2779442.pdf"
+			(at 162.56 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "HV121WF2004T4E"
+			(at 162.56 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C2779442"
+			(at 162.56 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "8a6935e1-22e6-4780-a49b-d35e98d85d81")
+		)
+		(pin "1"
+			(uuid "bf4d2b3d-6e0a-4005-b9b8-7bdd5987aef4")
+		)
+		(instances
+			(project "hv-probe-passive"
+				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
+					(reference "R18")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 101.6 40.64 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "9fe2ce15-29e6-4053-933b-18c303b05dba")
+		(property "Reference" "R24"
+			(at 101.6 35.56 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.016 1.016)
+				)
+			)
+		)
+		(property "Value" "2M"
+			(at 101.6 38.1 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_2512_6332Metric"
+			(at 101.6 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C2779442.pdf"
+			(at 101.6 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "HV121WF2004T4E"
+			(at 101.6 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C2779442"
+			(at 101.6 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "601e2ed0-6b8e-4a96-b4e1-c69405031747")
+		)
+		(pin "1"
+			(uuid "b9861da1-9601-45f6-96ef-67a242e2c95a")
+		)
+		(instances
+			(project "hv-probe-passive"
+				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
+					(reference "R24")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_name "C_Small_1")
+		(lib_id "Device:C_Small")
+		(at 121.92 30.48 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "a599fef7-2711-4135-afc7-b422926552b0")
+		(property "Reference" "C29"
+			(at 121.92 24.13 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "47p"
+			(at 121.92 26.67 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_1808_4520Metric"
+			(at 121.92 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C2958815.pdf"
+			(at 121.92 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "FV42N470J302ECG"
+			(at 111.76 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C2958815"
+			(at 121.92 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "5609201c-d097-4192-9653-e66d6150089f")
+		)
+		(pin "1"
+			(uuid "2458a539-638f-409f-a401-61469dcd8ad6")
+		)
+		(instances
+			(project "hv-probe-passive"
+				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
+					(reference "C29")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_name "C_Small_1")
+		(lib_id "Device:C_Small")
+		(at 264.16 30.48 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "a63f5e61-c81b-44c4-b938-4efe57f39e6b")
+		(property "Reference" "C15"
+			(at 264.16 24.13 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "47p"
+			(at 264.16 26.67 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_1808_4520Metric"
+			(at 264.16 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C2958815.pdf"
+			(at 264.16 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "FV42N470J302ECG"
+			(at 254 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C2958815"
+			(at 264.16 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "bff4f336-ab9e-4c39-bb26-17dbc3f8c266")
+		)
+		(pin "1"
+			(uuid "4f597015-5ca8-4021-8c54-ac91414d6e49")
+		)
+		(instances
+			(project "hv-probe-passive"
+				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
+					(reference "C15")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 38.1 50.8 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "abb5847d-efca-490c-b93e-0beb85f11c19")
+		(property "Reference" "#PWR08"
+			(at 38.1 57.15 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 38.1 55.245 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 38.1 50.8 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 38.1 50.8 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 38.1 50.8 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "ca0eb34e-81ce-42ec-b751-6ec3034784a6")
+		)
+		(instances
+			(project "hv-probe-passive"
+				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
+					(reference "#PWR08")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 121.92 40.64 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "b00e3b00-0588-48bc-88de-f414e98bf71f")
+		(property "Reference" "R22"
+			(at 121.92 35.56 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.016 1.016)
+				)
+			)
+		)
+		(property "Value" "2M"
+			(at 121.92 38.1 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_2512_6332Metric"
+			(at 121.92 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C2779442.pdf"
+			(at 121.92 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "HV121WF2004T4E"
+			(at 121.92 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C2779442"
+			(at 121.92 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "27f92b56-34b4-4d3e-ab37-da7be02df374")
+		)
+		(pin "1"
+			(uuid "2803959d-7586-41aa-b0e3-31e6a0c2a2cb")
+		)
+		(instances
+			(project "hv-probe-passive"
+				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
+					(reference "R22")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_name "C_Small_1")
+		(lib_id "Device:C_Small")
+		(at 254 30.48 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "b9d1962f-a674-4c86-b20b-cc59269962dc")
+		(property "Reference" "C16"
+			(at 254 24.13 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "47p"
+			(at 254 26.67 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_1808_4520Metric"
+			(at 254 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C2958815.pdf"
+			(at 254 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "FV42N470J302ECG"
+			(at 243.84 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C2958815"
+			(at 254 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "3b9164f8-6dbf-4ace-8a5f-c0cfc010e5c6")
+		)
+		(pin "1"
+			(uuid "5739487f-302a-49ab-be51-ee443c2f09d1")
+		)
+		(instances
+			(project "hv-probe-passive"
+				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
+					(reference "C16")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_name "C_Small_1")
+		(lib_id "Device:C_Small")
+		(at 142.24 30.48 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "be398e22-b775-4628-bf2c-73c172976d41")
+		(property "Reference" "C27"
+			(at 142.24 24.13 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "47p"
+			(at 142.24 26.67 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_1808_4520Metric"
+			(at 142.24 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C2958815.pdf"
+			(at 142.24 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "FV42N470J302ECG"
+			(at 132.08 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C2958815"
+			(at 142.24 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "4f07e660-0a79-42f3-af4e-b84faefcc2bd")
+		)
+		(pin "1"
+			(uuid "a6da9c1e-92a0-4819-9bcd-68277183602d")
+		)
+		(instances
+			(project "hv-probe-passive"
+				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
+					(reference "C27")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_name "C_Small_1")
+		(lib_id "Device:C_Small")
+		(at 223.52 30.48 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "c3d8338e-1771-4676-ba5a-c61dd70afc51")
+		(property "Reference" "C19"
+			(at 223.52 24.13 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "47p"
+			(at 223.52 26.67 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_1808_4520Metric"
+			(at 223.52 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C2958815.pdf"
+			(at 223.52 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "FV42N470J302ECG"
+			(at 213.36 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C2958815"
+			(at 223.52 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "eff0d084-43e0-42c8-97d4-2f4d82d9b43b")
+		)
+		(pin "1"
+			(uuid "213e3c9e-fe53-4bd7-a8d7-5799165d2fb2")
+		)
+		(instances
+			(project "hv-probe-passive"
+				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
+					(reference "C19")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 142.24 40.64 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "c916c8b8-f52d-4435-9d98-e311e91d3bff")
+		(property "Reference" "R20"
+			(at 142.24 35.56 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.016 1.016)
+				)
+			)
+		)
+		(property "Value" "2M"
+			(at 142.24 38.1 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_2512_6332Metric"
+			(at 142.24 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C2779442.pdf"
+			(at 142.24 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "HV121WF2004T4E"
+			(at 142.24 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C2779442"
+			(at 142.24 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "d9824fce-5227-4c86-9488-bb598e5469d2")
+		)
+		(pin "1"
+			(uuid "923780fe-7a1a-40a1-bc50-8221b8e69c56")
+		)
+		(instances
+			(project "hv-probe-passive"
+				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
+					(reference "R20")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 81.28 40.64 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "c9cfe657-16a6-42ae-a668-7eb6dffeacfd")
+		(property "Reference" "R26"
+			(at 81.28 35.56 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.016 1.016)
+				)
+			)
+		)
+		(property "Value" "2M"
+			(at 81.28 38.1 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_2512_6332Metric"
+			(at 81.28 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C2779442.pdf"
+			(at 81.28 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "HV121WF2004T4E"
+			(at 81.28 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C2779442"
+			(at 81.28 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "56e2bd99-780e-41ef-a2b0-e4b1f7cdc0d7")
+		)
+		(pin "1"
+			(uuid "3c417d8b-10b5-4d64-8f1c-655625823cde")
+		)
+		(instances
+			(project "hv-probe-passive"
+				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
+					(reference "R26")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_Potentiometer_Small")
+		(at 60.96 35.56 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "cb1457b8-f183-4b76-83b6-73a1829a4f2f")
+		(property "Reference" "RV2"
+			(at 58.42 34.2899 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "DC_TRIM"
+			(at 58.42 36.8299 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3389,7 +6080,7 @@
 			)
 		)
 		(property "Footprint" "Potentiometer_THT:Potentiometer_Bourns_3296X_Horizontal"
-			(at 43.18 57.15 0)
+			(at 60.96 35.56 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3399,8 +6090,8 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.mouser.pl/datasheet/2/54/3296-776415.pdf"
-			(at 43.18 57.15 0)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C49190482.pdf"
+			(at 60.96 35.56 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3410,8 +6101,8 @@
 				)
 			)
 		)
-		(property "Description" "Trim the attenuation to be perfetly 10000:1"
-			(at 43.18 57.15 0)
+		(property "Description" "3296X-1-105LF"
+			(at 60.96 35.56 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3421,8 +6112,8 @@
 				)
 			)
 		)
-		(property "MPN" "3296Z-1-105LF"
-			(at 43.18 57.15 0)
+		(property "Sim.Device" "R"
+			(at 60.96 35.56 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3432,8 +6123,8 @@
 				)
 			)
 		)
-		(property "SPN" "652-3296Z-1-105LF"
-			(at 43.18 57.15 0)
+		(property "Sim.Type" "POT"
+			(at 60.96 35.56 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3443,38 +6134,49 @@
 				)
 			)
 		)
-		(property "Label" "TRIM"
-			(at 40.64 59.6899 0)
+		(property "Sim.Pins" "1=r0 2=wiper 3=r1"
+			(at 60.96 35.56 0)
+			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
 			)
 		)
-		(pin "2"
-			(uuid "3e0587e8-2c3d-416b-a45e-5f835168f655")
-		)
-		(pin "1"
-			(uuid "464d695f-f7c2-4fa1-8ad4-637d63d6892b")
+		(property "LCSC" "C49190482"
+			(at 60.96 35.56 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
 		)
 		(pin "3"
-			(uuid "a048b667-c3d8-46ae-a9cc-ef970fda9822")
+			(uuid "5ed4dfa5-f9fb-4145-8628-ca1745da030f")
+		)
+		(pin "1"
+			(uuid "d480c87c-9017-4db3-aa21-da1f000ea6a0")
+		)
+		(pin "2"
+			(uuid "96df5bf2-24a6-4086-b1f3-c2a8641e81fd")
 		)
 		(instances
 			(project "hv-probe-passive"
 				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
-					(reference "RV1")
+					(reference "RV2")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_id "Device:C_Small")
-		(at 101.6 50.8 90)
+		(lib_id "Device:C_Variable")
+		(at 38.1 44.45 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -3483,289 +6185,9 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "8772e6a2-1961-420f-b2e8-ce8c7c6af2e7")
-		(property "Reference" "C3"
-			(at 101.6063 44.45 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "24p"
-			(at 101.6063 46.99 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Capacitor_THT:C_Disc_D11.0mm_W5.0mm_P10.00mm"
-			(at 101.6 50.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.vishay.com/docs/23118/564r565r.pdf"
-			(at 101.6 50.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Unpolarized capacitor, small symbol"
-			(at 101.6 50.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "MPN" "564RC0GAJ602EJ240J"
-			(at 101.6 50.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "SPN" "75-564RC0GAJ602EJ240"
-			(at 101.6 50.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "5b1508d8-1bec-4e48-a9ab-7b430a3138cc")
-		)
-		(pin "1"
-			(uuid "3e9659c1-2ea3-4f84-859a-0cbf8de516a0")
-		)
-		(instances
-			(project "hv-probe-passive"
-				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
-					(reference "C3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C_Small")
-		(at 127 50.8 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "9e026dbf-13f5-44b9-af57-f66e8730b633")
-		(property "Reference" "C11"
-			(at 127.0063 44.45 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "24p"
-			(at 127.0063 46.99 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Capacitor_THT:C_Disc_D11.0mm_W5.0mm_P10.00mm"
-			(at 127 50.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" "https://www.vishay.com/docs/23118/564r565r.pdf"
-			(at 127 50.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Unpolarized capacitor, small symbol"
-			(at 127 50.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "MPN" "564RC0GAJ602EJ240J"
-			(at 127 50.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "SPN" "75-564RC0GAJ602EJ240"
-			(at 127 50.8 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "0b71f9fd-9873-4d9f-9388-41ce52cb7b9d")
-		)
-		(pin "1"
-			(uuid "7f6f3cea-071d-4477-b084-76fef1b17641")
-		)
-		(instances
-			(project "hv-probe-passive"
-				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
-					(reference "C11")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 50.8 63.5 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "a2ee4e3c-8a5b-4d9f-8bb7-75dc56851e12")
-		(property "Reference" "#PWR01"
-			(at 50.8 69.85 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 50.8 67.945 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 50.8 63.5 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 50.8 63.5 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 50.8 63.5 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "b6601c1a-b560-4ff5-a7ad-5df5ef92e809")
-		)
-		(instances
-			(project "hv-probe-passive"
-				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
-					(reference "#PWR01")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C_Small")
-		(at 30.48 55.88 180)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "ad55ad02-ba0b-4891-b13f-3e49a372b15f")
-		(property "Reference" "C7"
-			(at 32.385 54.61 0)
+		(uuid "cc7e7854-0056-4ed2-b7cf-0e406f7b15b1")
+		(property "Reference" "C13"
+			(at 34.29 43.1799 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3775,8 +6197,8 @@
 				(justify right)
 			)
 		)
-		(property "Value" "2n2"
-			(at 32.385 57.1565 0)
+		(property "Value" "5.5pF-65pF"
+			(at 34.29 45.7199 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3786,8 +6208,8 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder"
-			(at 30.48 55.88 0)
+		(property "Footprint" "my_footprint_lib:BFC2808 P5.0x7.5mm"
+			(at 38.1 44.45 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3797,8 +6219,8 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.vishay.com/docs/45199/vjcommercialseries.pdf"
-			(at 30.48 55.88 0)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C3273327.pdf"
+			(at 38.1 44.45 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3808,8 +6230,8 @@
 				)
 			)
 		)
-		(property "Description" "Unpolarized capacitor, small symbol"
-			(at 30.48 55.88 0)
+		(property "Description" "BFC280832659"
+			(at 38.1 44.45 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3819,8 +6241,8 @@
 				)
 			)
 		)
-		(property "MPN" "VJ1206A222FFBAT"
-			(at 30.48 55.88 0)
+		(property "LCSC" "C3273327"
+			(at 38.1 44.45 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3830,8 +6252,89 @@
 				)
 			)
 		)
-		(property "SPN" "77-VJ1206A222FFBAT"
-			(at 30.48 55.88 0)
+		(pin "1"
+			(uuid "43c0e1b6-7db7-445e-88d0-dca38e58389d")
+		)
+		(pin "2"
+			(uuid "fa53d0e6-34a7-4629-85e1-3b65c5d4fd4c")
+		)
+		(instances
+			(project "hv-probe-passive"
+				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
+					(reference "C13")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_name "C_Small_1")
+		(lib_id "Device:C_Small")
+		(at 172.72 30.48 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "cf776d36-cf2c-4ba7-94cb-939d327ff4ec")
+		(property "Reference" "C24"
+			(at 172.72 24.13 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "47p"
+			(at 172.72 26.67 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_1808_4520Metric"
+			(at 172.72 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C2958815.pdf"
+			(at 172.72 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "FV42N470J302ECG"
+			(at 162.56 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C2958815"
+			(at 172.72 30.48 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3842,15 +6345,380 @@
 			)
 		)
 		(pin "2"
-			(uuid "5719072b-c80a-4ed2-b840-d9c00cf79811")
+			(uuid "19f62157-f95c-4b8f-a471-ea54b95c1ca3")
 		)
 		(pin "1"
-			(uuid "4249b07a-4241-40c3-a024-9e9fb2f26a71")
+			(uuid "ade90975-765a-4730-b9db-49a8353bbad1")
 		)
 		(instances
 			(project "hv-probe-passive"
 				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
-					(reference "C7")
+					(reference "C24")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 132.08 40.64 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "d139f10c-7063-442c-88b6-414cb0261a36")
+		(property "Reference" "R21"
+			(at 132.08 35.56 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.016 1.016)
+				)
+			)
+		)
+		(property "Value" "2M"
+			(at 132.08 38.1 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_2512_6332Metric"
+			(at 132.08 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C2779442.pdf"
+			(at 132.08 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "HV121WF2004T4E"
+			(at 132.08 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C2779442"
+			(at 132.08 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "3b9aa2d1-76b4-4310-993c-cf4a7c75bac6")
+		)
+		(pin "1"
+			(uuid "0e1c2c4c-d67e-4e0f-9f61-645c2d1ecf8e")
+		)
+		(instances
+			(project "hv-probe-passive"
+				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
+					(reference "R21")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_name "C_Small_1")
+		(lib_id "Device:C_Small")
+		(at 203.2 30.48 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "dc985f54-c8c5-4276-87fd-abb03b2695d4")
+		(property "Reference" "C21"
+			(at 203.2 24.13 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "47p"
+			(at 203.2 26.67 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_1808_4520Metric"
+			(at 203.2 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C2958815.pdf"
+			(at 203.2 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "FV42N470J302ECG"
+			(at 193.04 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C2958815"
+			(at 203.2 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "3f5a63d1-cda3-456f-a627-7c489accd8c4")
+		)
+		(pin "1"
+			(uuid "04d52961-1f4a-4cf4-b161-5447b11e94e9")
+		)
+		(instances
+			(project "hv-probe-passive"
+				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
+					(reference "C21")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 213.36 40.64 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "dd57210b-2785-4d66-872d-0e2761bae0e8")
+		(property "Reference" "R13"
+			(at 213.36 35.56 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.016 1.016)
+				)
+			)
+		)
+		(property "Value" "2M"
+			(at 213.36 38.1 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_2512_6332Metric"
+			(at 213.36 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C2779442.pdf"
+			(at 213.36 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "HV121WF2004T4E"
+			(at 213.36 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C2779442"
+			(at 213.36 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "5969c7b0-83a1-40b6-84bb-29ff52efed01")
+		)
+		(pin "1"
+			(uuid "8909081a-e912-4ce9-8f39-21f707c8636d")
+		)
+		(instances
+			(project "hv-probe-passive"
+				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
+					(reference "R13")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 203.2 40.64 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "df613f5f-835f-44aa-b901-740fdf2e7173")
+		(property "Reference" "R14"
+			(at 203.2 35.56 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.016 1.016)
+				)
+			)
+		)
+		(property "Value" "2M"
+			(at 203.2 38.1 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_2512_6332Metric"
+			(at 203.2 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C2779442.pdf"
+			(at 203.2 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "HV121WF2004T4E"
+			(at 203.2 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C2779442"
+			(at 203.2 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "e49c61fe-739a-4a98-a6a5-fb9c11548a29")
+		)
+		(pin "1"
+			(uuid "2b90631b-ad8b-4fde-80bd-ec5a986b45e0")
+		)
+		(instances
+			(project "hv-probe-passive"
+				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
+					(reference "R14")
 					(unit 1)
 				)
 			)
@@ -3858,7 +6726,7 @@
 	)
 	(symbol
 		(lib_id "Device:C_Small")
-		(at 83.82 50.8 90)
+		(at 53.34 45.72 180)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -3866,30 +6734,31 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "cc3e9b52-4ed2-4f43-9617-78a14027ddad")
-		(property "Reference" "C2"
-			(at 83.8263 44.45 90)
+		(uuid "e122225e-4212-427d-9210-9da3555cba54")
+		(property "Reference" "C34"
+			(at 55.245 44.45 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify right)
 			)
 		)
-		(property "Value" "24p"
-			(at 83.8263 46.99 90)
+		(property "Value" "680p"
+			(at 55.245 46.9965 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify right)
 			)
 		)
-		(property "Footprint" "Capacitor_THT:C_Disc_D11.0mm_W5.0mm_P10.00mm"
-			(at 83.82 50.8 0)
+		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric"
+			(at 53.34 45.72 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3899,8 +6768,8 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.vishay.com/docs/23118/564r565r.pdf"
-			(at 83.82 50.8 0)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C3871624.pdf"
+			(at 53.34 45.72 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3911,7 +6780,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
-			(at 83.82 50.8 0)
+			(at 53.34 45.72 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3921,8 +6790,8 @@
 				)
 			)
 		)
-		(property "MPN" "564RC0GAJ602EJ240J"
-			(at 83.82 50.8 0)
+		(property "MPN" "AC1206JRNPOBBN681"
+			(at 53.34 45.72 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3932,8 +6801,8 @@
 				)
 			)
 		)
-		(property "SPN" "75-564RC0GAJ602EJ240"
-			(at 83.82 50.8 0)
+		(property "LCSC" "C3871624"
+			(at 53.34 45.72 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3944,100 +6813,24 @@
 			)
 		)
 		(pin "2"
-			(uuid "ffbac494-ae63-4175-a5ec-a8ff865d6e07")
+			(uuid "91edb6ce-07a9-4016-b4a0-93767f9dc545")
 		)
 		(pin "1"
-			(uuid "cea6ddab-4bba-4d93-ae5d-94b6296d43ac")
+			(uuid "a3811b6e-2a94-46ca-8842-1c2a905a50a5")
 		)
 		(instances
 			(project "hv-probe-passive"
 				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
-					(reference "C2")
+					(reference "C34")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 43.18 63.5 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "e95af9e1-cf21-4e8a-b15b-7ec4ae4fdc32")
-		(property "Reference" "#PWR02"
-			(at 43.18 69.85 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 43.18 67.945 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 43.18 63.5 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 43.18 63.5 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 43.18 63.5 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "b86c2d5b-7e7d-4b18-b1d0-f60548a83198")
-		)
-		(instances
-			(project "hv-probe-passive"
-				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
-					(reference "#PWR02")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R")
-		(at 69.85 63.5 90)
+		(lib_name "C_Small_1")
+		(lib_id "Device:C_Small")
+		(at 81.28 30.48 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -4046,9 +6839,9 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "ec11f545-e9dd-4fb5-86c4-21f5c889878e")
-		(property "Reference" "R1"
-			(at 69.85 57.15 90)
+		(uuid "e41a845d-b9bb-43cc-890a-dd888ab6af28")
+		(property "Reference" "C33"
+			(at 81.28 24.13 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4057,8 +6850,8 @@
 				)
 			)
 		)
-		(property "Value" "10M"
-			(at 69.85 59.69 90)
+		(property "Value" "47p"
+			(at 81.28 26.67 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4067,8 +6860,8 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_THT:R_Axial_DIN0918_L18.0mm_D9.0mm_P22.86mm_Horizontal"
-			(at 69.85 65.278 90)
+		(property "Footprint" "Capacitor_SMD:C_1808_4520Metric"
+			(at 81.28 30.48 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4078,8 +6871,8 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.vishay.com/docs/28907/vr25vr37vr68.pdf"
-			(at 69.85 63.5 0)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C2958815.pdf"
+			(at 81.28 30.48 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4089,8 +6882,8 @@
 				)
 			)
 		)
-		(property "Description" "Resistor"
-			(at 69.85 63.5 0)
+		(property "Description" "FV42N470J302ECG"
+			(at 71.12 30.48 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4100,8 +6893,8 @@
 				)
 			)
 		)
-		(property "MPN" "VR68000001005JAC00"
-			(at 69.85 63.5 0)
+		(property "LCSC" "C2958815"
+			(at 81.28 30.48 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4110,28 +6903,200 @@
 					(size 1.27 1.27)
 				)
 			)
-		)
-		(property "SPN" "594-5073DM10M00J"
-			(at 69.85 63.5 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "3d2b2a14-23f5-4f24-91d1-4b1f0dabef3f")
 		)
 		(pin "2"
-			(uuid "353459dc-25f0-46de-933d-b4ad8817fe87")
+			(uuid "03e38ff9-ac35-4603-99ae-d80545a6b18c")
+		)
+		(pin "1"
+			(uuid "6a4a9b7e-a70f-45be-8e13-65c6dd55ef7d")
 		)
 		(instances
 			(project "hv-probe-passive"
 				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
-					(reference "R1")
+					(reference "C33")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_name "C_Small_1")
+		(lib_id "Device:C_Small")
+		(at 213.36 30.48 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "e78ef47d-0959-4a0b-9d70-02c29c0452cf")
+		(property "Reference" "C20"
+			(at 213.36 24.13 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "47p"
+			(at 213.36 26.67 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_1808_4520Metric"
+			(at 213.36 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C2958815.pdf"
+			(at 213.36 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "FV42N470J302ECG"
+			(at 203.2 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C2958815"
+			(at 213.36 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "71e6918e-1cc0-4d9a-b00c-8e9acdaa7ac5")
+		)
+		(pin "1"
+			(uuid "8f3311bf-5446-4a2e-af62-fa06a45d9768")
+		)
+		(instances
+			(project "hv-probe-passive"
+				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
+					(reference "C20")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 111.76 40.64 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "f036c00a-acb6-4810-a3d9-869698b4893e")
+		(property "Reference" "R23"
+			(at 111.76 35.56 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.016 1.016)
+				)
+			)
+		)
+		(property "Value" "2M"
+			(at 111.76 38.1 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_2512_6332Metric"
+			(at 111.76 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C2779442.pdf"
+			(at 111.76 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "HV121WF2004T4E"
+			(at 111.76 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C2779442"
+			(at 111.76 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "af0e2c29-c88e-4962-82c2-9522b9c22319")
+		)
+		(pin "1"
+			(uuid "c9f1975b-d077-410c-83b7-65b95d8a7597")
+		)
+		(instances
+			(project "hv-probe-passive"
+				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
+					(reference "R23")
 					(unit 1)
 				)
 			)
@@ -4139,7 +7104,7 @@
 	)
 	(symbol
 		(lib_id "Connector:Conn_Coaxial")
-		(at 17.78 50.8 0)
+		(at 20.32 30.48 0)
 		(mirror y)
 		(unit 1)
 		(body_style 1)
@@ -4150,7 +7115,7 @@
 		(dnp no)
 		(uuid "f3e7a47f-8177-41ae-b303-28b62dc18c0a")
 		(property "Reference" "J2"
-			(at 21.59 44.45 0)
+			(at 24.13 24.13 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4160,7 +7125,7 @@
 			)
 		)
 		(property "Value" "OUT"
-			(at 21.59 46.99 0)
+			(at 24.13 26.67 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4170,7 +7135,7 @@
 			)
 		)
 		(property "Footprint" "Connector_Coaxial:BNC_Amphenol_B6252HB-NPP3G-50_Horizontal"
-			(at 17.78 50.8 0)
+			(at 20.32 30.48 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4181,7 +7146,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.mouser.pl/datasheet/2/18/1/amphs06325_1-2259332.pdf"
-			(at 17.78 50.8 0)
+			(at 20.32 30.48 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4192,7 +7157,7 @@
 			)
 		)
 		(property "Description" "coaxial connector (BNC, SMA, SMB, SMC, Cinch/RCA, LEMO, ...)"
-			(at 17.78 50.8 0)
+			(at 20.32 30.48 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4203,7 +7168,7 @@
 			)
 		)
 		(property "MPN" "112413"
-			(at 17.78 50.8 0)
+			(at 20.32 30.48 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4214,7 +7179,7 @@
 			)
 		)
 		(property "SPN" "523-112413"
-			(at 17.78 50.8 0)
+			(at 20.32 30.48 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4234,6 +7199,384 @@
 			(project "hv-probe-passive"
 				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
 					(reference "J2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C_Small")
+		(at 45.72 45.72 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "f4f926ed-ee32-48b5-a901-8a582fc6c1cd")
+		(property "Reference" "C35"
+			(at 47.625 44.45 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "330p"
+			(at 47.625 46.9965 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric"
+			(at 45.72 45.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C20617886.pdf"
+			(at 45.72 45.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 45.72 45.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "1206CG331J101NT"
+			(at 45.72 45.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SPN" "C20617886"
+			(at 45.72 45.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "0679d3e7-6de4-4d21-b53a-b16a1e819b58")
+		)
+		(pin "1"
+			(uuid "034355a0-d0d7-40e6-8264-526b288ff599")
+		)
+		(instances
+			(project "hv-probe-passive"
+				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
+					(reference "C35")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 264.16 40.64 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "f7099ca4-6b9e-4266-bf61-387ea0a7f4d1")
+		(property "Reference" "R8"
+			(at 264.16 35.56 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.016 1.016)
+				)
+			)
+		)
+		(property "Value" "2M"
+			(at 264.16 38.1 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_2512_6332Metric"
+			(at 264.16 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C2779442.pdf"
+			(at 264.16 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "HV121WF2004T4E"
+			(at 264.16 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C2779442"
+			(at 264.16 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "ef5229c8-12e3-4233-a714-0134cb587cf2")
+		)
+		(pin "1"
+			(uuid "71b24660-0bc0-42dc-bd60-9602b3d8ac70")
+		)
+		(instances
+			(project "hv-probe-passive"
+				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
+					(reference "R8")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_name "C_Small_1")
+		(lib_id "Device:C_Small")
+		(at 243.84 30.48 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "fc404cbd-3493-4e72-ab55-08f13aa54451")
+		(property "Reference" "C17"
+			(at 243.84 24.13 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "47p"
+			(at 243.84 26.67 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_1808_4520Metric"
+			(at 243.84 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C2958815.pdf"
+			(at 243.84 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "FV42N470J302ECG"
+			(at 233.68 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C2958815"
+			(at 243.84 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "7fd9b450-091e-46cf-9109-553a9601f821")
+		)
+		(pin "1"
+			(uuid "dd18d619-db6d-41f4-be95-e6bf3b0dcfae")
+		)
+		(instances
+			(project "hv-probe-passive"
+				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
+					(reference "C17")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_name "C_Small_1")
+		(lib_id "Device:C_Small")
+		(at 111.76 30.48 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "ffd74938-f280-4d2e-a5db-0d43d5133916")
+		(property "Reference" "C30"
+			(at 111.76 24.13 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "47p"
+			(at 111.76 26.67 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_1808_4520Metric"
+			(at 111.76 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C2958815.pdf"
+			(at 111.76 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "FV42N470J302ECG"
+			(at 101.6 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C2958815"
+			(at 111.76 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "f6aca6a9-3b8e-4f43-9bcc-3909990db305")
+		)
+		(pin "1"
+			(uuid "121231d2-1e01-482f-a5af-2d763d25d40c")
+		)
+		(instances
+			(project "hv-probe-passive"
+				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
+					(reference "C30")
 					(unit 1)
 				)
 			)
