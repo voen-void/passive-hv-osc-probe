@@ -1,0 +1,8 @@
+wrote C:\Users\jansk\Desktop\things\electronics\kicad projects\hv-probe-project-files\passive-hv-osc-probe\tools\results\probe.cir
+         f       LTspice     probe_sim     diff
+       100     -60.059dB     -60.059dB  -0.000
+     1e+04     -65.987dB     -65.987dB   0.000
+     1e+06     -65.883dB     -65.882dB   0.001
+     1e+07     -64.787dB     -64.744dB   0.043
+     3e+07     -44.598dB     -43.349dB   1.248
+     1e+08     -60.347dB     -60.871dB  -0.524

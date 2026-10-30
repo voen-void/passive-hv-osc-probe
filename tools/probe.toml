@@ -1,0 +1,142 @@
+# Configuration for the HV probe modelling tools (extract_caps.py, probe_sim.py).
+# All paths are relative to this file. Lengths in mm unless stated otherwise.
+
+[files]
+pcb         = "../hv-probe-passive/hv-probe-passive.kicad_pcb"
+capacitance = "results/capacitance.json"   # written by extract_caps.py, read by probe_sim.py
+results     = "results"
+
+# ---------------------------------------------------------------------------
+[geometry]
+# Offset of the PCB mid-plane from the tube axis (+ = towards the F.Cu side).
+# 0 means the board is centred in the tube.
+board_offset_z = 0.0
+
+# Height of the metal terminations of SMD parts above the copper, by footprint
+# name substring. The terminations are modelled as conductive boxes over the
+# pad area (the part body itself is treated as resin).
+#   C_1808: FV42N470J302ECG, 2.0 mm max thickness
+#   R_2512: HV121WF2004T4E, ~0.6 mm
+[geometry.part_height]
+"C_1808" = 2.0
+"R_2512" = 0.6
+"C_1206" = 1.0
+"R_0805" = 0.5
+
+# ---------------------------------------------------------------------------
+[materials]
+resin_er = 6.0     # Huntsman Arathane CW 5620 / HY 5610 (see datasheet; ~6 at 50 Hz)
+fr4_er   = 4.5     # from the KiCad stackup
+air_er   = 1.0
+# Dielectric strength used for the stress report [kV/mm]. These are bulk
+# short-term values; derate heavily for long-term DC/AC stress and for
+# interfaces (surface tracking along the board/resin boundary).
+resin_strength = 25.0
+fr4_strength   = 20.0
+air_strength   = 3.0
+
+# ---------------------------------------------------------------------------
+[mesh]
+# Target grid steps [mm] in the fine region around the board and inside the
+# tube. Use `--scale 2` on the command line for a quick coarse run, or
+# `--scale 0.7` for a refinement/convergence check.
+h_x        = 0.4    # along the probe axis
+h_y        = 0.4    # across the board
+h_z_board  = 0.15   # through the board, |z| < 1.2 mm
+h_z_parts  = 0.3    # region occupied by components, |z| < 3.5 mm
+h_tube     = 0.6    # elsewhere inside the tube
+h_max      = 4.0    # far field
+growth     = 1.25   # max ratio between neighbouring steps
+margin     = 30.0   # free space around the tube/resin before the grounded box
+
+[solver]
+tol = 1e-8
+
+# ---------------------------------------------------------------------------
+[circuit]
+input_net    = "IN"               # HV tip
+output_net   = "OUT"              # BNC centre pin
+target_ratio = 1000.0
+source_resistance = 0.0           # [ohm] DUT source impedance
+# Damping (not on the PCB yet - for design studies): a resistor in series with
+# the HV tip, and/or a resistor in series with every divider capacitor.
+tip_r     = 0.0
+segment_r = 0.0
+pot_max   = 1.0e6                 # RV2 full-scale resistance
+extra_esl = 1.0e-9                # ESL given to capacitance added by the optimiser
+
+# Per-part overrides. Values use SI suffixes ("47p", "2M") or numbers.
+#  - Trimmer (C13): a number/string sets its capacitance, "mid" = mid range.
+#  - Potentiometer (RV2): resistance between its two nets, "auto" = set for
+#    target_ratio with the scope input resistance included.
+[circuit.parts]
+C13 = "mid"
+RV2 = "auto"
+
+# Equivalent series inductance for capacitors, by footprint substring [H].
+[circuit.esl]
+"C_1808"  = 1.2e-9
+"C_1206"  = 1.0e-9
+"BFC2808" = 3.0e-9
+
+# ---------------------------------------------------------------------------
+[cable]
+type     = "RG58"
+length   = 1.5     # [m]
+series_r = 49.9    # [ohm] resistor between the divider output and the cable (back termination)
+
+# Characteristic impedance, velocity factor, DC loop resistance [ohm/m] and
+# attenuation at 100 MHz [dB/m]. Conductor (skin effect) loss is assumed.
+[cable.types.RG58]
+z0 = 50.0
+vf = 0.66
+r_dc = 0.048
+loss_100MHz = 0.16
+
+[cable.types.RG174]
+z0 = 50.0
+vf = 0.66
+r_dc = 0.40
+loss_100MHz = 0.29
+
+[cable.types.RG316]
+z0 = 50.0
+vf = 0.695
+r_dc = 0.30
+loss_100MHz = 0.26
+
+# ---------------------------------------------------------------------------
+[scope]
+r_in = 1.0e6
+c_in = 15e-12
+bandwidth = 0.0    # [Hz] 0 = ideal; otherwise a 1st-order roll-off is applied
+
+# ---------------------------------------------------------------------------
+[stress]
+voltage = 20000.0      # [V] applied to the HV tip for the E-field maps
+hf_frequency = 1.0e6   # [Hz] frequency used for the "fast edge" voltage distribution
+
+# ---------------------------------------------------------------------------
+[optimize]
+# Compensation is tuned so |H(f)/H(0) - 1| is minimal over this band.
+f_lo = 10.0
+f_hi = 1.0e6
+# Values available for the fixed bottom capacitors (C0G), used to suggest
+# a fixed part + trimmer combination.
+series = "E12"
+max_fixed_parts = 2
+
+[sweep]
+cable_lengths = [1.0, 2.0, 3.0]
+series_r      = [0.0, 22.0, 47.0]
+top_cap       = ["10p", "22p", "33p", "47p", "68p", "100p", "220p"]
+# graded divider: bottom segment value, upper segments computed from the
+# parasitic matrix so that the fast-edge voltage distribution is linear
+graded_base   = ["22p", "33p", "47p"]
+
+# ---------------------------------------------------------------------------
+[analysis]
+source_rise = 1e-9     # [s] 10-90 % rise time of the test step used for rise time / overshoot
+
+[ltspice]
+exe = ""               # path to LTspice.exe; empty = search the usual install locations

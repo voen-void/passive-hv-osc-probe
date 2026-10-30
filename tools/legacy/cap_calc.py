@@ -10,7 +10,7 @@ import math
 e0 = 8.854187817E-12 # [ F / m ]   dielectric constant of vacuum
 er = 6               # [ no unit ] relative dielectric constant of the resin used for casting
 l  = 0.026           # [ m ]       length of a single segment must be meters!
-b  = 37.6            # [ mm ]      inner diameter of the shielding tube, a and b must share the same unit.
+b  = 27.6            # [ mm ]      inner diameter of the shielding tube, a and b must share the same unit.
 a  = 7              # [ mm ]      outer diameter of the inner cylinder a and b must share the same unit.
 seg_num = 5          # [ no unit ] number of segments - 5 in the case of this project
 

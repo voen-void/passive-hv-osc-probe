@@ -1,0 +1,6 @@
+__pycache__/
+results/*.raw
+results/*.log
+results/*_test.*
+results/capacitance_coarse.json
+results/extract_log.txt

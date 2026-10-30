@@ -1,0 +1,32 @@
+top caps                Rser  C_in pF LF err %      f-3dB    f+/-1dB peak dB HFpk dB rise ns  ovs %   bottom C max seg V
+10p x20                    0     5.77    95.64   1.15 kHz     609 Hz    -0.0    10.4     inf      0       1 pF     5.76x
+10p x20                   22     5.77    95.64   1.15 kHz     609 Hz    -0.0    -7.7     inf      0       1 pF     5.76x
+10p x20                   47     5.77    95.64   1.15 kHz     609 Hz    -0.0   -13.7     inf      0       1 pF     5.76x
+22p x20                    0     7.42    74.46   1.02 kHz     531 Hz    -0.0    36.2    6.35     29       1 pF     4.15x
+22p x20                   22     7.42    74.46   1.02 kHz     531 Hz    -0.0    32.6    7.45     15       1 pF     4.15x
+22p x20                   47     7.42    74.46   1.02 kHz     531 Hz    -0.0    28.5    8.42      5       1 pF     4.15x
+33p x20                    0     8.57    56.42     972 Hz     487 Hz    -0.0    66.6    4.03    165    93.3 pF     3.48x
+33p x20                   22     8.57    56.42     972 Hz     487 Hz    -0.0    57.6    4.27    109    93.2 pF     3.48x
+33p x20                   47     8.57    56.42     972 Hz     487 Hz    -0.0    52.1    4.39     72    93.1 pF     3.48x
+47p x20                    0     9.80    40.35   1.02 kHz     462 Hz    -0.0    55.5    1.83    293     421 pF     2.97x
+47p x20                   22     9.80    40.35   1.02 kHz     462 Hz    -0.0    50.4    1.83    109     421 pF     2.97x
+47p x20                   47     9.80    40.35   1.02 kHz     462 Hz    -0.0    45.7    3.05     60     421 pF     2.97x
+68p x20                    0    11.39    25.75    166 MHz     446 Hz    35.5    71.2    0.37    771    1.07 nF     2.53x
+68p x20                   22    11.39    25.75    160 MHz     446 Hz     8.1    71.0    0.49    522    1.06 nF     2.53x
+68p x20                   47    11.39    25.75    126 MHz     446 Hz     1.7    59.6    0.37    371    1.06 nF     2.53x
+100p x20                   0    13.51    14.69    109 MHz     487 Hz    35.1    73.1    0.37   2187    2.26 nF     2.14x
+100p x20                  22    13.51    14.69    108 MHz     487 Hz     7.3    68.2    0.37   1047    2.26 nF     2.14x
+100p x20                  47    13.51    14.69     97 MHz     487 Hz     0.9    63.6    0.37    703    2.26 nF     2.14x
+220p x20                   0    20.32     3.83   46.1 MHz   9.57 MHz    33.4    68.6    0.24   1116    7.59 nF     1.59x
+220p x20                  22    20.32     3.83   44.6 MHz     11 MHz     5.2    68.4    0.37    798    7.59 nF     1.59x
+220p x20                  47    20.32     3.82   38.1 MHz   27.9 MHz     0.0    68.2    0.37    688    7.59 nF     1.59x
+graded 270 pF..22 pF       0    15.46     0.15    163 MHz   9.57 MHz    34.7    61.8    0.61    439     917 pF     1.10x
+graded 270 pF..22 pF      22    15.46     0.15    121 MHz   10.4 MHz     8.1    50.1    0.61    167     916 pF     1.10x
+graded 270 pF..22 pF      47    15.46     0.14    121 MHz   19.8 MHz     1.7    44.2    0.73    103     916 pF     1.10x
+graded 270 pF..33 pF       0    16.01     0.16    166 MHz   9.24 MHz    35.4    78.5    0.37   2974     1.5 nF     1.10x
+graded 270 pF..33 pF      22    16.01     0.16    163 MHz   10.3 MHz     7.6    68.7    0.49    996     1.5 nF     1.10x
+graded 270 pF..33 pF      47    16.01     0.16    124 MHz   24.3 MHz     1.2    63.0    0.49    576     1.5 nF     1.10x
+graded 270 pF..47 pF       0    16.68     0.14    111 MHz   9.24 MHz    34.7    74.8    0.37   1332    2.15 nF     1.07x
+graded 270 pF..47 pF      22    16.68     0.14    109 MHz   10.3 MHz     7.2    74.5    0.49    637    2.15 nF     1.07x
+graded 270 pF..47 pF      47    16.68     0.14    100 MHz   66.3 MHz     0.8    74.0    0.37    501    2.15 nF     1.07x
+wrote C:\Users\jansk\Desktop\things\electronics\kicad projects\hv-probe-project-files\passive-hv-osc-probe\tools\results\sweep.csv and C:\Users\jansk\Desktop\things\electronics\kicad projects\hv-probe-project-files\passive-hv-osc-probe\tools\results\sweep.png
