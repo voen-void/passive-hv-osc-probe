@@ -690,6 +690,172 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "Device:D_TVS_Small"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 1.016)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "D"
+				(at 0 2.54 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "D_TVS_Small"
+				(at 0 -2.54 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "Bidirectional transient-voltage-suppression diode, small symbol"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "diode TVS thyrector"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "TO-???* *_Diode_* *SingleDiode* D_*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "D_TVS_Small_0_1"
+				(polyline
+					(pts
+						(xy -1.27 1.016) (xy -1.27 -1.016) (xy 1.27 1.016) (xy 1.27 -1.016) (xy -1.27 1.016)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.27 0) (xy 1.27 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.508 1.016) (xy 0 1.016) (xy 0 -1.016) (xy -0.508 -1.016)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "D_TVS_Small_1_1"
+				(pin passive line
+					(at -2.54 0 0)
+					(length 1.27)
+					(name "A1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 2.54 0 180)
+					(length 1.27)
+					(name "A2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "Device:R_Potentiometer_Small"
 			(pin_names
 				(offset 1.016)
@@ -1178,6 +1344,26 @@
 		)
 		(uuid "3a2485e2-83f9-43e7-9807-99b1a981b357")
 	)
+	(text_box "Set trimmer capacitor to 18pF for flattest response."
+		(exclude_from_sim no)
+		(at 22.86 58.42 0)
+		(size 20.32 10.16)
+		(margins 0.9525 0.9525 0.9525 0.9525)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(fill
+			(type none)
+		)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left top)
+		)
+		(uuid "5b9be161-ec08-41f7-a6d3-c22260b01989")
+	)
 	(text_box "Warning! Mind the grounding. Improper grounding might lead to high voltage shock. Be aware that the oscilloscope ground is referenced to the mains PE terminal and it should stay this way during measurments. Remote oscilloscope control recommended."
 		(exclude_from_sim no)
 		(at 114.3 55.88 0)
@@ -1219,420 +1405,286 @@
 		(uuid "f804d629-514b-42ff-9a6c-146751e83ca7")
 	)
 	(junction
-		(at 60.96 30.48)
+		(at 63.5 30.48)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "00e6e211-daea-4ce4-8467-400bf50a6ac6")
 	)
 	(junction
-		(at 259.08 30.48)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "035a93a4-e0be-42c4-b1ad-ecaea13cdca9")
-	)
-	(junction
-		(at 68.58 30.48)
+		(at 71.12 30.48)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "039deb84-41ed-4990-bc46-df6d3cba9a6b")
 	)
 	(junction
-		(at 187.96 40.64)
+		(at 190.5 40.64)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "05f9a2e9-38ff-4081-884d-1fd7560cadc6")
 	)
 	(junction
-		(at 86.36 40.64)
+		(at 180.34 30.48)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "07d2f650-9c28-461c-a4fb-798ac0d4df4c")
+	)
+	(junction
+		(at 88.9 40.64)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "08a32735-a9aa-4cf7-aa74-bfd3411451e2")
 	)
 	(junction
-		(at 218.44 30.48)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "0957130d-879d-4a1c-81d6-21dd4d8051a6")
-	)
-	(junction
-		(at 116.84 30.48)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "0ccb7bc0-34ea-4f73-953c-7234cee59eb1")
-	)
-	(junction
-		(at 177.8 40.64)
+		(at 180.34 40.64)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "0e278d1d-5dbb-47e6-b016-caeae396a491")
 	)
 	(junction
-		(at 116.84 40.64)
+		(at 119.38 40.64)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "0f4c833b-289e-466f-a3dd-f00a959a78c9")
 	)
 	(junction
-		(at 45.72 30.48)
+		(at 190.5 30.48)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "11439211-1813-4b28-aef5-7273b8db55b6")
+		(uuid "1b74bc32-52d0-4738-ac91-df842d0b45b0")
 	)
 	(junction
-		(at 137.16 40.64)
+		(at 139.7 40.64)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "1ebcecbe-7a83-45b2-be03-3eda1047f5c6")
 	)
 	(junction
-		(at 238.76 40.64)
+		(at 241.3 40.64)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "1ecce899-0c08-4cdd-a8dc-f5829c319f20")
 	)
 	(junction
-		(at 157.48 30.48)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "205d9f08-0e60-4678-9c66-65aad7bd5d24")
-	)
-	(junction
-		(at 218.44 40.64)
+		(at 220.98 40.64)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "218316bf-b32d-48fd-b25e-99057c7c4aba")
 	)
 	(junction
-		(at 198.12 30.48)
+		(at 129.54 30.48)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "253af6df-3b46-4eba-8dc8-c90e0fa99cb1")
+		(uuid "29ef60e6-9f23-475f-a139-a272e576ee80")
 	)
 	(junction
-		(at 269.24 30.48)
+		(at 55.88 30.48)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "27d536d2-20d7-441c-a0d1-1e73196dc7be")
+		(uuid "3862ee32-596f-40ed-89d7-08977a15663d")
 	)
 	(junction
-		(at 106.68 30.48)
+		(at 48.26 30.48)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "34881924-bbf7-4d45-ae5f-09c43771b1dc")
+		(uuid "3b12b523-327d-4986-a318-505b41082f92")
 	)
 	(junction
-		(at 228.6 30.48)
+		(at 231.14 30.48)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "564525f5-7675-423c-ae61-e37f031effad")
+		(uuid "4d3b530f-f211-4395-bd2d-67a6667741ce")
 	)
 	(junction
-		(at 228.6 40.64)
+		(at 231.14 40.64)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "5c2006ee-707b-42fc-81f8-c61ec27dd6d9")
 	)
 	(junction
-		(at 167.64 30.48)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "5d7da8e2-a6e9-4b5e-81fb-589f8a625fba")
-	)
-	(junction
-		(at 127 40.64)
+		(at 129.54 40.64)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "5f707092-3339-4ad8-bbda-68f3b9047484")
 	)
 	(junction
-		(at 147.32 40.64)
+		(at 149.86 40.64)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "61e3c5c3-3912-4719-b9ab-4dba5bddf658")
 	)
 	(junction
-		(at 238.76 30.48)
+		(at 200.66 30.48)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "71945e3d-3800-4612-a403-2b565b14fe07")
+		(uuid "76821f2e-1f9d-47b2-8692-4664b0aab9da")
 	)
 	(junction
-		(at 137.16 30.48)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "72efdeef-fdfb-4037-9b17-833e78de7982")
-	)
-	(junction
-		(at 208.28 40.64)
+		(at 210.82 40.64)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "78e76823-8eb2-4bed-8455-bb114baae2e9")
 	)
 	(junction
-		(at 60.96 40.64)
+		(at 63.5 40.64)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "790332af-643c-4733-b047-0c56d58c0b48")
 	)
 	(junction
-		(at 96.52 30.48)
+		(at 139.7 30.48)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "7b09903e-27d7-41de-bc57-fd4147be4f70")
+		(uuid "87e308db-009f-46bf-b9c7-19bfa415c641")
 	)
 	(junction
-		(at 147.32 30.48)
+		(at 40.64 30.48)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "7de022da-b91a-48e7-a092-cfeaca5f3773")
+		(uuid "87ea1074-0d72-4241-bad0-7313fe3966ea")
 	)
 	(junction
-		(at 248.92 30.48)
+		(at 160.02 30.48)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "8fe1a599-0f95-4ac1-ad00-051553dfcda8")
+		(uuid "8d5dfc29-6f57-43e8-908e-dee6cc5ab408")
 	)
 	(junction
-		(at 157.48 40.64)
+		(at 160.02 40.64)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "93ab2459-989b-4109-82c6-22bb4df35709")
 	)
 	(junction
-		(at 86.36 30.48)
+		(at 271.78 30.48)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "9bf50cb4-3fef-4c18-8f80-a7a3deca1246")
+	)
+	(junction
+		(at 99.06 30.48)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "9e149f7b-7e7f-4542-b6bd-6ba79f6e8050")
+	)
+	(junction
+		(at 88.9 30.48)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "a0128858-9932-4509-bbfa-a1814f7575a6")
 	)
 	(junction
-		(at 198.12 40.64)
+		(at 200.66 40.64)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "a8798ef7-ceea-4bda-a2cb-21db434582e6")
 	)
 	(junction
-		(at 38.1 30.48)
+		(at 33.02 30.48)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "abc8c136-17c8-4bcc-afd4-d2c5db2b64b9")
 	)
 	(junction
-		(at 259.08 40.64)
+		(at 261.62 40.64)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "b20a3128-fee1-44d9-9221-d2ebd8292c4b")
 	)
 	(junction
-		(at 269.24 40.64)
+		(at 210.82 30.48)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "b91bb6c8-28a8-4424-9ff1-1d88553cecd9")
+	)
+	(junction
+		(at 271.78 40.64)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "b92c5e92-81fc-4dc8-9131-6250478419f3")
 	)
 	(junction
-		(at 53.34 30.48)
+		(at 170.18 30.48)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "bf998219-2c51-4887-9896-5a3667620a87")
+		(uuid "bc29f22e-be73-4b13-bbbf-9577f272e1f9")
 	)
 	(junction
-		(at 248.92 40.64)
+		(at 251.46 40.64)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "c72e6c3a-cf8c-42fb-98bd-a01582e8a65e")
 	)
 	(junction
-		(at 279.4 40.64)
+		(at 281.94 40.64)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "c9efe49a-80c1-43b1-a4ca-82f4e82ea454")
 	)
 	(junction
-		(at 76.2 30.48)
+		(at 241.3 30.48)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "cb63b678-3343-445d-b626-98a445ea35b2")
+	)
+	(junction
+		(at 78.74 30.48)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "d20d8561-0313-45df-8d11-4c3eb61a4b2e")
 	)
 	(junction
-		(at 177.8 30.48)
+		(at 220.98 30.48)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "e5feec9c-db09-4792-991a-7521bb9b39a2")
+		(uuid "d2d0b7f0-8be4-454e-aa71-2b57a236dfc9")
 	)
 	(junction
-		(at 106.68 40.64)
+		(at 119.38 30.48)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "dc439101-0288-48b8-8b38-46126e7c6d31")
+	)
+	(junction
+		(at 109.22 40.64)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "e945fd9b-7f2e-4a61-b914-63291d30693a")
 	)
 	(junction
-		(at 127 30.48)
+		(at 251.46 30.48)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "f08e1e7f-83fe-4c02-89e4-187e7de8ab97")
+		(uuid "eb9c59d2-dfe7-4ded-a26b-e07e7b68bc69")
 	)
 	(junction
-		(at 208.28 30.48)
+		(at 261.62 30.48)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "f4623819-68a0-42ad-b68f-ec0c35d70dbd")
+		(uuid "ed675a31-6414-44b9-b35a-3f657114c44d")
 	)
 	(junction
-		(at 187.96 30.48)
+		(at 149.86 30.48)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "f7c726a3-b1c9-408b-aefd-3ecdce291c2e")
+		(uuid "f9703b5d-711b-4818-a117-a36e1b739dcf")
 	)
 	(junction
-		(at 167.64 40.64)
+		(at 109.22 30.48)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "fbc7c278-dfe4-4fef-9ba8-f3e6d266c7e3")
+	)
+	(junction
+		(at 170.18 40.64)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "fcf35beb-cd52-4c2a-a214-218e40f6ae23")
 	)
 	(junction
-		(at 96.52 40.64)
+		(at 99.06 40.64)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "ff98c8ca-68d4-4df5-b3c9-26fe8a99ad6c")
-	)
-	(wire
-		(pts
-			(xy 218.44 30.48) (xy 215.9 30.48)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "00b1ea7f-6f33-479d-8f78-b449380a943c")
-	)
-	(wire
-		(pts
-			(xy 127 40.64) (xy 124.46 40.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "01942d80-a68e-4aac-a2f5-4871888351ec")
-	)
-	(wire
-		(pts
-			(xy 218.44 40.64) (xy 215.9 40.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "027d408f-d093-402f-acbe-4e358ba5fc72")
-	)
-	(wire
-		(pts
-			(xy 53.34 48.26) (xy 53.34 50.8)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "032fbc71-e9f8-47cf-9b6d-8c938e048a89")
-	)
-	(wire
-		(pts
-			(xy 157.48 40.64) (xy 154.94 40.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "067a8607-62bb-4e41-8863-930a4365f659")
-	)
-	(wire
-		(pts
-			(xy 259.08 30.48) (xy 259.08 40.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "0d26e194-4630-4f70-a6b6-18de720426ca")
-	)
-	(wire
-		(pts
-			(xy 137.16 30.48) (xy 137.16 40.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "0d636647-5f3c-404f-a4dd-25e9c7e88a78")
-	)
-	(wire
-		(pts
-			(xy 60.96 30.48) (xy 53.34 30.48)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "0f233db1-4a3a-415a-b35b-d3a12bd13d15")
-	)
-	(wire
-		(pts
-			(xy 228.6 30.48) (xy 226.06 30.48)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "0fd57a7e-3ed8-4559-950f-23df9f505353")
-	)
-	(wire
-		(pts
-			(xy 45.72 30.48) (xy 53.34 30.48)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "1052c14c-cf08-4143-a0dd-aeca96fe78b3")
-	)
-	(wire
-		(pts
-			(xy 187.96 30.48) (xy 185.42 30.48)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "111e6033-8412-4b23-aea3-25acf6db734a")
-	)
-	(wire
-		(pts
-			(xy 210.82 30.48) (xy 208.28 30.48)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "1ce24d30-fb71-4c02-81a7-c591e1fef6db")
-	)
-	(wire
-		(pts
-			(xy 60.96 40.64) (xy 60.96 43.18)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "1d0aec0e-a4f6-4b0b-8a5d-743796c35f75")
-	)
-	(wire
-		(pts
-			(xy 25.4 30.48) (xy 38.1 30.48)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "1fed6e48-795c-4a9b-b8de-774269a12aa4")
 	)
 	(wire
 		(pts
@@ -1642,1017 +1694,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "231e77c5-4379-4e7a-8d3c-93c6a4d0de46")
-	)
-	(wire
-		(pts
-			(xy 20.32 35.56) (xy 20.32 50.8)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "273109b4-72ed-441d-a5c9-a5b0e81cd24a")
-	)
-	(wire
-		(pts
-			(xy 127 30.48) (xy 127 40.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "2ec3ecac-255b-45ba-8fd2-4f7b38e4a31e")
-	)
-	(wire
-		(pts
-			(xy 177.8 30.48) (xy 177.8 40.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "2f585218-7709-4681-97e3-e42e6cb9765e")
-	)
-	(wire
-		(pts
-			(xy 68.58 30.48) (xy 60.96 30.48)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "2fe5fb43-cf67-4625-a8c1-1eeb46828416")
-	)
-	(wire
-		(pts
-			(xy 96.52 40.64) (xy 93.98 40.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "3105550e-009d-4e02-be3d-dfb4d79150a2")
-	)
-	(wire
-		(pts
-			(xy 208.28 30.48) (xy 205.74 30.48)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "32485046-a825-4408-8c43-4e95eba9e5d1")
-	)
-	(wire
-		(pts
-			(xy 116.84 30.48) (xy 114.3 30.48)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "32c62fae-676b-4b5e-996c-7a01e12a2643")
-	)
-	(wire
-		(pts
-			(xy 119.38 30.48) (xy 116.84 30.48)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "34a5b57f-9f59-4c97-a9d7-a2d14083ed4b")
-	)
-	(wire
-		(pts
-			(xy 139.7 40.64) (xy 137.16 40.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "38d09274-6573-4c43-9e8e-52212bb439bb")
-	)
-	(wire
-		(pts
-			(xy 170.18 30.48) (xy 167.64 30.48)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "392d085c-55ed-40c3-b279-6e50b6d774d3")
-	)
-	(wire
-		(pts
-			(xy 251.46 40.64) (xy 248.92 40.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "3b535ffe-946e-498a-8f52-e79babd61369")
-	)
-	(wire
-		(pts
-			(xy 238.76 30.48) (xy 236.22 30.48)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "3d458bf5-6607-4a7c-97dd-2859876a2b40")
-	)
-	(wire
-		(pts
-			(xy 38.1 48.26) (xy 38.1 50.8)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "404b1db3-9d1d-4f4e-8d90-be032d3d368f")
-	)
-	(wire
-		(pts
-			(xy 109.22 40.64) (xy 106.68 40.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "4158c0d5-8fec-4d46-a43b-d56f7bcc1da7")
-	)
-	(wire
-		(pts
-			(xy 60.96 38.1) (xy 60.96 40.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "42da3733-8f48-470f-a962-66e7610cdfd1")
-	)
-	(wire
-		(pts
-			(xy 106.68 30.48) (xy 104.14 30.48)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "42f869e5-e1a8-4fed-ac26-c1b0e933d284")
-	)
-	(wire
-		(pts
-			(xy 228.6 30.48) (xy 228.6 40.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "43cf9bd8-ed58-461e-ac2a-489908e3961c")
-	)
-	(wire
-		(pts
-			(xy 241.3 40.64) (xy 238.76 40.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "45ee2493-3a90-4bde-b36d-0f04c3281ff8")
-	)
-	(wire
-		(pts
-			(xy 116.84 30.48) (xy 116.84 40.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "4a251053-901b-4a68-91ef-951992813805")
-	)
-	(wire
-		(pts
-			(xy 180.34 40.64) (xy 177.8 40.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "4d48cd92-6d73-4a77-b9cb-595ca8533ff5")
-	)
-	(wire
-		(pts
-			(xy 208.28 40.64) (xy 205.74 40.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "4f340725-6ee4-4fd2-8e71-75e7fcc31ac8")
-	)
-	(wire
-		(pts
-			(xy 248.92 30.48) (xy 248.92 40.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "4f72a556-967f-4ab2-bfe7-7f2aae274c4b")
-	)
-	(wire
-		(pts
-			(xy 109.22 30.48) (xy 106.68 30.48)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5175421a-cb80-441f-bacd-ab50328882df")
-	)
-	(wire
-		(pts
-			(xy 147.32 30.48) (xy 144.78 30.48)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "53bd1f65-03a6-4739-bc54-0b79e275a011")
-	)
-	(polyline
-		(pts
-			(xy 195.58 48.26) (xy 195.58 48.26)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "53c98538-b958-4a8d-adaa-24b746073f77")
-	)
-	(wire
-		(pts
-			(xy 60.96 33.02) (xy 60.96 30.48)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "59cdd8c2-8a26-46a7-a4ce-1d708567fc58")
-	)
-	(wire
-		(pts
-			(xy 190.5 30.48) (xy 187.96 30.48)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5b081569-f9bd-4462-abca-53a72f654488")
-	)
-	(wire
-		(pts
-			(xy 160.02 30.48) (xy 157.48 30.48)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5c0d80cf-b1cd-4948-a037-37096af2ee7a")
-	)
-	(wire
-		(pts
-			(xy 177.8 40.64) (xy 175.26 40.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "62f54b73-d3f2-4bc9-a9d4-ca552704e6e8")
-	)
-	(wire
-		(pts
-			(xy 200.66 40.64) (xy 198.12 40.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "67b7902a-b8dc-48ad-bad2-dcfcddbca7c5")
-	)
-	(wire
-		(pts
-			(xy 200.66 30.48) (xy 198.12 30.48)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6848a7ae-aa8d-4097-8518-d578b8311f7d")
-	)
-	(wire
-		(pts
-			(xy 127 30.48) (xy 124.46 30.48)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6c2d610b-950d-426f-9a23-07e4887f771e")
-	)
-	(wire
-		(pts
-			(xy 271.78 30.48) (xy 269.24 30.48)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6eb35242-98ee-4d74-b761-831028864ebd")
-	)
-	(wire
-		(pts
-			(xy 38.1 30.48) (xy 45.72 30.48)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "70d82b0a-9e2c-41df-ac77-2f5d45a9fc7c")
-	)
-	(wire
-		(pts
-			(xy 66.04 40.64) (xy 66.04 35.56)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "71336e1e-42e2-496f-ba2a-8dfa58a067a3")
-	)
-	(wire
-		(pts
-			(xy 149.86 30.48) (xy 147.32 30.48)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "72f59cb1-ab7f-40ee-b607-f9dd8a21c906")
-	)
-	(wire
-		(pts
-			(xy 248.92 30.48) (xy 246.38 30.48)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "756acd00-87ed-4afc-a0ae-50b6ba7419f6")
-	)
-	(wire
-		(pts
-			(xy 208.28 30.48) (xy 208.28 40.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7584f2ee-4526-4fa4-9990-c9e4bead8083")
-	)
-	(wire
-		(pts
-			(xy 180.34 30.48) (xy 177.8 30.48)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "75cb91bd-90b3-474a-b1a6-37dd323c849d")
-	)
-	(wire
-		(pts
-			(xy 96.52 30.48) (xy 93.98 30.48)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "76034e86-97dc-4655-ba19-8f878d2ecace")
-	)
-	(wire
-		(pts
-			(xy 228.6 40.64) (xy 226.06 40.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "78d48b20-a7f8-4627-b0b4-4572a0df6c9f")
-	)
-	(wire
-		(pts
-			(xy 231.14 40.64) (xy 228.6 40.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7af6b32d-7b19-4d3f-b90e-e7ef6691aa52")
-	)
-	(wire
-		(pts
-			(xy 99.06 30.48) (xy 96.52 30.48)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7c331a75-afe6-4597-8bab-b0b481aca22a")
-	)
-	(wire
-		(pts
-			(xy 261.62 40.64) (xy 259.08 40.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7c5af6df-e9f2-45d2-a6f0-6d364454ce0f")
-	)
-	(wire
-		(pts
-			(xy 116.84 40.64) (xy 114.3 40.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7e30c9cd-3ac7-46d2-8412-69cda23f4026")
-	)
-	(wire
-		(pts
-			(xy 147.32 30.48) (xy 147.32 40.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7ffff206-70b2-4a44-8110-4c7eb4a7e5e1")
-	)
-	(wire
-		(pts
-			(xy 281.94 40.64) (xy 279.4 40.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "80664967-0221-48a6-9bda-50acf7af4f85")
-	)
-	(wire
-		(pts
-			(xy 177.8 30.48) (xy 175.26 30.48)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "83699a9d-170b-489b-a803-0abcfc3cd938")
-	)
-	(wire
-		(pts
-			(xy 167.64 30.48) (xy 167.64 40.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "850951cb-96a3-4082-b71a-159612d819ae")
-	)
-	(wire
-		(pts
-			(xy 218.44 30.48) (xy 218.44 40.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "853f3940-0bdf-45a8-acce-60a1a4ddf4ac")
-	)
-	(wire
-		(pts
-			(xy 279.4 30.48) (xy 279.4 40.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "85a0578a-ca7e-477e-a4d5-12361ad17152")
-	)
-	(wire
-		(pts
-			(xy 190.5 40.64) (xy 187.96 40.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "85b2cd7c-0428-4af0-a6e9-75b3c3b89df4")
-	)
-	(wire
-		(pts
-			(xy 269.24 40.64) (xy 266.7 40.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "85eea6f9-6621-4b03-80fd-920013865e18")
-	)
-	(wire
-		(pts
-			(xy 45.72 43.18) (xy 45.72 30.48)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "8623b69a-8cbd-4a30-a97e-e2025eac1231")
-	)
-	(wire
-		(pts
-			(xy 86.36 40.64) (xy 83.82 40.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "8a4e701d-a300-41df-b786-b5cca440ad2f")
-	)
-	(wire
-		(pts
-			(xy 137.16 30.48) (xy 134.62 30.48)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "8db10d26-b1ab-42c8-9dee-671287fe2172")
-	)
-	(wire
-		(pts
-			(xy 167.64 30.48) (xy 165.1 30.48)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "8e391cb3-6b90-464f-be31-b0c6acb659d5")
-	)
-	(wire
-		(pts
-			(xy 88.9 30.48) (xy 86.36 30.48)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "95af0f1b-595c-4ba1-9eef-ccba21892443")
-	)
-	(wire
-		(pts
-			(xy 259.08 30.48) (xy 256.54 30.48)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "96f50b1e-2508-4c30-942e-de5afa45598e")
-	)
-	(wire
-		(pts
-			(xy 86.36 30.48) (xy 83.82 30.48)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "9b32ed3f-3cd1-40d3-9bc0-8af3f63d4c59")
-	)
-	(wire
-		(pts
-			(xy 88.9 40.64) (xy 86.36 40.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "9c6ce3bb-97e9-4715-9600-e1424f434a4f")
-	)
-	(wire
-		(pts
-			(xy 160.02 40.64) (xy 157.48 40.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "9d189143-18f7-49ad-bf83-38a6573059c4")
-	)
-	(wire
-		(pts
-			(xy 157.48 30.48) (xy 154.94 30.48)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "9ff22ce8-167f-486e-8fcd-eb3a42336e89")
-	)
-	(wire
-		(pts
-			(xy 167.64 40.64) (xy 165.1 40.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a177355a-6915-4e94-8b43-a73abaa0a16b")
-	)
-	(wire
-		(pts
-			(xy 198.12 30.48) (xy 198.12 40.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a32ba281-9ff5-4c7e-aab4-59e0a399dafd")
-	)
-	(wire
-		(pts
-			(xy 261.62 30.48) (xy 259.08 30.48)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a51099ee-4934-4a7b-a781-2a84f60997f1")
-	)
-	(wire
-		(pts
-			(xy 68.58 48.26) (xy 68.58 50.8)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a6b50c46-94ed-4cd2-9de6-b6707bed4b37")
-	)
-	(wire
-		(pts
-			(xy 210.82 40.64) (xy 208.28 40.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a8e313ff-f9b0-463e-af2a-c3b18f779434")
-	)
-	(wire
-		(pts
-			(xy 63.5 35.56) (xy 66.04 35.56)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "aaeb1d65-8781-4db7-801c-e4610247f48c")
-	)
-	(wire
-		(pts
-			(xy 241.3 30.48) (xy 238.76 30.48)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ab0dafa6-15ae-41f0-bcc7-92343d0b086a")
-	)
-	(wire
-		(pts
-			(xy 129.54 30.48) (xy 127 30.48)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "acb31042-ec03-4340-adec-828fe6eb83c3")
-	)
-	(wire
-		(pts
-			(xy 45.72 48.26) (xy 45.72 50.8)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "adb046ca-6dd1-4864-9491-1b8af1d869a5")
-	)
-	(wire
-		(pts
-			(xy 60.96 40.64) (xy 66.04 40.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b3f77d32-9896-4286-9df3-2e169bd43d23")
-	)
-	(wire
-		(pts
-			(xy 96.52 30.48) (xy 96.52 40.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b5d35368-a115-4f10-b531-337564d3c58f")
-	)
-	(wire
-		(pts
-			(xy 271.78 40.64) (xy 269.24 40.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "bb4d8b3f-66f9-4e38-92d1-26aee460e5f9")
-	)
-	(wire
-		(pts
-			(xy 53.34 30.48) (xy 53.34 43.18)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "bd98cabd-12f2-4218-9311-3a01ba1ec4c1")
-	)
-	(wire
-		(pts
-			(xy 139.7 30.48) (xy 137.16 30.48)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "be4b65c0-667b-4942-85fe-133bf906fe84")
-	)
-	(wire
-		(pts
-			(xy 106.68 40.64) (xy 104.14 40.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c20f0cc8-47ba-4c8d-b002-0b674c95e59f")
-	)
-	(wire
-		(pts
-			(xy 137.16 40.64) (xy 134.62 40.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c25bf988-caa9-4203-a17f-e12e4f5a8b15")
-	)
-	(wire
-		(pts
-			(xy 86.36 30.48) (xy 86.36 40.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c343a3a8-9dab-4296-98fd-3f495dad2ccb")
-	)
-	(wire
-		(pts
-			(xy 99.06 40.64) (xy 96.52 40.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c4a782bc-4361-4c75-803b-cd5a0903f849")
-	)
-	(wire
-		(pts
-			(xy 119.38 40.64) (xy 116.84 40.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ca723043-8423-4452-9682-758ffeabab19")
-	)
-	(wire
-		(pts
-			(xy 198.12 30.48) (xy 195.58 30.48)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ca766f4e-9164-45ac-bbaf-3478880481f9")
-	)
-	(wire
-		(pts
-			(xy 38.1 40.64) (xy 38.1 30.48)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "cd1663c3-c417-45bd-a4d3-3f77811f3874")
-	)
-	(wire
-		(pts
-			(xy 251.46 30.48) (xy 248.92 30.48)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d3eb874e-6b31-4c97-867f-dc4f2bdc873f")
-	)
-	(wire
-		(pts
-			(xy 68.58 30.48) (xy 78.74 30.48)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d4784dc9-98fd-4ea3-8d30-b8658708fa10")
-	)
-	(wire
-		(pts
-			(xy 279.4 40.64) (xy 276.86 40.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d6982ac2-6f49-4f52-b4d2-ae838a91b850")
-	)
-	(wire
-		(pts
-			(xy 269.24 30.48) (xy 269.24 40.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d956ee5a-48aa-46e3-8990-b8ff8a5f1c4b")
-	)
-	(wire
-		(pts
-			(xy 269.24 30.48) (xy 266.7 30.48)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d97e8352-7a52-49ab-975c-56439bd78aa9")
-	)
-	(wire
-		(pts
-			(xy 60.96 48.26) (xy 60.96 50.8)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "dbed04dd-4885-4ab1-894e-557466fe91d1")
-	)
-	(wire
-		(pts
-			(xy 78.74 40.64) (xy 76.2 40.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "dc072c7c-3b38-4121-adfd-3a731d9ff381")
-	)
-	(wire
-		(pts
-			(xy 198.12 40.64) (xy 195.58 40.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e2b6d410-94a1-4f2e-b859-5289502b61da")
-	)
-	(wire
-		(pts
-			(xy 147.32 40.64) (xy 144.78 40.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e60c4706-8776-4e27-aab4-c91fc39812e0")
-	)
-	(wire
-		(pts
-			(xy 157.48 30.48) (xy 157.48 40.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e883e032-9cfc-467f-bb6a-aa18fcf3bc06")
-	)
-	(wire
-		(pts
-			(xy 106.68 30.48) (xy 106.68 40.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e90db610-9a4a-486f-aa8d-7bdc3628e025")
-	)
-	(wire
-		(pts
-			(xy 220.98 30.48) (xy 218.44 30.48)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e97611e2-67cb-42e0-8cf0-007fea56ce30")
-	)
-	(wire
-		(pts
-			(xy 187.96 40.64) (xy 185.42 40.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e9bf722c-dde3-4dbd-b900-e63be28ef5e7")
-	)
-	(wire
-		(pts
-			(xy 187.96 30.48) (xy 187.96 40.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e9d1763e-80ee-4563-9900-74f3d678c0c9")
-	)
-	(wire
-		(pts
-			(xy 279.4 30.48) (xy 276.86 30.48)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ea4f2793-fcb7-439f-b9d3-be4bcc8d3fa8")
-	)
-	(polyline
-		(pts
-			(xy 193.04 48.26) (xy 193.04 48.26)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "edda9a89-fd5d-4fa3-9da6-d96bebe7121b")
-	)
-	(wire
-		(pts
-			(xy 231.14 30.48) (xy 228.6 30.48)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "eebbbc43-2816-4867-aac7-27f6e5e79a9e")
+		(uuid "01942d80-a68e-4aac-a2f5-4871888351ec")
 	)
 	(wire
 		(pts
@@ -2662,67 +1704,477 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "f2c32c01-5026-47cb-929c-57cb26a7759b")
+		(uuid "027d408f-d093-402f-acbe-4e358ba5fc72")
 	)
 	(wire
 		(pts
-			(xy 149.86 40.64) (xy 147.32 40.64)
+			(xy 48.26 48.26) (xy 48.26 50.8)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "f3600401-2cc5-4ef6-9e64-a17a08c888c2")
+		(uuid "032fbc71-e9f8-47cf-9b6d-8c938e048a89")
 	)
 	(wire
 		(pts
-			(xy 76.2 40.64) (xy 76.2 30.48)
+			(xy 160.02 40.64) (xy 157.48 40.64)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "f543ec83-4b44-4410-a1e1-2f0317c4f5f9")
+		(uuid "067a8607-62bb-4e41-8863-930a4365f659")
 	)
 	(wire
 		(pts
-			(xy 238.76 40.64) (xy 236.22 40.64)
+			(xy 261.62 30.48) (xy 261.62 40.64)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "f897b94b-42af-4444-b535-fcce55fc835b")
+		(uuid "0d26e194-4630-4f70-a6b6-18de720426ca")
 	)
 	(wire
 		(pts
-			(xy 248.92 40.64) (xy 246.38 40.64)
+			(xy 139.7 30.48) (xy 139.7 40.64)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "fc122aae-47c2-4386-8e92-e33ab2919130")
+		(uuid "0d636647-5f3c-404f-a4dd-25e9c7e88a78")
 	)
 	(wire
 		(pts
-			(xy 238.76 30.48) (xy 238.76 40.64)
+			(xy 63.5 40.64) (xy 63.5 43.18)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "fc3e4f31-4d58-4baf-aa8f-e49ec007f636")
+		(uuid "1d0aec0e-a4f6-4b0b-8a5d-743796c35f75")
 	)
 	(wire
 		(pts
-			(xy 68.58 43.18) (xy 68.58 30.48)
+			(xy 20.32 30.48) (xy 25.4 30.48)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "fe2946cf-6e2c-4709-866f-deceaa5b11ed")
+		(uuid "1fed6e48-795c-4a9b-b8de-774269a12aa4")
+	)
+	(wire
+		(pts
+			(xy 132.08 40.64) (xy 129.54 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "231e77c5-4379-4e7a-8d3c-93c6a4d0de46")
+	)
+	(wire
+		(pts
+			(xy 15.24 35.56) (xy 15.24 50.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "273109b4-72ed-441d-a5c9-a5b0e81cd24a")
+	)
+	(wire
+		(pts
+			(xy 129.54 30.48) (xy 129.54 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2ec3ecac-255b-45ba-8fd2-4f7b38e4a31e")
+	)
+	(wire
+		(pts
+			(xy 180.34 30.48) (xy 180.34 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2f585218-7709-4681-97e3-e42e6cb9765e")
+	)
+	(wire
+		(pts
+			(xy 71.12 30.48) (xy 63.5 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2fe5fb43-cf67-4625-a8c1-1eeb46828416")
+	)
+	(wire
+		(pts
+			(xy 99.06 40.64) (xy 96.52 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3105550e-009d-4e02-be3d-dfb4d79150a2")
+	)
+	(wire
+		(pts
+			(xy 142.24 40.64) (xy 139.7 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "38d09274-6573-4c43-9e8e-52212bb439bb")
+	)
+	(wire
+		(pts
+			(xy 254 40.64) (xy 251.46 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3b535ffe-946e-498a-8f52-e79babd61369")
+	)
+	(wire
+		(pts
+			(xy 33.02 48.26) (xy 33.02 50.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "404b1db3-9d1d-4f4e-8d90-be032d3d368f")
+	)
+	(wire
+		(pts
+			(xy 111.76 40.64) (xy 109.22 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4158c0d5-8fec-4d46-a43b-d56f7bcc1da7")
+	)
+	(wire
+		(pts
+			(xy 63.5 38.1) (xy 63.5 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "42da3733-8f48-470f-a962-66e7610cdfd1")
+	)
+	(wire
+		(pts
+			(xy 231.14 30.48) (xy 231.14 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "43cf9bd8-ed58-461e-ac2a-489908e3961c")
+	)
+	(wire
+		(pts
+			(xy 243.84 40.64) (xy 241.3 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "45ee2493-3a90-4bde-b36d-0f04c3281ff8")
+	)
+	(wire
+		(pts
+			(xy 119.38 30.48) (xy 119.38 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4a251053-901b-4a68-91ef-951992813805")
+	)
+	(wire
+		(pts
+			(xy 182.88 40.64) (xy 180.34 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4d48cd92-6d73-4a77-b9cb-595ca8533ff5")
+	)
+	(wire
+		(pts
+			(xy 210.82 40.64) (xy 208.28 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4f340725-6ee4-4fd2-8e71-75e7fcc31ac8")
+	)
+	(wire
+		(pts
+			(xy 251.46 30.48) (xy 251.46 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4f72a556-967f-4ab2-bfe7-7f2aae274c4b")
+	)
+	(polyline
+		(pts
+			(xy 198.12 48.26) (xy 198.12 48.26)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "53c98538-b958-4a8d-adaa-24b746073f77")
+	)
+	(wire
+		(pts
+			(xy 63.5 33.02) (xy 63.5 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "59cdd8c2-8a26-46a7-a4ce-1d708567fc58")
+	)
+	(wire
+		(pts
+			(xy 180.34 40.64) (xy 177.8 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "62f54b73-d3f2-4bc9-a9d4-ca552704e6e8")
+	)
+	(wire
+		(pts
+			(xy 55.88 48.26) (xy 55.88 50.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "66f334a1-136f-4870-9ce4-9a76637c2e0a")
+	)
+	(wire
+		(pts
+			(xy 203.2 40.64) (xy 200.66 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "67b7902a-b8dc-48ad-bad2-dcfcddbca7c5")
+	)
+	(wire
+		(pts
+			(xy 68.58 40.64) (xy 68.58 35.56)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "71336e1e-42e2-496f-ba2a-8dfa58a067a3")
+	)
+	(wire
+		(pts
+			(xy 210.82 30.48) (xy 210.82 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7584f2ee-4526-4fa4-9990-c9e4bead8083")
+	)
+	(wire
+		(pts
+			(xy 30.48 30.48) (xy 63.5 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "77455a59-7971-46fb-9065-4019787b7024")
+	)
+	(wire
+		(pts
+			(xy 231.14 40.64) (xy 228.6 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "78d48b20-a7f8-4627-b0b4-4572a0df6c9f")
+	)
+	(wire
+		(pts
+			(xy 233.68 40.64) (xy 231.14 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7af6b32d-7b19-4d3f-b90e-e7ef6691aa52")
+	)
+	(wire
+		(pts
+			(xy 264.16 40.64) (xy 261.62 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7c5af6df-e9f2-45d2-a6f0-6d364454ce0f")
+	)
+	(wire
+		(pts
+			(xy 119.38 40.64) (xy 116.84 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7e30c9cd-3ac7-46d2-8412-69cda23f4026")
+	)
+	(wire
+		(pts
+			(xy 149.86 30.48) (xy 149.86 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7ffff206-70b2-4a44-8110-4c7eb4a7e5e1")
+	)
+	(wire
+		(pts
+			(xy 284.48 40.64) (xy 281.94 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "80664967-0221-48a6-9bda-50acf7af4f85")
+	)
+	(wire
+		(pts
+			(xy 170.18 30.48) (xy 170.18 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "850951cb-96a3-4082-b71a-159612d819ae")
+	)
+	(wire
+		(pts
+			(xy 220.98 30.48) (xy 220.98 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "853f3940-0bdf-45a8-acce-60a1a4ddf4ac")
+	)
+	(wire
+		(pts
+			(xy 281.94 30.48) (xy 281.94 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "85a0578a-ca7e-477e-a4d5-12361ad17152")
+	)
+	(wire
+		(pts
+			(xy 193.04 40.64) (xy 190.5 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "85b2cd7c-0428-4af0-a6e9-75b3c3b89df4")
+	)
+	(wire
+		(pts
+			(xy 271.78 40.64) (xy 269.24 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "85eea6f9-6621-4b03-80fd-920013865e18")
+	)
+	(wire
+		(pts
+			(xy 40.64 43.18) (xy 40.64 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8623b69a-8cbd-4a30-a97e-e2025eac1231")
+	)
+	(wire
+		(pts
+			(xy 55.88 30.48) (xy 55.88 43.18)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "89561141-5188-4dcf-8678-7554c99d6bb0")
+	)
+	(wire
+		(pts
+			(xy 88.9 40.64) (xy 86.36 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8a4e701d-a300-41df-b786-b5cca440ad2f")
+	)
+	(wire
+		(pts
+			(xy 91.44 40.64) (xy 88.9 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9c6ce3bb-97e9-4715-9600-e1424f434a4f")
+	)
+	(wire
+		(pts
+			(xy 162.56 40.64) (xy 160.02 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9d189143-18f7-49ad-bf83-38a6573059c4")
 	)
 	(wire
 		(pts
@@ -2732,11 +2184,361 @@
 			(width 0)
 			(type default)
 		)
+		(uuid "a177355a-6915-4e94-8b43-a73abaa0a16b")
+	)
+	(wire
+		(pts
+			(xy 200.66 30.48) (xy 200.66 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a32ba281-9ff5-4c7e-aab4-59e0a399dafd")
+	)
+	(wire
+		(pts
+			(xy 71.12 48.26) (xy 71.12 50.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a6b50c46-94ed-4cd2-9de6-b6707bed4b37")
+	)
+	(wire
+		(pts
+			(xy 213.36 40.64) (xy 210.82 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a8e313ff-f9b0-463e-af2a-c3b18f779434")
+	)
+	(wire
+		(pts
+			(xy 66.04 35.56) (xy 68.58 35.56)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "aaeb1d65-8781-4db7-801c-e4610247f48c")
+	)
+	(wire
+		(pts
+			(xy 40.64 48.26) (xy 40.64 50.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "adb046ca-6dd1-4864-9491-1b8af1d869a5")
+	)
+	(wire
+		(pts
+			(xy 63.5 40.64) (xy 68.58 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b3f77d32-9896-4286-9df3-2e169bd43d23")
+	)
+	(wire
+		(pts
+			(xy 99.06 30.48) (xy 99.06 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b5d35368-a115-4f10-b531-337564d3c58f")
+	)
+	(wire
+		(pts
+			(xy 274.32 40.64) (xy 271.78 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bb4d8b3f-66f9-4e38-92d1-26aee460e5f9")
+	)
+	(wire
+		(pts
+			(xy 48.26 30.48) (xy 48.26 43.18)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bd98cabd-12f2-4218-9311-3a01ba1ec4c1")
+	)
+	(wire
+		(pts
+			(xy 109.22 40.64) (xy 106.68 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c20f0cc8-47ba-4c8d-b002-0b674c95e59f")
+	)
+	(wire
+		(pts
+			(xy 139.7 40.64) (xy 137.16 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c25bf988-caa9-4203-a17f-e12e4f5a8b15")
+	)
+	(wire
+		(pts
+			(xy 88.9 30.48) (xy 88.9 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c343a3a8-9dab-4296-98fd-3f495dad2ccb")
+	)
+	(wire
+		(pts
+			(xy 101.6 40.64) (xy 99.06 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c4a782bc-4361-4c75-803b-cd5a0903f849")
+	)
+	(wire
+		(pts
+			(xy 121.92 40.64) (xy 119.38 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ca723043-8423-4452-9682-758ffeabab19")
+	)
+	(wire
+		(pts
+			(xy 33.02 40.64) (xy 33.02 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "cd1663c3-c417-45bd-a4d3-3f77811f3874")
+	)
+	(wire
+		(pts
+			(xy 71.12 30.48) (xy 78.74 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d4784dc9-98fd-4ea3-8d30-b8658708fa10")
+	)
+	(wire
+		(pts
+			(xy 281.94 40.64) (xy 279.4 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d6982ac2-6f49-4f52-b4d2-ae838a91b850")
+	)
+	(wire
+		(pts
+			(xy 271.78 30.48) (xy 271.78 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d956ee5a-48aa-46e3-8990-b8ff8a5f1c4b")
+	)
+	(wire
+		(pts
+			(xy 63.5 48.26) (xy 63.5 50.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "dbed04dd-4885-4ab1-894e-557466fe91d1")
+	)
+	(wire
+		(pts
+			(xy 81.28 40.64) (xy 78.74 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "dc072c7c-3b38-4121-adfd-3a731d9ff381")
+	)
+	(wire
+		(pts
+			(xy 200.66 40.64) (xy 198.12 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e2b6d410-94a1-4f2e-b859-5289502b61da")
+	)
+	(wire
+		(pts
+			(xy 149.86 40.64) (xy 147.32 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e60c4706-8776-4e27-aab4-c91fc39812e0")
+	)
+	(wire
+		(pts
+			(xy 160.02 30.48) (xy 160.02 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e883e032-9cfc-467f-bb6a-aa18fcf3bc06")
+	)
+	(wire
+		(pts
+			(xy 109.22 30.48) (xy 109.22 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e90db610-9a4a-486f-aa8d-7bdc3628e025")
+	)
+	(wire
+		(pts
+			(xy 190.5 40.64) (xy 187.96 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e9bf722c-dde3-4dbd-b900-e63be28ef5e7")
+	)
+	(wire
+		(pts
+			(xy 190.5 30.48) (xy 190.5 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e9d1763e-80ee-4563-9900-74f3d678c0c9")
+	)
+	(polyline
+		(pts
+			(xy 195.58 48.26) (xy 195.58 48.26)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "edda9a89-fd5d-4fa3-9da6-d96bebe7121b")
+	)
+	(wire
+		(pts
+			(xy 223.52 40.64) (xy 220.98 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f2c32c01-5026-47cb-929c-57cb26a7759b")
+	)
+	(wire
+		(pts
+			(xy 152.4 40.64) (xy 149.86 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f3600401-2cc5-4ef6-9e64-a17a08c888c2")
+	)
+	(wire
+		(pts
+			(xy 78.74 40.64) (xy 78.74 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f543ec83-4b44-4410-a1e1-2f0317c4f5f9")
+	)
+	(wire
+		(pts
+			(xy 241.3 40.64) (xy 238.76 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f897b94b-42af-4444-b535-fcce55fc835b")
+	)
+	(wire
+		(pts
+			(xy 251.46 40.64) (xy 248.92 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fc122aae-47c2-4386-8e92-e33ab2919130")
+	)
+	(wire
+		(pts
+			(xy 241.3 30.48) (xy 241.3 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fc3e4f31-4d58-4baf-aa8f-e49ec007f636")
+	)
+	(wire
+		(pts
+			(xy 71.12 43.18) (xy 71.12 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fe2946cf-6e2c-4709-866f-deceaa5b11ed")
+	)
+	(wire
+		(pts
+			(xy 172.72 40.64) (xy 170.18 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
 		(uuid "fe659e73-5b9b-4e2d-951d-2adebb0285a4")
 	)
 	(wire
 		(pts
-			(xy 259.08 40.64) (xy 256.54 40.64)
+			(xy 261.62 40.64) (xy 259.08 40.64)
 		)
 		(stroke
 			(width 0)
@@ -2744,9 +2546,29 @@
 		)
 		(uuid "ffd311d5-081b-45bc-84e6-2554815f5413")
 	)
+	(label "IN"
+		(at 284.48 40.64 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "10b446ca-85f7-4477-bfec-3cdc121ec877")
+	)
+	(label "OUT"
+		(at 20.32 30.48 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "4b78e164-4050-4a5b-8525-3e0dd745c0fb")
+	)
 	(symbol
 		(lib_id "Device:R_Small")
-		(at 254 40.64 270)
+		(at 256.54 40.64 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -2757,7 +2579,7 @@
 		(fields_autoplaced yes)
 		(uuid "00ec83bb-7e23-4b88-8b7e-f585ee1c2728")
 		(property "Reference" "R9"
-			(at 254 35.56 90)
+			(at 256.54 35.56 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2767,7 +2589,7 @@
 			)
 		)
 		(property "Value" "2M"
-			(at 254 38.1 90)
+			(at 256.54 38.1 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2777,7 +2599,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_2512_6332Metric"
-			(at 254 40.64 0)
+			(at 256.54 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2788,7 +2610,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/C2779442.pdf"
-			(at 254 40.64 0)
+			(at 256.54 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2799,7 +2621,7 @@
 			)
 		)
 		(property "Description" "HV121WF2004T4E"
-			(at 254 40.64 0)
+			(at 256.54 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2810,7 +2632,40 @@
 			)
 		)
 		(property "LCSC" "C2779442"
-			(at 254 40.64 0)
+			(at 256.54 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Label" ""
+			(at 256.54 40.64 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "HV121WF2004T4E"
+			(at 256.54 40.64 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SPN" "C2779442"
+			(at 256.54 40.64 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2837,7 +2692,255 @@
 	)
 	(symbol
 		(lib_id "Device:R_Small")
-		(at 91.44 40.64 270)
+		(at 86.36 30.48 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "0262bb2c-78c2-4cc7-956a-da54e117a753")
+		(property "Reference" "R30"
+			(at 86.36 25.4 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.016 1.016)
+				)
+			)
+		)
+		(property "Value" "10R"
+			(at 86.36 27.94 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
+			(at 86.36 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C3008858.pdf"
+			(at 86.36 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "CRCW120610R0JNEAHP"
+			(at 86.36 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C3008858"
+			(at 86.36 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Label" ""
+			(at 86.36 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "CRCW120610R0JNEAHP"
+			(at 86.36 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SPN" "C3008858"
+			(at 86.36 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "b956490d-5d9b-4db6-bd17-a623502bd16e")
+		)
+		(pin "1"
+			(uuid "48cbbe8e-e188-4f8f-a14e-26a7208c8736")
+		)
+		(instances
+			(project "hv-probe-passive"
+				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
+					(reference "R30")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 218.44 30.48 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "1168650c-cf32-4f9e-8c3a-0706ac9d0c21")
+		(property "Reference" "R43"
+			(at 218.44 25.4 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.016 1.016)
+				)
+			)
+		)
+		(property "Value" "10R"
+			(at 218.44 27.94 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
+			(at 218.44 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C3008858.pdf"
+			(at 218.44 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "CRCW120610R0JNEAHP"
+			(at 218.44 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C3008858"
+			(at 218.44 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Label" ""
+			(at 218.44 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "CRCW120610R0JNEAHP"
+			(at 218.44 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SPN" "C3008858"
+			(at 218.44 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "3d6ec190-38d6-4863-b38b-2f46e30eb646")
+		)
+		(pin "1"
+			(uuid "680d3953-11c9-4ecb-8c47-1b19b59a3c64")
+		)
+		(instances
+			(project "hv-probe-passive"
+				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
+					(reference "R43")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 93.98 40.64 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -2848,7 +2951,7 @@
 		(fields_autoplaced yes)
 		(uuid "18653a82-bdcd-4585-9a12-751df8d5753b")
 		(property "Reference" "R25"
-			(at 91.44 35.56 90)
+			(at 93.98 35.56 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2858,7 +2961,7 @@
 			)
 		)
 		(property "Value" "2M"
-			(at 91.44 38.1 90)
+			(at 93.98 38.1 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2868,7 +2971,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_2512_6332Metric"
-			(at 91.44 40.64 0)
+			(at 93.98 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2879,7 +2982,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/C2779442.pdf"
-			(at 91.44 40.64 0)
+			(at 93.98 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2890,7 +2993,7 @@
 			)
 		)
 		(property "Description" "HV121WF2004T4E"
-			(at 91.44 40.64 0)
+			(at 93.98 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2901,7 +3004,40 @@
 			)
 		)
 		(property "LCSC" "C2779442"
-			(at 91.44 40.64 0)
+			(at 93.98 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Label" ""
+			(at 93.98 40.64 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "HV121WF2004T4E"
+			(at 93.98 40.64 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SPN" "C2779442"
+			(at 93.98 40.64 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2949,7 +3085,7 @@
 				)
 			)
 		)
-		(property "Value" "47p"
+		(property "Value" "82p"
 			(at 162.56 26.67 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2970,7 +3106,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/C2958815.pdf"
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C3849452.pdf"
 			(at 162.56 30.48 0)
 			(hide yes)
 			(show_name no)
@@ -2981,7 +3117,7 @@
 				)
 			)
 		)
-		(property "Description" "FV42N470J302ECG"
+		(property "Description" "1808N820J302CT"
 			(at 152.4 30.48 0)
 			(hide yes)
 			(show_name no)
@@ -2992,8 +3128,41 @@
 				)
 			)
 		)
-		(property "LCSC" "C2958815"
+		(property "LCSC" "C3849452"
 			(at 162.56 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Label" ""
+			(at 162.56 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "1808N820J302CT"
+			(at 162.56 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SPN" "C3849452"
+			(at 162.56 30.48 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3013,6 +3182,254 @@
 			(project "hv-probe-passive"
 				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
 					(reference "C25")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 167.64 30.48 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "24a5e612-3677-4669-bed2-84f2e5d30b4a")
+		(property "Reference" "R38"
+			(at 167.64 25.4 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.016 1.016)
+				)
+			)
+		)
+		(property "Value" "10R"
+			(at 167.64 27.94 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
+			(at 167.64 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C3008858.pdf"
+			(at 167.64 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "CRCW120610R0JNEAHP"
+			(at 167.64 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C3008858"
+			(at 167.64 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Label" ""
+			(at 167.64 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "CRCW120610R0JNEAHP"
+			(at 167.64 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SPN" "C3008858"
+			(at 167.64 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "4a28fb09-55dd-43a1-82ee-9dc217cf5f37")
+		)
+		(pin "1"
+			(uuid "7012cf58-2339-4659-993d-e69a8e2608fb")
+		)
+		(instances
+			(project "hv-probe-passive"
+				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
+					(reference "R38")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 137.16 30.48 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "273b4bf9-62a5-4ee4-8717-7fee7e95f7f2")
+		(property "Reference" "R35"
+			(at 137.16 25.4 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.016 1.016)
+				)
+			)
+		)
+		(property "Value" "10R"
+			(at 137.16 27.94 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
+			(at 137.16 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C3008858.pdf"
+			(at 137.16 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "CRCW120610R0JNEAHP"
+			(at 137.16 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C3008858"
+			(at 137.16 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Label" ""
+			(at 137.16 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "CRCW120610R0JNEAHP"
+			(at 137.16 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SPN" "C3008858"
+			(at 137.16 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "2a7bdcc3-e7de-43cc-854e-fcb0b03b9092")
+		)
+		(pin "1"
+			(uuid "8bd80b45-3e5f-4e60-b741-d8b50ead5044")
+		)
+		(instances
+			(project "hv-probe-passive"
+				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
+					(reference "R35")
 					(unit 1)
 				)
 			)
@@ -3095,6 +3512,39 @@
 				)
 			)
 		)
+		(property "Label" ""
+			(at 91.44 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "FV42N470J302ECG"
+			(at 91.44 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SPN" "C2958815"
+			(at 91.44 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "a71f5287-dc84-467f-842f-ad9b8185ca2d")
 		)
@@ -3112,7 +3562,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 68.58 50.8 0)
+		(at 71.12 50.8 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -3122,7 +3572,7 @@
 		(dnp no)
 		(uuid "2b3ace13-8af1-4b97-8950-1cb33dc9d8d8")
 		(property "Reference" "#PWR06"
-			(at 68.58 57.15 0)
+			(at 71.12 57.15 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3133,7 +3583,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 68.58 55.245 0)
+			(at 71.12 55.245 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3143,7 +3593,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 68.58 50.8 0)
+			(at 71.12 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3154,7 +3604,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 68.58 50.8 0)
+			(at 71.12 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3165,7 +3615,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 68.58 50.8 0)
+			(at 71.12 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3189,7 +3639,131 @@
 	)
 	(symbol
 		(lib_id "Device:R_Small")
-		(at 274.32 40.64 270)
+		(at 187.96 30.48 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "2efb8a40-0aef-43fb-b4b7-655547d6e708")
+		(property "Reference" "R40"
+			(at 187.96 25.4 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.016 1.016)
+				)
+			)
+		)
+		(property "Value" "10R"
+			(at 187.96 27.94 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
+			(at 187.96 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C3008858.pdf"
+			(at 187.96 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "CRCW120610R0JNEAHP"
+			(at 187.96 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C3008858"
+			(at 187.96 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Label" ""
+			(at 187.96 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "CRCW120610R0JNEAHP"
+			(at 187.96 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SPN" "C3008858"
+			(at 187.96 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "7ec8dca0-fc91-4c94-b48e-9b44641520d0")
+		)
+		(pin "1"
+			(uuid "4b4a2961-127a-4bf6-94de-5436ad5a859d")
+		)
+		(instances
+			(project "hv-probe-passive"
+				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
+					(reference "R40")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 276.86 40.64 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -3200,7 +3774,7 @@
 		(fields_autoplaced yes)
 		(uuid "3be5066d-3aab-4cae-8a94-021ae94ee86b")
 		(property "Reference" "R7"
-			(at 274.32 35.56 90)
+			(at 276.86 35.56 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3210,7 +3784,7 @@
 			)
 		)
 		(property "Value" "2M"
-			(at 274.32 38.1 90)
+			(at 276.86 38.1 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3220,7 +3794,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_2512_6332Metric"
-			(at 274.32 40.64 0)
+			(at 276.86 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3231,7 +3805,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/C2779442.pdf"
-			(at 274.32 40.64 0)
+			(at 276.86 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3242,7 +3816,7 @@
 			)
 		)
 		(property "Description" "HV121WF2004T4E"
-			(at 274.32 40.64 0)
+			(at 276.86 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3253,7 +3827,40 @@
 			)
 		)
 		(property "LCSC" "C2779442"
-			(at 274.32 40.64 0)
+			(at 276.86 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Label" ""
+			(at 276.86 40.64 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "HV121WF2004T4E"
+			(at 276.86 40.64 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SPN" "C2779442"
+			(at 276.86 40.64 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3280,7 +3887,7 @@
 	)
 	(symbol
 		(lib_id "Device:R_Small")
-		(at 233.68 40.64 270)
+		(at 236.22 40.64 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -3291,7 +3898,7 @@
 		(fields_autoplaced yes)
 		(uuid "3e044e33-2acb-4e8f-85d5-4302e64275c5")
 		(property "Reference" "R11"
-			(at 233.68 35.56 90)
+			(at 236.22 35.56 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3301,7 +3908,7 @@
 			)
 		)
 		(property "Value" "2M"
-			(at 233.68 38.1 90)
+			(at 236.22 38.1 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3311,7 +3918,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_2512_6332Metric"
-			(at 233.68 40.64 0)
+			(at 236.22 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3322,7 +3929,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/C2779442.pdf"
-			(at 233.68 40.64 0)
+			(at 236.22 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3333,7 +3940,7 @@
 			)
 		)
 		(property "Description" "HV121WF2004T4E"
-			(at 233.68 40.64 0)
+			(at 236.22 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3344,7 +3951,40 @@
 			)
 		)
 		(property "LCSC" "C2779442"
-			(at 233.68 40.64 0)
+			(at 236.22 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Label" ""
+			(at 236.22 40.64 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "HV121WF2004T4E"
+			(at 236.22 40.64 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SPN" "C2779442"
+			(at 236.22 40.64 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3364,6 +4004,131 @@
 			(project "hv-probe-passive"
 				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
 					(reference "R11")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:D_TVS_Small")
+		(at 55.88 45.72 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "4303fb75-2f02-4cb5-a579-abf6300ff133")
+		(property "Reference" "D1"
+			(at 59.69 39.37 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "H36VND3B"
+			(at 59.69 43.18 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "Diode_SMD:D_SOD-323"
+			(at 55.88 45.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C20615816.pdf"
+			(at 55.88 45.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "ESD DIODE 36VWM 65VC SOD-323"
+			(at 55.88 45.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C20615816"
+			(at 55.88 45.72 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Label" ""
+			(at 55.88 45.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "H36VND3B"
+			(at 55.88 45.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SPN" "C20615816"
+			(at 55.88 45.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "d7769c1a-e86d-4d69-9576-a18a24badfc3")
+		)
+		(pin "1"
+			(uuid "583579b6-1bf5-4677-81d0-677e613ed44a")
+		)
+		(instances
+			(project "hv-probe-passive"
+				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
+					(reference "D1")
 					(unit 1)
 				)
 			)
@@ -3392,7 +4157,7 @@
 				)
 			)
 		)
-		(property "Value" "47p"
+		(property "Value" "56p"
 			(at 132.08 26.67 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3413,7 +4178,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/C2958815.pdf"
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C2351436.pdf"
 			(at 132.08 30.48 0)
 			(hide yes)
 			(show_name no)
@@ -3424,7 +4189,7 @@
 				)
 			)
 		)
-		(property "Description" "FV42N470J302ECG"
+		(property "Description" "1808J5K00560KCT"
 			(at 121.92 30.48 0)
 			(hide yes)
 			(show_name no)
@@ -3435,8 +4200,41 @@
 				)
 			)
 		)
-		(property "LCSC" "C2958815"
+		(property "LCSC" "C2351436"
 			(at 132.08 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Label" ""
+			(at 132.08 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "1808J5K00560KCT"
+			(at 132.08 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SPN" "C2351436"
+			(at 132.08 30.48 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3463,7 +4261,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 45.72 50.8 0)
+		(at 40.64 50.8 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -3473,7 +4271,7 @@
 		(dnp no)
 		(uuid "4dc07d60-30ac-4a24-9972-873ad6a7e739")
 		(property "Reference" "#PWR010"
-			(at 45.72 57.15 0)
+			(at 40.64 57.15 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3484,7 +4282,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 45.72 55.245 0)
+			(at 40.64 55.245 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3494,7 +4292,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 45.72 50.8 0)
+			(at 40.64 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3505,7 +4303,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 45.72 50.8 0)
+			(at 40.64 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3516,7 +4314,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 45.72 50.8 0)
+			(at 40.64 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3561,7 +4359,7 @@
 				)
 			)
 		)
-		(property "Value" "47p"
+		(property "Value" "82p"
 			(at 152.4 26.67 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3582,7 +4380,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/C2958815.pdf"
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C3849452.pdf"
 			(at 152.4 30.48 0)
 			(hide yes)
 			(show_name no)
@@ -3593,7 +4391,7 @@
 				)
 			)
 		)
-		(property "Description" "FV42N470J302ECG"
+		(property "Description" "1808N820J302CT"
 			(at 142.24 30.48 0)
 			(hide yes)
 			(show_name no)
@@ -3604,8 +4402,41 @@
 				)
 			)
 		)
-		(property "LCSC" "C2958815"
+		(property "LCSC" "C3849452"
 			(at 152.4 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Label" ""
+			(at 152.4 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "1808N820J302CT"
+			(at 152.4 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SPN" "C3849452"
+			(at 152.4 30.48 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3625,6 +4456,130 @@
 			(project "hv-probe-passive"
 				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
 					(reference "C26")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 238.76 30.48 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "4f5bb890-d499-4152-80b7-c06bccf0a141")
+		(property "Reference" "R45"
+			(at 238.76 25.4 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.016 1.016)
+				)
+			)
+		)
+		(property "Value" "10R"
+			(at 238.76 27.94 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
+			(at 238.76 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C3008858.pdf"
+			(at 238.76 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "CRCW120610R0JNEAHP"
+			(at 238.76 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C3008858"
+			(at 238.76 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Label" ""
+			(at 238.76 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "CRCW120610R0JNEAHP"
+			(at 238.76 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SPN" "C3008858"
+			(at 238.76 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "bfbce103-a937-4d08-890c-6f0b0b882468")
+		)
+		(pin "1"
+			(uuid "fa4e4f6c-8bd3-4ddd-aaf4-3073ae6c8318")
+		)
+		(instances
+			(project "hv-probe-passive"
+				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
+					(reference "R45")
 					(unit 1)
 				)
 			)
@@ -3653,7 +4608,7 @@
 				)
 			)
 		)
-		(property "Value" "47p"
+		(property "Value" "120p"
 			(at 193.04 26.67 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3674,7 +4629,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/C2958815.pdf"
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C3895824.pdf"
 			(at 193.04 30.48 0)
 			(hide yes)
 			(show_name no)
@@ -3685,7 +4640,7 @@
 				)
 			)
 		)
-		(property "Description" "FV42N470J302ECG"
+		(property "Description" "1808N121J302CT"
 			(at 182.88 30.48 0)
 			(hide yes)
 			(show_name no)
@@ -3696,8 +4651,41 @@
 				)
 			)
 		)
-		(property "LCSC" "C2958815"
+		(property "LCSC" "C3895824"
 			(at 193.04 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Label" ""
+			(at 193.04 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "1808N121J302CT"
+			(at 193.04 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SPN" "C3895824"
+			(at 193.04 30.48 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3717,6 +4705,130 @@
 			(project "hv-probe-passive"
 				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
 					(reference "C22")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 147.32 30.48 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "554f99f5-a31b-4032-9544-e78a8f955d53")
+		(property "Reference" "R36"
+			(at 147.32 25.4 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.016 1.016)
+				)
+			)
+		)
+		(property "Value" "10R"
+			(at 147.32 27.94 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
+			(at 147.32 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C3008858.pdf"
+			(at 147.32 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "CRCW120610R0JNEAHP"
+			(at 147.32 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C3008858"
+			(at 147.32 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Label" ""
+			(at 147.32 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "CRCW120610R0JNEAHP"
+			(at 147.32 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SPN" "C3008858"
+			(at 147.32 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "ff66b5f5-032c-4409-a9c9-28cfe3639b3a")
+		)
+		(pin "1"
+			(uuid "ecd4606a-dc57-4578-858b-f9e138dea9e2")
+		)
+		(instances
+			(project "hv-probe-passive"
+				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
+					(reference "R36")
 					(unit 1)
 				)
 			)
@@ -3745,7 +4857,7 @@
 				)
 			)
 		)
-		(property "Value" "47p"
+		(property "Value" "220p"
 			(at 233.68 26.67 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3766,7 +4878,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/C2958815.pdf"
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C3893923.pdf"
 			(at 233.68 30.48 0)
 			(hide yes)
 			(show_name no)
@@ -3777,7 +4889,7 @@
 				)
 			)
 		)
-		(property "Description" "FV42N470J302ECG"
+		(property "Description" "1808N221K302CT"
 			(at 223.52 30.48 0)
 			(hide yes)
 			(show_name no)
@@ -3788,8 +4900,41 @@
 				)
 			)
 		)
-		(property "LCSC" "C2958815"
+		(property "LCSC" "C3893923"
 			(at 233.68 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Label" ""
+			(at 233.68 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "1808N221K302CT"
+			(at 233.68 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SPN" "C3893923"
+			(at 233.68 30.48 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3809,6 +4954,130 @@
 			(project "hv-probe-passive"
 				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
 					(reference "C18")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 127 30.48 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "5dce0260-bf3f-47e4-a478-3764855f2f12")
+		(property "Reference" "R34"
+			(at 127 25.4 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.016 1.016)
+				)
+			)
+		)
+		(property "Value" "10R"
+			(at 127 27.94 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
+			(at 127 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C3008858.pdf"
+			(at 127 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "CRCW120610R0JNEAHP"
+			(at 127 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C3008858"
+			(at 127 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Label" ""
+			(at 127 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "CRCW120610R0JNEAHP"
+			(at 127 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SPN" "C3008858"
+			(at 127 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "61cd9920-5c42-49fb-9f3d-479b1e246983")
+		)
+		(pin "1"
+			(uuid "050e3683-0101-4efd-a4c4-2fea9783d347")
+		)
+		(instances
+			(project "hv-probe-passive"
+				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
+					(reference "R34")
 					(unit 1)
 				)
 			)
@@ -3837,7 +5106,7 @@
 				)
 			)
 		)
-		(property "Value" "47p"
+		(property "Value" "120p"
 			(at 182.88 26.67 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3858,7 +5127,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/C2958815.pdf"
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C3895824.pdf"
 			(at 182.88 30.48 0)
 			(hide yes)
 			(show_name no)
@@ -3869,7 +5138,7 @@
 				)
 			)
 		)
-		(property "Description" "FV42N470J302ECG"
+		(property "Description" "1808N121J302CT"
 			(at 172.72 30.48 0)
 			(hide yes)
 			(show_name no)
@@ -3880,8 +5149,41 @@
 				)
 			)
 		)
-		(property "LCSC" "C2958815"
+		(property "LCSC" "C3895824"
 			(at 182.88 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Label" ""
+			(at 182.88 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "1808N121J302CT"
+			(at 182.88 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SPN" "C3895824"
+			(at 182.88 30.48 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3908,7 +5210,7 @@
 	)
 	(symbol
 		(lib_id "Device:R_Small")
-		(at 193.04 40.64 270)
+		(at 195.58 40.64 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -3919,7 +5221,7 @@
 		(fields_autoplaced yes)
 		(uuid "63f5274c-dc2f-4932-8052-3acfdfdbbb20")
 		(property "Reference" "R15"
-			(at 193.04 35.56 90)
+			(at 195.58 35.56 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3929,7 +5231,7 @@
 			)
 		)
 		(property "Value" "2M"
-			(at 193.04 38.1 90)
+			(at 195.58 38.1 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3939,7 +5241,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_2512_6332Metric"
-			(at 193.04 40.64 0)
+			(at 195.58 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3950,7 +5252,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/C2779442.pdf"
-			(at 193.04 40.64 0)
+			(at 195.58 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3961,7 +5263,7 @@
 			)
 		)
 		(property "Description" "HV121WF2004T4E"
-			(at 193.04 40.64 0)
+			(at 195.58 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3972,7 +5274,40 @@
 			)
 		)
 		(property "LCSC" "C2779442"
-			(at 193.04 40.64 0)
+			(at 195.58 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Label" ""
+			(at 195.58 40.64 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "HV121WF2004T4E"
+			(at 195.58 40.64 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SPN" "C2779442"
+			(at 195.58 40.64 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3999,7 +5334,7 @@
 	)
 	(symbol
 		(lib_id "Device:R_Small")
-		(at 172.72 40.64 270)
+		(at 175.26 40.64 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -4010,7 +5345,7 @@
 		(fields_autoplaced yes)
 		(uuid "649aa7f3-f04b-4a82-80e0-5ed989b70f28")
 		(property "Reference" "R17"
-			(at 172.72 35.56 90)
+			(at 175.26 35.56 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4020,7 +5355,7 @@
 			)
 		)
 		(property "Value" "2M"
-			(at 172.72 38.1 90)
+			(at 175.26 38.1 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4030,7 +5365,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_2512_6332Metric"
-			(at 172.72 40.64 0)
+			(at 175.26 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4041,7 +5376,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/C2779442.pdf"
-			(at 172.72 40.64 0)
+			(at 175.26 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4052,7 +5387,7 @@
 			)
 		)
 		(property "Description" "HV121WF2004T4E"
-			(at 172.72 40.64 0)
+			(at 175.26 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4063,7 +5398,40 @@
 			)
 		)
 		(property "LCSC" "C2779442"
-			(at 172.72 40.64 0)
+			(at 175.26 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Label" ""
+			(at 175.26 40.64 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "HV121WF2004T4E"
+			(at 175.26 40.64 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SPN" "C2779442"
+			(at 175.26 40.64 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4111,7 +5479,7 @@
 				)
 			)
 		)
-		(property "Value" "47p"
+		(property "Value" "270p"
 			(at 274.32 26.67 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4132,7 +5500,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/C2958815.pdf"
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C3898309.pdf"
 			(at 274.32 30.48 0)
 			(hide yes)
 			(show_name no)
@@ -4143,7 +5511,7 @@
 				)
 			)
 		)
-		(property "Description" "FV42N470J302ECG"
+		(property "Description" "1808N271J302CT"
 			(at 264.16 30.48 0)
 			(hide yes)
 			(show_name no)
@@ -4154,8 +5522,41 @@
 				)
 			)
 		)
-		(property "LCSC" "C2958815"
+		(property "LCSC" "C3898309"
 			(at 274.32 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Label" ""
+			(at 274.32 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "1808N271J302CT"
+			(at 274.32 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SPN" "C3898309"
+			(at 274.32 30.48 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4182,7 +5583,7 @@
 	)
 	(symbol
 		(lib_id "Device:R_Small")
-		(at 68.58 45.72 180)
+		(at 71.12 45.72 180)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -4190,10 +5591,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "6c6f0c11-e9da-4efb-8897-8dc28d4a3179")
 		(property "Reference" "R28"
-			(at 71.12 44.4499 0)
+			(at 72.39 44.45 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4204,7 +5604,7 @@
 			)
 		)
 		(property "Value" "56k"
-			(at 71.12 46.9899 0)
+			(at 72.39 46.99 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4215,7 +5615,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
-			(at 70.358 45.72 90)
+			(at 72.898 45.72 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4226,7 +5626,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/C17756.pdf"
-			(at 68.58 45.72 0)
+			(at 71.12 45.72 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4237,7 +5637,7 @@
 			)
 		)
 		(property "Description" "0805W8F5602T5E"
-			(at 68.58 45.72 0)
+			(at 71.12 45.72 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4248,7 +5648,40 @@
 			)
 		)
 		(property "LCSC" "C17756"
-			(at 68.58 45.72 0)
+			(at 71.12 45.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Label" ""
+			(at 71.12 45.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "0805W8F5602T5E"
+			(at 71.12 45.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SPN" "C17756"
+			(at 71.12 45.72 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4350,6 +5783,39 @@
 				)
 			)
 		)
+		(property "Label" ""
+			(at 101.6 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "FV42N470J302ECG"
+			(at 101.6 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SPN" "C2958815"
+			(at 101.6 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "5fc3c543-148f-423d-a143-049c14727b7c")
 		)
@@ -4367,7 +5833,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 53.34 50.8 0)
+		(at 48.26 50.8 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -4377,7 +5843,7 @@
 		(dnp no)
 		(uuid "70798a00-fc8b-41dd-bbb9-578040cdaf86")
 		(property "Reference" "#PWR09"
-			(at 53.34 57.15 0)
+			(at 48.26 57.15 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4388,7 +5854,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 53.34 55.245 0)
+			(at 48.26 55.245 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4398,7 +5864,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 53.34 50.8 0)
+			(at 48.26 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4409,7 +5875,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 53.34 50.8 0)
+			(at 48.26 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4420,7 +5886,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 53.34 50.8 0)
+			(at 48.26 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4444,7 +5910,255 @@
 	)
 	(symbol
 		(lib_id "Device:R_Small")
-		(at 152.4 40.64 270)
+		(at 269.24 30.48 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "7a2683c7-f9fe-4c47-897b-4bc14569a952")
+		(property "Reference" "R48"
+			(at 269.24 25.4 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.016 1.016)
+				)
+			)
+		)
+		(property "Value" "10R"
+			(at 269.24 27.94 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
+			(at 269.24 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C3008858.pdf"
+			(at 269.24 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "CRCW120610R0JNEAHP"
+			(at 269.24 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C3008858"
+			(at 269.24 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Label" ""
+			(at 269.24 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "CRCW120610R0JNEAHP"
+			(at 269.24 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SPN" "C3008858"
+			(at 269.24 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "0d72be4a-7081-4240-af2e-f68a6be89862")
+		)
+		(pin "1"
+			(uuid "0bad5259-a4fd-40e0-954b-bd4699afc03f")
+		)
+		(instances
+			(project "hv-probe-passive"
+				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
+					(reference "R48")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 96.52 30.48 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "7a44d9b9-f774-4816-a821-5219c20780d7")
+		(property "Reference" "R31"
+			(at 96.52 25.4 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.016 1.016)
+				)
+			)
+		)
+		(property "Value" "10R"
+			(at 96.52 27.94 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
+			(at 96.52 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C3008858.pdf"
+			(at 96.52 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "CRCW120610R0JNEAHP"
+			(at 96.52 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C3008858"
+			(at 96.52 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Label" ""
+			(at 96.52 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "CRCW120610R0JNEAHP"
+			(at 96.52 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SPN" "C3008858"
+			(at 96.52 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "c593d3e6-5813-4a52-94ea-685fd193117d")
+		)
+		(pin "1"
+			(uuid "68ad9946-770b-44a4-9952-799f000ead8f")
+		)
+		(instances
+			(project "hv-probe-passive"
+				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
+					(reference "R31")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 154.94 40.64 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -4455,7 +6169,7 @@
 		(fields_autoplaced yes)
 		(uuid "7c16755f-b720-4718-bae1-557058f26998")
 		(property "Reference" "R19"
-			(at 152.4 35.56 90)
+			(at 154.94 35.56 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4465,7 +6179,7 @@
 			)
 		)
 		(property "Value" "2M"
-			(at 152.4 38.1 90)
+			(at 154.94 38.1 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4475,7 +6189,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_2512_6332Metric"
-			(at 152.4 40.64 0)
+			(at 154.94 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4486,7 +6200,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/C2779442.pdf"
-			(at 152.4 40.64 0)
+			(at 154.94 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4497,7 +6211,7 @@
 			)
 		)
 		(property "Description" "HV121WF2004T4E"
-			(at 152.4 40.64 0)
+			(at 154.94 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4508,7 +6222,40 @@
 			)
 		)
 		(property "LCSC" "C2779442"
-			(at 152.4 40.64 0)
+			(at 154.94 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Label" ""
+			(at 154.94 40.64 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "HV121WF2004T4E"
+			(at 154.94 40.64 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SPN" "C2779442"
+			(at 154.94 40.64 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4534,8 +6281,132 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:R_Small")
+		(at 198.12 30.48 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "7e09aec4-6c91-4f82-b133-762b55e000c1")
+		(property "Reference" "R41"
+			(at 198.12 25.4 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.016 1.016)
+				)
+			)
+		)
+		(property "Value" "10R"
+			(at 198.12 27.94 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
+			(at 198.12 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C3008858.pdf"
+			(at 198.12 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "CRCW120610R0JNEAHP"
+			(at 198.12 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C3008858"
+			(at 198.12 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Label" ""
+			(at 198.12 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "CRCW120610R0JNEAHP"
+			(at 198.12 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SPN" "C3008858"
+			(at 198.12 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "39294e67-b144-4aad-a6cf-6f44205d0488")
+		)
+		(pin "1"
+			(uuid "0ed9940a-b344-43fe-9561-529aa919ad15")
+		)
+		(instances
+			(project "hv-probe-passive"
+				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
+					(reference "R41")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
-		(at 20.32 50.8 0)
+		(at 15.24 50.8 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -4545,7 +6416,7 @@
 		(dnp no)
 		(uuid "7e0fdbc5-71ef-484c-b069-a57fc598ca06")
 		(property "Reference" "#PWR04"
-			(at 20.32 57.15 0)
+			(at 15.24 57.15 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4556,7 +6427,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 20.32 55.245 0)
+			(at 15.24 55.245 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4566,7 +6437,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 20.32 50.8 0)
+			(at 15.24 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4577,7 +6448,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 20.32 50.8 0)
+			(at 15.24 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4588,7 +6459,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 20.32 50.8 0)
+			(at 15.24 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4612,7 +6483,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 60.96 50.8 0)
+		(at 63.5 50.8 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -4622,7 +6493,7 @@
 		(dnp no)
 		(uuid "80144c16-091a-46fb-bf31-4dea8a7a8c68")
 		(property "Reference" "#PWR07"
-			(at 60.96 57.15 0)
+			(at 63.5 57.15 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4633,7 +6504,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 60.96 55.245 0)
+			(at 63.5 55.245 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4643,7 +6514,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 60.96 50.8 0)
+			(at 63.5 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4654,7 +6525,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 60.96 50.8 0)
+			(at 63.5 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4665,7 +6536,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 60.96 50.8 0)
+			(at 63.5 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4689,7 +6560,7 @@
 	)
 	(symbol
 		(lib_id "Device:R_Small")
-		(at 243.84 40.64 270)
+		(at 246.38 40.64 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -4700,7 +6571,7 @@
 		(fields_autoplaced yes)
 		(uuid "8187463f-6313-47f4-8c57-b8c129ce32ec")
 		(property "Reference" "R10"
-			(at 243.84 35.56 90)
+			(at 246.38 35.56 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4710,7 +6581,7 @@
 			)
 		)
 		(property "Value" "2M"
-			(at 243.84 38.1 90)
+			(at 246.38 38.1 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4720,7 +6591,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_2512_6332Metric"
-			(at 243.84 40.64 0)
+			(at 246.38 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4731,7 +6602,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/C2779442.pdf"
-			(at 243.84 40.64 0)
+			(at 246.38 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4742,7 +6613,7 @@
 			)
 		)
 		(property "Description" "HV121WF2004T4E"
-			(at 243.84 40.64 0)
+			(at 246.38 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4753,7 +6624,40 @@
 			)
 		)
 		(property "LCSC" "C2779442"
-			(at 243.84 40.64 0)
+			(at 246.38 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Label" ""
+			(at 246.38 40.64 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "HV121WF2004T4E"
+			(at 246.38 40.64 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SPN" "C2779442"
+			(at 246.38 40.64 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4780,7 +6684,7 @@
 	)
 	(symbol
 		(lib_id "Device:R_Small")
-		(at 60.96 45.72 180)
+		(at 63.5 45.72 180)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -4788,10 +6692,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "8396eae2-01b7-45c7-aef6-cd0aebb92521")
 		(property "Reference" "R27"
-			(at 63.5 44.4499 0)
+			(at 64.77 44.45 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4802,7 +6705,7 @@
 			)
 		)
 		(property "Value" "56k"
-			(at 63.5 46.9899 0)
+			(at 64.77 46.99 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4813,7 +6716,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
-			(at 62.738 45.72 90)
+			(at 65.278 45.72 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4824,7 +6727,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/C17756.pdf"
-			(at 60.96 45.72 0)
+			(at 63.5 45.72 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4835,7 +6738,7 @@
 			)
 		)
 		(property "Description" "0805W8F5602T5E"
-			(at 60.96 45.72 0)
+			(at 63.5 45.72 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4846,7 +6749,40 @@
 			)
 		)
 		(property "LCSC" "C17756"
-			(at 60.96 45.72 0)
+			(at 63.5 45.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Label" ""
+			(at 63.5 45.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "0805W8F5602T5E"
+			(at 63.5 45.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SPN" "C17756"
+			(at 63.5 45.72 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4873,7 +6809,7 @@
 	)
 	(symbol
 		(lib_id "Device:R_Small")
-		(at 223.52 40.64 270)
+		(at 226.06 40.64 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -4884,7 +6820,7 @@
 		(fields_autoplaced yes)
 		(uuid "8742933a-9bc1-4418-8615-b1ea2b725bc4")
 		(property "Reference" "R12"
-			(at 223.52 35.56 90)
+			(at 226.06 35.56 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4894,7 +6830,7 @@
 			)
 		)
 		(property "Value" "2M"
-			(at 223.52 38.1 90)
+			(at 226.06 38.1 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4904,7 +6840,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_2512_6332Metric"
-			(at 223.52 40.64 0)
+			(at 226.06 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4915,7 +6851,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/C2779442.pdf"
-			(at 223.52 40.64 0)
+			(at 226.06 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4926,7 +6862,7 @@
 			)
 		)
 		(property "Description" "HV121WF2004T4E"
-			(at 223.52 40.64 0)
+			(at 226.06 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4937,7 +6873,40 @@
 			)
 		)
 		(property "LCSC" "C2779442"
-			(at 223.52 40.64 0)
+			(at 226.06 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Label" ""
+			(at 226.06 40.64 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "HV121WF2004T4E"
+			(at 226.06 40.64 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SPN" "C2779442"
+			(at 226.06 40.64 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4964,7 +6933,131 @@
 	)
 	(symbol
 		(lib_id "Device:R_Small")
-		(at 182.88 40.64 270)
+		(at 106.68 30.48 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "8c032659-e380-4222-a0ff-eb5658819f93")
+		(property "Reference" "R32"
+			(at 106.68 25.4 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.016 1.016)
+				)
+			)
+		)
+		(property "Value" "10R"
+			(at 106.68 27.94 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
+			(at 106.68 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C3008858.pdf"
+			(at 106.68 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "CRCW120610R0JNEAHP"
+			(at 106.68 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C3008858"
+			(at 106.68 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Label" ""
+			(at 106.68 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "CRCW120610R0JNEAHP"
+			(at 106.68 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SPN" "C3008858"
+			(at 106.68 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "21961a7d-f3fc-4914-9d86-b2423cbe5da2")
+		)
+		(pin "1"
+			(uuid "148c7005-1fe3-4ba0-9d63-fa7ac2744582")
+		)
+		(instances
+			(project "hv-probe-passive"
+				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
+					(reference "R32")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 185.42 40.64 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -4975,7 +7068,7 @@
 		(fields_autoplaced yes)
 		(uuid "8da5cb64-4eb0-4e4a-a680-d856e141686a")
 		(property "Reference" "R16"
-			(at 182.88 35.56 90)
+			(at 185.42 35.56 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4985,7 +7078,7 @@
 			)
 		)
 		(property "Value" "2M"
-			(at 182.88 38.1 90)
+			(at 185.42 38.1 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4995,7 +7088,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_2512_6332Metric"
-			(at 182.88 40.64 0)
+			(at 185.42 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5006,7 +7099,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/C2779442.pdf"
-			(at 182.88 40.64 0)
+			(at 185.42 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5017,7 +7110,7 @@
 			)
 		)
 		(property "Description" "HV121WF2004T4E"
-			(at 182.88 40.64 0)
+			(at 185.42 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5028,7 +7121,40 @@
 			)
 		)
 		(property "LCSC" "C2779442"
-			(at 182.88 40.64 0)
+			(at 185.42 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Label" ""
+			(at 185.42 40.64 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "HV121WF2004T4E"
+			(at 185.42 40.64 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SPN" "C2779442"
+			(at 185.42 40.64 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5055,7 +7181,379 @@
 	)
 	(symbol
 		(lib_id "Device:R_Small")
-		(at 162.56 40.64 270)
+		(at 157.48 30.48 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "92bd667b-2783-4a4e-bb43-33d3f7854757")
+		(property "Reference" "R37"
+			(at 157.48 25.4 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.016 1.016)
+				)
+			)
+		)
+		(property "Value" "10R"
+			(at 157.48 27.94 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
+			(at 157.48 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C3008858.pdf"
+			(at 157.48 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "CRCW120610R0JNEAHP"
+			(at 157.48 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C3008858"
+			(at 157.48 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Label" ""
+			(at 157.48 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "CRCW120610R0JNEAHP"
+			(at 157.48 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SPN" "C3008858"
+			(at 157.48 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "74694fed-02c7-41e9-837e-3b097faf1ca4")
+		)
+		(pin "1"
+			(uuid "4aee2844-d1e4-4f4b-ab22-4ee95c38d176")
+		)
+		(instances
+			(project "hv-probe-passive"
+				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
+					(reference "R37")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 259.08 30.48 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "9311ba7d-7620-44c7-8ba2-9b882de39b68")
+		(property "Reference" "R47"
+			(at 259.08 25.4 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.016 1.016)
+				)
+			)
+		)
+		(property "Value" "10R"
+			(at 259.08 27.94 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
+			(at 259.08 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C3008858.pdf"
+			(at 259.08 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "CRCW120610R0JNEAHP"
+			(at 259.08 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C3008858"
+			(at 259.08 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Label" ""
+			(at 259.08 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "CRCW120610R0JNEAHP"
+			(at 259.08 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SPN" "C3008858"
+			(at 259.08 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "bdbbde66-1d9d-4f8c-80eb-e9168e3f5879")
+		)
+		(pin "1"
+			(uuid "70337e64-c134-4077-a5da-16a0d1feb6cd")
+		)
+		(instances
+			(project "hv-probe-passive"
+				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
+					(reference "R47")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 116.84 30.48 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "9e178c12-0ac3-4242-add9-172b939cf9e7")
+		(property "Reference" "R33"
+			(at 116.84 25.4 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.016 1.016)
+				)
+			)
+		)
+		(property "Value" "10R"
+			(at 116.84 27.94 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
+			(at 116.84 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C3008858.pdf"
+			(at 116.84 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "CRCW120610R0JNEAHP"
+			(at 116.84 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C3008858"
+			(at 116.84 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Label" ""
+			(at 116.84 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "CRCW120610R0JNEAHP"
+			(at 116.84 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SPN" "C3008858"
+			(at 116.84 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "d09b35ad-18c4-496f-9b01-5c60372954a1")
+		)
+		(pin "1"
+			(uuid "a467e1fd-17fb-45b0-b0cf-191fa5f9bf1c")
+		)
+		(instances
+			(project "hv-probe-passive"
+				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
+					(reference "R33")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 165.1 40.64 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -5066,7 +7564,7 @@
 		(fields_autoplaced yes)
 		(uuid "9e545084-7360-4bf6-84e9-471bce8385ce")
 		(property "Reference" "R18"
-			(at 162.56 35.56 90)
+			(at 165.1 35.56 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5076,7 +7574,7 @@
 			)
 		)
 		(property "Value" "2M"
-			(at 162.56 38.1 90)
+			(at 165.1 38.1 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5086,7 +7584,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_2512_6332Metric"
-			(at 162.56 40.64 0)
+			(at 165.1 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5097,7 +7595,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/C2779442.pdf"
-			(at 162.56 40.64 0)
+			(at 165.1 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5108,7 +7606,7 @@
 			)
 		)
 		(property "Description" "HV121WF2004T4E"
-			(at 162.56 40.64 0)
+			(at 165.1 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5119,7 +7617,40 @@
 			)
 		)
 		(property "LCSC" "C2779442"
-			(at 162.56 40.64 0)
+			(at 165.1 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Label" ""
+			(at 165.1 40.64 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "HV121WF2004T4E"
+			(at 165.1 40.64 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SPN" "C2779442"
+			(at 165.1 40.64 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5146,7 +7677,7 @@
 	)
 	(symbol
 		(lib_id "Device:R_Small")
-		(at 101.6 40.64 270)
+		(at 104.14 40.64 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -5157,7 +7688,7 @@
 		(fields_autoplaced yes)
 		(uuid "9fe2ce15-29e6-4053-933b-18c303b05dba")
 		(property "Reference" "R24"
-			(at 101.6 35.56 90)
+			(at 104.14 35.56 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5167,7 +7698,7 @@
 			)
 		)
 		(property "Value" "2M"
-			(at 101.6 38.1 90)
+			(at 104.14 38.1 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5177,7 +7708,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_2512_6332Metric"
-			(at 101.6 40.64 0)
+			(at 104.14 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5188,7 +7719,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/C2779442.pdf"
-			(at 101.6 40.64 0)
+			(at 104.14 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5199,7 +7730,7 @@
 			)
 		)
 		(property "Description" "HV121WF2004T4E"
-			(at 101.6 40.64 0)
+			(at 104.14 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5210,7 +7741,40 @@
 			)
 		)
 		(property "LCSC" "C2779442"
-			(at 101.6 40.64 0)
+			(at 104.14 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Label" ""
+			(at 104.14 40.64 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "HV121WF2004T4E"
+			(at 104.14 40.64 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SPN" "C2779442"
+			(at 104.14 40.64 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5258,7 +7822,7 @@
 				)
 			)
 		)
-		(property "Value" "47p"
+		(property "Value" "56p"
 			(at 121.92 26.67 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5279,7 +7843,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/C2958815.pdf"
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C2351436.pdf"
 			(at 121.92 30.48 0)
 			(hide yes)
 			(show_name no)
@@ -5290,7 +7854,7 @@
 				)
 			)
 		)
-		(property "Description" "FV42N470J302ECG"
+		(property "Description" "1808J5K00560KCT"
 			(at 111.76 30.48 0)
 			(hide yes)
 			(show_name no)
@@ -5301,8 +7865,41 @@
 				)
 			)
 		)
-		(property "LCSC" "C2958815"
+		(property "LCSC" "C2351436"
 			(at 121.92 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Label" ""
+			(at 121.92 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "1808J5K00560KCT"
+			(at 121.92 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SPN" "C2351436"
+			(at 121.92 30.48 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5350,7 +7947,7 @@
 				)
 			)
 		)
-		(property "Value" "47p"
+		(property "Value" "270p"
 			(at 264.16 26.67 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5371,7 +7968,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/C2958815.pdf"
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C3898309.pdf"
 			(at 264.16 30.48 0)
 			(hide yes)
 			(show_name no)
@@ -5382,7 +7979,7 @@
 				)
 			)
 		)
-		(property "Description" "FV42N470J302ECG"
+		(property "Description" "1808N271J302CT"
 			(at 254 30.48 0)
 			(hide yes)
 			(show_name no)
@@ -5393,8 +7990,41 @@
 				)
 			)
 		)
-		(property "LCSC" "C2958815"
+		(property "LCSC" "C3898309"
 			(at 264.16 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Label" ""
+			(at 264.16 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "1808N271J302CT"
+			(at 264.16 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SPN" "C3898309"
+			(at 264.16 30.48 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5421,7 +8051,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 38.1 50.8 0)
+		(at 33.02 50.8 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -5431,7 +8061,7 @@
 		(dnp no)
 		(uuid "abb5847d-efca-490c-b93e-0beb85f11c19")
 		(property "Reference" "#PWR08"
-			(at 38.1 57.15 0)
+			(at 33.02 57.15 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5442,7 +8072,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 38.1 55.245 0)
+			(at 33.02 55.245 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5452,7 +8082,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 38.1 50.8 0)
+			(at 33.02 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5463,7 +8093,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 38.1 50.8 0)
+			(at 33.02 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5474,7 +8104,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 38.1 50.8 0)
+			(at 33.02 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5498,7 +8128,7 @@
 	)
 	(symbol
 		(lib_id "Device:R_Small")
-		(at 121.92 40.64 270)
+		(at 124.46 40.64 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -5509,7 +8139,7 @@
 		(fields_autoplaced yes)
 		(uuid "b00e3b00-0588-48bc-88de-f414e98bf71f")
 		(property "Reference" "R22"
-			(at 121.92 35.56 90)
+			(at 124.46 35.56 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5519,7 +8149,7 @@
 			)
 		)
 		(property "Value" "2M"
-			(at 121.92 38.1 90)
+			(at 124.46 38.1 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5529,7 +8159,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_2512_6332Metric"
-			(at 121.92 40.64 0)
+			(at 124.46 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5540,7 +8170,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/C2779442.pdf"
-			(at 121.92 40.64 0)
+			(at 124.46 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5551,7 +8181,7 @@
 			)
 		)
 		(property "Description" "HV121WF2004T4E"
-			(at 121.92 40.64 0)
+			(at 124.46 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5562,7 +8192,40 @@
 			)
 		)
 		(property "LCSC" "C2779442"
-			(at 121.92 40.64 0)
+			(at 124.46 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Label" ""
+			(at 124.46 40.64 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "HV121WF2004T4E"
+			(at 124.46 40.64 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SPN" "C2779442"
+			(at 124.46 40.64 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5610,7 +8273,7 @@
 				)
 			)
 		)
-		(property "Value" "47p"
+		(property "Value" "270p"
 			(at 254 26.67 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5631,7 +8294,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/C2958815.pdf"
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C3898309.pdf"
 			(at 254 30.48 0)
 			(hide yes)
 			(show_name no)
@@ -5642,7 +8305,7 @@
 				)
 			)
 		)
-		(property "Description" "FV42N470J302ECG"
+		(property "Description" "1808N271J302CT"
 			(at 243.84 30.48 0)
 			(hide yes)
 			(show_name no)
@@ -5653,8 +8316,41 @@
 				)
 			)
 		)
-		(property "LCSC" "C2958815"
+		(property "LCSC" "C3898309"
 			(at 254 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Label" ""
+			(at 254 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "1808N271J302CT"
+			(at 254 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SPN" "C3898309"
+			(at 254 30.48 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5674,6 +8370,130 @@
 			(project "hv-probe-passive"
 				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
 					(reference "C16")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 248.92 30.48 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "bde28daf-076f-4c73-9a9d-3174fe814a96")
+		(property "Reference" "R46"
+			(at 248.92 25.4 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.016 1.016)
+				)
+			)
+		)
+		(property "Value" "10R"
+			(at 248.92 27.94 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
+			(at 248.92 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C3008858.pdf"
+			(at 248.92 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "CRCW120610R0JNEAHP"
+			(at 248.92 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C3008858"
+			(at 248.92 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Label" ""
+			(at 248.92 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "CRCW120610R0JNEAHP"
+			(at 248.92 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SPN" "C3008858"
+			(at 248.92 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "c5af09ec-aa0c-4ab5-8821-1be9f02f470f")
+		)
+		(pin "1"
+			(uuid "03c46cad-0a6e-4b3b-a072-d36e32b8509f")
+		)
+		(instances
+			(project "hv-probe-passive"
+				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
+					(reference "R46")
 					(unit 1)
 				)
 			)
@@ -5702,7 +8522,7 @@
 				)
 			)
 		)
-		(property "Value" "47p"
+		(property "Value" "68p"
 			(at 142.24 26.67 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5723,7 +8543,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/C2958815.pdf"
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C3895882.pdf"
 			(at 142.24 30.48 0)
 			(hide yes)
 			(show_name no)
@@ -5734,7 +8554,7 @@
 				)
 			)
 		)
-		(property "Description" "FV42N470J302ECG"
+		(property "Description" "1808N680J302CT"
 			(at 132.08 30.48 0)
 			(hide yes)
 			(show_name no)
@@ -5745,8 +8565,41 @@
 				)
 			)
 		)
-		(property "LCSC" "C2958815"
+		(property "LCSC" "C3895882"
 			(at 142.24 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Label" ""
+			(at 142.24 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "1808N680J302CT"
+			(at 142.24 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SPN" "C3895882"
+			(at 142.24 30.48 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5766,6 +8619,130 @@
 			(project "hv-probe-passive"
 				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
 					(reference "C27")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 177.8 30.48 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "c0f7d3f0-6856-4679-ae40-39ce2eb4b49c")
+		(property "Reference" "R39"
+			(at 177.8 25.4 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.016 1.016)
+				)
+			)
+		)
+		(property "Value" "10R"
+			(at 177.8 27.94 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
+			(at 177.8 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C3008858.pdf"
+			(at 177.8 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "CRCW120610R0JNEAHP"
+			(at 177.8 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C3008858"
+			(at 177.8 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Label" ""
+			(at 177.8 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "CRCW120610R0JNEAHP"
+			(at 177.8 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SPN" "C3008858"
+			(at 177.8 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "6dc40c40-6f28-4eff-82b7-18067b6e3d73")
+		)
+		(pin "1"
+			(uuid "d468ea70-2425-42f7-bf11-39526c6ee3b0")
+		)
+		(instances
+			(project "hv-probe-passive"
+				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
+					(reference "R39")
 					(unit 1)
 				)
 			)
@@ -5794,7 +8771,7 @@
 				)
 			)
 		)
-		(property "Value" "47p"
+		(property "Value" "180p"
 			(at 223.52 26.67 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5815,7 +8792,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/C2958815.pdf"
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C1883431.pdf"
 			(at 223.52 30.48 0)
 			(hide yes)
 			(show_name no)
@@ -5826,7 +8803,7 @@
 				)
 			)
 		)
-		(property "Description" "FV42N470J302ECG"
+		(property "Description" "C1808C181FHGACAUTO"
 			(at 213.36 30.48 0)
 			(hide yes)
 			(show_name no)
@@ -5837,8 +8814,41 @@
 				)
 			)
 		)
-		(property "LCSC" "C2958815"
+		(property "LCSC" "C1883431"
 			(at 223.52 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Label" ""
+			(at 223.52 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "C1808C181FHGACAUTO"
+			(at 223.52 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SPN" "C1883431"
+			(at 223.52 30.48 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5865,7 +8875,7 @@
 	)
 	(symbol
 		(lib_id "Device:R_Small")
-		(at 142.24 40.64 270)
+		(at 144.78 40.64 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -5876,7 +8886,7 @@
 		(fields_autoplaced yes)
 		(uuid "c916c8b8-f52d-4435-9d98-e311e91d3bff")
 		(property "Reference" "R20"
-			(at 142.24 35.56 90)
+			(at 144.78 35.56 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5886,7 +8896,7 @@
 			)
 		)
 		(property "Value" "2M"
-			(at 142.24 38.1 90)
+			(at 144.78 38.1 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5896,7 +8906,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_2512_6332Metric"
-			(at 142.24 40.64 0)
+			(at 144.78 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5907,7 +8917,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/C2779442.pdf"
-			(at 142.24 40.64 0)
+			(at 144.78 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5918,7 +8928,7 @@
 			)
 		)
 		(property "Description" "HV121WF2004T4E"
-			(at 142.24 40.64 0)
+			(at 144.78 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5929,7 +8939,40 @@
 			)
 		)
 		(property "LCSC" "C2779442"
-			(at 142.24 40.64 0)
+			(at 144.78 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Label" ""
+			(at 144.78 40.64 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "HV121WF2004T4E"
+			(at 144.78 40.64 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SPN" "C2779442"
+			(at 144.78 40.64 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5955,8 +8998,85 @@
 		)
 	)
 	(symbol
+		(lib_id "power:GND")
+		(at 55.88 50.8 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "c9b167de-3bc8-4fdc-8fd4-b9bf3bd54c98")
+		(property "Reference" "#PWR011"
+			(at 55.88 57.15 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 55.88 55.245 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 55.88 50.8 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 55.88 50.8 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 55.88 50.8 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "38d0fd4d-ad38-4220-9dd3-d2bcdb3e0459")
+		)
+		(instances
+			(project "hv-probe-passive"
+				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
+					(reference "#PWR011")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:R_Small")
-		(at 81.28 40.64 270)
+		(at 83.82 40.64 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -5967,7 +9087,7 @@
 		(fields_autoplaced yes)
 		(uuid "c9cfe657-16a6-42ae-a668-7eb6dffeacfd")
 		(property "Reference" "R26"
-			(at 81.28 35.56 90)
+			(at 83.82 35.56 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5977,7 +9097,7 @@
 			)
 		)
 		(property "Value" "2M"
-			(at 81.28 38.1 90)
+			(at 83.82 38.1 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5987,7 +9107,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_2512_6332Metric"
-			(at 81.28 40.64 0)
+			(at 83.82 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5998,7 +9118,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/C2779442.pdf"
-			(at 81.28 40.64 0)
+			(at 83.82 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6009,7 +9129,7 @@
 			)
 		)
 		(property "Description" "HV121WF2004T4E"
-			(at 81.28 40.64 0)
+			(at 83.82 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6020,7 +9140,40 @@
 			)
 		)
 		(property "LCSC" "C2779442"
-			(at 81.28 40.64 0)
+			(at 83.82 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Label" ""
+			(at 83.82 40.64 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "HV121WF2004T4E"
+			(at 83.82 40.64 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SPN" "C2779442"
+			(at 83.82 40.64 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6046,8 +9199,8 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R_Potentiometer_Small")
-		(at 60.96 35.56 0)
+		(lib_id "Device:R_Small")
+		(at 27.94 30.48 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -6056,9 +9209,132 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced yes)
+		(uuid "c9dd5913-5a19-47db-bc7f-8704b2d029ad")
+		(property "Reference" "R29"
+			(at 27.94 25.4 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "49R9"
+			(at 27.94 27.94 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+			(at 27.94 28.702 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C17756.pdf"
+			(at 27.94 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "0805W8F499JT5E"
+			(at 27.94 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C17720"
+			(at 27.94 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Label" ""
+			(at 27.94 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "0805W8F499JT5E"
+			(at 27.94 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SPN" "C17720"
+			(at 27.94 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "1fcf021b-ff9b-423e-93a1-5075c7809fcd")
+		)
+		(pin "2"
+			(uuid "4e3938e4-8dbc-497a-8dfa-86846f72be51")
+		)
+		(instances
+			(project "hv-probe-passive"
+				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
+					(reference "R29")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_Potentiometer_Small")
+		(at 63.5 35.56 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
 		(uuid "cb1457b8-f183-4b76-83b6-73a1829a4f2f")
 		(property "Reference" "RV2"
-			(at 58.42 34.2899 0)
+			(at 66.04 25.4 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6069,7 +9345,7 @@
 			)
 		)
 		(property "Value" "DC_TRIM"
-			(at 58.42 36.8299 0)
+			(at 66.04 27.94 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6080,7 +9356,7 @@
 			)
 		)
 		(property "Footprint" "Potentiometer_THT:Potentiometer_Bourns_3296X_Horizontal"
-			(at 60.96 35.56 0)
+			(at 63.5 35.56 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6091,7 +9367,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/C49190482.pdf"
-			(at 60.96 35.56 0)
+			(at 63.5 35.56 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6102,7 +9378,7 @@
 			)
 		)
 		(property "Description" "3296X-1-105LF"
-			(at 60.96 35.56 0)
+			(at 60.96 38.0999 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6110,10 +9386,11 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(justify right)
 			)
 		)
 		(property "Sim.Device" "R"
-			(at 60.96 35.56 0)
+			(at 63.5 35.56 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6124,7 +9401,7 @@
 			)
 		)
 		(property "Sim.Type" "POT"
-			(at 60.96 35.56 0)
+			(at 63.5 35.56 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6135,7 +9412,7 @@
 			)
 		)
 		(property "Sim.Pins" "1=r0 2=wiper 3=r1"
-			(at 60.96 35.56 0)
+			(at 63.5 35.56 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6146,7 +9423,40 @@
 			)
 		)
 		(property "LCSC" "C49190482"
-			(at 60.96 35.56 0)
+			(at 63.5 35.56 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Label" ""
+			(at 63.5 35.56 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "3296X-1-105LF"
+			(at 63.5 35.56 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SPN" "C49190482"
+			(at 63.5 35.56 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6176,7 +9486,7 @@
 	)
 	(symbol
 		(lib_id "Device:C_Variable")
-		(at 38.1 44.45 0)
+		(at 33.02 44.45 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -6184,10 +9494,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "cc7e7854-0056-4ed2-b7cf-0e406f7b15b1")
 		(property "Reference" "C13"
-			(at 34.29 43.1799 0)
+			(at 30.48 43.18 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6198,7 +9507,7 @@
 			)
 		)
 		(property "Value" "5.5pF-65pF"
-			(at 34.29 45.7199 0)
+			(at 30.48 45.72 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6209,7 +9518,7 @@
 			)
 		)
 		(property "Footprint" "my_footprint_lib:BFC2808 P5.0x7.5mm"
-			(at 38.1 44.45 0)
+			(at 33.02 44.45 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6220,7 +9529,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/C3273327.pdf"
-			(at 38.1 44.45 0)
+			(at 33.02 44.45 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6231,7 +9540,7 @@
 			)
 		)
 		(property "Description" "BFC280832659"
-			(at 38.1 44.45 0)
+			(at 33.02 44.45 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6242,7 +9551,40 @@
 			)
 		)
 		(property "LCSC" "C3273327"
-			(at 38.1 44.45 0)
+			(at 33.02 44.45 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Label" ""
+			(at 33.02 44.45 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "BFC280832659"
+			(at 33.02 44.45 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SPN" "C3273327"
+			(at 33.02 44.45 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6290,7 +9632,7 @@
 				)
 			)
 		)
-		(property "Value" "47p"
+		(property "Value" "100p"
 			(at 172.72 26.67 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6311,7 +9653,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/C2958815.pdf"
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C1855551.pdf"
 			(at 172.72 30.48 0)
 			(hide yes)
 			(show_name no)
@@ -6322,7 +9664,7 @@
 				)
 			)
 		)
-		(property "Description" "FV42N470J302ECG"
+		(property "Description" "CC1808KKNPOEBN101"
 			(at 162.56 30.48 0)
 			(hide yes)
 			(show_name no)
@@ -6333,8 +9675,41 @@
 				)
 			)
 		)
-		(property "LCSC" "C2958815"
+		(property "LCSC" "C1855551"
 			(at 172.72 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Label" ""
+			(at 172.72 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "CC1808KKNPOEBN101"
+			(at 172.72 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SPN" "C1855551"
+			(at 172.72 30.48 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6361,7 +9736,7 @@
 	)
 	(symbol
 		(lib_id "Device:R_Small")
-		(at 132.08 40.64 270)
+		(at 134.62 40.64 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -6372,7 +9747,7 @@
 		(fields_autoplaced yes)
 		(uuid "d139f10c-7063-442c-88b6-414cb0261a36")
 		(property "Reference" "R21"
-			(at 132.08 35.56 90)
+			(at 134.62 35.56 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6382,7 +9757,7 @@
 			)
 		)
 		(property "Value" "2M"
-			(at 132.08 38.1 90)
+			(at 134.62 38.1 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6392,7 +9767,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_2512_6332Metric"
-			(at 132.08 40.64 0)
+			(at 134.62 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6403,7 +9778,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/C2779442.pdf"
-			(at 132.08 40.64 0)
+			(at 134.62 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6414,7 +9789,7 @@
 			)
 		)
 		(property "Description" "HV121WF2004T4E"
-			(at 132.08 40.64 0)
+			(at 134.62 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6425,7 +9800,40 @@
 			)
 		)
 		(property "LCSC" "C2779442"
-			(at 132.08 40.64 0)
+			(at 134.62 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Label" ""
+			(at 134.62 40.64 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "HV121WF2004T4E"
+			(at 134.62 40.64 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SPN" "C2779442"
+			(at 134.62 40.64 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6445,6 +9853,130 @@
 			(project "hv-probe-passive"
 				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
 					(reference "R21")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 279.4 30.48 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "d850f349-3db1-4d28-b0ab-7f7586cd67f0")
+		(property "Reference" "R49"
+			(at 279.4 25.4 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.016 1.016)
+				)
+			)
+		)
+		(property "Value" "10R"
+			(at 279.4 27.94 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
+			(at 279.4 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C3008858.pdf"
+			(at 279.4 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "CRCW120610R0JNEAHP"
+			(at 279.4 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C3008858"
+			(at 279.4 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Label" ""
+			(at 279.4 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "CRCW120610R0JNEAHP"
+			(at 279.4 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SPN" "C3008858"
+			(at 279.4 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "de2e0ff6-613d-4a30-b2d0-39e9eadd46c2")
+		)
+		(pin "1"
+			(uuid "1e0ac52c-1e5e-48d6-a32d-22550e130de5")
+		)
+		(instances
+			(project "hv-probe-passive"
+				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
+					(reference "R49")
 					(unit 1)
 				)
 			)
@@ -6473,7 +10005,7 @@
 				)
 			)
 		)
-		(property "Value" "47p"
+		(property "Value" "150p"
 			(at 203.2 26.67 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6494,7 +10026,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/C2958815.pdf"
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C3888906.pdf"
 			(at 203.2 30.48 0)
 			(hide yes)
 			(show_name no)
@@ -6505,7 +10037,7 @@
 				)
 			)
 		)
-		(property "Description" "FV42N470J302ECG"
+		(property "Description" "1808N151K302CT"
 			(at 193.04 30.48 0)
 			(hide yes)
 			(show_name no)
@@ -6516,8 +10048,41 @@
 				)
 			)
 		)
-		(property "LCSC" "C2958815"
+		(property "LCSC" "C3888906"
 			(at 203.2 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Label" ""
+			(at 203.2 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "1808N151K302CT"
+			(at 203.2 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SPN" "C3888906"
+			(at 203.2 30.48 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6544,7 +10109,131 @@
 	)
 	(symbol
 		(lib_id "Device:R_Small")
-		(at 213.36 40.64 270)
+		(at 228.6 30.48 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "dd3dc7c2-b448-41e7-ac34-b2b34842a639")
+		(property "Reference" "R44"
+			(at 228.6 25.4 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.016 1.016)
+				)
+			)
+		)
+		(property "Value" "10R"
+			(at 228.6 27.94 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
+			(at 228.6 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C3008858.pdf"
+			(at 228.6 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "CRCW120610R0JNEAHP"
+			(at 228.6 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C3008858"
+			(at 228.6 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Label" ""
+			(at 228.6 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "CRCW120610R0JNEAHP"
+			(at 228.6 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SPN" "C3008858"
+			(at 228.6 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "704f0ac8-fd29-4e6f-81e9-e1d068d30feb")
+		)
+		(pin "1"
+			(uuid "1bb32b35-4a0b-403c-a463-093d3cac0a3d")
+		)
+		(instances
+			(project "hv-probe-passive"
+				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
+					(reference "R44")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 215.9 40.64 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -6555,7 +10244,7 @@
 		(fields_autoplaced yes)
 		(uuid "dd57210b-2785-4d66-872d-0e2761bae0e8")
 		(property "Reference" "R13"
-			(at 213.36 35.56 90)
+			(at 215.9 35.56 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6565,7 +10254,7 @@
 			)
 		)
 		(property "Value" "2M"
-			(at 213.36 38.1 90)
+			(at 215.9 38.1 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6575,7 +10264,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_2512_6332Metric"
-			(at 213.36 40.64 0)
+			(at 215.9 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6586,7 +10275,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/C2779442.pdf"
-			(at 213.36 40.64 0)
+			(at 215.9 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6597,7 +10286,7 @@
 			)
 		)
 		(property "Description" "HV121WF2004T4E"
-			(at 213.36 40.64 0)
+			(at 215.9 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6608,7 +10297,40 @@
 			)
 		)
 		(property "LCSC" "C2779442"
-			(at 213.36 40.64 0)
+			(at 215.9 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Label" ""
+			(at 215.9 40.64 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "HV121WF2004T4E"
+			(at 215.9 40.64 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SPN" "C2779442"
+			(at 215.9 40.64 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6635,7 +10357,7 @@
 	)
 	(symbol
 		(lib_id "Device:R_Small")
-		(at 203.2 40.64 270)
+		(at 205.74 40.64 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -6646,7 +10368,7 @@
 		(fields_autoplaced yes)
 		(uuid "df613f5f-835f-44aa-b901-740fdf2e7173")
 		(property "Reference" "R14"
-			(at 203.2 35.56 90)
+			(at 205.74 35.56 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6656,7 +10378,7 @@
 			)
 		)
 		(property "Value" "2M"
-			(at 203.2 38.1 90)
+			(at 205.74 38.1 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6666,7 +10388,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_2512_6332Metric"
-			(at 203.2 40.64 0)
+			(at 205.74 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6677,7 +10399,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/C2779442.pdf"
-			(at 203.2 40.64 0)
+			(at 205.74 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6688,7 +10410,7 @@
 			)
 		)
 		(property "Description" "HV121WF2004T4E"
-			(at 203.2 40.64 0)
+			(at 205.74 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6699,7 +10421,40 @@
 			)
 		)
 		(property "LCSC" "C2779442"
-			(at 203.2 40.64 0)
+			(at 205.74 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Label" ""
+			(at 205.74 40.64 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "HV121WF2004T4E"
+			(at 205.74 40.64 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SPN" "C2779442"
+			(at 205.74 40.64 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6726,7 +10481,7 @@
 	)
 	(symbol
 		(lib_id "Device:C_Small")
-		(at 53.34 45.72 180)
+		(at 48.26 45.72 180)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -6736,7 +10491,7 @@
 		(dnp no)
 		(uuid "e122225e-4212-427d-9210-9da3555cba54")
 		(property "Reference" "C34"
-			(at 55.245 44.45 0)
+			(at 50.165 44.45 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6746,8 +10501,8 @@
 				(justify right)
 			)
 		)
-		(property "Value" "680p"
-			(at 55.245 46.9965 0)
+		(property "Value" "2n2"
+			(at 50.165 46.9965 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6758,7 +10513,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric"
-			(at 53.34 45.72 0)
+			(at 48.26 45.72 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6768,8 +10523,8 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/C3871624.pdf"
-			(at 53.34 45.72 0)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C577152.pdf"
+			(at 48.26 45.72 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6779,8 +10534,8 @@
 				)
 			)
 		)
-		(property "Description" "Unpolarized capacitor, small symbol"
-			(at 53.34 45.72 0)
+		(property "Description" "CC1206JRNPO0BN222"
+			(at 48.26 45.72 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6790,8 +10545,8 @@
 				)
 			)
 		)
-		(property "MPN" "AC1206JRNPOBBN681"
-			(at 53.34 45.72 0)
+		(property "MPN" "CC1206JRNPO0BN222"
+			(at 48.26 45.72 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6801,8 +10556,30 @@
 				)
 			)
 		)
-		(property "LCSC" "C3871624"
-			(at 53.34 45.72 0)
+		(property "LCSC" "C577152"
+			(at 48.26 45.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Label" ""
+			(at 48.26 45.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SPN" "C3871624"
+			(at 48.26 45.72 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6904,6 +10681,39 @@
 				)
 			)
 		)
+		(property "Label" ""
+			(at 81.28 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "FV42N470J302ECG"
+			(at 81.28 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SPN" "C2958815"
+			(at 81.28 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "03e38ff9-ac35-4603-99ae-d80545a6b18c")
 		)
@@ -6942,7 +10752,7 @@
 				)
 			)
 		)
-		(property "Value" "47p"
+		(property "Value" "180p"
 			(at 213.36 26.67 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6963,7 +10773,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/C2958815.pdf"
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C1883431.pdf"
 			(at 213.36 30.48 0)
 			(hide yes)
 			(show_name no)
@@ -6974,7 +10784,7 @@
 				)
 			)
 		)
-		(property "Description" "FV42N470J302ECG"
+		(property "Description" "C1808C181FHGACAUTO"
 			(at 203.2 30.48 0)
 			(hide yes)
 			(show_name no)
@@ -6985,8 +10795,41 @@
 				)
 			)
 		)
-		(property "LCSC" "C2958815"
+		(property "LCSC" "C1883431"
 			(at 213.36 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Label" ""
+			(at 213.36 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "C1808C181FHGACAUTO"
+			(at 213.36 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SPN" "C1883431"
+			(at 213.36 30.48 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7013,7 +10856,131 @@
 	)
 	(symbol
 		(lib_id "Device:R_Small")
-		(at 111.76 40.64 270)
+		(at 208.28 30.48 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "ea8f2a10-48e5-4d5c-a3f1-9db6534d3b16")
+		(property "Reference" "R42"
+			(at 208.28 25.4 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.016 1.016)
+				)
+			)
+		)
+		(property "Value" "10R"
+			(at 208.28 27.94 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
+			(at 208.28 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C3008858.pdf"
+			(at 208.28 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "CRCW120610R0JNEAHP"
+			(at 208.28 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C3008858"
+			(at 208.28 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Label" ""
+			(at 208.28 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "CRCW120610R0JNEAHP"
+			(at 208.28 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SPN" "C3008858"
+			(at 208.28 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "b1f4cd44-e198-421c-af45-c893cb6384b4")
+		)
+		(pin "1"
+			(uuid "d8db6581-d473-49fe-8fb1-0738409e1785")
+		)
+		(instances
+			(project "hv-probe-passive"
+				(path "/3b20e106-b140-40ed-b1d5-710ed0621292"
+					(reference "R42")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 114.3 40.64 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -7024,7 +10991,7 @@
 		(fields_autoplaced yes)
 		(uuid "f036c00a-acb6-4810-a3d9-869698b4893e")
 		(property "Reference" "R23"
-			(at 111.76 35.56 90)
+			(at 114.3 35.56 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7034,7 +11001,7 @@
 			)
 		)
 		(property "Value" "2M"
-			(at 111.76 38.1 90)
+			(at 114.3 38.1 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7044,7 +11011,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_2512_6332Metric"
-			(at 111.76 40.64 0)
+			(at 114.3 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7055,7 +11022,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/C2779442.pdf"
-			(at 111.76 40.64 0)
+			(at 114.3 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7066,7 +11033,7 @@
 			)
 		)
 		(property "Description" "HV121WF2004T4E"
-			(at 111.76 40.64 0)
+			(at 114.3 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7077,7 +11044,40 @@
 			)
 		)
 		(property "LCSC" "C2779442"
-			(at 111.76 40.64 0)
+			(at 114.3 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Label" ""
+			(at 114.3 40.64 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "HV121WF2004T4E"
+			(at 114.3 40.64 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SPN" "C2779442"
+			(at 114.3 40.64 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7104,7 +11104,7 @@
 	)
 	(symbol
 		(lib_id "Connector:Conn_Coaxial")
-		(at 20.32 30.48 0)
+		(at 15.24 30.48 0)
 		(mirror y)
 		(unit 1)
 		(body_style 1)
@@ -7115,7 +11115,7 @@
 		(dnp no)
 		(uuid "f3e7a47f-8177-41ae-b303-28b62dc18c0a")
 		(property "Reference" "J2"
-			(at 24.13 24.13 0)
+			(at 15.24 24.13 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7125,7 +11125,7 @@
 			)
 		)
 		(property "Value" "OUT"
-			(at 24.13 26.67 0)
+			(at 15.24 26.67 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7135,7 +11135,7 @@
 			)
 		)
 		(property "Footprint" "Connector_Coaxial:BNC_Amphenol_B6252HB-NPP3G-50_Horizontal"
-			(at 20.32 30.48 0)
+			(at 15.24 30.48 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7146,7 +11146,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.mouser.pl/datasheet/2/18/1/amphs06325_1-2259332.pdf"
-			(at 20.32 30.48 0)
+			(at 15.24 30.48 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7156,8 +11156,8 @@
 				)
 			)
 		)
-		(property "Description" "coaxial connector (BNC, SMA, SMB, SMC, Cinch/RCA, LEMO, ...)"
-			(at 20.32 30.48 0)
+		(property "Description" "112413"
+			(at 15.24 30.48 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7168,7 +11168,7 @@
 			)
 		)
 		(property "MPN" "112413"
-			(at 20.32 30.48 0)
+			(at 15.24 30.48 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7179,7 +11179,18 @@
 			)
 		)
 		(property "SPN" "523-112413"
-			(at 20.32 30.48 0)
+			(at 15.24 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Label" ""
+			(at 15.24 30.48 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7206,7 +11217,7 @@
 	)
 	(symbol
 		(lib_id "Device:C_Small")
-		(at 45.72 45.72 180)
+		(at 40.64 45.72 180)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -7216,7 +11227,7 @@
 		(dnp no)
 		(uuid "f4f926ed-ee32-48b5-a901-8a582fc6c1cd")
 		(property "Reference" "C35"
-			(at 47.625 44.45 0)
+			(at 42.545 44.45 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7227,7 +11238,7 @@
 			)
 		)
 		(property "Value" "330p"
-			(at 47.625 46.9965 0)
+			(at 42.545 46.9965 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7238,7 +11249,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric"
-			(at 45.72 45.72 0)
+			(at 40.64 45.72 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7249,7 +11260,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/C20617886.pdf"
-			(at 45.72 45.72 0)
+			(at 40.64 45.72 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7259,8 +11270,8 @@
 				)
 			)
 		)
-		(property "Description" "Unpolarized capacitor, small symbol"
-			(at 45.72 45.72 0)
+		(property "Description" "1206CG331J101NT"
+			(at 40.64 45.72 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7271,7 +11282,7 @@
 			)
 		)
 		(property "MPN" "1206CG331J101NT"
-			(at 45.72 45.72 0)
+			(at 40.64 45.72 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7282,7 +11293,29 @@
 			)
 		)
 		(property "SPN" "C20617886"
-			(at 45.72 45.72 0)
+			(at 40.64 45.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C20617886"
+			(at 40.64 45.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Label" ""
+			(at 40.64 45.72 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7309,7 +11342,7 @@
 	)
 	(symbol
 		(lib_id "Device:R_Small")
-		(at 264.16 40.64 270)
+		(at 266.7 40.64 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -7320,7 +11353,7 @@
 		(fields_autoplaced yes)
 		(uuid "f7099ca4-6b9e-4266-bf61-387ea0a7f4d1")
 		(property "Reference" "R8"
-			(at 264.16 35.56 90)
+			(at 266.7 35.56 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7330,7 +11363,7 @@
 			)
 		)
 		(property "Value" "2M"
-			(at 264.16 38.1 90)
+			(at 266.7 38.1 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7340,7 +11373,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_2512_6332Metric"
-			(at 264.16 40.64 0)
+			(at 266.7 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7351,7 +11384,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/datasheet/C2779442.pdf"
-			(at 264.16 40.64 0)
+			(at 266.7 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7362,7 +11395,7 @@
 			)
 		)
 		(property "Description" "HV121WF2004T4E"
-			(at 264.16 40.64 0)
+			(at 266.7 40.64 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7373,7 +11406,40 @@
 			)
 		)
 		(property "LCSC" "C2779442"
-			(at 264.16 40.64 0)
+			(at 266.7 40.64 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Label" ""
+			(at 266.7 40.64 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "HV121WF2004T4E"
+			(at 266.7 40.64 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SPN" "C2779442"
+			(at 266.7 40.64 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7421,7 +11487,7 @@
 				)
 			)
 		)
-		(property "Value" "47p"
+		(property "Value" "220p"
 			(at 243.84 26.67 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7442,7 +11508,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/C2958815.pdf"
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C3893923.pdf"
 			(at 243.84 30.48 0)
 			(hide yes)
 			(show_name no)
@@ -7453,7 +11519,7 @@
 				)
 			)
 		)
-		(property "Description" "FV42N470J302ECG"
+		(property "Description" "1808N221K302CT"
 			(at 233.68 30.48 0)
 			(hide yes)
 			(show_name no)
@@ -7464,8 +11530,41 @@
 				)
 			)
 		)
-		(property "LCSC" "C2958815"
+		(property "LCSC" "C3893923"
 			(at 243.84 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Label" ""
+			(at 243.84 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "1808N221K302CT"
+			(at 243.84 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SPN" "C3893923"
+			(at 243.84 30.48 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7513,7 +11612,7 @@
 				)
 			)
 		)
-		(property "Value" "47p"
+		(property "Value" "56p"
 			(at 111.76 26.67 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7534,7 +11633,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/C2958815.pdf"
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C2351436.pdf"
 			(at 111.76 30.48 0)
 			(hide yes)
 			(show_name no)
@@ -7545,7 +11644,7 @@
 				)
 			)
 		)
-		(property "Description" "FV42N470J302ECG"
+		(property "Description" "1808J5K00560KCT"
 			(at 101.6 30.48 0)
 			(hide yes)
 			(show_name no)
@@ -7556,8 +11655,41 @@
 				)
 			)
 		)
-		(property "LCSC" "C2958815"
+		(property "LCSC" "C2351436"
 			(at 111.76 30.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Label" ""
+			(at 111.76 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "1808J5K00560KCT"
+			(at 111.76 30.48 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "SPN" "C2351436"
+			(at 111.76 30.48 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)

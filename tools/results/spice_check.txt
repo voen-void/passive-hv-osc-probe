@@ -1,8 +1,9 @@
 wrote C:\Users\jansk\Desktop\things\electronics\kicad projects\hv-probe-project-files\passive-hv-osc-probe\tools\results\probe.cir
+(probe_sim evaluated without dielectric loss, like the netlist)
          f       LTspice     probe_sim     diff
-       100     -60.059dB     -60.059dB  -0.000
-     1e+04     -65.987dB     -65.987dB   0.000
-     1e+06     -65.883dB     -65.882dB   0.001
-     1e+07     -64.787dB     -64.744dB   0.043
-     3e+07     -44.598dB     -43.349dB   1.248
-     1e+08     -60.347dB     -60.871dB  -0.524
+       100     -60.036dB     -60.036dB  -0.000
+     1e+04     -63.327dB     -63.327dB   0.000
+     1e+06     -63.202dB     -63.201dB   0.001
+     1e+07     -63.041dB     -63.015dB   0.026
+     3e+07     -62.168dB     -62.207dB  -0.038
+     1e+08     -63.861dB     -64.115dB  -0.255

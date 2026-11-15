@@ -1,0 +1,18 @@
+divider: 20 segments, HV net /IN -> output /OUT
+top: R = 40 MOhm, discrete C in series = 2.35 pF
+bottom: R parts R29, R28, R27, pot RV2 = 107.5 kOhm, C parts C35, C34 = 1.01 nF, trimmer C13 35.2 pF
+back termination: R29 = 49.9 Ohm
+D1 (H3V3SD3B): modelled as 20 pF
+dielectrics (eps' / tan d), parasitics scaled per material from the field solve at air 1.00, resin 4.00, FR4 4.50:
+  resin  50: 6.00/0.110  1k: 4.74/0.124  10k: 4.06/0.054  100k: 4.00/0.006  1M: 4.00/0.001  100M: 4.00/0.000
+  FR4    50: 5.07/0.018  1k: 4.90/0.018  10k: 4.76/0.019  100k: 4.63/0.019  1M: 4.50/0.020  100M: 4.24/0.021
+cable: RG58 1.5 m (152 pF); scope 1 MOhm || 15 pF
+DC ratio: 1000.00
+parasitic: sum of divider node capacitance to the shield = 16.6 pF (vs 2.35 pF series) -> alpha = sqrt(Cg/Cs) = 2.66
+ideal divider (no parasitics) needs fixed+trimmer = 2.16 nF
+as built: LF error 40.3 %, C_in 8.41 pF @1 MHz
+with parasitics, best bottom C leaves LF error 32.7 %
+  required fixed+trimmer capacitance: 451 pF (PCB now: 1.01 nF fixed + trimmer 5.5 pF..65 pF)
+  -> fixed 390 pF + 27 pF         trimmer at 33.9 pF (ok)
+  -> fixed 390 pF + 22 pF         trimmer at 38.9 pF (ok)
+  -> fixed 330 pF + 82 pF         trimmer at 38.9 pF (ok)

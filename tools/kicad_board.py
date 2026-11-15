@@ -92,7 +92,11 @@ def capsule_poly(p1, p2, width, n=8):
 def chain_loops(segments, tol=1e-3):
     """Join polyline pieces [(p0..pn), ...] into closed loops."""
     pieces = [list(s) for s in segments]
-    loops = []
+    # shapes that are already closed (rectangles, circles, polygons) are loops on
+    # their own and must not be chained to lines that touch their corners
+    is_closed = lambda p: len(p) > 2 and math.dist(p[0], p[-1]) < tol
+    loops = [p[:-1] for p in pieces if is_closed(p)]
+    pieces = [p for p in pieces if not is_closed(p)]
     while pieces:
         loop = pieces.pop(0)
         changed = True
@@ -175,6 +179,7 @@ class Board:
     tube: dict             # x0, x1, yc, r_in, wall
     resin: list            # closed outline polygon in (x, y)
     texts: list
+    shield_extra: list = field(default_factory=list)   # other grounded metal (end caps ...), revolved
 
     @property
     def nets(self):
@@ -296,7 +301,7 @@ def load_board(path):
                 barrels.append((net, poly))
             else:
                 pad_shapes.append((ref, fp[1], cu_layers[0], net, poly))
-        if ref[0] in "RC" or ref.startswith("RV"):
+        if len(set(pads.values())) >= 2 and not ref.startswith("J"):
             parts[ref] = Part(ref, props.get("Value", ""), fp[1], fp_layer, pads, props.get("Description", ""))
 
     # --- graphics: edge cuts, shield, resin ---------------------------------
@@ -322,76 +327,143 @@ def load_board(path):
     loops.sort(key=poly_area, reverse=True)
     outline, holes = loops[0], loops[1:]
 
-    tube = _tube_from_shield(shield)
+    tube, shield_extra = _shield_from_user1(shield)
     resin_loops = chain_loops(resin)
     resin_loops.sort(key=poly_area, reverse=True)
     resin_outline = resin_loops[0] if resin_loops else []
 
     return Board(path, thickness, outline, holes, copper, barrels, pad_shapes,
-                 parts, tube, resin_outline, texts)
+                 parts, tube, resin_outline, texts, shield_extra)
 
 
-def _tube_from_shield(shield):
-    """The shield is drawn as two rectangles (upper and lower tube wall)."""
-    if len(shield) < 2:
-        raise ValueError("expected two rectangles on User.1 describing the tube wall")
-    boxes = []
-    for pl in shield:
-        xs = [p[0] for p in pl]
-        ys = [p[1] for p in pl]
-        boxes.append((min(xs), max(xs), min(ys), max(ys)))
-    boxes.sort(key=lambda b: b[2])
-    top, bot = boxes[0], boxes[-1]
-    r_in = (bot[2] - top[3]) / 2
-    return {
-        "x0": min(top[0], bot[0]),
-        "x1": max(top[1], bot[1]),
-        "yc": (bot[2] + top[3]) / 2,
-        "r_in": r_in,
-        "wall": ((top[3] - top[2]) + (bot[3] - bot[2])) / 2,
+def _dedupe(pieces, nd=4):
+    """Drop repeated line pieces (the same segment drawn twice or reversed)."""
+    seen, out = set(), []
+    for pl in pieces:
+        key = tuple(sorted((tuple(round(c, nd) for c in pl[0]), tuple(round(c, nd) for c in pl[-1])))) \
+            if len(pl) == 2 else None
+        if key is not None:
+            if key in seen:
+                continue
+            seen.add(key)
+        out.append(pl)
+    return out
+
+
+def _shield_from_user1(shield):
+    """User.1 holds the axial cross-section of all grounded metal around the
+    board: the tube walls plus anything else (end caps, flared or rolled rims).
+    Every closed shape is revolved around the tube axis.
+
+    The two long axis-parallel rectangles (one above, one below the axis) are
+    recognised as the tube wall and described by a dict, so the tube end can be
+    varied (tube_sweep.py); every other closed shape is returned as an extra
+    polygon in (x, y).
+    """
+    loops = [l for l in chain_loops(_dedupe(shield)) if len(l) >= 3 and poly_area(l) > 1e-4]
+    if not loops:
+        raise ValueError("no closed shapes on User.1 (expected the tube wall cross-section)")
+    ys = [p[1] for l in loops for p in l]
+    yc = 0.5 * (min(ys) + max(ys))
+
+    def box(l):
+        xs, yy = [p[0] for p in l], [p[1] for p in l]
+        return min(xs), max(xs), min(yy), max(yy)
+
+    def is_rect(l):
+        x0, x1, y0, y1 = box(l)
+        return abs(poly_area(l) - (x1 - x0) * (y1 - y0)) < 1e-3 * max((x1 - x0) * (y1 - y0), 1e-9)
+
+    rects = sorted((l for l in loops if is_rect(l)), key=lambda l: box(l)[1] - box(l)[0], reverse=True)
+    upper = next((l for l in rects if box(l)[3] <= yc + 1e-6), None)
+    lower = next((l for l in rects if box(l)[2] >= yc - 1e-6), None)
+    if upper is None or lower is None:
+        raise ValueError("User.1 needs the tube wall drawn as two rectangles, one on each side of the axis")
+    bu, bl = box(upper), box(lower)
+    tube = {
+        "x0": min(bu[0], bl[0]),
+        "x1": max(bu[1], bl[1]),
+        "yc": yc,
+        "r_in": 0.5 * (bl[2] - bu[3]),
+        "wall": 0.5 * ((bu[3] - bu[2]) + (bl[3] - bl[2])),
     }
+    extra = [l for l in loops if l is not upper and l is not lower]
+    return tube, extra
 
 
 # ----------------------------------------------------------------------------
 # divider topology helpers
 
-def ladder_order(board, hv_net, out_net):
-    """Walk the divider from the HV net to the output net through R parts.
+def resolve_net(board, name):
+    """Find a net by name. Local labels are stored with their sheet path
+    ("/IN"), so "IN" also matches "/IN"."""
+    nets = set(board.nets) | {n for p in board.parts.values() for n in p.nets}
+    if name in nets:
+        return name
+    hits = [n for n in nets if n.split("/")[-1] == name.split("/")[-1]]
+    if len(hits) == 1:
+        return hits[0]
+    raise ValueError(f"net '{name}' not found on the board (candidates: {hits or sorted(nets)})")
 
-    Returns the list of nets [hv, n1, ..., out] in order.
-    """
+
+def _resistor_graph(board):
     adj = {}
     for p in board.parts.values():
         if p.ref.startswith("R") and not p.ref.startswith("RV") and len(p.nets) == 2:
             a, b = p.nets
-            adj.setdefault(a, set()).add(b)
-            adj.setdefault(b, set()).add(a)
+            adj.setdefault(a, []).append(b)
+            adj.setdefault(b, []).append(a)
+    return adj
+
+
+def ladder_order(board, hv_net):
+    """Walk the divider from the HV net through the chain of resistors.
+
+    Every inner node of the chain has exactly two resistors. The walk ends at
+    the first node where the chain branches (the divider bottom, where the
+    bottom resistors / compensation / output parts connect) or where the next
+    resistor goes to GND.
+
+    Returns the list of nets [hv, n1, ..., bottom].
+    """
+    adj = _resistor_graph(board)
+    if hv_net not in adj:
+        raise ValueError(f"no resistor connects to the input net {hv_net}")
     order = [hv_net]
-    prev = None
     cur = hv_net
-    while cur != out_net:
-        nxt = [n for n in adj.get(cur, ()) if n != prev and n not in order]
-        if len(nxt) != 1:
-            raise ValueError(f"divider chain is ambiguous or broken at {cur}: {nxt}")
-        prev, cur = cur, nxt[0]
+    while True:
+        nxt = [n for n in adj.get(cur, ()) if n not in order]
+        inner = cur == hv_net or len(adj[cur]) == 2
+        if len(nxt) != 1 or not inner or nxt[0] == "GND":
+            break
+        cur = nxt[0]
         order.append(cur)
+    if len(order) < 3:
+        raise ValueError(f"divider chain from {hv_net} is too short: {order}")
     return order
 
 
 def net_labels(board, hv_net, out_net):
-    """Friendly short names: HV, N01..Nxx, OUT, GND, others sanitised."""
+    """Friendly short names: HV, N01..Nxx, BOT (divider bottom), OUT (BNC), GND."""
     labels = {"GND": "GND"}
     try:
-        order = ladder_order(board, hv_net, out_net)
+        order = ladder_order(board, hv_net)
     except ValueError:
-        order = [hv_net, out_net]
-    labels[hv_net] = "HV"
-    labels[out_net] = "OUT"
+        order = [hv_net]
     for i, n in enumerate(order[1:-1], 1):
         labels[n] = f"N{i:02d}"
+    if len(order) > 1:
+        labels[order[-1]] = "BOT"
+    labels[hv_net] = "HV"
+    labels[out_net] = "OUT"
+    used = set(labels.values())
     for n in board.nets + [n for p in board.parts.values() for n in p.nets]:
         if n not in labels:
-            labels[n] = re.sub(r"[^A-Za-z0-9_]", "_", n).strip("_")
+            lab = re.sub(r"_+", "_", re.sub(r"[^A-Za-z0-9_]", "_", n)).strip("_")
+            while lab in used:
+                lab += "_"
+            labels[n] = lab
+            used.add(lab)
     return labels
 
 
@@ -399,16 +471,22 @@ if __name__ == "__main__":
     import argparse
     ap = argparse.ArgumentParser(description="Print what the tools read from a .kicad_pcb file")
     ap.add_argument("pcb")
-    ap.add_argument("--hv-net", default="Net-(C14-Pad1)")
-    ap.add_argument("--out-net", default="Net-(J2-In)")
+    ap.add_argument("--hv-net", default="IN")
+    ap.add_argument("--out-net", default="OUT")
     a = ap.parse_args()
     b = load_board(a.pcb)
     t = b.tube
     print(f"board thickness {b.thickness} mm, outline {len(b.outline)} pts, {len(b.holes)} slots")
     print(f"tube: x {t['x0']:.2f}..{t['x1']:.2f} mm, axis y={t['yc']:.3f}, ID {2*t['r_in']:.2f} mm, wall {t['wall']:.2f} mm")
+    for l in b.shield_extra:
+        xs, ys = [p[0] for p in l], [p[1] for p in l]
+        print(f"other shield metal (revolved): x {min(xs):.2f}..{max(xs):.2f}, y {min(ys):.2f}..{max(ys):.2f} mm")
     xs = [p[0] for p in b.resin]
     print(f"resin outline: x {min(xs):.2f}..{max(xs):.2f} mm")
-    labels = net_labels(b, a.hv_net, a.out_net)
+    hv, out = resolve_net(b, a.hv_net), resolve_net(b, a.out_net)
+    labels = net_labels(b, hv, out)
+    lad = ladder_order(b, hv)
+    print(f"divider: {len(lad)-1} segments, {hv} -> {lad[-1]} (bottom), output net {out}")
     print("nets with copper:")
     for n in b.nets:
         print(f"  {labels[n]:>8}  {n}")

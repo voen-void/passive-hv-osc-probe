@@ -24,6 +24,7 @@ import scipy.sparse as sp
 from matplotlib.path import Path
 
 from kicad_board import capsule_poly
+import dielectric
 
 EPS0 = 8.8541878128e-12
 
@@ -108,7 +109,14 @@ def _in_any_poly(polys, px, py):
     return m
 
 
-def build_model(board, cfg, scale=1.0, verbose=True):
+def build_model(board, cfg, scale=1.0, verbose=True, separate_env=False, x_forced=()):
+    """Discretise the probe. With separate_env=True the outer box becomes its
+    own conductor "ENV" (the surroundings) instead of being merged with GND;
+    used to quantify how well the shield screens the divider.
+
+    x_forced: extra grid lines along x. A sweep that moves the tube end passes
+    all its positions, so the grid (and the snapping of the copper to it)
+    stays the same for every position."""
     gcfg, mcfg, mat_cfg = cfg["geometry"], cfg["mesh"], cfg["materials"]
     t = board.thickness
     off = gcfg.get("board_offset_z", 0.0)
@@ -134,7 +142,7 @@ def build_model(board, cfg, scale=1.0, verbose=True):
     x_lo = min(min(bx), tube["x0"], min(rx)) - margin
     x_hi = max(max(bx), tube["x1"], max(rx)) + margin
     x = make_axis(x_lo, x_hi, [(min(bx) - 1, max(bx) + 1, hx), (min(rx), max(rx), ht)],
-                  [tube["x0"], tube["x1"]], hmax, gr)
+                  [tube["x0"], tube["x1"], *x_forced], hmax, gr)
     y = make_axis(yc - r_out - margin, yc + r_out + margin,
                   [(min(by) - 0.5, max(by) + 0.5, hy), (yc - r_out, yc + r_out, ht)],
                   [yc, yc - r_in, yc + r_in, yc - r_out, yc + r_out], hmax, gr)
@@ -163,17 +171,33 @@ def build_model(board, cfg, scale=1.0, verbose=True):
         inside |= path.contains_points(np.c_[Xg.ravel(), (yc + Rg).ravel()]).reshape(Xg.shape)
         idx = np.searchsorted(rq, np.round(R, 4))
         mat[inside[:, idx]] = RESIN
+        # The resin outline ends exactly at the tube's inner radius, but the
+        # wall is a staircase of grid nodes: cells just outside r_in that are
+        # still bounded by wall nodes would otherwise be air (a thin air layer
+        # against the shield). Inside the tube the resin fills up to the wall,
+        # so those cells take the resin state of the inner surface.
+        in_tube = (xc >= tube["x0"]) & (xc <= tube["x1"])
+        at_wall = path.contains_points(np.c_[xc, np.full_like(xc, yc - r_in + 1e-3)]) & in_tube
+        r_band = max(r_out, r_in + 1.5 * ht)            # same band as the wall nodes below
+        beyond = (R >= r_in - 1e-9) & (R <= r_band + 1e-9)                   # (ny-1, nz-1)
+        mat[at_wall[:, None, None] & beyond[None, :, :]] = RESIN
 
     Xb, Yb = np.meshgrid(xc, ycc, indexing="ij")
     on_board = _in_any_poly([board.outline], Xb, Yb) & ~_in_any_poly(board.holes, Xb, Yb)
     kz = (zc > z_b) & (zc < z_f)
     mat[on_board[:, :, None] & kz[None, None, :]] = FR4
 
-    eps_of = np.array([mat_cfg["air_er"], mat_cfg["resin_er"], mat_cfg["fr4_er"]])
+    er = dielectric.solve_permittivities(cfg)
+    eps_of = np.array([er["air"], er["resin"], er["FR4"]])
+    if verbose:
+        print(f"permittivities at {mat_cfg.get('solve_freq', 1e6):g} Hz: "
+              + ", ".join(f"{k} {v:.2f}" for k, v in er.items()))
     eps = eps_of[mat]
 
     # --- conductors on nodes -------------------------------------------------
     names = ["GND"] + [n for n in board.nets if n != "GND"]
+    if separate_env:
+        names.append("ENV")
     lab_of = {n: i for i, n in enumerate(names)}
     label = np.full((nx, ny, nz), -1, np.int16)
     conflicts = 0
@@ -187,8 +211,28 @@ def build_model(board, cfg, scale=1.0, verbose=True):
     # shield tube (ground)
     ix = np.nonzero((x >= tube["x0"] - 1e-9) & (x <= tube["x1"] + 1e-9))[0]
     Rn = np.sqrt((y[:, None] - yc) ** 2 + z[None, :] ** 2)
-    jw, kw = np.nonzero((Rn >= r_in - 1e-6) & (Rn <= r_out + 1e-6))
+    # On a coarse grid a thin staircased wall has diagonal gaps that leak field
+    # (matters for the shielding study); keep the band >= 1.5 grid steps thick.
+    r_wall = max(r_out, r_in + 1.5 * ht)
+    jw, kw = np.nonzero((Rn >= r_in - 1e-6) & (Rn <= r_wall + 1e-6))
     label[ix[:, None], jw[None, :], kw[None, :]] = 0
+
+    # other grounded metal drawn on User.1 (end caps, rims ...), revolved
+    if board.shield_extra:
+        rq = np.unique(np.round(Rn, 4))
+        ridx = np.searchsorted(rq, np.round(Rn, 4))
+        for loop in board.shield_extra:
+            lx = [p[0] for p in loop]
+            ii = np.nonzero((x >= min(lx) - 1e-9) & (x <= max(lx) + 1e-9))[0]
+            if len(ii) == 0:   # thinner than the grid: snap to the nearest plane
+                ii = np.array([int(_nearest(x, 0.5 * (min(lx) + max(lx))))])
+            Xg, Rg = np.meshgrid(x[ii], rq, indexing="ij")
+            path = Path(np.asarray(loop))
+            inside = path.contains_points(np.c_[Xg.ravel(), (yc - Rg).ravel()], radius=1e-6).reshape(Xg.shape)
+            inside |= path.contains_points(np.c_[Xg.ravel(), (yc + Rg).ravel()], radius=1e-6).reshape(Xg.shape)
+            sel = inside[:, ridx]                        # (len(ii), ny, nz)
+            a_, j_, k_ = np.nonzero(sel)
+            label[ii[a_], j_, k_] = 0
 
     kF, kB = int(_nearest(z, z_f)), int(_nearest(z, z_b))
     k_of_layer = {"F.Cu": kF, "B.Cu": kB}
@@ -228,10 +272,11 @@ def build_model(board, cfg, scale=1.0, verbose=True):
         for k in ks:
             mark(ii, jj, np.full_like(ii, k), lab_of[net])
 
-    # outer box = ground (far environment)
-    label[[0, -1], :, :] = 0
-    label[:, [0, -1], :] = 0
-    label[:, :, [0, -1]] = 0
+    # outer box = far environment (ground unless kept separate)
+    env = names.index("ENV") if separate_env else 0
+    label[[0, -1], :, :] = env
+    label[:, [0, -1], :] = env
+    label[:, :, [0, -1]] = env
 
     if verbose:
         counts = np.bincount(label[label >= 0].ravel(), minlength=len(names))
@@ -246,9 +291,13 @@ def build_model(board, cfg, scale=1.0, verbose=True):
 # ----------------------------------------------------------------------------
 # matrix
 
-def assemble(m):
-    """Symmetric positive (semi)definite FIT Laplacian. Units: eps0 * mm."""
-    x, y, z, eps = m.x, m.y, m.z, m.eps
+def assemble(m, eps=None):
+    """Symmetric positive (semi)definite FIT Laplacian. Units: eps0 * mm.
+
+    `eps` overrides the cell permittivity (used for per-material matrices).
+    """
+    x, y, z = m.x, m.y, m.z
+    eps = m.eps if eps is None else eps
     nx, ny, nz = m.shape
     dx, dy, dz = np.diff(x), np.diff(y), np.diff(z)
 
@@ -296,9 +345,13 @@ class Solver:
         self.free = np.nonzero(lab < 0)[0]
         self.fixed = np.nonzero(lab >= 0)[0]
         self.fixed_lab = lab[self.fixed]
-        self.L = L
-        self.A = L[self.free][:, self.free].tocsr()
-        self.Afc = L[self.free][:, self.fixed].tocsr()
+        self.N = L.shape[0]
+        self.L_fixed = L[self.fixed]               # charges need only the conductor rows; L itself is dropped
+        Lfree = L[self.free]
+        del L
+        self.A = Lfree[:, self.free].tocsr()
+        self.Afc = Lfree[:, self.fixed].tocsr()
+        del Lfree
         t1 = time.time()
         self.ml = pyamg.smoothed_aggregation_solver(self.A, symmetry="hermitian", max_coarse=1000)
         if verbose:
@@ -311,35 +364,139 @@ class Solver:
         b = -self.Afc @ phi_c
         res = []
         x = self.ml.solve(b, tol=self.tol, accel="cg", maxiter=300, residuals=res)
-        phi = np.empty(self.L.shape[0])
+        phi = np.empty(self.N)
         phi[self.free] = x
         phi[self.fixed] = phi_c
+        rel = res[-1] / max(res[0], 1e-300)
+        self.last = (len(res) - 1, rel)
         if self.verbose:
-            print(f"    {len(res)-1} CG iterations, rel. residual {res[-1]/max(res[0],1e-300):.1e}")
+            print(f"    {len(res)-1} CG iterations, rel. residual {rel:.1e}")
+        if rel > 10 * self.tol:
+            print(f"WARNING: CG did not converge ({len(res)-1} iterations, rel. residual {rel:.1e} > tol {self.tol:g})")
         return phi
 
     def charges(self, phi):
         """Charge on each conductor [C] for potential vector phi [V]."""
-        r = self.L @ phi
-        q = np.bincount(self.fixed_lab, weights=r[self.fixed], minlength=len(self.m.names))
+        r = self.L_fixed @ phi
+        q = np.bincount(self.fixed_lab, weights=r, minlength=len(self.m.names))
         return q * EPS0 * 1e-3
 
-    def capacitance_matrix(self):
-        """Maxwell capacitance matrix [F] including the GND row/column."""
-        n = len(self.m.names)
-        C = np.zeros((n, n))
+
+# ----------------------------------------------------------------------------
+# capacitance matrix
+
+_worker = None
+
+
+def _worker_init(model, tol, setup_lock):
+    global _worker
+    # The AMG setup needs about twice the memory the finished hierarchy keeps
+    # (~3.9 GB peak vs 1.9 GB on the default grid); one worker at a time.
+    with setup_lock:
+        _worker = Solver(model, tol=tol, verbose=False)
+
+
+def _unit_solve(k, solver=None):
+    """Conductor k at 1 V, all others at 0: (k, charges, phi as float32, CG iterations, residual, time)."""
+    s = solver or _worker
+    t0 = time.time()
+    v = np.zeros(len(s.m.names)); v[k] = 1.0
+    phi = s.solve(v)
+    return k, s.charges(phi), phi.astype(np.float32), *s.last, time.time() - t0
+
+
+def capacitance_matrix(model, tol=1e-8, workers=1, verbose=True):
+    """Maxwell capacitance matrix [F] including the GND row/column, the
+    per-material matrices, and the unit solutions.
+
+    Returns (C, P, Phi). P = {material name: matrix} is the part of every
+    element stored in each material, C = sum of partials:
+    C_ij = sum_m eps_m * integral over m of grad(phi_i).grad(phi_j), so the
+    dielectric loss of element ij is sum_m tan_d_m * P_m[ij] (first-order
+    perturbation). Phi[k-1] is the potential with conductor k at 1 V (float32);
+    any other excitation is a linear combination of them (combine()).
+
+    workers > 1 solves the conductors in that many processes, each with its
+    own AMG hierarchy (1.9 GB each on the default grid, plus ~2 GB while one
+    of them is being set up; the setups run one after another).
+    """
+    n = len(model.names)
+    C = np.zeros((n, n))
+    Phi = np.empty((n - 1, int(np.prod(model.shape))), np.float32)
+
+    def take(res):
+        k, q, phi, it, rel, dt = res
+        C[:, k] = q
+        Phi[k - 1] = phi
+        if verbose:
+            print(f"  conductor {k}/{n-1}: {model.names[k]}    {it} CG iterations, "
+                  f"rel. residual {rel:.1e} ({dt:.1f} s)", flush=True)
+
+    workers = max(1, min(int(workers), n - 1))
+    if workers == 1:
+        s = Solver(model, tol=tol, verbose=verbose)
+        s.verbose = False
         for k in range(1, n):
-            t0 = time.time()
-            v = np.zeros(n); v[k] = 1.0
-            if self.verbose:
-                print(f"  conductor {k}/{n-1}: {self.m.names[k]}", end="", flush=True)
-            phi = self.solve(v)
-            C[:, k] = self.charges(phi)
-            if self.verbose:
-                print(f"    ({time.time()-t0:.1f} s)")
-        # GND column from charge neutrality of each row
-        C[:, 0] = -C[:, 1:].sum(axis=1)
-        return 0.5 * (C + C.T)
+            take(_unit_solve(k, s))
+        del s
+    else:
+        import multiprocessing as mp
+        t0 = time.time()
+        if verbose:
+            print(f"solving {n-1} conductors in {workers} processes", flush=True)
+        ctx = mp.get_context("spawn")
+        with ctx.Pool(workers, _worker_init, (model, tol, ctx.Lock())) as pool:
+            for res in pool.imap_unordered(_unit_solve, range(1, n)):
+                take(res)
+        if verbose:
+            print(f"  all conductors in {time.time()-t0:.0f} s (incl. AMG setup per process)")
+    # GND column from charge neutrality of each row
+    C[:, 0] = -C[:, 1:].sum(axis=1)
+    C = 0.5 * (C + C.T)
+    P = partial_matrices(model, Phi)
+    if verbose:
+        err = np.abs(sum(P.values()) - C).max() / np.abs(C).max()
+        print(f"per-material matrices: max deviation of their sum from C = {err:.1e}")
+    return C, P, Phi
+
+
+def partial_matrices(model, Phi, chunk=400_000):
+    """Per-material Maxwell matrices Phi^T L_m Phi [F] from the unit solutions.
+
+    Works in row chunks: rows a..b of L_m only reach the columns within one
+    x-stride of them, so each chunk needs a narrow band of Phi in float64.
+    """
+    n = Phi.shape[0] + 1
+    N = Phi.shape[1]
+    sx = model.shape[1] * model.shape[2]
+    P = {}
+    for mid, name in MATERIAL_NAMES.items():
+        if not (model.mat == mid).any():
+            continue
+        Lm = assemble(model, np.where(model.mat == mid, model.eps, 0.0))
+        Cm = np.zeros((n, n))
+        for a in range(0, N, chunk):
+            b = min(N, a + chunk)
+            lo, hi = max(0, a - sx), min(N, b + sx)
+            band = Phi[:, lo:hi].astype(np.float64)                  # (n-1, hi-lo)
+            V = Lm[a:b, lo:hi] @ band.T                              # (b-a, n-1)
+            Cm[1:, 1:] += band[:, a - lo:b - lo] @ V
+        Cm[0, 1:] = -Cm[1:, 1:].sum(axis=0)        # neutrality (1^T L_m = 0)
+        Cm[1:, 0] = Cm[0, 1:]
+        Cm[0, 0] = -Cm[0, 1:].sum()
+        Cm *= EPS0 * 1e-3
+        P[name] = 0.5 * (Cm + Cm.T)
+    return P
+
+
+def combine(Phi, conductor_volts):
+    """Node potentials for arbitrary conductor voltages (GND = label 0 at 0 V)
+    as a linear combination of the unit solutions."""
+    phi = np.zeros(Phi.shape[1])
+    for k, v in enumerate(conductor_volts[1:], 1):
+        if v:
+            phi += v * Phi[k - 1].astype(np.float64)
+    return phi
 
 
 # ----------------------------------------------------------------------------

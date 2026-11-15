@@ -25,9 +25,26 @@ board_offset_z = 0.0
 
 # ---------------------------------------------------------------------------
 [materials]
-resin_er = 6.0     # Huntsman Arathane CW 5620 / HY 5610 (see datasheet; ~6 at 50 Hz)
-fr4_er   = 4.5     # from the KiCad stackup
-air_er   = 1.0
+# Each dielectric is a causal wideband (Djordjevic-Sarkar) model fitted to one
+# datasheet point: permittivity and loss tangent at spec_freq. Loss implies
+# dispersion (eps' falls with frequency); er_hf sets the high-frequency limit,
+# i.e. where the loss band ends. er_hf = 0 keeps the loss up to 10 GHz.
+# loss_f_lo sets where the loss band starts (default 0.01 Hz). Below spec_freq
+# eps' keeps rising down to it: for the resin 6.0 at 50 Hz, 6.7 at 10 Hz and
+# 9.5 at DC. That part is an extrapolation of the single datasheet point.
+# Changing these does not need a new field solve, except solve_freq.
+resin_er        = 6.0     # Huntsman Arathane CW 5620 BLUE, datasheet at 50 Hz
+resin_tan_d     = 0.11    # datasheet at 50 Hz ("11 %")
+resin_spec_freq = 50.0
+resin_er_hf     = 4.0     # ASSUMED (typical cured PU at 1 MHz); measure it if you can
+fr4_er          = 4.5     # KiCad stackup
+fr4_tan_d       = 0.02
+fr4_spec_freq   = 1.0e6
+fr4_er_hf       = 0.0
+air_er          = 1.0
+# The field solver uses each material's permittivity at this frequency; the
+# circuit model scales every parasitic, per material, by eps(f)/eps(solve_freq).
+solve_freq      = 1.0e6
 # Dielectric strength used for the stress report [kV/mm]. These are bulk
 # short-term values; derate heavily for long-term DC/AC stress and for
 # interfaces (surface tracking along the board/resin boundary).
@@ -50,10 +67,25 @@ growth     = 1.25   # max ratio between neighbouring steps
 margin     = 30.0   # free space around the tube/resin before the grounded box
 
 [solver]
-tol = 1e-8
+# Relative CG residual. 1e-6 changes the capacitance matrix by < 0.01 fF
+# against 1e-8 (checked on the --scale 2 grid) and saves ~30 % of the time.
+tol = 1e-6
+# Parallel processes for the field solves. Each holds its own copy of the
+# system and AMG hierarchy, so set these from the free RAM (and cores).
+#   workers:      extract_caps.py, one conductor per task. 1.9 GB per process
+#                 on the default grid, plus ~2 GB while one of them sets up
+#                 (one at a time), plus ~0.8 GB for the main process:
+#                 2 workers ~6.6 GB peak, 3 ~8.5 GB. 1 = serial.
+#   tube_workers: tube_sweep.py, one tube position per task, on its coarser
+#                 grid (scale 1.5): ~0.6 GB per process, ~1.1 GB peak.
+workers      = 2
+tube_workers = 4
 
 # ---------------------------------------------------------------------------
 [circuit]
+# Net names as in the schematic; "IN" also matches KiCad's "/IN". The divider
+# is followed from input_net through the resistor chain; it ends at the first
+# node where the chain branches (the divider bottom, labelled BOT).
 input_net    = "IN"               # HV tip
 output_net   = "OUT"              # BNC centre pin
 target_ratio = 1000.0
@@ -64,6 +96,7 @@ tip_r     = 0.0
 segment_r = 0.0
 pot_max   = 1.0e6                 # RV2 full-scale resistance
 extra_esl = 1.0e-9                # ESL given to capacitance added by the optimiser
+extra_esr = 0.05                  # ESR given to capacitance added by the optimiser
 
 # Per-part overrides. Values use SI suffixes ("47p", "2M") or numbers.
 #  - Trimmer (C13): a number/string sets its capacitance, "mid" = mid range.
@@ -75,15 +108,31 @@ RV2 = "auto"
 
 # Equivalent series inductance for capacitors, by footprint substring [H].
 [circuit.esl]
-"C_1808"  = 1.2e-9
-"C_1206"  = 1.0e-9
+"C_1808"  = 1.0e-9
+"C_1206"  = 0.736e-9
 "BFC2808" = 3.0e-9
+
+# Equivalent series resistance for capacitors, by footprint substring [ohm].
+# segment_r (above) is added on top of this for the divider capacitors.
+[circuit.esr]
+"C_1808"  = 0.05
+"C_1206"  = 0.0635
+"BFC2808" = 0.204
+
+# Capacitance of other two-terminal parts (diodes, TVS ...) [F or SI string].
+# Parts not listed here are left out of the model (probe_sim.py info warns).
+[circuit.part_capacitance]
+D1 = "20p"     # H36VND3B TVS junction capacitance (datasheet)
 
 # ---------------------------------------------------------------------------
 [cable]
 type     = "RG58"
 length   = 1.5     # [m]
-series_r = 49.9    # [ohm] resistor between the divider output and the cable (back termination)
+# Back-termination resistance between the divider bottom and the BNC [ohm].
+# "pcb" = use the resistor on the board (R29, detected automatically as the
+# resistor between the divider bottom and output_net). A number replaces its
+# value; on a board without such a resistor a number adds one.
+series_r = "pcb"
 
 # Characteristic impedance, velocity factor, DC loop resistance [ohm/m] and
 # attenuation at 100 MHz [dB/m]. Conductor (skin effect) loss is assumed.
@@ -121,6 +170,11 @@ hf_frequency = 1.0e6   # [Hz] frequency used for the "fast edge" voltage distrib
 # Compensation is tuned so |H(f)/H(0) - 1| is minimal over this band.
 f_lo = 10.0
 f_hi = 1.0e6
+# The peak error is often nearly flat over a range of bottom capacitances: its
+# worst point is a dip from the resin dispersion that they cannot move. Within
+# this fraction of the minimum peak, the capacitance with the smallest RMS
+# error is used (see tools/README.md, "Objective"). 0 = strict minimax.
+peak_tolerance = 0.01
 # Values available for the fixed bottom capacitors (C0G), used to suggest
 # a fixed part + trimmer combination.
 series = "E12"
@@ -133,6 +187,9 @@ top_cap       = ["10p", "22p", "33p", "47p", "68p", "100p", "220p"]
 # graded divider: bottom segment value, upper segments computed from the
 # parasitic matrix so that the fast-edge voltage distribution is linear
 graded_base   = ["22p", "33p", "47p"]
+# damping study (probe_sim.py damping): resistor per divider capacitor x tip resistor [ohm]
+seg_r         = [0.0, 4.7, 10.0, 22.0, 47.0]
+tip_r         = [0.0, 47.0, 100.0]
 
 # ---------------------------------------------------------------------------
 [analysis]

@@ -13,12 +13,15 @@ gives the frequency response, the input impedance and (through a numerical
 inverse Laplace transform) step responses.
 """
 
+import os
+os.environ.setdefault("OPENBLAS_NUM_THREADS", "1")   # batched small solves: ~80x faster single-threaded
 import json
 import math
 from dataclasses import dataclass, field
 
 import numpy as np
 
+import dielectric
 import kicad_board
 from kicad_board import parse_si
 
@@ -33,6 +36,7 @@ class Network:
         self.nodes = []          # node names, ground is "0"
         self.idx = {}
         self.elems = []          # (kind, a, b, params)
+        self.materials = {}      # material -> function(s) = eps(s) / eps at the field-solve frequency
 
     def node(self, name):
         if name == "0":
@@ -50,7 +54,7 @@ class Network:
     @staticmethod
     def admittance(kind, p, s):
         if kind == "R":
-            return np.full(s.shape, 1.0 / p["r"], complex)
+            return np.full(s.shape, 1.0 / max(p["r"], 1e-6), complex)
         if kind == "C":
             z = 1.0 / (s * p["c"])
             if p.get("esl"):
@@ -90,7 +94,16 @@ class Network:
                 Y[:, ib, ia] -= y
 
         for kind, a, b, p in self.elems:
-            if kind == "TL":
+            if kind == "CMAT":
+                # nodal capacitance matrices of the parasitics, one per material;
+                # each follows that material's (dispersive, lossy) permittivity
+                ix = [self.idx[nm] for nm in p["nodes"]]
+                Yp = 0
+                for m, Cm in p["mats"].items():
+                    r = self.materials[m](s) if m in self.materials else 1.0
+                    Yp = Yp + (s * r)[:, None, None] * Cm[None, :, :]
+                Y[np.ix_(range(len(s)), ix, ix)] += Yp
+            elif kind == "TL":
                 ys, yp = self.tline(p, s)
                 stamp(a, b, ys)
                 stamp(a, "0", yp)
@@ -99,8 +112,9 @@ class Network:
                 stamp(a, b, self.admittance(kind, p, s))
         return Y
 
-    def solve(self, s, fixed, chunk=2048):
-        """Node voltages for fixed node voltages `fixed` {name: V}.
+    def solve(self, s, fixed, chunk=2048, inject=None):
+        """Node voltages for fixed node voltages `fixed` {name: V}, plus
+        optional current sources `inject` {name: current into that node}.
 
         Returns (V [len(s), n], I_fixed {name: current into the network}).
         """
@@ -108,6 +122,7 @@ class Network:
         fi = [self.idx[k] for k in fixed]
         fv = np.array([fixed[k] for k in fixed], complex)
         ui = [i for i in range(len(self.nodes)) if i not in fi]
+        pos = {i: p for p, i in enumerate(ui)}
         V = np.zeros((len(s), len(self.nodes)), complex)
         I = np.zeros((len(s), len(fi)), complex)
         for c0 in range(0, len(s), chunk):
@@ -116,6 +131,8 @@ class Network:
             Yuu = Y[:, ui][:, :, ui]
             Yuf = Y[:, ui][:, :, fi]
             rhs = -(Yuf @ fv)
+            for name, cur in (inject or {}).items():
+                rhs[:, pos[self.idx[name]]] += cur
             Vu = np.linalg.solve(Yuu, rhs[..., None])[..., 0]
             Vs = V[sl]          # view
             Vs[:, ui] = Vu
@@ -133,7 +150,7 @@ class Network:
 class Params:
     cable_type: str = "RG58"
     length: float = 1.5
-    series_r: float = 0.0
+    series_r: float = None         # back-termination [ohm]; None = as on the PCB (R29)
     r_scope: float = 1e6
     c_scope: float = 15e-12
     scope_bw: float = 0.0
@@ -146,11 +163,14 @@ class Params:
     pot: float = None              # pot resistance [ohm], None = config / auto
     parasitics: bool = True
     esl: bool = True
+    esr: bool = True
+    dielectric_loss: bool = True
 
 
 def params_from_config(cfg, **over):
     cab, sc = cfg["cable"], cfg["scope"]
-    p = Params(cable_type=cab["type"], length=cab["length"], series_r=cab["series_r"],
+    sr = cab.get("series_r", "pcb")
+    p = Params(cable_type=cab["type"], length=cab["length"], series_r=None if sr == "pcb" else float(sr),
                r_scope=sc["r_in"], c_scope=sc["c_in"], scope_bw=sc.get("bandwidth", 0.0),
                source_r=cfg["circuit"].get("source_resistance", 0.0),
                tip_r=cfg["circuit"].get("tip_r", 0.0), seg_r=cfg["circuit"].get("segment_r", 0.0))
@@ -166,9 +186,12 @@ class Probe:
     def __init__(self, cfg, board, capdata, params):
         self.cfg, self.board, self.capdata, self.p = cfg, board, capdata, params
         cc = cfg["circuit"]
-        self.hv, self.out = cc["input_net"], cc["output_net"]
+        self.hv = kicad_board.resolve_net(board, cc["input_net"])
+        self.out = kicad_board.resolve_net(board, cc["output_net"])
         self.labels = kicad_board.net_labels(board, self.hv, self.out)
-        self.ladder = kicad_board.ladder_order(board, self.hv, self.out)
+        self.ladder = kicad_board.ladder_order(board, self.hv)
+        self.bottom = self.ladder[-1]
+        self.bot = self.labels[self.bottom]      # node label of the divider bottom
         self.nseg = len(self.ladder) - 1
         self._classify_parts()
         if params.pot is None:
@@ -185,8 +208,8 @@ class Probe:
         seg_of = {frozenset(pair): k for k, pair in enumerate(zip(self.ladder, self.ladder[1:]))}
         self.top = {}        # segment -> [cap refs]
         self.top_r = {}      # segment -> [res refs]
-        self.bottom_c, self.bottom_r = [], []
-        self.trim_ref, self.trim_range, self.pot_ref = None, None, None
+        self.bottom_c, self.bottom_r, self.other = [], [], []
+        self.trim_ref, self.trim_range, self.pot_ref, self.term_ref = None, None, None, None
         for p in self.board.parts.values():
             nets = frozenset(p.nets)
             if p.ref.startswith("RV"):
@@ -201,14 +224,20 @@ class Probe:
                 d.setdefault(seg_of[nets], []).append(p.ref)
             elif p.ref.startswith("C"):
                 self.bottom_c.append(p.ref)
-            else:
+            elif p.ref.startswith("R") and len(p.nets) == 2:
                 self.bottom_r.append(p.ref)
+                if nets == frozenset((self.bottom, self.out)):
+                    self.term_ref = p.ref       # back-termination resistor (R29)
+            else:
+                self.other.append(p.ref)        # diodes etc.: modelled by their capacitance
         over = cc.get("parts", {})
         if self.trim_ref and self.p.trim is None:
             t = over.get(self.trim_ref, "mid")
             self.p.trim = sum(self.trim_range) / 2 if t == "mid" else parse_si(str(t))
 
     def part_value(self, ref):
+        if ref == self.term_ref and self.p.series_r is not None:
+            return self.p.series_r
         over = self.cfg["circuit"].get("parts", {})
         if ref in over and ref not in (self.trim_ref, self.pot_ref):
             return parse_si(str(over[ref]))
@@ -222,6 +251,36 @@ class Probe:
             if k in fp:
                 return float(v)
         return 0.0
+
+    def esr_of(self, ref):
+        if not self.p.esr:
+            return 0.0
+        fp = self.board.parts[ref].footprint
+        for k, v in self.cfg["circuit"].get("esr", {}).items():
+            if k in fp:
+                return float(v)
+        return 0.0
+
+    def other_capacitance(self, ref):
+        v = self.cfg["circuit"].get("part_capacitance", {}).get(ref)
+        return parse_si(str(v)) if v is not None else None
+
+    def series_r_value(self):
+        if self.term_ref:
+            return self.part_value(self.term_ref)
+        return self.p.series_r or 0.0
+
+    def dielectric_models(self):
+        """(models, eps used by the field solve) if dispersion/loss is active, else None."""
+        if not self.p.dielectric_loss or "partial" not in (self.capdata or {}):
+            return None
+        models = dielectric.materials(self.cfg)
+        meta = self.capdata.get("meta", {})
+        eps_solve = meta.get("eps_solve")
+        if eps_solve is None and "resin_er" in meta:     # files from older versions
+            eps_solve = {"air": 1.0, "resin": meta["resin_er"], "FR4": meta["fr4_er"]}
+        eps_solve = eps_solve or dielectric.solve_permittivities(self.cfg)
+        return models, eps_solve
 
     def top_cap_values(self):
         """Discrete capacitance per segment [F] (sum of parallel parts)."""
@@ -247,34 +306,54 @@ class Probe:
             refs = self.top.get(k, [])
             esl = self.esl_of(refs[0]) if refs else 0.0
             if topc[k] > 0:
-                n.add("C", g(a), g(b), c=topc[k], esl=esl, esr=p.seg_r, ref="+".join(refs) or f"Cseg{k+1}")
+                esr = (self.esr_of(refs[0]) if refs else 0.0) + p.seg_r
+                n.add("C", g(a), g(b), c=topc[k], esl=esl, esr=esr, ref="+".join(refs) or f"Cseg{k+1}")
         # bottom network
         for r in self.bottom_r:
             a, b = self.board.parts[r].nets
             n.add("R", g(a), g(b), r=self.part_value(r), ref=r)
         for c in self.bottom_c:
             a, b = self.board.parts[c].nets
-            n.add("C", g(a), g(b), c=self.part_value(c), esl=self.esl_of(c), ref=c)
+            n.add("C", g(a), g(b), c=self.part_value(c), esl=self.esl_of(c), esr=self.esr_of(c), ref=c)
         if self.trim_ref and p.trim:
             a, b = self.board.parts[self.trim_ref].nets
-            n.add("C", g(a), g(b), c=p.trim, esl=self.esl_of(self.trim_ref), ref=self.trim_ref)
+            n.add("C", g(a), g(b), c=p.trim, esl=self.esl_of(self.trim_ref), esr=self.esr_of(self.trim_ref),
+                  ref=self.trim_ref)
+        for o in self.other:
+            c = self.other_capacitance(o)
+            if c:
+                a, b = self.board.parts[o].nets[:2]
+                n.add("C", g(a), g(b), c=c, ref=o)
         if p.extra_c:
-            # behaves like one more SMD capacitor (same ESL) when positive
-            esl = self.cfg["circuit"].get("extra_esl", 1.0e-9) if p.extra_c > 0 and p.esl else 0.0
-            n.add("C", "OUT", "0", c=p.extra_c, esl=esl, ref="Cextra")
+            # behaves like one more SMD capacitor (same ESL/ESR) when positive
+            cc = self.cfg["circuit"]
+            pos = p.extra_c > 0
+            n.add("C", self.bot, "0", c=p.extra_c, ref="Cextra",
+                  esl=cc.get("extra_esl", 1.0e-9) if pos and p.esl else 0.0,
+                  esr=cc.get("extra_esr", 0.05) if pos and p.esr else 0.0)
         if self.pot_ref:
             a, b = self.board.parts[self.pot_ref].nets
             n.add("R", g(a), g(b), r=max(p.pot, 1e-3), ref=self.pot_ref)
 
         # parasitics from the field solver
         if p.parasitics and self.capdata is not None:
+            # The Maxwell matrix without its GND row/column is the nodal
+            # capacitance matrix of the parasitics (all pair and ground caps).
             names = self.capdata["names"]
-            M = np.array(self.capdata["maxwell"])
-            for i in range(len(names)):
-                for j in range(i + 1, len(names)):
-                    c = -M[i, j]
-                    if c > 1e-17 and names[i] in L and names[j] in L:
-                        n.add("C", g(names[i]), g(names[j]), c=c, ref=f"Cp_{L[names[i]]}_{L[names[j]]}")
+            keep = [i for i, nm in enumerate(names) if nm != "GND" and nm in L]
+            nodes = [g(names[i]) for i in keep]
+            for nd in nodes:
+                n.node(nd)
+            sub = lambda A: np.asarray(A)[np.ix_(keep, keep)]
+            dm = self.dielectric_models()
+            if dm:
+                models, eps_solve = dm
+                mats = {m: sub(v) for m, v in self.capdata["partial"].items()}
+                n.materials = {m: (lambda s, d=models[m], e=eps_solve[m]: d.eps(s) / e) for m in mats}
+            else:
+                mats = {"static": sub(self.capdata["maxwell"])}
+            n.add("CMAT", nodes[0], nodes[0], nodes=nodes, mats=mats,
+                  maxwell=sub(self.capdata["maxwell"]), ref="Cp")
 
         # source
         n.node("HV")
@@ -286,7 +365,7 @@ class Probe:
 
         # output: series R -> cable -> scope
         node = "OUT"
-        if p.series_r > 0:
+        if not self.term_ref and p.series_r:
             n.add("R", "OUT", "CBL", r=p.series_r, ref="Rseries")
             node = "CBL"
         if p.length > 0:
@@ -430,33 +509,73 @@ def step_metrics(probe, t_max=1e-6, rise=None):
 # ----------------------------------------------------------------------------
 # compensation
 
-def compensation_error(probe, f_lo, f_hi, n=60):
-    f = np.logspace(math.log10(f_lo), math.log10(f_hi), n)
-    h = probe.H(f) / probe.H0()
-    return float(np.sqrt(np.mean((np.abs(h) - 1) ** 2)))
+def optimize_bottom(probe, f_lo=None, f_hi=None, lo=-2e-9, hi=20e-9, n=120, tiebreak=True):
+    """Find the extra BOT-GND capacitance (on top of the PCB's fixed parts and
+    the current trimmer setting) with the smallest peak gain error
+    max |H/H(DC)| - 1 over [f_lo, f_hi] (n log-spaced points, the reported
+    'LF error'). The peak error is quasi-convex in the capacitance, so a
+    bounded scalar search finds the minimax optimum.
 
+    Tie-break: the peak is often set by a point the bottom capacitance cannot
+    move (the low-frequency dip from the resin dispersion), so it is nearly
+    flat over a range of capacitances. With tiebreak, the capacitance with the
+    smallest RMS error over the same points is taken from those within
+    [optimize] peak_tolerance of the minimum peak. The grading and rounding
+    searches compare designs by the strict minimax error (tiebreak=False).
 
-def optimize_bottom(probe, f_lo=None, f_hi=None, lo=-2e-9, hi=20e-9):
-    """Find the extra OUT-GND capacitance (added to the current trimmer
-    setting) that makes the response flattest over [f_lo, f_hi].
-    Returns the optimum total trimmer-equivalent capacitance [F]."""
-    from scipy.optimize import minimize_scalar
+    The extra part is a shunt admittance y at BOT, so the network is solved
+    only twice (source on; unit current into BOT with the source off) and the
+    response for any y follows exactly from superposition:
+        V_scope(y) = V_scope - Z_scope,bot * y * V_bot / (1 + Z_bot,bot * y)
+    Returns (extra capacitance [F], peak error there); probe.p.extra_c is set to it."""
+    from scipy.optimize import brentq, minimize_scalar
     o = probe.cfg["optimize"]
     f_lo = f_lo or o["f_lo"]
     f_hi = f_hi or o["f_hi"]
-    base = probe.p.extra_c
     fixed_bottom = probe.bottom_fixed_c() + (probe.p.trim or 0)
     lo = max(lo, -fixed_bottom + 1e-12)
 
+    probe.p.extra_c = 0.0
+    net = probe._build()
+    f = np.concatenate(([1e-3], np.logspace(math.log10(f_lo), math.log10(f_hi), n)))   # [0] for H(DC), as H0()
+    s = 2j * np.pi * f
+    V0, _ = net.solve(s, probe.fixed)
+    Z, _ = net.solve(s, {k: 0.0 for k in probe.fixed}, inject={probe.bot: 1.0})
+    ib, isc = net.idx[probe.bot], net.idx["SCOPE"]
+    v_bot, v_scope, z_bb, z_sb = V0[:, ib], V0[:, isc], Z[:, ib], Z[:, isc]
+    bw = 1 / (1 + s / (2 * np.pi * probe.p.scope_bw)) if probe.p.scope_bw > 0 else 1.0
+    # same element as _build() adds for extra_c: SMD part (ESL/ESR) when positive, ideal when negative
+    cc = probe.cfg["circuit"]
+    esl = cc.get("extra_esl", 1.0e-9) if probe.p.esl else 0.0
+    esr = cc.get("extra_esr", 0.05) if probe.p.esr else 0.0
+
+    def gain_err(c):
+        y = 1 / (1 / (s * c) + s * esl + esr) if c > 0 else s * c
+        h = (v_scope - z_sb * y * v_bot / (1 + z_bb * y)) * bw
+        return np.abs(h[1:] / h[0].real) - 1
+
     def err(c):
-        probe.p.extra_c = c
-        probe.net = probe._build()
-        return compensation_error(probe, f_lo, f_hi)
+        return float(np.max(np.abs(gain_err(c))))
 
     r = minimize_scalar(err, bounds=(lo, hi), method="bounded", options={"xatol": 1e-14})
-    probe.p.extra_c = r.x
+    x = r.x
+    tol = o.get("peak_tolerance", 0.01) if tiebreak else 0.0
+    if tol > 0 and r.fun > 0:
+        # capacitances within tolerance form one interval, as the peak is quasi-convex
+        limit = (1 + tol) * r.fun
+
+        def edge(end):
+            if err(end) <= limit:
+                return end
+            return brentq(lambda c: err(c) - limit, min(r.x, end), max(r.x, end), xtol=1e-16)
+
+        a, b = edge(lo), edge(hi)
+        if b > a:
+            rms = lambda c: float(np.sqrt(np.mean(gain_err(c) ** 2)))
+            x = minimize_scalar(rms, bounds=(a, b), method="bounded", options={"xatol": 1e-14}).x
+    probe.p.extra_c = x
     probe.net = probe._build()
-    return base + r.x, r.fun
+    return x, err(x)
 
 
 E_SERIES = {
@@ -490,13 +609,17 @@ def suggest_fixed(target, series="E12", max_parts=2):
     return best[:5]
 
 
-def graded_caps(probe, c_bottom_segment):
+def graded_caps(probe, c_bottom_segment, kappa=1.0):
     """Discrete segment capacitances that make the capacitive (HF) voltage
     distribution along the ladder linear, given the parasitic matrix.
 
     Works from the bottom segment (fixed to c_bottom_segment) upward: the
     current in segment k must supply segment k+1 plus all parasitic currents
     leaving node k when the node voltages are exactly linear.
+
+    kappa scales the parasitic currents: 1 uses the capacitances of the field
+    solve; with a dispersive resin the effective value over the compensation
+    band differs, which optimize_grading() accounts for.
     """
     names = probe.capdata["names"]
     M = np.array(probe.capdata["maxwell"])
@@ -518,8 +641,90 @@ def graded_caps(probe, c_bottom_segment):
             if other in (node, lad[k - 1], lad[k + 1]):
                 continue
             leak += cp(node, other) * (V[node] - V.get(other, 0.0))
-        total[k - 1] = total[k] + nseg * leak
+        total[k - 1] = total[k] + nseg * kappa * leak
     return [t - sp for t, sp in zip(total, seg_par)]
+
+
+def round_to_series(caps, series):
+    vals = np.array(series_values(series, 1e-12, 1e-8))
+    return [float(vals[np.argmin(np.abs(np.log(vals / c)))]) for c in caps]
+
+
+def refine_rounding(probe, caps, series, max_passes=4):
+    """Round each capacitor down or up to `series` for the smallest peak gain
+    error, instead of independently to the nearest value.
+
+    Starts from nearest rounding and switches one capacitor at a time to its
+    other neighbour (the series value on the other side of the unrounded
+    value) while that lowers the error after re-optimising the bottom
+    capacitance; repeated until no switch helps. Every value stays within
+    one series step of the unrounded grading, so the fast-edge distribution
+    stays close to it. Returns (caps, peak error).
+    """
+    vals = np.array(series_values(series, 1e-12, 1e-8))
+
+    def bracket(c):
+        lo, hi = vals[vals <= c * (1 + 1e-9)], vals[vals >= c * (1 - 1e-9)]
+        return {float(lo.max()) if len(lo) else float(vals[0]), float(hi.min()) if len(hi) else float(vals[-1])}
+
+    def err(cs):
+        probe.p.top_caps = list(cs)
+        probe.p.extra_c = 0.0
+        probe.net = probe._build()
+        return optimize_bottom(probe, tiebreak=False)[1]
+
+    options = [bracket(c) for c in caps]
+    cur = round_to_series(caps, series)
+    best = err(cur)
+    for _ in range(max_passes):
+        improved = False
+        for k, opts in enumerate(options):
+            for v in opts - {cur[k]}:
+                trial = cur[:k] + [v] + cur[k + 1:]
+                e = err(trial)
+                if e < best * (1 - 1e-3):
+                    cur, best, improved = trial, e, True
+        if not improved:
+            break
+    return cur, best
+
+
+def optimize_grading(probe, c_bottom_segment, series=None, kappa=None, kappa_range=(0.8, 1.8), tolerance=1.1):
+    """Grade the divider for the flattest response over the compensation band.
+
+    The grading shape comes from graded_caps(); its strength kappa sets how
+    strong the parasitics are assumed to be (1 = their value at the field-solve
+    frequency; for a static dielectric 1 is optimal). With a dispersive resin
+    the parasitics are larger in the kHz band, so a stronger grading flattens
+    the low-frequency response, but it also makes the fast-edge voltage
+    distribution uneven and costs bandwidth.
+
+    kappa is scanned; the peak gain error over [f_lo, f_hi] (bottom capacitance
+    optimised each time) has a broad minimum, and the weakest grading within
+    `tolerance` x the minimum is used. Pass kappa to fix it. Values are then
+    rounded to `series` (each up or down, see refine_rounding) and the bottom
+    capacitance re-optimised.
+    Returns (caps, kappa, extra bottom C, peak error).
+    """
+    def peak_err(k):
+        probe.p.top_caps = graded_caps(probe, c_bottom_segment, k)
+        probe.p.extra_c = 0.0
+        probe.net = probe._build()
+        return optimize_bottom(probe, tiebreak=False)[1]
+
+    if kappa is None:
+        ks = np.arange(kappa_range[0], kappa_range[1] + 1e-9, 0.05)
+        errs = np.array([peak_err(k) for k in ks])
+        kappa = float(ks[np.nonzero(errs <= tolerance * errs.min())[0][0]])
+        probe.grading_scan = list(zip(ks.tolist(), errs.tolist()))
+    caps = graded_caps(probe, c_bottom_segment, kappa)
+    if series:
+        caps, _ = refine_rounding(probe, caps, series)
+    probe.p.top_caps = caps
+    probe.p.extra_c = 0.0
+    probe.net = probe._build()
+    extra, e = optimize_bottom(probe)
+    return caps, kappa, extra, e
 
 
 def load_capdata(path):

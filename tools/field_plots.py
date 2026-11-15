@@ -23,6 +23,9 @@ def _outlines_xy(ax, m):
         ax.plot(p[:, 0], p[:, 1], color="tab:blue", lw=0.8, ls="--")
     for yy in (t["yc"] - t["r_in"], t["yc"] + t["r_in"]):
         ax.plot([t["x0"], t["x1"]], [yy, yy], color="0.3", lw=2)
+    for loop in b.shield_extra:
+        p = np.array(loop + loop[:1])
+        ax.plot(p[:, 0], p[:, 1], color="0.3", lw=1.2)
 
 
 def _outlines_xz(ax, m):
@@ -34,13 +37,17 @@ def _outlines_xz(ax, m):
     if b.resin:
         p = np.array(b.resin + b.resin[:1])
         ax.plot(p[:, 0], p[:, 1] - t["yc"], color="tab:blue", lw=0.8, ls="--")
+    for loop in b.shield_extra:
+        p = np.array(loop + loop[:1])
+        ax.plot(p[:, 0], p[:, 1] - t["yc"], color="0.3", lw=1.2)
 
 
 def _view_limits(m):
     b, t = m.board, m.tube
     bx = [p[0] for p in b.outline]
     r = t["r_in"] + t["wall"] + 2
-    return (min(bx) - 5, max(bx) + 5), (t["yc"] - r, t["yc"] + r), (-r, r)
+    sx = [p[0] for l in b.shield_extra for p in l]
+    return (min(bx + sx) - 5, max(bx) + 5), (t["yc"] - r, t["yc"] + r), (-r, r)
 
 
 def plot_model(m, path, labels):
@@ -52,9 +59,16 @@ def plot_model(m, path, labels):
     lab = m.label[:, :, kB].astype(float)
     lab[lab < 0] = np.nan
     ax = axs[0]
+    # material of the cell layer at the board mid-plane (shows the discretised
+    # FR4 including slots, and the resin/air around it)
+    kmid = int(np.argmin(np.abs((m.z[1:] + m.z[:-1]) / 2 - 0.5 * (m.z_f + m.z_b))))
+    ax.pcolormesh(m.x, m.y, m.mat[:, :, kmid].T, cmap=MAT_COLORS, vmin=-0.5, vmax=2.5,
+                  shading="flat", rasterized=True)
     ax.pcolormesh(m.x, m.y, lab.T, cmap="tab20", shading="nearest", rasterized=True)
     _outlines_xy(ax, m)
-    ax.set(xlim=xl, ylim=yl[::-1], aspect="equal", title="Conductors on the B.Cu plane (colour = net)",
+    ax.set(xlim=xl, ylim=yl[::-1], aspect="equal",
+           title="Top view: board material at mid-plane (green FR4, blue resin, white air) "
+                 "and conductors on the B.Cu plane (colour = net)",
            xlabel="x [mm]", ylabel="y [mm]")
     for k, name in enumerate(m.names):
         ii, jj = np.nonzero(m.label[:, :, kB] == k)
@@ -133,7 +147,8 @@ def stress_report(m, phi, cfg):
     # tangential field along the board surfaces (tracking / creepage)
     kz = np.nonzero((zc > m.z_f) & (zc < m.z_f + 0.5) | (zc < m.z_b) & (zc > m.z_b - 0.5))[0]
     Et = np.sqrt(ex**2 + ey**2)[:, :, kz] / 1000.0
-    on_board = (m.mat[:, :, (m.mat.shape[2] // 2)] == fs.FR4)
+    kmid = int(np.argmin(np.abs(zc - 0.5 * (m.z_f + m.z_b))))     # cell layer at the board mid-plane
+    on_board = (m.mat[:, :, kmid] == fs.FR4)
     sel = on_board[:, :, None] & ~adj[:, :, kz] & ~inside[:, :, kz]
     Etm = np.where(sel, Et, 0)
     i = np.unravel_index(np.argmax(Etm), Etm.shape)

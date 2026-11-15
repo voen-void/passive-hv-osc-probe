@@ -1,0 +1,78 @@
+grid 612 x 103 x 104 = 6.56 M nodes
+permittivities at 1e+06 Hz: air 1.00, resin 4.00, FR4 4.50
+conductors: 23 nets + GND, 0 node conflicts
+solving 23 conductors in 2 processes
+  conductor 2/23: /OUT    8 CG iterations, rel. residual 4.8e-07 (12.3 s)
+  conductor 1/23: /IN    33 CG iterations, rel. residual 8.3e-07 (48.2 s)
+  conductor 4/23: Net-(C15-Pad2)    18 CG iterations, rel. residual 8.3e-07 (26.6 s)
+  conductor 3/23: Net-(C14-Pad2)    23 CG iterations, rel. residual 7.9e-07 (33.5 s)
+  conductor 6/23: Net-(C17-Pad2)    12 CG iterations, rel. residual 7.4e-07 (17.6 s)
+  conductor 5/23: Net-(C16-Pad2)    15 CG iterations, rel. residual 7.2e-07 (21.6 s)
+  conductor 7/23: Net-(C18-Pad2)    10 CG iterations, rel. residual 5.6e-07 (14.6 s)
+  conductor 8/23: Net-(C19-Pad2)    10 CG iterations, rel. residual 4.5e-07 (14.5 s)
+  conductor 9/23: Net-(C20-Pad2)    10 CG iterations, rel. residual 3.7e-07 (15.7 s)
+  conductor 10/23: Net-(C21-Pad2)    10 CG iterations, rel. residual 4.3e-07 (15.7 s)
+  conductor 11/23: Net-(C22-Pad2)    10 CG iterations, rel. residual 3.9e-07 (16.6 s)
+  conductor 12/23: Net-(C23-Pad2)    10 CG iterations, rel. residual 4.0e-07 (16.5 s)
+  conductor 13/23: Net-(C24-Pad2)    10 CG iterations, rel. residual 4.4e-07 (15.9 s)
+  conductor 14/23: Net-(C25-Pad2)    10 CG iterations, rel. residual 4.0e-07 (15.9 s)
+  conductor 15/23: Net-(C26-Pad2)    10 CG iterations, rel. residual 4.6e-07 (14.6 s)
+  conductor 16/23: Net-(C27-Pad2)    10 CG iterations, rel. residual 4.0e-07 (14.6 s)
+  conductor 17/23: Net-(C28-Pad2)    10 CG iterations, rel. residual 3.7e-07 (15.4 s)
+  conductor 18/23: Net-(C29-Pad2)    10 CG iterations, rel. residual 4.3e-07 (15.4 s)
+  conductor 19/23: Net-(C30-Pad2)    10 CG iterations, rel. residual 3.7e-07 (15.8 s)
+  conductor 20/23: Net-(C31-Pad2)    10 CG iterations, rel. residual 4.3e-07 (15.8 s)
+  conductor 21/23: Net-(C32-Pad2)    10 CG iterations, rel. residual 3.6e-07 (15.4 s)
+  conductor 22/23: Net-(D1-A2)    10 CG iterations, rel. residual 3.1e-07 (15.5 s)
+  conductor 23/23: Net-(R27-Pad2)    7 CG iterations, rel. residual 5.3e-07 (10.2 s)
+  all conductors in 261 s (incl. AMG setup per process)
+per-material matrices: max deviation of their sum from C = 5.0e-07
+Parasitic capacitances [pF] (excluding the discrete parts)
+
+  node   to GND  to prev  to next    to HV  to rest
+    HV    2.352    0.000    0.312    0.000    0.030
+   N01    0.857    0.312    0.282    0.000    0.023
+   N02    0.877    0.282    0.261    0.026    0.023
+   N03    0.876    0.261    0.270    0.004    0.044
+   N04    0.877    0.270    0.271    0.001    0.047
+   N05    0.877    0.271    0.271    0.000    0.047
+   N06    0.878    0.271    0.259    0.000    0.048
+   N07    0.858    0.259    0.258    0.000    0.046
+   N08    0.879    0.258    0.281    0.000    0.048
+   N09    0.869    0.281    0.281    0.000    0.047
+   N10    0.869    0.281    0.281    0.000    0.047
+   N11    0.869    0.281    0.281   -0.000    0.048
+   N12    0.869    0.281    0.281   -0.000    0.047
+   N13    0.879    0.281    0.258   -0.000    0.048
+   N14    0.858    0.258    0.259   -0.000    0.046
+   N15    0.879    0.259    0.271   -0.000    0.048
+   N16    0.877    0.271    0.271   -0.000    0.046
+   N17    0.884    0.271    0.261   -0.000    0.047
+   N18    0.862    0.261    0.259   -0.000    0.040
+   N19    0.922    0.259    0.261   -0.000    0.024
+   BOT    3.633    0.261    0.000   -0.000    0.130
+
+sum of internal node capacitances to ground: 16.61 pF
+HV tip to ground (shield + surroundings):    2.35 pF
+
+wrote C:\Users\jansk\Desktop\things\electronics\kicad projects\hv-probe-project-files\passive-hv-osc-probe\tools\results\capacitance.json
+stress maps for: graded from 47p (E12, kappa 1.50), seg R 10 ohm, bottom C optimised
+stress field (dc)
+  region                       |E| kV/mm of strength   location x,y,z [mm]
+  air_peak                          6.39       213 %   265.9, 30.9, 0.9
+  air_bulk                          5.37       179 %   266.3, 31.2, 1.0
+  resin_peak                       12.33        49 %   216.2, 29.3, -1.5
+  resin_bulk                        8.33        33 %   216.2, 29.3, -1.7
+  FR4_peak                         12.58        63 %   216.2, 29.3, -0.7
+  FR4_bulk                          9.25        46 %   216.2, 29.3, -0.6
+  board_surface_tangential          6.23               216.2, 28.9, -1.1
+stress field (hf)
+  region                       |E| kV/mm of strength   location x,y,z [mm]
+  air_peak                          6.39       213 %   265.9, 30.9, 0.9
+  air_bulk                          5.37       179 %   266.3, 31.2, 1.0
+  resin_peak                       12.31        49 %   216.2, 29.3, -1.5
+  resin_bulk                        8.31        33 %   216.2, 29.3, -1.7
+  FR4_peak                         12.56        63 %   216.2, 29.3, -0.7
+  FR4_bulk                          9.23        46 %   216.2, 29.3, -0.6
+  board_surface_tangential          6.22               216.2, 28.9, -1.1
+total time 282 s

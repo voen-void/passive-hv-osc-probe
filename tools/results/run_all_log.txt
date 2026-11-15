@@ -1,0 +1,23 @@
+[17:51:24] extract_caps: extract_caps.py --graded 47p --round E12 --seg-r 10
+[17:56:08] extract_caps: ok in 284 s
+[17:56:08] tube_sweep: tube_sweep.py --scale 1.5 --step 2.5
+[17:56:08] info: probe_sim.py info
+[17:56:08] optimize: probe_sim.py optimize
+[17:56:08] response_as_built: probe_sim.py response --optimize --name response_as_built
+[17:56:08] response_proposed: probe_sim.py response --optimize --graded 47p --round E12 --seg-r 10 --name response_proposed
+[17:56:08] optimize_proposed: probe_sim.py optimize --graded 47p --round E12 --seg-r 10 --name optimize_proposed
+[17:56:08] damping: probe_sim.py damping --graded 47p --round E12 --name damping
+[17:56:08] sweep: probe_sim.py sweep --name sweep
+[17:56:11] info: ok in 3 s
+[17:56:11] sweep_damped: probe_sim.py sweep --seg-r 10 --name sweep_damped
+[17:56:18] optimize: ok in 11 s
+[17:56:18] spice_check: probe_sim.py spice --run
+[17:56:24] spice_check: ok in 5 s
+[17:56:25] optimize_proposed: ok in 17 s
+[17:56:36] response_as_built: ok in 28 s
+[17:56:40] response_proposed: ok in 32 s
+[17:57:01] damping: ok in 53 s
+[17:57:57] sweep: ok in 109 s
+[17:58:03] sweep_damped: ok in 112 s
+[18:01:42] tube_sweep: ok in 334 s
+done in 10.3 min

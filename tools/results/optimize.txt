@@ -1,0 +1,26 @@
+
+cable RG58 1.0 m, back termination 49.9 Ohm
+  required fixed+trimmer capacitance: 501 pF (PCB now: 1.01 nF fixed + trimmer 5.5 pF..65 pF)
+  -> fixed 470 pF                 trimmer at 31.3 pF (ok)
+  -> fixed 470 pF + 1 pF          trimmer at 30.3 pF (ok)
+  -> fixed 470 pF + 1.2 pF        trimmer at 30.1 pF (ok)
+  result
+  DC ratio 1000.0   C_in 8.41 pF @1 MHz   LF error 32.67 %   f(-3 dB) 1.15 kHz   f(+/-1 dB) 417 Hz   peaking -0.0 dB   HF peak 38.7 dB   rise 2.44 ns   overshoot 71 %
+
+cable RG58 2.0 m, back termination 49.9 Ohm
+  required fixed+trimmer capacitance: 401 pF (PCB now: 1.01 nF fixed + trimmer 5.5 pF..65 pF)
+  -> fixed 330 pF + 33 pF         trimmer at 37.6 pF (ok)
+  -> fixed 330 pF + 39 pF         trimmer at 31.6 pF (ok)
+  -> fixed 270 pF + 100 pF        trimmer at 30.6 pF (ok)
+  result
+  DC ratio 1000.0   C_in 8.41 pF @1 MHz   LF error 32.67 %   f(-3 dB) 1.15 kHz   f(+/-1 dB) 417 Hz   peaking -0.0 dB   HF peak 36.2 dB   rise 1.83 ns   overshoot 97 %
+
+cable RG58 3.0 m, back termination 49.9 Ohm
+  required fixed+trimmer capacitance: 300 pF (PCB now: 1.01 nF fixed + trimmer 5.5 pF..65 pF)
+  -> fixed 220 pF + 47 pF         trimmer at 33.3 pF (ok)
+  -> fixed 180 pF + 82 pF         trimmer at 38.3 pF (ok)
+  -> fixed 270 pF                 trimmer at 30.3 pF (ok)
+  result
+  DC ratio 1000.0   C_in 8.41 pF @1 MHz   LF error 32.68 %   f(-3 dB) 1.15 kHz   f(+/-1 dB) 417 Hz   peaking -0.0 dB   HF peak 35.5 dB   rise 2.08 ns   overshoot 137 %
+
+wrote C:\Users\jansk\Desktop\things\electronics\kicad projects\hv-probe-project-files\passive-hv-osc-probe\tools\results\optimize.csv

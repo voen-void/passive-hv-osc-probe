@@ -1,5 +1,0 @@
-this design (bottom C optimised)
-  DC ratio 1000.0   C_in 16.68 pF @1 MHz   LF error 0.14 %   f(-3 dB) 84.5 MHz   f(+/-1 dB) 53.9 MHz   peaking 0.7 dB   HF peak 31.0 dB   rise 4.39 ns   overshoot 18 %   bottom C change 1.11 nF
-same, ideal divider (no parasitics)
-  DC ratio 1000.0   C_in 4.57 pF @1 MHz   LF error 14.33 %   f(-3 dB) 47.7 MHz   f(+/-1 dB) 478 Hz   peaking 1.2 dB   HF peak 43.7 dB   rise 7.32 ns   overshoot 71 %
-wrote C:\Users\jansk\Desktop\things\electronics\kicad projects\hv-probe-project-files\passive-hv-osc-probe\tools\results\response_graded_damped.png
