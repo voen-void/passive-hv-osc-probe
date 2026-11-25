@@ -1,7 +1,7 @@
-divider capacitors: C14 270 pF, C15 270 pF, C16 270 pF, C17 220 pF, C18 220 pF, C19 180 pF, C20 180 pF, C21 150 pF, C22 120 pF, C23 120 pF, C24 100 pF, C25 82 pF, C26 82 pF, C27 68 pF, C28 56 pF, C29 56 pF, C30 56 pF, C31 47 pF, C32 47 pF, C33 47 pF
-grading strength kappa = 1.500
+divider capacitors: C14 270 pF, C15 270 pF, C16 270 pF, C17 270 pF, C18 270 pF, C19 270 pF, C20 270 pF, C21 270 pF, C22 220 pF, C23 220 pF, C24 180 pF, C25 150 pF, C26 120 pF, C27 120 pF, C28 100 pF, C29 68 pF, C30 68 pF, C31 56 pF, C32 47 pF, C33 47 pF
+grading strength kappa = 1.550
 this design (bottom C optimised)
-  DC ratio 1000.0   C_in 14.13 pF @1 MHz   LF error 0.96 %   f(-3 dB) 72.3 MHz   f(+/-1 dB) 50.3 MHz   peaking 0.2 dB   HF peak 10.7 dB   rise 4.88 ns   overshoot 22 %   bottom C change 1.5 nF
+  DC ratio 1000.0   C_in 20.09 pF @1 MHz   LF error 2.83 %   f(-3 dB) 35.6 MHz   f(+/-1 dB) 21.9 MHz   peaking 0.3 dB   HF peak 10.9 dB   rise 8.67 ns   overshoot 11 %   bottom C change 4.4 pF
 same capacitors, no parasitics
-  DC ratio 1000.0   C_in 4.52 pF @1 MHz   LF error 11.81 %   f(-3 dB) 38.8 MHz   f(+/-1 dB) 7.6 kHz   peaking 1.0 dB   HF peak 21.4 dB   rise 7.20 ns   overshoot 60 %
+  DC ratio 1000.0   C_in 5.96 pF @1 MHz   LF error 14.34 %   f(-3 dB) 23.5 MHz   f(+/-1 dB) 350 Hz   peaking 1.2 dB   HF peak 12.1 dB   rise 11.72 ns   overshoot 0 %
 wrote C:\Users\jansk\Desktop\things\electronics\kicad projects\hv-probe-project-files\passive-hv-osc-probe\tools\results\response_proposed.png

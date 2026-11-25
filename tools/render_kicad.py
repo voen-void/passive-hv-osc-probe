@@ -8,7 +8,7 @@ Outputs:
     schematic.pdf / schematic.svg       full schematic
     layout.svg                          copper, board outline, shield (User.1) and resin (User.2)
     assembly-top.pdf / assembly-bottom.pdf   fab + silkscreen layers (bottom mirrored)
-    pcb-top.png / pcb-bottom.png / pcb-iso.png   3D renders
+    pcb-top.png / pcb-bottom.png / pcb-iso.png   3D renders, cropped to the board
 
 kicad-cli is looked up on PATH, in the usual install folders, or via
 [kicad] cli = "..." in probe.toml.
@@ -57,6 +57,25 @@ def run(cli, args, what):
     return ok
 
 
+def frame(path, margin=0.03, top=(204, 204, 230), bottom=(102, 102, 128)):
+    """Crop a render with a transparent background to the board plus a margin
+    (a fraction of the board's width in the picture) and put it on a vertical
+    gradient. The camera zoom of kicad-cli depends on the picture's proportions
+    and on the board, so the frame is taken from the picture itself."""
+    from PIL import Image
+    im = Image.open(path).convert("RGBA")
+    box = im.getchannel("A").getbbox()
+    if not box:
+        return
+    m = round(margin * (box[2] - box[0]))
+    w, h = box[2] - box[0] + 2 * m, box[3] - box[1] + 2 * m
+    ramp = Image.new("RGB", (1, h))
+    ramp.putdata([tuple(round(a + (b - a) * y / max(h - 1, 1)) for a, b in zip(top, bottom)) for y in range(h)])
+    out = ramp.resize((w, h))
+    out.paste(im, (m - box[0], m - box[1]), im)
+    out.save(path, optimize=True)
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--out", default=os.path.join(ROOT, "images", "kicad"))
@@ -94,14 +113,16 @@ def main():
 
     if want("3d"):
         q = ["--quality", "basic" if a.fast else "high"]
-        # the board is long and thin: zoom in so it fills a wide frame
-        common = ["--width", "3200", "--height", "560", "--zoom", "3.4", "--background", "opaque", *q]
-        run(cli, ["pcb", "render", "--side", "top", *common, "-o", out("pcb-top.png"), pcb], "3D render, top")
-        run(cli, ["pcb", "render", "--side", "bottom", *common, "-o", out("pcb-bottom.png"), pcb], "3D render, bottom")
-        # looking at the component (bottom) side; angles must be positive for the CLI
-        run(cli, ["pcb", "render", "--perspective", "--rotate", "125,0,25", "--zoom", "1.8",
-                  "--width", "2400", "--height", "1000", "--background", "opaque", *q,
-                  "-o", out("pcb-iso.png"), pcb], "3D render, isometric")
+        # the board is long and thin: a wide picture, zoomed in, then cropped to the board by frame()
+        common = ["--width", "3600", "--height", "600", "--zoom", "5.6", "--background", "transparent", *q]
+        views = [("pcb-top.png", ["--side", "top", *common], "3D render, top"),
+                 ("pcb-bottom.png", ["--side", "bottom", *common], "3D render, bottom"),
+                 # looking at the component (bottom) side; angles must be positive for the CLI
+                 ("pcb-iso.png", ["--perspective", "--rotate", "125,0,25", "--zoom", "1.8", "--width", "3200",
+                                  "--height", "1320", "--background", "transparent", *q], "3D render, isometric")]
+        for name, args, what in views:
+            if run(cli, ["pcb", "render", *args, "-o", out(name), pcb], what):
+                frame(out(name))
 
 
 if __name__ == "__main__":

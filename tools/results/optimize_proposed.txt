@@ -1,26 +1,26 @@
 
 cable RG58 1.0 m, back termination 49.9 Ohm
-  required fixed+trimmer capacitance: 2.6 nF (PCB now: 1.01 nF fixed + trimmer 5.5 pF..65 pF)
-  -> fixed 2.2 nF + 390 pF        trimmer at 8.74 pF (ok)
-  -> fixed 2.2 nF + 330 pF        trimmer at 68.7 pF (out of trimmer range)
-  -> fixed 1.8 nF + 820 pF        trimmer at -21.3 pF (out of trimmer range)
+  required fixed+trimmer capacitance: 3.06 nF (PCB now: 2.97 nF fixed + trimmer 5.5 pF..65 pF)
+  -> fixed 2.2 nF + 820 pF        trimmer at 40.1 pF (ok)
+  -> fixed 2.7 nF + 330 pF        trimmer at 30.1 pF (ok)
+  -> fixed 1.8 nF + 1.2 nF        trimmer at 60.1 pF (ok)
   result
-  DC ratio 1000.0   C_in 14.13 pF @1 MHz   LF error 0.96 %   f(-3 dB) 72.3 MHz   f(+/-1 dB) 48.6 MHz   peaking 0.1 dB   HF peak 11.5 dB   rise 5.13 ns   overshoot 22 %
+  DC ratio 1000.0   C_in 20.09 pF @1 MHz   LF error 2.82 %   f(-3 dB) 34.4 MHz   f(+/-1 dB) 20.8 MHz   peaking 0.3 dB   HF peak 11.6 dB   rise 8.79 ns   overshoot 11 %
 
 cable RG58 2.0 m, back termination 49.9 Ohm
-  required fixed+trimmer capacitance: 2.5 nF (PCB now: 1.01 nF fixed + trimmer 5.5 pF..65 pF)
-  -> fixed 2.2 nF + 270 pF        trimmer at 27.7 pF (ok)
-  -> fixed 1.8 nF + 680 pF        trimmer at 17.7 pF (ok)
-  -> fixed 1.5 nF + 1e+03 pF      trimmer at -2.35 pF (out of trimmer range)
+  required fixed+trimmer capacitance: 2.96 nF (PCB now: 2.97 nF fixed + trimmer 5.5 pF..65 pF)
+  -> fixed 2.7 nF + 220 pF        trimmer at 39.2 pF (ok)
+  -> fixed 2.7 nF + 180 pF        trimmer at 79.2 pF (out of trimmer range)
+  -> fixed 2.2 nF + 680 pF        trimmer at 79.2 pF (out of trimmer range)
   result
-  DC ratio 1000.0   C_in 14.13 pF @1 MHz   LF error 0.96 %   f(-3 dB) 76.1 MHz   f(+/-1 dB) 50.3 MHz   peaking 0.5 dB   HF peak 10.5 dB   rise 4.88 ns   overshoot 22 %
+  DC ratio 1000.0   C_in 20.09 pF @1 MHz   LF error 2.85 %   f(-3 dB) 36.2 MHz   f(+/-1 dB) 23.9 MHz   peaking 0.3 dB   HF peak 9.8 dB   rise 8.54 ns   overshoot 12 %
 
 cable RG58 3.0 m, back termination 49.9 Ohm
-  required fixed+trimmer capacitance: 2.4 nF (PCB now: 1.01 nF fixed + trimmer 5.5 pF..65 pF)
-  -> fixed 1.8 nF + 560 pF        trimmer at 38.2 pF (ok)
-  -> fixed 2.2 nF + 150 pF        trimmer at 48.2 pF (ok)
-  -> fixed 2.2 nF + 180 pF        trimmer at 18.2 pF (ok)
+  required fixed+trimmer capacitance: 2.86 nF (PCB now: 2.97 nF fixed + trimmer 5.5 pF..65 pF)
+  -> fixed 2.7 nF + 120 pF        trimmer at 39.3 pF (ok)
+  -> fixed 2.7 nF + 100 pF        trimmer at 59.3 pF (ok)
+  -> fixed 1.8 nF + 1e+03 pF      trimmer at 59.3 pF (ok)
   result
-  DC ratio 1000.0   C_in 14.13 pF @1 MHz   LF error 0.96 %   f(-3 dB) 78.8 MHz   f(+/-1 dB) 57.7 MHz   peaking 1.0 dB   HF peak 9.1 dB   rise 4.52 ns   overshoot 23 %
+  DC ratio 1000.0   C_in 20.09 pF @1 MHz   LF error 2.88 %   f(-3 dB) 36.2 MHz   f(+/-1 dB) 25.6 MHz   peaking 0.5 dB   HF peak 8.7 dB   rise 8.30 ns   overshoot 13 %
 
 wrote C:\Users\jansk\Desktop\things\electronics\kicad projects\hv-probe-project-files\passive-hv-osc-probe\tools\results\optimize_proposed.csv

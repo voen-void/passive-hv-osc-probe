@@ -1,0 +1,26 @@
+
+46 points, 200 Hz .. 120000 Hz
+local Kramers-Kronig check of the corrected data (a lossless series gap does not change it):
+       200-990      Hz: tan d from the slope of C 0.0756, measured 0.0725, ratio 1.043
+       990-4899     Hz: tan d from the slope of C 0.0654, measured 0.0639, ratio 1.022
+      4899-24246    Hz: tan d from the slope of C 0.0532, measured 0.0533, ratio 0.996
+     24246-120000   Hz: tan d from the slope of C 0.0407, measured 0.0406, ratio 1.003
+
+electrodes in full contact: no gap
+  eps_inf 3.963, d_eps 5.210, tau 0.0192 s (loss peak 8.29 Hz), beta 0.2381
+  fit: chi2/dof 0.50, rms error C 0.15 %, tan d 0.0015; scale from eps' = 6 at 50Hz (datasheet) (8.59 pF per unit eps)
+      10      50     100      1k     10k    100k      1M     10M    100M  Hz
+    6.51    6.00    5.79    5.19    4.74    4.44    4.25    4.13    4.06  eps'
+   0.076   0.078   0.078   0.069   0.054   0.038   0.025   0.015   0.009  tan d
+  sample check: with 1870 mm2 of electrode this scale stands for a flat sample 1.93 mm thick: inside the sample's 1-4 mm (spread evenly over that range it would act as 2.16 mm)
+
+air gap matching the datasheet tan d: gap 177 pF in series
+  eps_inf 3.496, d_eps 7.953, tau 0.07206 s (loss peak 2.21 Hz), beta 0.2408
+  fit: chi2/dof 0.59, rms error C 0.20 %, tan d 0.0019; scale from eps' = 6 at 50Hz (datasheet) (12.08 pF per unit eps)
+      10      50     100      1k     10k    100k      1M     10M    100M  Hz
+    6.73    6.00    5.71    4.92    4.38    4.02    3.81    3.68    3.60  eps'
+   0.109   0.110   0.108   0.092   0.070   0.048   0.031   0.019   0.011  tan d
+  sample check: with 1870 mm2 of electrode this scale stands for a flat sample 1.37 mm thick: inside the sample's 1-4 mm (spread evenly over that range it would act as 2.16 mm); the gap is 94 um of air on average
+
+probe.toml uses resin_electrode_gap = 'none'
+wrote C:\Users\jansk\Desktop\things\electronics\kicad projects\hv-probe-project-files\passive-hv-osc-probe\tools\results\resin_fit.png

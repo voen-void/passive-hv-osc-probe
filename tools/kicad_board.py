@@ -89,8 +89,11 @@ def capsule_poly(p1, p2, width, n=8):
     return stadium_poly((x1 + x2) / 2, (y1 + y2) / 2, length + width, width, ang, n)
 
 
-def chain_loops(segments, tol=1e-3):
-    """Join polyline pieces [(p0..pn), ...] into closed loops."""
+def chain_loops(segments, tol=1e-3, open_ends=None):
+    """Join polyline pieces [(p0..pn), ...] into closed loops.
+
+    A chain whose ends do not meet is still returned (closed by a straight
+    line); its two end points are appended to `open_ends` if that is given."""
     pieces = [list(s) for s in segments]
     # shapes that are already closed (rectangles, circles, polygons) are loops on
     # their own and must not be chained to lines that touch their corners
@@ -115,6 +118,8 @@ def chain_loops(segments, tol=1e-3):
                 break
         if math.dist(loop[0], loop[-1]) < tol:
             loop = loop[:-1]
+        elif open_ends is not None:
+            open_ends.append((loop[0], loop[-1]))
         loops.append(loop)
     return loops
 
@@ -180,6 +185,8 @@ class Board:
     resin: list            # closed outline polygon in (x, y)
     texts: list
     shield_extra: list = field(default_factory=list)   # other grounded metal (end caps ...), revolved
+    net_refs: dict = field(default_factory=dict)       # net -> refs of every footprint with a pad on it
+    warnings: list = field(default_factory=list)       # things the reader had to guess or skip
 
     @property
     def nets(self):
@@ -210,6 +217,26 @@ def _graphic_polyline(g):
     return None
 
 
+def _net_name(node, net_names=None):
+    """Net name of a pad / track / via / zone node.
+
+    KiCad 10 stores (net "name"). KiCad <= 9 stores (net 5 "name") on pads and
+    (net 5) on tracks, vias and zones, with the names in the board's net table.
+    """
+    n = child(node, "net")
+    if n is None or len(n) < 2:
+        return None
+    if len(n) > 2:                       # (net 5 "name")
+        return n[2]
+    if net_names and n[1] in net_names:  # (net 5), looked up in the net table
+        return net_names[n[1]]
+    return n[1]
+
+
+def _pts(node):
+    return [(num(p[1]), num(p[2])) for p in child(node, "pts")[1:] if p[0] == "xy"]
+
+
 def _pad_polygon(pad, fx, fy, fangle):
     lx, ly = num(child(pad, "at")[1]), num(child(pad, "at")[2])
     at = child(pad, "at")
@@ -232,6 +259,9 @@ def load_board(path):
     pcb = sexpr.load(path)
 
     thickness = num(value(child(pcb, "general"), "thickness", "1.6"))
+    # net table of KiCad <= 9 files, (net 5 "name"); KiCad 10 has none
+    net_names = {n[1]: n[2] for n in children(pcb, "net") if len(n) > 2}
+    warnings = []
 
     copper = {}
 
@@ -247,27 +277,45 @@ def load_board(path):
 
     # --- zones (use the filled polygons KiCad saved) ------------------------
     for z in children(pcb, "zone"):
-        net_node = child(z, "net")
-        if net_node is None or child(z, "keepout") is not None:
+        net = value(z, "net_name") or _net_name(z, net_names)
+        if not net or child(z, "keepout") is not None:
             continue
-        net = net_node[1]
+        zl = child(z, "layers")
+        z_layers = [l for l in (zl[1:] if zl else [value(z, "layer")]) if l in ("F.Cu", "B.Cu")]
+        if not z_layers:
+            continue
+        filled = False
         for fp in children(z, "filled_polygon"):
             layer = value(fp, "layer")
             if layer not in ("F.Cu", "B.Cu"):
                 continue
-            pts = [(num(p[1]), num(p[2])) for p in child(fp, "pts")[1:] if p[0] == "xy"]
-            add_poly(net, layer, pts)
+            add_poly(net, layer, _pts(fp))
+            filled = True
+        if not filled:
+            # A zone that was drawn but never filled has no copper in the file.
+            # Its outline is used, so the copper is not silently left out.
+            for layer in z_layers:
+                add_poly(net, layer, _pts(child(z, "polygon")))
+            warnings.append(f"zone '{value(z, 'name', '')}' on net {net} is not filled; its outline is used as "
+                            f"copper. Refill the zones in KiCad (B) and save.")
 
     # --- tracks & vias ------------------------------------------------------
     barrels = []
     for s in children(pcb, "segment"):
-        add_line(child(s, "net")[1], value(s, "layer"), xy(s, "start"), xy(s, "end"), num(value(s, "width")))
+        net, layer = _net_name(s, net_names), value(s, "layer")
+        if net and layer in ("F.Cu", "B.Cu"):
+            add_line(net, layer, xy(s, "start"), xy(s, "end"), num(value(s, "width")))
     for s in children(pcb, "arc"):
+        net, layer = _net_name(s, net_names), value(s, "layer")
+        if not net or layer not in ("F.Cu", "B.Cu"):
+            continue
         pts = arc_points(xy(s, "start"), xy(s, "mid"), xy(s, "end"))
         for p1, p2 in zip(pts, pts[1:]):
-            add_line(child(s, "net")[1], value(s, "layer"), p1, p2, num(value(s, "width")))
+            add_line(net, layer, p1, p2, num(value(s, "width")))
     for v in children(pcb, "via"):
-        net = child(v, "net")[1]
+        net = _net_name(v, net_names)
+        if not net:
+            continue
         (x, y) = xy(v, "at")
         poly = circle_poly(x, y, num(value(v, "size")) / 2, 12)
         for layer in ("F.Cu", "B.Cu"):
@@ -277,6 +325,7 @@ def load_board(path):
     # --- footprints ---------------------------------------------------------
     parts = {}
     pad_shapes = []
+    net_refs = {}
     for fp in children(pcb, "footprint"):
         props = {p[1]: p[2] for p in children(fp, "property")}
         ref = props.get("Reference", "?")
@@ -286,13 +335,13 @@ def load_board(path):
         fp_layer = value(fp, "layer")
         pads = {}
         for pad in children(fp, "pad"):
-            net_node = child(pad, "net")
-            net = net_node[1] if net_node else None
+            net = _net_name(pad, net_names)
             layers = child(pad, "layers")[1:]
             poly = _pad_polygon(pad, fx, fy, fangle)
             if net is None:
                 continue
             pads.setdefault(pad[1], net)
+            net_refs.setdefault(net, set()).add(ref)
             through = pad[2] in ("thru_hole",) or "*.Cu" in layers
             cu_layers = ["F.Cu", "B.Cu"] if through else [l for l in layers if l in ("F.Cu", "B.Cu")]
             for l in cu_layers:
@@ -323,17 +372,28 @@ def load_board(path):
         elif layer == "User.2":
             resin.append(pl)
 
-    loops = chain_loops(edge)
-    loops.sort(key=poly_area, reverse=True)
+    if not edge:
+        raise ValueError("no board outline on Edge.Cuts")
+
+    def closed_loops(pieces, what):
+        opened = []
+        loops = chain_loops(pieces, open_ends=opened)
+        for a, b in opened:
+            warnings.append(f"{what} is not closed: gap of {math.dist(a, b):.3f} mm between "
+                            f"({a[0]:.3f}, {a[1]:.3f}) and ({b[0]:.3f}, {b[1]:.3f})")
+        return sorted(loops, key=poly_area, reverse=True)
+
+    loops = closed_loops(edge, "Edge.Cuts outline")
     outline, holes = loops[0], loops[1:]
 
     tube, shield_extra = _shield_from_user1(shield)
-    resin_loops = chain_loops(resin)
-    resin_loops.sort(key=poly_area, reverse=True)
+    resin_loops = closed_loops(resin, "User.2 resin outline")
     resin_outline = resin_loops[0] if resin_loops else []
 
+    for w in warnings:
+        print("WARNING:", w)
     return Board(path, thickness, outline, holes, copper, barrels, pad_shapes,
-                 parts, tube, resin_outline, texts, shield_extra)
+                 parts, tube, resin_outline, texts, shield_extra, net_refs, warnings)
 
 
 def _dedupe(pieces, nd=4):
@@ -406,10 +466,43 @@ def resolve_net(board, name):
     raise ValueError(f"net '{name}' not found on the board (candidates: {hits or sorted(nets)})")
 
 
+def _is_resistor(p):
+    return p.ref.startswith("R") and not p.ref.startswith("RV") and len(p.nets) == 2
+
+
+def _is_capacitor(p):
+    return p.ref.startswith("C") and len(p.nets) == 2
+
+
+def series_rc_branches(board):
+    """Resistors in series with a capacitor (damping resistors).
+
+    A net that only one resistor and one capacitor connect to is the middle of
+    a series R-C branch. Returns {mid_net: (r_ref, c_ref, net_r, net_c)}: the
+    resistor runs from net_r to mid_net, the capacitor from mid_net to net_c.
+    """
+    out = {}
+    for net, refs in board.net_refs.items():
+        if len(refs) != 2 or not all(r in board.parts for r in refs):
+            continue
+        a, b = (board.parts[r] for r in sorted(refs))
+        if _is_resistor(b) and _is_capacitor(a):
+            a, b = b, a
+        if not (_is_resistor(a) and _is_capacitor(b)):
+            continue
+        net_r = next(n for n in a.nets if n != net)
+        net_c = next(n for n in b.nets if n != net)
+        out[net] = (a.ref, b.ref, net_r, net_c)
+    return out
+
+
 def _resistor_graph(board):
+    """Nets joined by resistors that carry the divider's DC current. Damping
+    resistors (in series with a capacitor) carry none and are left out."""
+    damping = {r for r, _, _, _ in series_rc_branches(board).values()}
     adj = {}
     for p in board.parts.values():
-        if p.ref.startswith("R") and not p.ref.startswith("RV") and len(p.nets) == 2:
+        if _is_resistor(p) and p.ref not in damping:
             a, b = p.nets
             adj.setdefault(a, []).append(b)
             adj.setdefault(b, []).append(a)
@@ -419,7 +512,8 @@ def _resistor_graph(board):
 def ladder_order(board, hv_net):
     """Walk the divider from the HV net through the chain of resistors.
 
-    Every inner node of the chain has exactly two resistors. The walk ends at
+    Every inner node of the chain has exactly two resistors, not counting
+    damping resistors in series with the divider capacitors. The walk ends at
     the first node where the chain branches (the divider bottom, where the
     bottom resistors / compensation / output parts connect) or where the next
     resistor goes to GND.
@@ -443,8 +537,43 @@ def ladder_order(board, hv_net):
     return order
 
 
+def segment_damping(board, ladder):
+    """Damping resistors on the board, per divider segment.
+
+    Returns (damping, merged):
+      damping  {segment index: [(r_ref, c_ref, mid_net)]} for every series R-C
+               branch that spans one segment of the ladder;
+      merged   {mid_net: ladder net on the other side of its resistor}.
+
+    A damping resistor is a few ohms, so the net between it and its capacitor
+    follows the ladder node it hangs on (10 ohm into 0.3 pF of stray
+    capacitance is 3 ps). The field solver therefore treats `mid_net` as part
+    of that ladder node, and the circuit model puts the resistance in series
+    with the segment capacitor.
+    """
+    seg_of = {frozenset(pair): k for k, pair in enumerate(zip(ladder, ladder[1:]))}
+    damping, merged = {}, {}
+    for mid, (r_ref, c_ref, net_r, net_c) in series_rc_branches(board).items():
+        k = seg_of.get(frozenset((net_r, net_c)))
+        if k is None:
+            continue
+        damping.setdefault(k, []).append((r_ref, c_ref, mid))
+        merged[mid] = net_r
+    return damping, merged
+
+
+def merged_nets(board, hv_net):
+    """{net: net it is merged with} for the field solver; see segment_damping()."""
+    try:
+        return segment_damping(board, ladder_order(board, hv_net))[1]
+    except ValueError:
+        return {}
+
+
 def net_labels(board, hv_net, out_net):
-    """Friendly short names: HV, N01..Nxx, BOT (divider bottom), OUT (BNC), GND."""
+    """Friendly short names: HV, N01..Nxx, BOT (divider bottom), OUT (BNC), GND.
+    A net between a damping resistor and its capacitor gets the label of the
+    ladder node it is merged with."""
     labels = {"GND": "GND"}
     try:
         order = ladder_order(board, hv_net)
@@ -456,6 +585,8 @@ def net_labels(board, hv_net, out_net):
         labels[order[-1]] = "BOT"
     labels[hv_net] = "HV"
     labels[out_net] = "OUT"
+    for mid, net in (segment_damping(board, order)[1] if len(order) > 1 else {}).items():
+        labels[mid] = labels[net]
     used = set(labels.values())
     for n in board.nets + [n for p in board.parts.values() for n in p.nets]:
         if n not in labels:
@@ -487,9 +618,14 @@ if __name__ == "__main__":
     labels = net_labels(b, hv, out)
     lad = ladder_order(b, hv)
     print(f"divider: {len(lad)-1} segments, {hv} -> {lad[-1]} (bottom), output net {out}")
+    damping, merged = segment_damping(b, lad)
+    if damping:
+        vals = sorted({b.parts[r].value for brs in damping.values() for r, _, _ in brs})
+        print(f"damping resistors in series with the divider capacitors: {len(damping)} segments, {', '.join(vals)}")
     print("nets with copper:")
     for n in b.nets:
-        print(f"  {labels[n]:>8}  {n}")
+        note = f"   (merged with {merged[n]})" if n in merged else ""
+        print(f"  {labels[n]:>8}  {n}{note}")
     print("parts:")
     for p in sorted(b.parts.values(), key=lambda p: (p.ref[0], len(p.ref), p.ref)):
         print(f"  {p.ref:>5} {p.value:>12} {p.footprint:<45} {' - '.join(labels[n] for n in p.nets)}")

@@ -33,6 +33,7 @@ def load_config(path):
     with open(path, "rb") as f:
         cfg = tomllib.load(f)
     base = os.path.dirname(os.path.abspath(path))
+    cfg["_base"] = base        # other relative paths in the config (measured data) resolve against it
     for k in ("pcb", "capacitance", "results"):
         cfg["files"][k] = os.path.normpath(os.path.join(base, cfg["files"][k]))
     os.makedirs(cfg["files"]["results"], exist_ok=True)
@@ -66,7 +67,7 @@ def main():
     ap.add_argument("--config", default=os.path.join(os.path.dirname(__file__), "probe.toml"))
     ap.add_argument("--scale", type=float, default=1.0, help="grid step multiplier (2 = coarse/fast)")
     ap.add_argument("--resin-er", type=float,
-                    help="resin permittivity used by the field solve (sets resin_er_hf, the value at solve_freq)")
+                    help="resin permittivity used by the field solve, instead of the model's value at solve_freq")
     ap.add_argument("--out", help="capacitance json path (default from config)")
     ap.add_argument("--no-stress", action="store_true", help="skip the E-field stress analysis")
     ap.add_argument("--stress-only", action="store_true", help="reuse the existing capacitance json")
@@ -80,9 +81,9 @@ def main():
 
     cfg = load_config(a.config)
     if a.resin_er:
-        # the solve uses eps' at solve_freq (1 MHz), which is resin_er_hf
-        # whenever the resin's loss band ends below it
-        cfg["materials"]["resin_er_hf"] = a.resin_er
+        # only the field solve's permittivity; the circuit model still scales
+        # every parasitic from this value to the resin model's eps(f)
+        cfg["materials"].setdefault("solve_er", {})["resin"] = a.resin_er
     res = cfg["files"]["results"]
     out = a.out or cfg["files"]["capacitance"]
 
@@ -99,7 +100,7 @@ def main():
     tol = cfg["solver"]["tol"]
 
     if a.stress_only:
-        capdata = probe_model.load_capdata(out)
+        capdata = probe_model.load_capdata(out, cfg["files"]["pcb"])
         potentials = fs.Solver(m, tol=tol).solve
     else:
         workers = a.workers if a.workers is not None else cfg["solver"].get("workers", 1)
@@ -113,6 +114,7 @@ def main():
             "units": "F",
             "meta": {
                 "pcb": os.path.relpath(cfg["files"]["pcb"], os.path.dirname(out)),
+                "pcb_sha1": probe_model.file_hash(cfg["files"]["pcb"]),
                 "grid": list(m.shape), "scale": a.scale,
                 "solve_freq": cfg["materials"].get("solve_freq", 1e6),
                 "eps_solve": dielectric.solve_permittivities(cfg),
@@ -142,7 +144,7 @@ def main():
     else:
         probe_model.optimize_bottom(probe)
         design = "PCB capacitors"
-    print(f"stress maps for: {design}, seg R {probe.p.seg_r:g} ohm, bottom C optimised")
+    print(f"stress maps for: {design}, seg R {probe.seg_r_text()}, bottom C optimised")
     report = {"voltage": volts, "design": design}
     for tag, f, title in (("dc", 1e-3, "DC / slow voltage distribution"),
                           ("hf", cfg["stress"]["hf_frequency"],

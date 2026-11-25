@@ -77,7 +77,11 @@ def plot_model(m, path, labels):
                     fontsize=6, ha="center", va="center")
 
     jc = int(np.argmin(np.abs(m.y - m.tube["yc"])))
-    j_cap = int(np.argmin(np.abs(m.y - 36.09)))   # through the 1808 capacitor row
+    # side view through the capacitor row: the y where most capacitor pads sit
+    cap_y = [round(float(np.mean([q[1] for q in poly])), 2)
+             for ref, fp, layer, net, poly in m.board.pad_shapes if ref.startswith("C")]
+    y_cap = max(set(cap_y), key=cap_y.count) if cap_y else m.tube["yc"]
+    j_cap = int(np.argmin(np.abs(m.y - y_cap)))
     ax = axs[1]
     yc_cell = min(jc, len(m.y) - 2)
     ax.pcolormesh(m.x, m.z, m.mat[:, yc_cell, :].T, cmap=MAT_COLORS, vmin=-0.5, vmax=2.5,

@@ -1,19 +1,25 @@
-divider capacitors (HV end first): 270 pF, 270 pF, 270 pF, 220 pF, 220 pF, 180 pF, 180 pF, 150 pF, 120 pF, 120 pF, 100 pF, 82 pF, 82 pF, 68 pF, 56 pF, 56 pF, 56 pF, 47 pF, 47 pF, 47 pF
-grading strength kappa = 1.500 (1 = parasitics at the field-solve frequency)
+divider capacitors (HV end first): 270 pF, 270 pF, 270 pF, 270 pF, 270 pF, 270 pF, 270 pF, 270 pF, 220 pF, 220 pF, 180 pF, 150 pF, 120 pF, 120 pF, 100 pF, 68 pF, 68 pF, 56 pF, 47 pF, 47 pF
+grading strength kappa = 1.550 (1 = parasitics at the field-solve frequency)
  seg R  tip R  C_in pF LF err %      f-3dB    f+/-1dB HFpk dB rise ns  ovs %
-     0      0    14.13     0.96     83 MHz   57.7 MHz    50.3    0.49    151
-   4.7      0    14.13     0.96   80.2 MHz   55.8 MHz    13.8    4.64     32
-    10      0    14.13     0.96   72.3 MHz   50.3 MHz    10.7    4.88     22
-    22      0    14.13     0.96   54.8 MHz   36.2 MHz     4.3    6.35      8
-    47      0    14.13     0.96   32.6 MHz   18.5 MHz    -0.2   11.23      2
-     0     47    14.13     0.96   77.5 MHz   54.8 MHz    19.6    0.73     31
-   4.7     47    14.13     0.96   72.3 MHz   51.2 MHz    11.0    4.88     23
-    10     47    14.13     0.96   65.2 MHz   45.3 MHz     8.1    5.49     16
-    22     47    14.13     0.96   49.4 MHz   32.1 MHz     2.4    6.71      6
-    47     47    14.12     0.96   30.5 MHz   16.9 MHz    -0.3   11.60      2
-     0    100    14.13     0.96   67.5 MHz   46.9 MHz    18.6    4.76     22
-   4.7    100    14.13     0.96   61.9 MHz     43 MHz     7.7    5.62     15
-    10    100    14.13     0.96   56.7 MHz   37.5 MHz     5.4    6.23      9
-    22    100    14.13     0.96   43.8 MHz   27.5 MHz     0.3    7.20      5
-    47    100    14.12     0.96   27.5 MHz   15.3 MHz    -0.4   12.33      2
+     0      0    20.11     2.88    109 MHz   98.7 MHz    47.7    0.61    468
+    10      0    20.10     2.87   77.5 MHz   59.8 MHz    27.4    0.85    115
+    22      0    20.10     2.85   49.4 MHz   33.8 MHz    17.9    5.00     29
+    33      0    20.09     2.83   35.6 MHz   21.9 MHz    10.9    8.67     11
+    47      0    20.08     2.79   25.6 MHz     15 MHz     3.0   12.45      5
+    68      0    20.05     2.75   17.5 MHz    9.9 MHz    -1.1   19.29      3
+   100      0    20.00     2.64   11.6 MHz   6.66 MHz    -2.4   28.32      3
+     0     47    20.10     2.87   88.9 MHz   73.5 MHz    37.8    0.49    311
+    10     47    20.10     2.86     63 MHz   46.9 MHz    22.4    4.64     58
+    22     47    20.09     2.85     43 MHz   27.9 MHz    12.4    5.37     15
+    33     47    20.08     2.81   32.1 MHz   19.4 MHz     5.3    9.03      6
+    47     47    20.07     2.78   23.5 MHz   13.5 MHz    -0.4   15.26      4
+    68     47    20.04     2.73   16.3 MHz    9.4 MHz    -1.2   20.63      3
+   100     47    19.98     2.64   11.2 MHz   6.32 MHz    -2.6   29.54      3
+     0    100    20.10     2.86   67.5 MHz   50.3 MHz    36.2    0.61    224
+    10    100    20.09     2.85   51.2 MHz     35 MHz    18.8    4.88     33
+    22    100    20.08     2.83   36.8 MHz   22.7 MHz     8.7    8.67      9
+    33    100    20.07     2.79   27.9 MHz   16.6 MHz     1.6   12.21      5
+    47    100    20.05     2.78   21.2 MHz   12.2 MHz    -0.6   15.75      3
+    68    100    20.02     2.71   15.3 MHz   8.78 MHz    -1.4   21.97      3
+   100    100    19.96     2.64   10.6 MHz    6.1 MHz    -2.8   31.01      3
 wrote C:\Users\jansk\Desktop\things\electronics\kicad projects\hv-probe-project-files\passive-hv-osc-probe\tools\results\damping.csv and C:\Users\jansk\Desktop\things\electronics\kicad projects\hv-probe-project-files\passive-hv-osc-probe\tools\results\damping.png

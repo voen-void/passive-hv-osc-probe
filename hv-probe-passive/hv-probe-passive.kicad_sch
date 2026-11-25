@@ -10703,7 +10703,7 @@
 				)
 			)
 		)
-		(property "SPN" "C3871624"
+		(property "SPN" "C5632237"
 			(at 48.26 45.72 0)
 			(hide yes)
 			(show_name no)
@@ -11303,7 +11303,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C20617886"
+		(property "LCSC" "C113874"
 			(at 40.64 45.72 0)
 			(hide yes)
 			(show_name no)

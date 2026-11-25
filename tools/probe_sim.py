@@ -66,7 +66,7 @@ class Ctx:
         self.res = self.cfg["files"]["results"]
         self.board = kicad_board.load_board(self.cfg["files"]["pcb"])
         capfile = a.capacitance or self.cfg["files"]["capacitance"]
-        self.capdata = pm.load_capdata(capfile) if os.path.exists(capfile) else None
+        self.capdata = pm.load_capdata(capfile, self.cfg["files"]["pcb"]) if os.path.exists(capfile) else None
         if self.capdata is None:
             print(f"NOTE: {capfile} not found - run extract_caps.py first. Simulating without parasitics.")
         self.a = a
@@ -101,7 +101,7 @@ class Ctx:
             return caps
         caps = pm.graded_caps(p, base)
         if series:
-            caps = pm.round_to_series(caps, series)
+            caps = pm.round_to_series(caps, series, pm.cap_limit(p))
         p.p.top_caps = caps
         p.net = p._build()
         return caps
@@ -147,7 +147,12 @@ def cmd_info(ctx):
     topc = p.top_cap_values()
     r_top = sum(p.part_value(r) for k in p.top_r for r in p.top_r[k])
     c_series = 1 / sum(1 / c for c in topc)
-    print(f"top: R = {r_top/1e6:.3g} MOhm, discrete C in series = {fmt_c(c_series)}")
+    print(f"top: R = {r_top/1e6:.3g} MOhm, discrete C in series = {fmt_c(c_series)}, "
+          f"damping per capacitor {p.seg_r_text()}")
+    seg_l = p.seg_l_values()
+    print("inductance: " + (f"{np.mean(seg_l)*1e9:.1f} nH per segment ({sum(seg_l)*1e9:.0f} nH along the divider, "
+                            f"return on the tube wall)" if seg_l else "capacitor ESL from [circuit.esl]")
+          + f", {p.tip_l_value()*1e9:.0f} nH in series with the tip")
     print(f"bottom: R parts {', '.join(p.bottom_r)}, pot {p.pot_ref} = {p.p.pot/1e3:.1f} kOhm, "
           f"C parts {', '.join(p.bottom_c)} = {fmt_c(p.bottom_fixed_c())}, trimmer {p.trim_ref} {fmt_c(p.p.trim)}")
     cab = ctx.cfg["cable"]["types"][p.p.cable_type]
@@ -166,8 +171,10 @@ def cmd_info(ctx):
         print("dielectrics (eps' / tan d), parasitics scaled per material from the field solve at "
               + ", ".join(f"{k} {v:.2f}" for k, v in eps_solve.items()) + ":")
         for k, d in models.items():
-            if d.k:
+            if d.dispersive:
                 print(f"  {k:<6} {d.describe()}")
+                if d.note:
+                    print(f"         {d.note}")
     print(f"cable: {p.p.cable_type} {p.p.length} m ({fmt_c(c_cab)}); "
           f"scope {p.p.r_scope/1e6:g} MOhm || {fmt_c(p.p.c_scope)}")
     print(f"DC ratio: {p.ratio():.2f}")
@@ -368,7 +375,7 @@ def cmd_sweep(ctx):
         ax.legend(fontsize=8)
     cab = ctx.params()
     fig.suptitle(f"Design trade-off: top capacitor value vs. DUT loading ({cab.cable_type} {cab.length} m, "
-                 f"tip R {cab.tip_r:g} Ω, segment R {cab.seg_r:g} Ω)")
+                 f"tip R {cab.tip_r:g} Ω, segment R {p.seg_r_text().replace('ohm', 'Ω')})")
     fig.tight_layout()
     path2 = os.path.join(ctx.res, ctx.a.name + ".png")
     fig.savefig(path2, dpi=120)
@@ -393,7 +400,11 @@ def write_spice(p, path, meas_f):
         ref = re.sub(r"[^A-Za-z0-9_]", "_", prm.get("ref", ""))
         if kind == "R":
             n_r += 1
-            lines.append(f"R{ref or n_r}_{n_r} {a} {b} {_spice_val(prm['r'])}")
+            if prm.get("l"):                     # resistor with series inductance
+                lines.append(f"R{ref or n_r}_{n_r} {a} {a}_x {_spice_val(max(prm['r'], 1e-6))}")
+                lines.append(f"L{ref or n_r}_{n_r} {a}_x {b} {_spice_val(prm['l'])}")
+            else:
+                lines.append(f"R{ref or n_r}_{n_r} {a} {b} {_spice_val(prm['r'])}")
         elif kind == "CMAT":
             # expand the nodal matrix into pair and ground capacitors
             M, nodes = prm["maxwell"], prm["nodes"]

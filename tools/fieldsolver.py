@@ -16,6 +16,7 @@ Coordinates: x, y as in KiCad [mm]; z is perpendicular to the board, z = 0
 on the tube axis, F.Cu on the +z side.
 """
 
+import os
 import time
 from dataclasses import dataclass
 
@@ -23,6 +24,7 @@ import numpy as np
 import scipy.sparse as sp
 from matplotlib.path import Path
 
+import kicad_board
 from kicad_board import capsule_poly
 import dielectric
 
@@ -35,12 +37,14 @@ MATERIAL_NAMES = {AIR: "air", RESIN: "resin", FR4: "FR4"}
 # ----------------------------------------------------------------------------
 # grid
 
-def make_axis(lo, hi, regions, forced, h_max, growth):
+def make_axis(lo, hi, regions, forced, h_max, growth, slack=1e-9):
     """Graded 1D grid.
 
     regions: [(a, b, h)] intervals with target step h. Away from a region
     the step grows linearly with distance (≈ geometric growth per cell),
-    capped at h_max. Every value in `forced` becomes a grid line.
+    capped at h_max. Every value in `forced` becomes a grid line. Between two
+    forced lines the cells may exceed the target step by the fraction `slack`
+    of a cell, so closely spaced forced lines do not halve the step.
     """
     s = np.linspace(lo, hi, 200001)
     h = np.full_like(s, h_max)
@@ -54,7 +58,7 @@ def make_axis(lo, hi, regions, forced, h_max, growth):
         ss = np.concatenate(([a], s[m], [b]))
         hh = np.interp(ss, s, h)
         cum = np.concatenate(([0], np.cumsum(np.diff(ss) * 0.5 * (1 / hh[1:] + 1 / hh[:-1]))))
-        n = max(1, int(np.ceil(cum[-1] - 1e-9)))
+        n = max(1, int(np.ceil(cum[-1] - slack)))
         inner = np.interp(np.arange(1, n) * cum[-1] / n, cum, ss)
         out.extend(inner.tolist())
         out.append(b)
@@ -80,19 +84,42 @@ class Model:
         return (len(self.x), len(self.y), len(self.z))
 
 
+def _is_axis_rect(poly, tol=1e-6):
+    p = np.asarray(poly)
+    return len(p) == 4 and all(len(np.unique(np.round(p[:, k] / tol))) == 2 for k in (0, 1))
+
+
 def _nodes_in_poly(poly, x, y, pad=0.0):
-    """Indices (i, j) of grid nodes inside a polygon."""
+    """Indices (i, j) of grid nodes inside a polygon. Nodes on the edge of an
+    axis-parallel rectangle (a pad whose edges are grid lines) count as inside."""
     poly = np.asarray(poly)
-    xmin, ymin = poly.min(0) - pad - 1e-9
-    xmax, ymax = poly.max(0) + pad + 1e-9
+    xmin, ymin = poly.min(0) - pad - 1e-6
+    xmax, ymax = poly.max(0) + pad + 1e-6
     i0, i1 = np.searchsorted(x, xmin), np.searchsorted(x, xmax, "right")
     j0, j1 = np.searchsorted(y, ymin), np.searchsorted(y, ymax, "right")
     if i1 <= i0 or j1 <= j0:
         return np.empty(0, int), np.empty(0, int)
+    if _is_axis_rect(poly):
+        ii, jj = np.meshgrid(np.arange(i0, i1), np.arange(j0, j1), indexing="ij")
+        return ii.ravel(), jj.ravel()
     X, Y = np.meshgrid(x[i0:i1], y[j0:j1], indexing="ij")
     inside = Path(poly).contains_points(np.c_[X.ravel(), Y.ravel()], radius=1e-6 + 2 * pad).reshape(X.shape)
     ii, jj = np.nonzero(inside)
     return ii + i0, jj + j0
+
+
+def _snap_lines(values, h, keep=(), frac=0.4):
+    """Grid lines at conductor edges: lines closer together than frac*h are
+    merged into their mean, and lines that close to one in `keep` are dropped,
+    so snapping never creates cells much smaller than the target step."""
+    out = []
+    for v in sorted(values):
+        if out and v - out[-1][0] < frac * h:
+            out[-1].append(v)
+        else:
+            out.append([v])
+    lines = [float(np.mean(c)) for c in out]
+    return [v for v in lines if all(abs(v - k) >= frac * h for k in keep)]
 
 
 def _nearest(arr, v):
@@ -125,27 +152,57 @@ def build_model(board, cfg, scale=1.0, verbose=True, separate_env=False, x_force
     yc, r_in, wall = tube["yc"], tube["r_in"], tube["wall"]
     r_out = r_in + wall
 
-    part_h = {}
+    part_h, flat = {}, set()
     for ref, fp, layer, net, poly in board.pad_shapes:
         for key, h in gcfg.get("part_height", {}).items():
             if key in fp:
                 part_h[ref] = h
+        if ref not in part_h:
+            flat.add(fp.split(":")[-1])
+    if flat and verbose:
+        print("WARNING: no [geometry.part_height] entry for " + ", ".join(sorted(flat))
+              + ": the terminations of these parts are modelled as flat pads")
     h_parts = max(part_h.values(), default=0.0)
 
     hx, hy = mcfg["h_x"] * scale, mcfg["h_y"] * scale
     hzb, hzp = mcfg["h_z_board"] * scale, mcfg["h_z_parts"] * scale
     ht, hmax, gr, margin = mcfg["h_tube"] * scale, mcfg["h_max"], mcfg["growth"], mcfg["margin"]
 
+    # A net between a damping resistor and its divider capacitor is one
+    # conductor with the ladder node on the other side of the resistor.
+    try:
+        hv = kicad_board.resolve_net(board, cfg["circuit"]["input_net"])
+        ladder = kicad_board.ladder_order(board, hv)
+        merged = kicad_board.segment_damping(board, ladder)[1]
+    except (KeyError, ValueError):
+        ladder, merged = [], {}
+
     bx = [p[0] for p in board.outline]
     by = [p[1] for p in board.outline]
     rx = [p[0] for p in board.resin] or bx
     x_lo = min(min(bx), tube["x0"], min(rx)) - margin
     x_hi = max(max(bx), tube["x1"], max(rx)) + margin
+    x_keep = [tube["x0"], tube["x1"], *x_forced]
+    y_keep = [yc, yc - r_in, yc + r_in, yc - r_out, yc + r_out]
+    # Grid lines on the pad edges of the divider nets. A conductor is the set
+    # of nodes inside its outline, so an edge between two grid lines is moved
+    # inwards by up to one step: the pads would come out too small and the
+    # gaps between steps too wide, differently for every step. With their
+    # edges on grid lines the pads and terminations have their true size.
+    x_snap, y_snap = [], []
+    if mcfg.get("snap_pads", True):
+        div = set(ladder) | set(merged)
+        for ref, fp, layer, net, poly in board.pad_shapes:
+            if net in div and _is_axis_rect(poly):
+                x_snap += [min(p[0] for p in poly), max(p[0] for p in poly)]
+                y_snap += [min(p[1] for p in poly), max(p[1] for p in poly)]
+        x_snap, y_snap = _snap_lines(x_snap, hx, x_keep), _snap_lines(y_snap, hy, y_keep)
+    slack = 0.15 if (x_snap or y_snap) else 1e-9
     x = make_axis(x_lo, x_hi, [(min(bx) - 1, max(bx) + 1, hx), (min(rx), max(rx), ht)],
-                  [tube["x0"], tube["x1"], *x_forced], hmax, gr)
+                  x_keep + x_snap, hmax, gr, slack)
     y = make_axis(yc - r_out - margin, yc + r_out + margin,
                   [(min(by) - 0.5, max(by) + 0.5, hy), (yc - r_out, yc + r_out, ht)],
-                  [yc, yc - r_in, yc + r_in, yc - r_out, yc + r_out], hmax, gr)
+                  y_keep + y_snap, hmax, gr, slack)
     zp = h_parts + 0.6
     z_forced = [z_f, z_b, -r_in, r_in, -r_out, r_out]
     for h in set(part_h.values()):
@@ -155,7 +212,8 @@ def build_model(board, cfg, scale=1.0, verbose=True, separate_env=False, x_force
                   z_forced, hmax, gr)
     nx, ny, nz = len(x), len(y), len(z)
     if verbose:
-        print(f"grid {nx} x {ny} x {nz} = {nx*ny*nz/1e6:.2f} M nodes")
+        print(f"grid {nx} x {ny} x {nz} = {nx*ny*nz/1e6:.2f} M nodes"
+              + (f" ({len(x_snap)} + {len(y_snap)} lines on pad edges)" if x_snap or y_snap else ""))
 
     # --- materials on cells ---------------------------------------------------
     xc, ycc, zc = (x[1:] + x[:-1]) / 2, (y[1:] + y[:-1]) / 2, (z[1:] + z[:-1]) / 2
@@ -195,10 +253,11 @@ def build_model(board, cfg, scale=1.0, verbose=True, separate_env=False, x_force
     eps = eps_of[mat]
 
     # --- conductors on nodes -------------------------------------------------
-    names = ["GND"] + [n for n in board.nets if n != "GND"]
+    names = ["GND"] + [n for n in board.nets if n != "GND" and n not in merged]
     if separate_env:
         names.append("ENV")
     lab_of = {n: i for i, n in enumerate(names)}
+    lab_of.update({n: lab_of[to] for n, to in merged.items()})
     label = np.full((nx, ny, nz), -1, np.int16)
     conflicts = 0
 
@@ -335,7 +394,13 @@ class Solver:
     """Holds the reduced system and its AMG hierarchy for repeated solves."""
 
     def __init__(self, model, tol=1e-8, verbose=True):
-        import pyamg
+        try:
+            import pyamg
+        except ImportError:
+            import sys
+            raise SystemExit(f"the field solver needs pyamg, which this Python does not have ({sys.executable}).\n"
+                             f"Install it (pip install -r requirements.txt) or run the tools with the Python "
+                             f"that has it, e.g. `py -3.12 run_all.py`.") from None
         self.m = model
         self.tol = tol
         self.verbose = verbose
@@ -380,6 +445,63 @@ class Solver:
         r = self.L_fixed @ phi
         q = np.bincount(self.fixed_lab, weights=r, minlength=len(self.m.names))
         return q * EPS0 * 1e-3
+
+
+# ----------------------------------------------------------------------------
+# memory
+
+BYTES_PER_NODE = 300        # AMG hierarchy + system of one solver process, per grid node (measured)
+
+
+def available_memory():
+    """Memory a new process can still get [bytes]: free physical memory, or
+    what is left of the commit limit if that is less. None if unknown."""
+    try:
+        if os.name == "nt":
+            import ctypes
+
+            class Status(ctypes.Structure):
+                _fields_ = [("dwLength", ctypes.c_ulong), ("dwMemoryLoad", ctypes.c_ulong)] + \
+                           [(n, ctypes.c_ulonglong) for n in ("ullTotalPhys", "ullAvailPhys", "ullTotalPageFile",
+                                                              "ullAvailPageFile", "ullTotalVirtual",
+                                                              "ullAvailVirtual", "ullAvailExtendedVirtual")]
+            st = Status()
+            st.dwLength = ctypes.sizeof(st)
+            if not ctypes.windll.kernel32.GlobalMemoryStatusEx(ctypes.byref(st)):
+                return None
+            return int(min(st.ullAvailPhys, st.ullAvailPageFile))
+        with open("/proc/meminfo") as f:
+            for line in f:
+                if line.startswith("MemAvailable:"):
+                    return int(line.split()[1]) * 1024
+    except Exception:
+        pass
+    return None
+
+
+def fit_workers(requested, nodes, simultaneous_setup=False, verbose=True):
+    """Number of solver processes that fit into the free memory.
+
+    Each process holds BYTES_PER_NODE per grid node, and needs about as much
+    again while its AMG hierarchy is being set up. extract_caps.py sets the
+    hierarchies up one at a time; tube_sweep.py's workers all set up at once.
+    Running out of memory does not fail cleanly: it takes other processes on
+    the machine with it, so the count is cut rather than tried."""
+    requested = max(1, int(requested))
+    free = available_memory()
+    if free is None:
+        return requested
+    per = BYTES_PER_NODE * nodes
+    usable = free - 0.6e9                       # leave some for the main process and the rest of the machine
+    fit = int(usable // (2 * per)) if simultaneous_setup else int((usable - per) // per)
+    n = max(1, min(requested, fit))
+    if verbose and n < requested:
+        print(f"NOTE: {free/1e9:.1f} GB of memory free, {per/1e9:.1f} GB per solver process on this grid: "
+              f"using {n} process{'es' if n > 1 else ''} instead of {requested}")
+    if verbose and fit < 1:
+        print(f"WARNING: even one process may not fit ({2*per/1e9:.1f} GB at its peak). "
+              f"Close other programs or use a coarser grid (--scale).")
+    return n
 
 
 # ----------------------------------------------------------------------------
@@ -432,7 +554,7 @@ def capacitance_matrix(model, tol=1e-8, workers=1, verbose=True):
             print(f"  conductor {k}/{n-1}: {model.names[k]}    {it} CG iterations, "
                   f"rel. residual {rel:.1e} ({dt:.1f} s)", flush=True)
 
-    workers = max(1, min(int(workers), n - 1))
+    workers = fit_workers(min(int(workers), n - 1), int(np.prod(model.shape)), verbose=verbose)
     if workers == 1:
         s = Solver(model, tol=tol, verbose=verbose)
         s.verbose = False

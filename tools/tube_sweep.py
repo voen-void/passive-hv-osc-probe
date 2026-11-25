@@ -8,8 +8,8 @@ end and reports, for every position:
     put into the circuit model, which gives the interference at the scope as
     an equivalent tip voltage per volt on the surroundings (50 Hz and 1 MHz).
 
-    python tube_sweep.py                          # default range, grid scale 1.5
-    python tube_sweep.py --from 205 --to 245 --step 2.5 --scale 1.2
+    python tube_sweep.py                          # default range, grid scale 1.3
+    python tube_sweep.py --from 265 --to 305 --step 2.5 --scale 0.8
     python tube_sweep.py --maps                   # also save a stress map per position
 
 Stress values at sharp copper edges depend on the grid, so compare positions
@@ -99,7 +99,7 @@ def main():
     ap.add_argument("--from", dest="x_from", type=float, help="first tube end position x [mm]")
     ap.add_argument("--to", dest="x_to", type=float, help="last tube end position x [mm]")
     ap.add_argument("--step", type=float, default=4.0, help="step [mm]")
-    ap.add_argument("--scale", type=float, default=1.5, help="grid scale (1 = extract_caps default)")
+    ap.add_argument("--scale", type=float, default=1.3, help="grid scale (1 = extract_caps default)")
     ap.add_argument("--dist", choices=["dc", "hf"], default="dc",
                     help="node voltages from the DC or the fast-edge distribution")
     ap.add_argument("--voltage", type=float, help="HV tip voltage [V] (default [stress] voltage)")
@@ -111,7 +111,7 @@ def main():
     cfg = load_config(a.config)
     res = cfg["files"]["results"]
     board = kicad_board.load_board(cfg["files"]["pcb"])
-    capdata = pm.load_capdata(cfg["files"]["capacitance"])
+    capdata = pm.load_capdata(cfg["files"]["capacitance"], cfg["files"]["pcb"])
     probe = pm.Probe(cfg, board, capdata, pm.params_from_config(cfg))
     labels = probe.labels
     volts = a.voltage or cfg["stress"]["voltage"]
@@ -122,7 +122,7 @@ def main():
     node_v = {lab: volts * V[0, i].real for lab, i in probe.net.idx.items()}
 
     tube0 = dict(board.tube)
-    seg1 = probe.top.get(0, []) + probe.top_r.get(0, [])
+    seg1 = probe.top.get(0, []) + probe.top_r.get(0, []) + probe.seg_res.get(0, [])
     _, x_seg1 = part_x_range(board, seg1)
     x_resin = max(p[0] for p in board.resin)
     xs = np.arange(a.x_from if a.x_from is not None else round(x_seg1 - 12),
@@ -137,6 +137,10 @@ def main():
            f"{'  @x':>7}{'C div-ENV':>11}{'pickup 50Hz':>13}{'pickup 1MHz':>13}{'time':>6}")
     print(hdr)
     workers = max(1, min(a.workers if a.workers is not None else cfg["solver"].get("tube_workers", 1), len(xs)))
+    # one model up front: it gives the grid size, and a broken board fails here and not in a worker
+    nodes = int(np.prod(fs.build_model(board, cfg, scale=a.scale, verbose=False, separate_env=True, x_forced=xs).shape))
+    workers = fs.fit_workers(workers, nodes, simultaneous_setup=True)
+    print(f"grid {nodes/1e6:.2f} M nodes, {workers} process{'es' if workers > 1 else ''}")
     init = (board, cfg, xs, a.scale, node_v, labels,
             os.path.join(res, a.name + "_{:.1f}.png") if a.maps else None, volts)
     if workers > 1:

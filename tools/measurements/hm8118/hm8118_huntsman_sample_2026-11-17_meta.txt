@@ -1,0 +1,13 @@
+18:47:43  > 
+18:47:43  > *IDN?
+18:47:43  < HAMEG Instruments, HM8118,015531973,1.46
+# hm8118_sweep.py 2026-11-17 18:47:43
+# HAMEG Instruments, HM8118,015531973,1.46
+# port COM4, 9600 baud
+# options: {'out': 'measurements/hm8118_huntsman_sample_2026-11-17.csv', 'probe': False, 'simulate': False, 'port': None, 'baud': 9600, 'rtscts': False, 'mode': 'cd', 'circuit': 'par', 'rate': 'medium', 'volt': 1.0, 'inst_avg': 0, 'settle': 1.0, 'first_settle': 2.0, 'discard': 2, 'adaptive': False, 'range': [(10000.0, 4)], 'settle_window': 8, 'settle_k': 2.0, 'settle_max': 300.0, 'n': 20, 'sweeps': 1, 'freqs': None, 'descending': False, 'sync': 'poll', 'overwrite': False, 'resume': False, 'trace': False, 'plot': None}
+# settings before: {'PMOD': '3', 'CIRC': '1', 'RATE': '2', 'MMOD': '0', 'AVGM': '0', 'NAVG': '0', 'RNGH': '0', 'VOLT': '1.000000', 'FREQ': '1000', 'CONV': '0', 'BIAS': '0'}
+# settings used: {'PMOD': '3', 'CIRC': '1', 'RATE': '1', 'MMOD': '0', 'AVGM': '0', 'NAVG': '0', 'RNGH': '0', 'VOLT': '1.000000', 'FREQ': '1000', 'CONV': '0', 'BIAS': '0'}
+18:48:47  50 Hz: unphysical D
+18:48:58  72 Hz: unphysical D
+18:49:05  75 Hz: unphysical D
+# end 18:55:35, 7.8 min

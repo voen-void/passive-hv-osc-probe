@@ -1,5 +1,5 @@
 this design (bottom C optimised)
-  DC ratio 1000.0   C_in 8.41 pF @1 MHz   LF error 32.67 %   f(-3 dB) 1.15 kHz   f(+/-1 dB) 417 Hz   peaking -0.0 dB   HF peak 37.6 dB   rise 2.44 ns   overshoot 82 %   bottom C change -594 pF
+  DC ratio 1000.0   C_in 20.09 pF @1 MHz   LF error 2.83 %   f(-3 dB) 35.6 MHz   f(+/-1 dB) 21.9 MHz   peaking 0.3 dB   HF peak 10.9 dB   rise 8.67 ns   overshoot 11 %   bottom C change 4.4 pF
 same capacitors, no parasitics
-  DC ratio 1000.0   C_in 2.35 pF @1 MHz   LF error 0.01 %   f(-3 dB) 93.7 MHz   f(+/-1 dB) 63 MHz   peaking 0.3 dB   HF peak 46.7 dB   rise 0.73 ns   overshoot 66 %
+  DC ratio 1000.0   C_in 5.96 pF @1 MHz   LF error 14.34 %   f(-3 dB) 23.5 MHz   f(+/-1 dB) 350 Hz   peaking 1.2 dB   HF peak 12.1 dB   rise 11.72 ns   overshoot 0 %
 wrote C:\Users\jansk\Desktop\things\electronics\kicad projects\hv-probe-project-files\passive-hv-osc-probe\tools\results\response_as_built.png

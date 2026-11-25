@@ -54,6 +54,8 @@ class Network:
     @staticmethod
     def admittance(kind, p, s):
         if kind == "R":
+            if p.get("l"):                       # resistor with series inductance
+                return 1.0 / (max(p["r"], 1e-6) + s * p["l"])
             return np.full(s.shape, 1.0 / max(p["r"], 1e-6), complex)
         if kind == "C":
             z = 1.0 / (s * p["c"])
@@ -156,7 +158,8 @@ class Params:
     scope_bw: float = 0.0
     source_r: float = 0.0          # DUT source impedance
     tip_r: float = 0.0             # damping resistor in series with the HV tip
-    seg_r: float = 0.0             # damping resistor in series with every divider capacitor
+    seg_r: float = None            # damping resistor in series with every divider capacitor [ohm];
+                                   # None = the resistors on the PCB (none there: no damping)
     trim: float = None             # trimmer capacitance [F], None = config
     extra_c: float = 0.0           # extra ideal capacitance OUT-GND [F]
     top_caps: list = None          # per-segment discrete capacitance [F] (None = PCB values)
@@ -170,10 +173,11 @@ class Params:
 def params_from_config(cfg, **over):
     cab, sc = cfg["cable"], cfg["scope"]
     sr = cab.get("series_r", "pcb")
+    seg = cfg["circuit"].get("segment_r", "pcb")
     p = Params(cable_type=cab["type"], length=cab["length"], series_r=None if sr == "pcb" else float(sr),
                r_scope=sc["r_in"], c_scope=sc["c_in"], scope_bw=sc.get("bandwidth", 0.0),
                source_r=cfg["circuit"].get("source_resistance", 0.0),
-               tip_r=cfg["circuit"].get("tip_r", 0.0), seg_r=cfg["circuit"].get("segment_r", 0.0))
+               tip_r=cfg["circuit"].get("tip_r", 0.0), seg_r=None if seg == "pcb" else float(seg))
     for k, v in over.items():
         if v is not None:
             setattr(p, k, v)
@@ -190,6 +194,8 @@ class Probe:
         self.out = kicad_board.resolve_net(board, cc["output_net"])
         self.labels = kicad_board.net_labels(board, self.hv, self.out)
         self.ladder = kicad_board.ladder_order(board, self.hv)
+        # damping resistors on the board, in series with the divider capacitors
+        self.damping, self.merged = kicad_board.segment_damping(board, self.ladder)
         self.bottom = self.ladder[-1]
         self.bot = self.labels[self.bottom]      # node label of the divider bottom
         self.nseg = len(self.ladder) - 1
@@ -208,8 +214,11 @@ class Probe:
         seg_of = {frozenset(pair): k for k, pair in enumerate(zip(self.ladder, self.ladder[1:]))}
         self.top = {}        # segment -> [cap refs]
         self.top_r = {}      # segment -> [res refs]
+        self.seg_res = {}    # segment -> [damping resistor refs, in series with the capacitor]
         self.bottom_c, self.bottom_r, self.other = [], [], []
         self.trim_ref, self.trim_range, self.pot_ref, self.term_ref = None, None, None, None
+        damp_r = {r: k for k, brs in self.damping.items() for r, _, _ in brs}
+        damp_c = {c: k for k, brs in self.damping.items() for _, c, _ in brs}
         for p in self.board.parts.values():
             nets = frozenset(p.nets)
             if p.ref.startswith("RV"):
@@ -219,7 +228,11 @@ class Probe:
                 lo, hi = (parse_si(v) for v in p.value.split("-"))
                 self.trim_ref, self.trim_range = p.ref, (lo, hi)
                 continue
-            if nets in seg_of:
+            if p.ref in damp_c:
+                self.top.setdefault(damp_c[p.ref], []).append(p.ref)
+            elif p.ref in damp_r:
+                self.seg_res.setdefault(damp_r[p.ref], []).append(p.ref)
+            elif nets in seg_of:
                 d = self.top if p.ref.startswith("C") else self.top_r
                 d.setdefault(seg_of[nets], []).append(p.ref)
             elif p.ref.startswith("C"):
@@ -230,6 +243,7 @@ class Probe:
                     self.term_ref = p.ref       # back-termination resistor (R29)
             else:
                 self.other.append(p.ref)        # diodes etc.: modelled by their capacitance
+        self.divider_refs = {r for d in (self.top, self.top_r, self.seg_res) for refs in d.values() for r in refs}
         over = cc.get("parts", {})
         if self.trim_ref and self.p.trim is None:
             t = over.get(self.trim_ref, "mid")
@@ -292,6 +306,77 @@ class Probe:
     def bottom_fixed_c(self):
         return sum(self.part_value(r) for r in self.bottom_c)
 
+    def seg_r_values(self):
+        """Damping resistance in series with each segment's capacitor [ohm]:
+        the board's resistors, or p.seg_r for every segment if that is set.
+        Several damped branches in one segment are taken in parallel."""
+        if self.p.seg_r is not None:
+            return [float(self.p.seg_r)] * self.nseg
+        out = []
+        for k in range(self.nseg):
+            g = sum(1.0 / max(self.part_value(r), 1e-6) for r in self.seg_res.get(k, []))
+            out.append(1.0 / g if g else 0.0)
+        return out
+
+    def _node_x(self, net):
+        """Mean x [mm] of the SMD pads of a ladder net (with the nets merged into it)."""
+        nets = {net} | {m for m, to in self.merged.items() if to == net}
+        xs = [x for ref, fp, layer, n, poly in self.board.pad_shapes if n in nets and ref in self.divider_refs
+              for x, _ in poly]
+        return float(np.mean(xs)) if xs else None
+
+    def seg_l_values(self):
+        """Series inductance of each divider segment [H], or None to use the
+        capacitors' ESL from [circuit.esl].
+
+        [circuit] segment_l = "auto": the segment current runs one pitch of the
+        divider with its return on the tube wall, so it sees the inductance of
+        a coaxial line of that length, (mu0 / 2 pi) * pitch * ln(r_tube / r),
+        with r = segment_radius, the equivalent radius of the parts and pours
+        that carry it. For the 10.9 mm pitch in the 27.6 mm tube that is about
+        6 nH; the 1 nH datasheet ESL of an 1808 capacitor is its own 4.5 mm
+        over a return a fraction of a millimetre away. A number sets every
+        segment; "parts" keeps the datasheet ESL."""
+        v = self.cfg["circuit"].get("segment_l", "parts")
+        if v == "parts" or not self.p.esl:
+            return None
+        if v != "auto":
+            return [float(v)] * self.nseg
+        r_eq = self.cfg["circuit"].get("segment_radius", 0.8)
+        r_tube = self.board.tube["r_in"]
+        xs = [self._node_x(n) for n in self.ladder]
+        out = []
+        for a, b in zip(xs, xs[1:]):
+            if a is None or b is None or r_tube <= r_eq:
+                return None
+            out.append(2e-7 * abs(a - b) * 1e-3 * math.log(r_tube / r_eq))
+        return out
+
+    def tip_l_value(self):
+        """Inductance in series with the HV tip [H]: the board's own strip from
+        the tip to the first divider parts ([circuit] tip_l; "auto" = partial
+        inductance of a strip of that length and tip_strip_width) plus
+        source_l, whatever connects the probe to the circuit under test."""
+        cc = self.cfg["circuit"]
+        if not (self.p.esl and self.p.parasitics):
+            return 0.0
+        v = cc.get("tip_l", 0.0)
+        if v == "auto":
+            x_div = self._node_x(self.hv)
+            xs = [x for (net, _), cu in self.board.copper.items() if net == self.hv for poly in cu.polys for x, _ in poly]
+            v = 0.0
+            if x_div is not None and xs:
+                length = max(abs(max(xs) - x_div), abs(min(xs) - x_div))        # [mm] to the far end of the HV copper
+                w = cc.get("tip_strip_width", 1.0)
+                if length > w:
+                    v = 2e-10 * length * (math.log(2 * length / w) + 0.5 + 0.2235 * w / length)
+        return float(v) + float(cc.get("source_l", 0.0))
+
+    def seg_r_text(self):
+        v = sorted(set(self.seg_r_values()))
+        txt = f"{v[0]:g}" if len(v) == 1 else f"{v[0]:g}..{v[-1]:g}"
+        return txt + (" ohm (PCB)" if self.p.seg_r is None and self.seg_res else " ohm")
+
     # --- network ----------------------------------------------------------
     def _build(self, dc_only=False):
         p, L = self.p, self.labels
@@ -300,13 +385,17 @@ class Probe:
 
         # divider segments
         topc = self.top_cap_values()
+        seg_r = self.seg_r_values()
+        seg_l = self.seg_l_values() if p.parasitics else None
         for k, (a, b) in enumerate(zip(self.ladder, self.ladder[1:])):
             for r in self.top_r.get(k, []):
                 n.add("R", g(a), g(b), r=self.part_value(r), ref=r)
             refs = self.top.get(k, [])
             esl = self.esl_of(refs[0]) if refs else 0.0
+            if seg_l is not None:
+                esl = max(esl, seg_l[k])         # the geometric value contains the part's own
             if topc[k] > 0:
-                esr = (self.esr_of(refs[0]) if refs else 0.0) + p.seg_r
+                esr = (self.esr_of(refs[0]) if refs else 0.0) + seg_r[k]
                 n.add("C", g(a), g(b), c=topc[k], esl=esl, esr=esr, ref="+".join(refs) or f"Cseg{k+1}")
         # bottom network
         for r in self.bottom_r:
@@ -340,6 +429,12 @@ class Probe:
             # The Maxwell matrix without its GND row/column is the nodal
             # capacitance matrix of the parasitics (all pair and ground caps).
             names = self.capdata["names"]
+            missing = [L[n] for n in self.ladder if n not in names]
+            if missing and not getattr(self, "_warned_missing", False):
+                self._warned_missing = True
+                print(f"WARNING: the capacitance file has no entry for {len(missing)} divider net(s) "
+                      f"({', '.join(missing[:4])}{' ...' if len(missing) > 4 else ''}): it is from another "
+                      f"board. Run extract_caps.py again.")
             keep = [i for i, nm in enumerate(names) if nm != "GND" and nm in L]
             nodes = [g(names[i]) for i in keep]
             for nd in nodes:
@@ -357,8 +452,9 @@ class Probe:
 
         # source
         n.node("HV")
-        if p.source_r + p.tip_r > 0:
-            n.add("R", "SRC", "HV", r=p.source_r + p.tip_r, ref="Rsrc_tip")
+        tip_l = self.tip_l_value()
+        if p.source_r + p.tip_r > 0 or tip_l > 0:
+            n.add("R", "SRC", "HV", r=p.source_r + p.tip_r, l=tip_l, ref="Rsrc_tip")
             self.fixed = {"SRC": 1.0}
         else:
             self.fixed = {"HV": 1.0}
@@ -609,6 +705,15 @@ def suggest_fixed(target, series="E12", max_parts=2):
     return best[:5]
 
 
+def cap_limit(probe):
+    """Largest divider capacitor that can be bought: [optimize] cap_max, a
+    value like "270p" or in farad. None = no limit."""
+    v = probe.cfg.get("optimize", {}).get("cap_max")
+    if not v:
+        return None
+    return kicad_board.parse_si(v) if isinstance(v, str) else float(v)
+
+
 def graded_caps(probe, c_bottom_segment, kappa=1.0):
     """Discrete segment capacitances that make the capacitive (HF) voltage
     distribution along the ladder linear, given the parasitic matrix.
@@ -620,6 +725,10 @@ def graded_caps(probe, c_bottom_segment, kappa=1.0):
     kappa scales the parasitic currents: 1 uses the capacitances of the field
     solve; with a dispersive resin the effective value over the compensation
     band differs, which optimize_grading() accounts for.
+
+    With [optimize] cap_max the values are cut off there. The segments at the
+    HV end then get less than the grading asks for; a stronger grading (larger
+    kappa) makes up for it further down, which optimize_grading() finds.
     """
     names = probe.capdata["names"]
     M = np.array(probe.capdata["maxwell"])
@@ -642,15 +751,19 @@ def graded_caps(probe, c_bottom_segment, kappa=1.0):
                 continue
             leak += cp(node, other) * (V[node] - V.get(other, 0.0))
         total[k - 1] = total[k] + nseg * kappa * leak
-    return [t - sp for t, sp in zip(total, seg_par)]
+    caps = [t - sp for t, sp in zip(total, seg_par)]
+    lim = cap_limit(probe)
+    return [min(c, lim) for c in caps] if lim else caps
 
 
-def round_to_series(caps, series):
+def round_to_series(caps, series, c_max=None):
     vals = np.array(series_values(series, 1e-12, 1e-8))
+    if c_max:
+        vals = vals[vals <= c_max * (1 + 1e-9)]
     return [float(vals[np.argmin(np.abs(np.log(vals / c)))]) for c in caps]
 
 
-def refine_rounding(probe, caps, series, max_passes=4):
+def refine_rounding(probe, caps, series, max_passes=4, min_gain=None):
     """Round each capacitor down or up to `series` for the smallest peak gain
     error, instead of independently to the nearest value.
 
@@ -660,8 +773,19 @@ def refine_rounding(probe, caps, series, max_passes=4):
     capacitance; repeated until no switch helps. Every value stays within
     one series step of the unrounded grading, so the fast-edge distribution
     stays close to it. Returns (caps, peak error).
+
+    A switch is taken only if it lowers the error by more than the fraction
+    `min_gain` (default: [optimize] peak_tolerance, at least 0.1 %). Many
+    lists are equally good, and gains below that are not real: taking every
+    gain of 0.1 % made the list change in two places when the parasitics
+    moved by 0.3 %.
     """
+    if min_gain is None:
+        min_gain = max(probe.cfg.get("optimize", {}).get("peak_tolerance", 0.01), 1e-3)
     vals = np.array(series_values(series, 1e-12, 1e-8))
+    lim = cap_limit(probe)
+    if lim:
+        vals = vals[vals <= lim * (1 + 1e-9)]
 
     def bracket(c):
         lo, hi = vals[vals <= c * (1 + 1e-9)], vals[vals >= c * (1 - 1e-9)]
@@ -674,7 +798,7 @@ def refine_rounding(probe, caps, series, max_passes=4):
         return optimize_bottom(probe, tiebreak=False)[1]
 
     options = [bracket(c) for c in caps]
-    cur = round_to_series(caps, series)
+    cur = round_to_series(caps, series, lim)
     best = err(cur)
     for _ in range(max_passes):
         improved = False
@@ -682,7 +806,7 @@ def refine_rounding(probe, caps, series, max_passes=4):
             for v in opts - {cur[k]}:
                 trial = cur[:k] + [v] + cur[k + 1:]
                 e = err(trial)
-                if e < best * (1 - 1e-3):
+                if e < best * (1 - min_gain):
                     cur, best, improved = trial, e, True
         if not improved:
             break
@@ -713,7 +837,9 @@ def optimize_grading(probe, c_bottom_segment, series=None, kappa=None, kappa_ran
         return optimize_bottom(probe, tiebreak=False)[1]
 
     if kappa is None:
-        ks = np.arange(kappa_range[0], kappa_range[1] + 1e-9, 0.05)
+        # with a largest value the best grading is stronger than without
+        k_hi = kappa_range[1] + (0.8 if cap_limit(probe) else 0.0)
+        ks = np.arange(kappa_range[0], k_hi + 1e-9, 0.05)
         errs = np.array([peak_err(k) for k in ks])
         kappa = float(ks[np.nonzero(errs <= tolerance * errs.min())[0][0]])
         probe.grading_scan = list(zip(ks.tolist(), errs.tolist()))
@@ -727,6 +853,19 @@ def optimize_grading(probe, c_bottom_segment, series=None, kappa=None, kappa_ran
     return caps, kappa, extra, e
 
 
-def load_capdata(path):
+def file_hash(path):
+    import hashlib
+    with open(path, "rb") as f:
+        return hashlib.sha1(f.read()).hexdigest()
+
+
+def load_capdata(path, pcb=None):
+    """Capacitance matrices from extract_caps.py. With `pcb` given, says so if
+    that board file is not the one the field solve read."""
     with open(path) as f:
-        return json.load(f)
+        cap = json.load(f)
+    solved = cap.get("meta", {}).get("pcb_sha1")
+    if pcb and solved and solved != file_hash(pcb):
+        print(f"NOTE: {os.path.basename(pcb)} has changed since the field solve of {cap['meta'].get('date', '?')} "
+              f"({os.path.basename(path)}). If copper, outlines or part positions changed, run extract_caps.py again.")
+    return cap
